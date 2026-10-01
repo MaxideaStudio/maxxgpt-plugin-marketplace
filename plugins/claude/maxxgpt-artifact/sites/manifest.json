@@ -1,0 +1,58 @@
+{
+  "note": "Written by build.py --package. Do not edit; the setup skill checks every sha256.",
+  "sites": {
+    "workspace": {
+      "title": "MaxxGPT Workspace",
+      "version": "0.0.0",
+      "page": "workspace.html",
+      "sha256": "bf8e3863529adfcc1f8922346832556b2c385eb73ab3dcbae867e5e731c026f7",
+      "bytes": 659135,
+      "capabilities": "workspace-capabilities.json",
+      "connectors": {
+        "drive": {
+          "tools": [
+            "search_files"
+          ],
+          "probe": "search_files",
+          "optional": true
+        },
+        "maxxgpt": {
+          "tools": [
+            "analysis_bad_inbox",
+            "analysis_bad_lead",
+            "analysis_bad_purchase",
+            "daily_budget_account",
+            "daily_budget_execute",
+            "daily_budget_insights",
+            "daily_budget_snapshot",
+            "get_account_info",
+            "get_dashboard_demographics",
+            "get_job",
+            "search_interest",
+            "suggest_interest"
+          ],
+          "probe": "get_account_info",
+          "optional": false
+        },
+        "meta": {
+          "tools": [
+            "ads_account_get_activity_logs",
+            "ads_activate_entity",
+            "ads_create_ad",
+            "ads_create_ad_set",
+            "ads_create_campaign",
+            "ads_create_creative",
+            "ads_get_ad_account_custom_audiences",
+            "ads_get_ad_account_pages",
+            "ads_get_ad_accounts",
+            "ads_get_ad_entities",
+            "ads_get_datasets",
+            "ads_update_entity"
+          ],
+          "probe": "ads_get_ad_accounts",
+          "optional": false
+        }
+      }
+    }
+  }
+}

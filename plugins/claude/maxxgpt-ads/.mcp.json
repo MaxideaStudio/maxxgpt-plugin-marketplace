@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "maxxgpt": {
+      "type": "http",
+      "url": "https://mcp.maxxgpt.ai/mcp"
+    },
+    "meta-ads": {
+      "type": "http",
+      "url": "https://mcp.facebook.com/ads"
+    }
+  }
+}

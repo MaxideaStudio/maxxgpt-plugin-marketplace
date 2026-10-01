@@ -1,0 +1,20 @@
+{
+  "name": "maxxgpt-ads",
+  "version": "0.8.0",
+  "description": "ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ, ส่งออกรายงาน, หน้าเครื่องมือค้น interest และแผนที่ความร้อนกลุ่มเป้าหมายอายุ×เพศ · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา",
+  "author": {
+    "name": "maxxgpt"
+  },
+  "keywords": [
+    "meta-ads",
+    "facebook-ads",
+    "maxxgpt",
+    "ads-analysis",
+    "ads-planning",
+    "interest-research",
+    "audience-targeting",
+    "demographics",
+    "creative-analysis",
+    "competitor-research"
+  ]
+}

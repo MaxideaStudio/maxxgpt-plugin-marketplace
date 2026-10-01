@@ -1,0 +1,41 @@
+{
+  "name": "maxxgpt-ads",
+  "version": "0.8.0",
+  "description": "ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ และส่งออกรายงาน · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา",
+  "author": {
+    "name": "MaxxGPT"
+  },
+  "keywords": [
+    "meta-ads",
+    "facebook-ads",
+    "maxxgpt",
+    "ads-analysis",
+    "ads-planning",
+    "creative-analysis",
+    "competitor-research"
+  ],
+  "homepage": "https://maxxgpt.ai",
+  "repository": "https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "MaxxGPT Ads",
+    "shortDescription": "วิเคราะห์+วางแผนโฆษณา Meta",
+    "longDescription": "เชื่อมบัญชีโฆษณา Meta ของคุณผ่าน MaxxGPT แล้วสั่งงานเป็นภาษาคน — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ (วิดีโอ / เอนเกจ / ทักแชท / ยอดซื้อ / CPAS / ลีด), จัดอันดับโฆษณา 4 มุม (ตัวไหนดี ตัวไหนควรปิด ดาวรุ่ง ยังขยายได้), เทียบเมตริกกับค่ากลางของบัญชีเอง, ดูโฆษณาแนะนำประจำวัน และส่งออกรายงานดิบทุกคอลัมน์ — วางแผน: วิเคราะห์ธุรกิจ กลุ่มลูกค้า และคู่แข่งเพื่อวางแผน Facebook/Instagram Ads, ส่องโฆษณาคู่แข่งจาก Meta Ads Library, แตก Content Angle จาก Pain / Gain, แกะภาพและวิดีโอโฆษณาพร้อม prompt สำหรับสร้างชิ้นใหม่",
+    "developerName": "MaxxGPT",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "websiteURL": "https://maxxgpt.ai",
+    "defaultPrompt": [
+      "ดูผลโฆษณาเดือนนี้ให้หน่อย",
+      "แอดตัวไหนควรปิด ตัวไหนควรดันงบ",
+      "วิเคราะห์ธุรกิจนี้เพื่อวางแผน Facebook Ads"
+    ],
+    "brandColor": "#1877F2",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

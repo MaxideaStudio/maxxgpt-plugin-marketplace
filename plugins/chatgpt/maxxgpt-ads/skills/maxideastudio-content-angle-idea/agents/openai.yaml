@@ -1,0 +1,9 @@
+interface:
+  display_name: maxideastudio content angle idea
+  short_description: สร้าง Content Angle Ideas จากข้อมูลสินค้า/บริการและกลุ่มลูกค้า
+    โดยวิเคราะห์ Target แยก Pain กับ Gain แล้วแตกเป็นมุมคอนเทนต์พร้อม Hook, Message,
+    Format, Funnel และ CTA รองรับทั้ง Product-first และ Target-first
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  allow_implicit_invocation: true

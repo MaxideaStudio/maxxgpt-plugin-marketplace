@@ -1,0 +1,50 @@
+{
+  "mcp": {
+    "servers": [
+      {
+        "server": "{{CONNECTOR:drive}}",
+        "tools": [
+          "search_files"
+        ]
+      },
+      {
+        "server": "{{CONNECTOR:maxxgpt}}",
+        "tools": [
+          "analysis_bad_inbox",
+          "analysis_bad_lead",
+          "analysis_bad_purchase",
+          "daily_budget_account",
+          "daily_budget_execute",
+          "daily_budget_insights",
+          "daily_budget_snapshot",
+          "get_account_info",
+          "get_dashboard_demographics",
+          "get_job",
+          "search_interest",
+          "suggest_interest"
+        ]
+      },
+      {
+        "server": "{{CONNECTOR:meta}}",
+        "tools": [
+          "ads_account_get_activity_logs",
+          "ads_activate_entity",
+          "ads_create_ad",
+          "ads_create_ad_set",
+          "ads_create_campaign",
+          "ads_create_creative",
+          "ads_get_ad_account_custom_audiences",
+          "ads_get_ad_account_pages",
+          "ads_get_ad_accounts",
+          "ads_get_ad_entities",
+          "ads_get_datasets",
+          "ads_update_entity"
+        ]
+      }
+    ]
+  },
+  "db": {},
+  "sample": {},
+  "downloads": true,
+  "comments": {}
+}

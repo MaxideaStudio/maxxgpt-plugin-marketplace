@@ -1,0 +1,20 @@
+{
+  "name": "maxxgpt",
+  "interface": {
+    "displayName": "MaxxGPT"
+  },
+  "plugins": [
+    {
+      "name": "maxxgpt-ads",
+      "source": {
+        "source": "local",
+        "path": "./plugins/chatgpt/maxxgpt-ads"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
