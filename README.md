@@ -2,9 +2,12 @@
 
 ปลั๊กอินของ [MaxxGPT](https://maxxgpt.ai) สำหรับ Claude และ ChatGPT — วิเคราะห์และวางแผนโฆษณา Meta (Facebook / Instagram) จากในแชท
 
-ต้องมีบัญชี MaxxGPT ที่ผูกบัญชีโฆษณา Meta ไว้แล้ว · ตอนติดตั้ง `maxxgpt-ads` จะให้ล็อกอิน 2 ที่ผ่าน OAuth:
-MaxxGPT (`https://mcp.maxxgpt.ai/mcp`) สำหรับ skill วิเคราะห์ และ Meta Ads (`https://mcp.facebook.com/ads`) สำหรับ skill ส่องโฆษณาคู่แข่งจาก Ads Library —
-ไม่ล็อกอิน Meta Ads ก็ยังใช้ skill อื่นได้ครบ
+ต้องมีบัญชี MaxxGPT ที่ผูกบัญชีโฆษณา Meta ไว้แล้ว · ตอนติดตั้ง `maxxgpt-ads` จะให้ล็อกอิน MaxxGPT ผ่าน OAuth (`https://mcp.maxxgpt.ai/mcp`) สำหรับ skill วิเคราะห์
+
+skill ส่องโฆษณาคู่แข่งจาก Ads Library ใช้ Meta Ads (`https://mcp.facebook.com/ads`) — ไม่มีก็ยังใช้ skill อื่นได้ครบ:
+
+- **Claude**: ปลั๊กอินผูก Meta Ads มาให้ ล็อกอินเพิ่มอีกหนึ่งที่
+- **ChatGPT**: ปลั๊กอินไม่ได้ผูกมาให้ ให้ต่อ Meta Ads ในบัญชี ChatGPT ของคุณเองก่อนใช้ skill นี้
 
 ปลั๊กอินบางตัวมีเฉพาะฝั่ง Claude — ดูรายการในหัวข้อ "ปลั๊กอิน" ด้านล่าง
 
@@ -36,7 +39,7 @@ ChatGPT บนเว็บ: ดาวน์โหลด [`downloads/maxxgpt-ads-
 
 ## ปลั๊กอิน
 
-### maxxgpt-ads 0.8.0
+### maxxgpt-ads 0.8.1
 
 ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ, ส่งออกรายงาน, หน้าเครื่องมือค้น interest และแผนที่ความร้อนกลุ่มเป้าหมายอายุ×เพศ · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา
 

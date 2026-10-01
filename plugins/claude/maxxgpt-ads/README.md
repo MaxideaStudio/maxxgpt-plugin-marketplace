@@ -63,7 +63,8 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 
 > **หมายเหตุ:** skill กลุ่มวิเคราะห์ใช้ MaxxGPT ตัวเดียว ไม่แตะ Meta Ads / Google Drive (ตั้งแต่ 0.6.0) ·
 > สิทธิ์ที่หน้าล็อกอินของ Meta ขอเป็นชุดที่ server ของ Meta กำหนด (รวมสิทธิ์จัดการโฆษณา) แม้ skill ในชุดนี้จะเรียกแค่ `ads_library_search` เพื่ออ่าน Ads Library ·
-> skill วางแผนอีก 4 ตัวไม่ใช้ connector
+> skill วางแผนอีก 4 ตัวไม่ใช้ connector ·
+> **แพ็กเกจฝั่ง ChatGPT ไม่มี `meta-ads`** (ตั้งแต่ 0.8.1) — ผู้ใช้ ChatGPT ต่อ Meta Ads ในบัญชีของตัวเอง
 
 ## การใช้งาน
 
@@ -111,6 +112,11 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 `maxideastudio-image-breakdown` และตัวอย่างการใช้งานของ `maxideastudio-video-breakdown` ให้ไม่ผูกกับเครื่องใดเครื่องหนึ่ง
 (ของเดิมสั่งเปิดเบราว์เซอร์แล้วบันทึกลง `/home/ubuntu/Downloads/`) · skill กลุ่มวิเคราะห์ 17 ตัวไม่เปลี่ยน
 
+## 0.8.1 — Meta Ads เฉพาะฝั่ง Claude
+
+แพ็กเกจฝั่ง ChatGPT ถอด `meta-ads` ออกจาก `.mcp.json` — ChatGPT desktop ล็อกอินกับ `https://mcp.facebook.com/ads` ผ่านปลั๊กอินไม่ได้
+(Meta ไม่รับการลงทะเบียนจากแอปบนเครื่อง) ผู้ใช้เห็นปุ่ม Authenticate ที่กดแล้ว error · ฝั่ง Claude ยังประกาศไว้ตามเดิม · เนื้อหา skill ไม่เปลี่ยน
+
 ## Version
 
-0.8.0
+0.8.1
