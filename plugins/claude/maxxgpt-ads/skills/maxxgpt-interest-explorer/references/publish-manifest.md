@@ -79,7 +79,11 @@ no icon URLs, and no provenance fields. Deliberate and stable.") การจั
 search_interest  { status, success, count, interests: [
                      { id, name, type, audience_size_lower, audience_size_upper, path, topic } ] }
 suggest_interest { status, success, count, suggestions: [ …เหมือนกัน แต่ไม่มี `type` ] }
+ตอบ error        { status ≥ 400 หรือ success:false, code, reason, … }   เช่น code NO_AD_ACCOUNT · reason facebook_error
 ```
+
+คำตอบ error มาเป็น payload ปกติ — `readEvent()` ในหน้าแปลงเป็นสถานะ error (ข้อความไทย + รหัสของ server) ไม่แสดงเป็น "ไม่พบผล" ·
+ข้อความล้วน `Rate limit reached …` ก็ถูกจับเป็น error เช่นกัน
 
 `suggest_interest` ไม่มี `type` → หน้าเว็บ fallback ไปอ่าน `path[0]`
 (`Interests` / `Behaviors` / `Demographics`) เพื่อแสดงป้ายประเภท.
@@ -98,6 +102,7 @@ suggest_interest { status, success, count, suggestions: [ …เหมือน�
 |---|---|---|
 | กดบันทึกชุดแล้วเงียบ ไม่มีอะไรเกิดขึ้น | ไม่ได้ประกาศ `db` ตอน publish | publish ใหม่ที่ URL เดิมพร้อม manifest ครบ |
 | ขึ้น "ยังเรียกข้อมูลไม่ได้" ทั้งที่ต่อ connector แล้ว | ชื่อ connector ของเขาไม่อยู่ใน manifest | ดูบรรทัด "ที่หน้านี้มองเห็นตอนนี้" ใต้ข้อความ error → เอาชื่อนั้นใส่ manifest แล้ว publish ทับ |
+| ขึ้น "ดึงข้อมูลไม่สำเร็จ" พร้อมรหัสในวงเล็บ เช่น `(NO_AD_ACCOUNT)` / `(RATE_LIMIT)` | MaxxGPT ตอบ error — หน้าอ่าน `code` / `reason` จากคำตอบที่ `success:false` หรือ `status` ≥ 400 | ทำตามข้อความ: `NO_AD_ACCOUNT` = เปิดเว็บ MaxxGPT ต่อ Meta แล้วเลือกบัญชี · `RATE_LIMIT` = รอสักครู่ (200 ครั้ง/ชั่วโมงต่อ tool) |
 | ไม่มีการ์ด "ให้ Claude หา interest ให้" | ไม่ได้ประกาศ `sample` หรือบัญชีเขาไม่อนุญาต | เช็ค manifest ก่อน · ถ้าครบแล้วคือฝั่งบัญชี ไม่ใช่บั๊ก |
 | ปุ่มดาวน์โหลด CSV กดไม่ได้ | ไม่ได้ประกาศ `downloads` | publish ใหม่พร้อม manifest ครบ |
 | ชุดที่เคยบันทึกหายหมด | publish เป็น artifact ตัวใหม่แทนที่จะ update ตัวเดิม | ของเดิมยังอยู่ที่ URL เก่า — หาด้วย `action:"list"` |

@@ -1,7 +1,7 @@
 # โครงสร้างผลลัพธ์ที่ tool ส่งกลับ (อ่านก่อนพิมพ์ผล)
 
 ทั้งสอง tool เป็น **async** → คืน `{ job_id, code }` แล้วต้อง `get_job` จน `job_status="success"` ·
-`data` ของ job **อาจมาเป็นสตริง JSON → parse ก่อนใช้เสมอ** · ค่าอาจมี key `date` (เวลาที่ประมวลผลเสร็จ) ติดมาด้วย
+`data` ของ job **อาจมาเป็นสตริง JSON → parse ก่อนใช้เสมอ**
 
 > **คีย์สะกดตามนี้เป๊ะ ๆ** — ปลายทางสะกด `Impresstion` (ผิด) จริง, บาง key มีเว้นวรรค (`"Cost per result"`,
 > `"Ad Name"`) · อ่านค่าตามชื่อจริง ห้าม "แก้ให้ถูก" เพราะจะอ่านไม่เจอ
@@ -12,11 +12,11 @@
 
 ```json
 {
-  "OV":     [ { …1 แถวต่อ Objective × Result indicator… } ],
-  "Gender": [ { … } ],
-  "Age":    [ { … } ]
+  "OV": [ { …1 แถวต่อ Objective × Result indicator… } ]
 }
 ```
+
+มีคีย์ `OV` คีย์เดียว (ไม่มี `Gender` / `Age`) · `OV` เป็น `[]` = ช่วงนั้นไม่มีข้อมูล
 
 ### `OV[]` — ใช้เป็น "ตัวเลือก Result indicator" (สเต็ป 1)
 
@@ -29,18 +29,13 @@
 | `Clicks` | คลิกรวม | num |
 | `Impresstion` | **(สะกดผิดตามจริง)** impression รวม | num |
 | `Reach` | reach รวม | num |
-| `Purchase` | ยอดซื้อรวม (meta + CPAS) | num |
+| `Purchase` | ยอดซื้อจากพิกเซล Meta (ไม่รวม CPAS — บัญชี CPAS ช่องนี้เป็น 0) | num |
 | `CTR` | % (คำนวณจากยอดรวมแล้ว) | pct |
 | `CPM` | ต้นทุนต่อพัน impression | money |
 | `FRQ` | ความถี่เฉลี่ย (impression ÷ reach) | num |
 | `"Cost per result"` | Spend ÷ Result | money |
 | `"Cost per click"` | Spend ÷ Clicks | money |
 | `"Cost per purchase"` | Spend ÷ Purchase | money |
-
-### `Gender[]` / `Age[]` — breakdown (ใช้ตอนตอบคำถามต่อ ไม่ต้องโชว์ในหน้าเลือกก็ได้)
-
-`Gender[]`: `Gender · Objective · Result_indicator · Result · Spend · "Cost per result"`
-`Age[]`: `Age · Objective · Result_indicator · Result · Spend · "Cost per result"`
 
 > **หา Result indicator ที่เลือกได้ยังไง:** เอา `Result_indicator` ที่ไม่ซ้ำจาก `OV[]` — แต่ละค่าคือ 1 ปุ่มให้ user กด
 
@@ -72,7 +67,7 @@ array เรียง High → Medium → Low · แต่ละแถว:
 | `Count` | จำนวน ad ในระดับนั้น |
 | `Min` / `Max` | ช่วงค่าจริงของระดับนั้น (`null` ถ้าไม่มีข้อมูล) |
 
-### คีย์รายโฆษณา (`*_AD`) — เรียงตาม Level แล้ว Spend มาก→น้อยมาให้แล้ว
+### คีย์รายโฆษณา (`*_AD`) — เรียงตามค่าเมตริกมาก→น้อยมาให้แล้ว (= High → Medium → Low)
 
 คอลัมน์ร่วมทุกตาราง: `"Result Indicator" · "Objective" · "Ad ID" · "Ad Name" · "Adset ID" · "Campaign ID" · "Result" · "Spend" · "Purchase"`
 แล้วต่อท้ายด้วย **คอลัมน์เมตริก + คอลัมน์ระดับ** ที่ชื่อ *ต่างกันในแต่ละตาราง*:
@@ -92,7 +87,5 @@ array เรียง High → Medium → Low · แต่ละแถว:
 **ทิศทาง "ดี" ของแต่ละเมตริก** (ใช้เขียนคำอธิบาย ไม่ใช่ให้คำนวณใหม่เอง):
 CTR / CTR (link) / Engagement rate → **สูง = ดี** · CPM / FRQ / Cost per result → **ต่ำ = ดี**
 
-> ⚠️ **หมายเหตุความถูกต้องของ "คีย์สรุป":** ปัจจุบันสรุปของ `Engagement_Rate` และ `Cost_Per_Result` ฝั่ง n8n
-> ถูกคำนวณจากตารางที่จัดระดับด้วยเมตริกอื่น (FRQ/CPM) → **`Count`/`Min`/`Max` ของสองตัวนี้อาจเพี้ยน** ·
-> ตารางรายโฆษณา (`*_AD`) ถูกต้องเสมอ → ถ้าจะโชว์การกระจายระดับของ Engagement/Cost per result
-> ให้ **นับเอาเองจาก `*_AD[].("Level of …")`** แทนการเชื่อคีย์สรุป (ดูรายละเอียดใน SKILL.md)
+> คีย์สรุปทั้ง 6 ตัวนับจากตาราง `*_AD` ของเมตริกตัวเอง — ใช้ `Count`/`Min`/`Max` ได้ตรง ๆ ·
+> ไม่มี ad ผ่านเกณฑ์ = `Count` 0 และ `Min`/`Max` เป็น `null` ทุกระดับ

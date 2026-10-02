@@ -45,6 +45,8 @@
     search_interest  -> {status,success,count,interests:[
                           {id,name,type,audience_size_lower,audience_size_upper,path,topic}]}
     suggest_interest -> {status,success,count,suggestions:[ ...same, minus `type` ]}
+    error answers    -> {status>=400 | success:false, code, reason, ...}  (e.g. code NO_AD_ACCOUNT;
+                        reason facebook_error) — readEvent() turns these into an error state.
     Backend rate limit: 200 calls/hour per tool.
   No doctype/html/head/body tags here on purpose — publish wraps the file.
 ═══════════════════════════════════════════════════════════════════════════════
@@ -464,12 +466,35 @@ function unwrap(p){
   if (p.content) return unwrap(p.content);
   return p;
 }
+/* MaxxGPT answers an error as a normal payload: {status>=400 | success:false, code, reason, ...}.
+   Turn it into an error (Thai text + the server's code) so it is not rendered as "0 results". */
+function serverError(d){
+  var code = String(d.code || d.reason || ("status " + d.status));
+  var msg;
+  if (d.code === "NO_AD_ACCOUNT") msg = d.reason === "OVER_QUOTA"
+    ? "MaxxGPT: ผูกบัญชีโฆษณาหรือเพจเกินโควตาแพ็กเกจ — เปิดเว็บ MaxxGPT เลือกบัญชี/เพจที่จะเก็บ แล้วลองใหม่"
+    : "MaxxGPT ยังไม่มีบัญชีโฆษณาให้ใช้ — เปิดเว็บ MaxxGPT เชื่อมต่อ Meta แล้วเลือกบัญชีโฆษณา จากนั้นลองใหม่";
+  else if (d.code === "SUBSCRIPTION_EXPIRED") msg = "แพ็กเกจ MaxxGPT หมดอายุ — ต่ออายุในเว็บ MaxxGPT แล้วลองใหม่";
+  else if (d.code === "META_TOKEN_INVALID") msg = "การเชื่อมต่อ Meta หมดอายุ — เชื่อมต่อ Meta ใหม่ในเว็บ MaxxGPT แล้วลองใหม่";
+  else if (d.reason === "facebook_error") msg = "Meta ตอบกลับผิดพลาด ลองใหม่อีกครั้ง";
+  else msg = "MaxxGPT ตอบว่าทำไม่สำเร็จ";
+  return { code: code, message: msg };
+}
 function readEvent(ev){
   // tolerate {payload,cache}, {result:{payload,cache}}, or an error event
   var e = ev || {};
   var err = e.error || (e.type === "error" ? e : null) || (e.code && !e.payload ? e : null);
   var res = e.result && typeof e.result === "object" ? e.result : e;
-  var data = unwrap(res.payload !== undefined ? res.payload : res.data);
+  var raw = res.payload !== undefined ? res.payload : res.data;
+  var data = unwrap(raw);
+  if (!err && data == null && typeof raw === "string" && raw){
+    // plain text instead of JSON, e.g. "Rate limit reached for search_interest …"
+    err = /rate limit/i.test(raw)
+      ? { code:"RATE_LIMIT", message:"เรียก MaxxGPT ถี่เกินโควตา 200 ครั้ง/ชั่วโมง รอสักครู่แล้วลองใหม่" }
+      : { code:"BAD_RESPONSE", message:"MaxxGPT ตอบกลับมาในรูปแบบที่อ่านไม่ได้" };
+  }
+  if (!err && data && typeof data === "object" && !Array.isArray(data) &&
+      (data.success === false || (typeof data.status === "number" && data.status >= 400))) err = serverError(data);
   var at = (res.cache && res.cache.storedAt) || e.storedAt || null;
   return { err: err, data: data, at: at ? (typeof at === "number" ? at : Date.parse(at) || Date.now()) : null };
 }

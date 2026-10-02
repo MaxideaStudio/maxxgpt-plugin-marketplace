@@ -252,7 +252,7 @@
 
   <div class="disclaimer">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span>หน้านี้แสดงข้อมูลของ<b> บัญชีโฆษณาที่คุณเชื่อมต่อไว้ </b>ใน MaxxGPT ไม่ใช่ของผู้สร้างหน้านี้ — ดึงสดทุกครั้งที่เปิด</span>
+    <span>หน้านี้แสดงข้อมูลของ<b> บัญชีโฆษณาที่คุณเชื่อมต่อไว้ </b>ใน MaxxGPT ไม่ใช่ของผู้สร้างหน้านี้ — ดึงจาก MaxxGPT ทุกครั้งที่เปิด (ข้อมูลอาจเก่าได้ราว 1 ชั่วโมง)</span>
   </div>
 
   <!-- ACCOUNT STRIP (แสดงเมื่อ get_account_info ตอบกลับแล้ว) -->
@@ -427,7 +427,8 @@
   var TOOL = "get_dashboard_demographics";
   var ACCT_TOOL = "get_account_info";
   var MIN_RESULTS = 3;     // ต้องมีผลอย่างน้อยเท่านี้จึงจะนำมาสรุป
-  var SPEND_FLOOR = 100;   // ยอดใช้จ่ายขั้นต่ำ (฿) ที่จะถือว่าเชื่อถือได้
+  var SPEND_FLOOR = 100;   // ยอดใช้จ่ายขั้นต่ำ (หน่วยสกุลเงินของบัญชี) ที่จะถือว่าเชื่อถือได้
+  var CUR_SYM = "฿";       // สัญลักษณ์เงิน — เปลี่ยนตาม ad_account.currency เมื่อ get_account_info ตอบ (THB = ฿ · สกุลอื่น = รหัสสกุลเงิน)
 
   var WINDOWS = {
     d7:        { key:"d7_age_gender",        label:"7 วันล่าสุด" },
@@ -451,7 +452,7 @@
     Reach:"การเข้าถึง", Clicks:"คลิก (ทั้งหมด)", Inbox:"แชท (Inbox)", MSG_NEW_CONTACT:"ผู้ติดต่อใหม่",
     MSS_VIEW:"เปิดดูข้อความ", Lead:"ลีด", Purchase:"การซื้อ", Purchase_Value:"มูลค่าการซื้อ",
     Video_plays:"ยอดเล่นวิดีโอ", Video_play_95:"ดูวิดีโอถึง 95%", Link_Clicks:"คลิกลิงก์",
-    AVG_DAILY_SPEND:"ใช้จ่ายเฉลี่ย/วัน", CPM:"CPM", Cost_Per_Reach:"ต้นทุนต่อการเข้าถึง",
+    AVG_DAILY_SPEND:"ใช้จ่ายเฉลี่ย/วัน", CPM:"CPM", Cost_Per_Reach:"ต้นทุนต่อการเข้าถึง 1,000 คน",
     CTR:"CTR", Video_Completion_Rate:"อัตราดูวิดีโอจบ", Cost_Per_Inbox:"ต้นทุนต่อแชท",
     Cost_Per_Lead:"ต้นทุนต่อลีด", AVG_DAILY_INBOX:"แชทเฉลี่ย/วัน", AVG_DAILY_PURCHASE:"ซื้อเฉลี่ย/วัน",
     Cost_Per_Purchase:"ต้นทุนต่อการซื้อ", ROAS:"ROAS", Conversion_Purchase_Rate:"อัตราการซื้อ"
@@ -476,13 +477,15 @@
   function el(tag, cls, txt){ var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
   function num(v){ v = (typeof v==="number") ? v : parseFloat(v); return isFinite(v)? v : 0; }
 
-  function fmtMoney(v){ v=num(v); var d = (Math.abs(v)>=100)?0:2; return "฿"+v.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d}); }
-  function fmtMoney2(v){ v=num(v); return "฿"+v.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+  function fmtMoney(v){ v=num(v); var d = (Math.abs(v)>=100)?0:2; return CUR_SYM+v.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d}); }
+  function fmtMoney2(v){ v=num(v); return CUR_SYM+v.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }
   function fmtRoas(v){ return num(v).toFixed(2)+"x"; }
   function fmtPct(v){ return (num(v)*100).toFixed(2)+"%"; }
   function fmtCount(v){ v=num(v); var d = (v%1===0)?0:2; return v.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:d}); }
   function fmtRaw(field,v){
     if(MONEY_FIELDS[field]) return fmtMoney2(v);
+    // MaxxGPT ส่ง Conversion_Purchase_Rate เป็น "การซื้อต่อ 1,000 impression" ไม่ใช่สัดส่วน — หาร 1,000 ก่อนแสดงเป็น %
+    if(field==="Conversion_Purchase_Rate") return fmtPct(num(v)/1000);
     if(PCT_FIELDS[field]) return fmtPct(v);
     if(ROAS_FIELDS[field]) return fmtRoas(v);
     return fmtCount(v);
@@ -752,10 +755,29 @@
   }
 
   // ---- data intake ----
+  // คำตอบ error ของ MaxxGPT มาเป็น payload ปกติ { status>=400 | success:false, code, reason } → ข้อความไทยที่บอกรหัส
+  function serverErrorText(p){
+    var code = p.code || p.reason || ("status " + p.status);
+    if(p.code==="NO_AD_ACCOUNT"){
+      return (p.reason==="OVER_QUOTA")
+        ? "MaxxGPT: ผูกบัญชีโฆษณาหรือเพจเกินโควตาแพ็กเกจ (NO_AD_ACCOUNT · OVER_QUOTA) — เปิดเว็บ MaxxGPT เลือกบัญชี/เพจที่จะเก็บ แล้วกดลองใหม่"
+        : "MaxxGPT ยังไม่มีบัญชีโฆษณาให้ใช้ (NO_AD_ACCOUNT) — เปิดเว็บ MaxxGPT เชื่อมต่อ Meta แล้วเลือกบัญชีโฆษณา จากนั้นกดลองใหม่";
+    }
+    if(p.code==="SUBSCRIPTION_EXPIRED") return "แพ็กเกจ MaxxGPT หมดอายุ (SUBSCRIPTION_EXPIRED) — ต่ออายุในเว็บ MaxxGPT แล้วกดลองใหม่";
+    if(p.code==="DASHBOARD_TIMEOUT") return "MaxxGPT ยังคำนวณไม่เสร็จ (DASHBOARD_TIMEOUT) — รอสักครู่แล้วกดลองใหม่";
+    return "MaxxGPT ตอบว่าทำไม่สำเร็จ (" + code + ")";
+  }
+
   function onData(result){
     var p = result && result.payload;
+    if(typeof p==="string"){
+      // ข้อความล้วน (เช่น "Rate limit reached …") หรือ JSON ที่ยังเป็นสตริง
+      var raw = p;
+      try{ p = JSON.parse(raw); }
+      catch(e){ handleFailure({code:"tool_error", message:(/rate limit/i.test(raw) ? "เรียก MaxxGPT ถี่เกินโควตาต่อชั่วโมง — รอสักครู่แล้วกดลองใหม่" : "รูปแบบข้อมูลไม่ถูกต้อง")}); return; }
+    }
     if(!p || typeof p!=="object"){ handleFailure({code:"upstream_error", message:"รูปแบบข้อมูลไม่ถูกต้อง"}); return; }
-    if(p.success===false){ handleFailure({code:"tool_error", message:(p.message||"ระบบตอบกลับว่าไม่สำเร็จ")}); return; }
+    if(p.success===false || (typeof p.status==="number" && p.status>=400)){ handleFailure({code:"tool_error", message:serverErrorText(p)}); return; }
     payload = p;
     retriedThisCycle = false;
     var ts = (result.cache && result.cache.storedAt) ? result.cache.storedAt : Date.now();
@@ -813,6 +835,12 @@
     var page = p.page || {};
     var shown = false;
 
+    // ตัวเลขเงินทั้งหน้าเป็นสกุลเงินของบัญชี — ใช้สัญลักษณ์ตาม ad_account.currency แล้ววาดใหม่ถ้ามีตารางอยู่แล้ว
+    if(acc.currency){
+      var sym = (String(acc.currency).toUpperCase()==="THB") ? "฿" : (String(acc.currency).toUpperCase()+" ");
+      if(sym!==CUR_SYM){ CUR_SYM = sym; if(payload) render(); }
+    }
+
     var accId = acc.account_id || String(acc.id||"").replace(/^act_/, "");
     if(acc.name || accId){
       var label = acc.name || ("บัญชี " + accId);
@@ -864,7 +892,7 @@
     lines.push("ช่วงเวลา: "+WINDOWS[curWin].label+"   |   เมตริกหลักที่กำลังดู: "+m.label);
     if(curWin==="today") lines.push("หมายเหตุ: “วันนี้” ยังไม่ครบวัน ตัวเลขยังไม่นิ่ง อย่าฟันธงหนักจากช่วงนี้");
     lines.push("");
-    lines.push("ตาราง (คั่นด้วย |):  เพศ | อายุ | ยอดใช้จ่าย(฿) | จำนวน"+m.unitLabel+" | "+m.label+" | สถานะ");
+    lines.push("ตาราง (คั่นด้วย |):  เพศ | อายุ | ยอดใช้จ่าย("+CUR_SYM.replace(/\s+$/,"")+") | จำนวน"+m.unitLabel+" | "+m.label+" | สถานะ");
     model.genders.forEach(function(g){ model.ages.forEach(function(a){
       var c = model.cellAt(g,a); if(!c || c.empty) return;
       var val = (c.state==="none") ? "-" : (m.kind==="roas"? c.value.toFixed(2)+"x" : Math.round(c.value));

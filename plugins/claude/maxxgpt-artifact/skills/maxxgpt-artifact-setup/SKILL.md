@@ -25,8 +25,8 @@ description: >
 
 | กลุ่ม | connector ที่มี tool นี้ | ต้องมีไหม |
 |---|---|---|
-| `maxxgpt` | `get_account_info` และ `search_interest` | ต้องมี |
-| `meta` | `ads_get_ad_accounts` และ `ads_get_ad_entities` | ต้องมี |
+| `maxxgpt` | `get_account_info` `list_ad_accounts` และ `fatigue_report` | ต้องมี |
+| `meta` | `ads_get_ad_entities` และ `ads_update_entity` | ต้องมี |
 | `drive` | `search_files` | ไม่มีก็ได้ สคริปต์จะใช้ชื่อ `Google Drive` ให้เอง |
 
 **หาจาก tool ไม่ใช่จากชื่อ** เปิดรายชื่อ claude.ai connector ของเซสชันนี้ (สกิล `artifact-capabilities`
@@ -40,6 +40,11 @@ description: >
 - กลุ่มไหนเจอ connector ที่ตรงมากกว่าหนึ่งตัว และไม่มีชื่อเดิมให้ใช้ ให้ถามลูกค้าว่าจะใช้ตัวไหน แสดงชื่อให้เลือก
   ห้ามเดาจากชื่อ และห้ามใส่สองตัว (บัญชีลูกค้าปกติมี MaxxGPT ตัวเดียว ถ้าเห็นหลายตัวมักเป็นบัญชีทีมงานที่มีตัวทดสอบ)
 - ไม่เจอ MaxxGPT หรือ Meta ads ให้หยุด แล้วบอกลูกค้าให้ต่อ connector นั้นใน claude.ai ก่อน แล้วค่อยสั่งใหม่
+- **connector MaxxGPT ต้องมี tool ครบทุกตัวใน `connectors.maxxgpt.tools` ของ manifest** เว็บรุ่นนี้เรียก `list_ad_accounts`
+  `list_pages` และ `fatigue_report` ซึ่งมีเฉพาะ MaxxGPT รุ่นใหม่ (V4) ถ้า connector ของลูกค้าไม่มี tool เหล่านี้
+  ให้หยุด ห้าม publish แล้วบอกลูกค้าว่า connector MaxxGPT ของเขายังเป็นรุ่นเก่า ให้ลบแล้วต่อใหม่ด้วย
+  `https://mcp.maxxgpt.ai/mcp` (ต่อแล้วยังไม่มี ให้ติดต่อทีม MaxxGPT) ถ้า publish ไปทั้งอย่างนั้น แท็บ Creative Fatigue
+  กับรายการบัญชีของ Ad Launcher จะใช้ไม่ได้
 - บอกลูกค้าหนึ่งบรรทัดว่าเจอชื่ออะไรบ้าง ไม่ต้องให้เขาไปเปิดหาเอง
 
 ## ขั้น 2 · ลองเรียก connector ละหนึ่งครั้ง
@@ -47,10 +52,16 @@ description: >
 เรียก `probe` ของแต่ละกลุ่มกับ connector ที่เลือก ด้วยค่าที่ schema ของ tool นั้นต้องการ
 ถ้าเรียกไม่ผ่านแล้ว publish ไปก่อน ลูกค้าจะได้หน้าที่ล็อกหรือว่าง และจะไปไล่หาสาเหตุผิดที่
 
-- **MaxxGPT `get_account_info`** ถ้าคำตอบมี `status: 403`, `success: false`, `code: SUBSCRIPTION_EXPIRED` หรือ
-  `reason: Close` แปลว่าบัญชี MaxxGPT นี้ยังไม่มีแพ็กเกจที่ใช้ได้ ให้หยุด บอกลูกค้าให้ติดต่อทีม MaxxGPT ห้าม publish
-  ถ้า error เป็นเรื่องล็อกอินหรือสิทธิ์ ให้บอกลูกค้าให้ต่อ connector MaxxGPT ใหม่
+- **MaxxGPT `get_account_info`** อ่าน `code` ของคำตอบ ไม่ใช่เลข status อย่างเดียว
+  - `code: SUBSCRIPTION_EXPIRED` (403) หรือ `reason: Close` ของระบบเดิม แปลว่าบัญชี MaxxGPT นี้ยังไม่มีแพ็กเกจที่ใช้ได้
+    ให้หยุด บอกลูกค้าให้ติดต่อทีม MaxxGPT ห้าม publish
+  - `code: NO_AD_ACCOUNT` (428) แปลว่าแพ็กเกจใช้ได้ แต่ลูกค้ายังไม่ได้เชื่อม Facebook หรือยังไม่ได้เลือกบัญชีโฆษณา
+    ในเว็บ MaxxGPT (`reason: OVER_QUOTA` = ผูกบัญชีหรือเพจเกินจำนวนที่แพ็กเกจให้ ต้องไปเลือกตัวที่จะเก็บ)
+    publish ต่อได้ แต่ต้องบอกลูกค้าว่าหน้าจะยังไม่มีข้อมูลจนกว่าจะไปทำขั้นนั้นในเว็บ MaxxGPT
+  - error เรื่องล็อกอินหรือสิทธิ์ ให้บอกลูกค้าให้ต่อ connector MaxxGPT ใหม่
 - **Meta `ads_get_ad_accounts`** ต้องได้รายการบัญชีกลับมา เรียกไม่ผ่านให้หยุดและบอกลูกค้าให้ต่อ Meta ads ใหม่
+  (หน้าเว็บไม่ได้ใช้รายการนี้แล้ว รายชื่อบัญชีในหน้ามาจาก MaxxGPT แต่ Ad Launcher, Budget Scaling และ Kill Switch
+  ยังสร้างและแก้โฆษณาผ่าน Meta ads จึงต้องเรียกได้)
 - **Drive `search_files`** ลองเฉพาะเมื่อลูกค้ามี connector นี้ ค้นแบบเบา ๆ เช่นขอผลเดียว
   ถ้าไม่ผ่านให้เตือนหนึ่งบรรทัดแล้วทำต่อได้ เพราะ Drive ใช้แค่ในขั้นเลือกไฟล์ของ Ad Launcher
 - connector หลุดล็อกอินระหว่างทาง ให้หยุดและบอกลูกค้า ห้ามสลับไปใช้ connector ตัวอื่นเอง
@@ -98,6 +109,8 @@ python3 "<โฟลเดอร์ของสกิลนี้>/scripts/prepar
   และการใช้ Claude ช่วยร่างอาจถามตอนกดปุ่มของ Claude ครั้งแรก
 - หัวเว็บเขียนว่า MaxxGPT Workspace และท้ายหน้ามีเลขรุ่นตรงกับ `version`
 - แท็บ Interest Finder เปิดได้ และ Ad Launcher ขึ้นบัญชีโฆษณาที่ผูกกับ MaxxGPT
+- แท็บ Creative Fatigue ขึ้นบัญชีที่เลือกไว้ใน MaxxGPT แล้วแสดงตารางภายในราวครึ่งนาที (MaxxGPT ดึงข้อมูลจาก Meta ให้เอง)
+  บัญชีในเมนูคือบัญชีที่ผูกไว้ใน MaxxGPT เท่านั้น อยากเห็นบัญชีอื่นต้องไปผูกเพิ่มในเว็บ MaxxGPT
 - ถ้าขึ้นว่า "ต่อ MaxxGPT ก่อนใช้เครื่องมือนี้" มักเป็นชื่อ connector ไม่ตรง ให้กลับไปขั้น 1
 - ถ้าขึ้นว่า "บัญชี MaxxGPT นี้ใช้เครื่องมือนี้ไม่ได้" ให้ติดต่อทีม MaxxGPT
 - หลังอัปเดต ด้านบนจะขึ้นว่าอัปเดตเป็นรุ่นไหนแล้ว

@@ -27,7 +27,7 @@
 | `mcp` → `get_account_info` | แถบบัญชี + ปุ่มเปิดบัญชีโฆษณา/เปิดเพจ | **แถบไม่โผล่เงียบ ๆ ไม่มี error** ส่วนที่เหลือทำงานปกติ → หา bug ยาก |
 | `sample` | ปุ่ม "แนะนำการตั้ง ad set" | ปุ่ม disable แล้วเปลี่ยนข้อความเป็น "ถาม Claude ไม่ได้ในมุมมองนี้" |
 
-**ไม่มี `db` · ไม่มี `downloads`** — หน้านี้ไม่เก็บ state อะไรของ user เลย ทุกอย่างดึงสด
+**ไม่มี `db` · ไม่มี `downloads`** — หน้านี้ไม่เก็บ state อะไรของ user เลย ทุกอย่างดึงจาก MaxxGPT ทุกครั้งที่เปิด
 (อย่าเผลอเติมเข้าไปเพราะเห็น interest-explorer มี)
 
 อย่างอื่นที่อยู่นอกไฟล์เหมือนกัน:
@@ -80,9 +80,12 @@ get_dashboard_demographics
 
 get_account_info
   { status, success,
-    ad_account:{ id:"act_<n>", account_id:"<n>", name, account_status, currency, timezone_name },
+    ad_account:{ id:"act_<n>", account_id:"<n>", name, account_status, currency, timezone_name, source, synced_at },
     page:{ id, name } }
 ```
+
+`account_status` / `timezone_name` คือค่าที่ MaxxGPT อ่านจาก Meta ล่าสุด ณ `ad_account.synced_at` (ไม่ใช่ค่าสด · `null` ได้) ·
+คำตอบของ `get_dashboard_demographics` ไม่มี `ad_account` / `as_of` / `stale` ติดมา
 
 **เป็นตารางแบบคอลัมนาร์** — `rows[i][j]` คือค่าของ `fields[j]` · หน้าเว็บสร้าง index map จาก
 `fields[]` ทุกครั้ง **ห้ามยึดตำแหน่งคอลัมน์ตายตัว** และ **ห้ามยึดโครงจากก้อนเดียว** —
@@ -96,6 +99,11 @@ ROAS · Conversion_Purchase_Rate`
 
 **กับดักที่เจอจริง:**
 
+- **`Conversion_Purchase_Rate` ไม่ใช่สัดส่วน** — หลังบ้านส่งเป็น "การซื้อต่อ 1,000 impression"
+  (`Purchase × 1000 ÷ Impression`) ต่างจาก `CTR` / `Video_Completion_Rate` ที่เป็นสัดส่วน 0–1 ·
+  หน้าเว็บหาร 1,000 ก่อนแสดงเป็น % (0.8.2 — ก่อนหน้านั้นแสดงสูงเกินจริง 1,000 เท่า) **ห้ามเอากลับเข้า `fmtPct` ตรง ๆ**
+- **`Cost_Per_Reach` คือต้นทุนต่อการเข้าถึง 1,000 คน** (`Total_Spend × 1000 ÷ Reach`) ไม่ใช่ต่อ 1 คน —
+  ป้ายในหน้าจึงเขียนว่า "ต้นทุนต่อการเข้าถึง 1,000 คน"
 - แถว `Age_Range = "Unknown"` มีมาด้วยและเป็นศูนย์ทั้งแถว — โค้ดกรองทิ้งด้วยเงื่อนไข
   "ไม่มีทั้ง spend/ผล/impression"
 - **`ad_account.id` มี prefix `act_` แต่ Ads Manager ต้องการเลขล้วน** → ลิงก์ใช้ `account_id`
@@ -114,6 +122,10 @@ ROAS · Conversion_Purchase_Rate`
 - เมตริกแบบ `cost` กลับด้าน (ถูก = ดี = สีเข้ม) ส่วน `roas` ไม่กลับ — อยู่ใน `goodness()`
 - แคช: `staleTime` 5 นาที · `refetchInterval` 10 นาที สำหรับ demographics ·
   บัญชี `staleTime` 1 ชม. ไม่ตั้ง refetch
+- ฝั่ง MaxxGPT มี cache อีกชั้น: ผลคำนวณของบัญชีใช้ซ้ำได้ถึง ~60 นาที (ภายในวันเดียวกัน) และ tool ไม่มีทางสั่งให้คำนวณใหม่ —
+  กด "รีเฟรช" จึงได้ตัวเลขชุดเดิมจนกว่า cache ฝั่ง MaxxGPT จะหมดอายุ
+- สัญลักษณ์เงินในหน้ามาจาก `ad_account.currency` ของ `get_account_info` (THB = ฿ · สกุลอื่นแสดงรหัสสกุลเงิน) ·
+  ยังไม่ได้ค่านั้นมา = ฿
 
 ## โทนสี / โลโก้ (ถ้าจะแก้หน้าตา)
 
@@ -136,6 +148,7 @@ ROAS · Conversion_Purchase_Rate`
 | ตารางขึ้นแต่ **ไม่มีแถบบัญชี/ไม่มีปุ่มเปิดบัญชี-เปิดเพจ** | ลืมประกาศ `get_account_info` ใน manifest | publish ใหม่ที่ URL เดิมพร้อม tools ครบสองตัว |
 | ปุ่ม "แนะนำการตั้ง ad set" กดไม่ได้ | ไม่ได้ประกาศ `sample` หรือบัญชีเขาไม่อนุญาต | เช็ค manifest ก่อน · ถ้าครบแล้วคือฝั่งบัญชี ไม่ใช่บั๊ก |
 | ขึ้น "ยังไม่มีข้อมูลให้แสดง" | ช่วงเวลาที่เลือกไม่มีแอดทำงาน (เจอบ่อยกับ "วันนี้" ตอนเช้า) | ให้สลับไป "7 วันล่าสุด" · ไม่ใช่บั๊ก |
+| ขึ้นข้อความที่มีรหัสในวงเล็บ เช่น `(NO_AD_ACCOUNT)` / `(SUBSCRIPTION_EXPIRED)` / `(DASHBOARD_TIMEOUT)` | MaxxGPT ตอบ error — หน้าอ่าน `code` / `reason` จากคำตอบที่ `success:false` หรือ `status` ≥ 400 | ทำตามข้อความ: `NO_AD_ACCOUNT` = เปิดเว็บ MaxxGPT ต่อ Meta แล้วเลือกบัญชี · `DASHBOARD_TIMEOUT` = รอสักครู่แล้วกดลองใหม่ |
 | ช่องส่วนใหญ่เป็นลายทางหมด | บัญชีใช้จ่ายน้อย ยังไม่ถึงเกณฑ์ 3 ผล / ฿100 ต่อช่อง | อธิบายเกณฑ์ตรง ๆ · **อย่าลดเกณฑ์ให้** เพราะจะได้สีที่หลอกตา |
 | อยากได้ช่วงวันที่อื่น | tool ไม่รับพารามิเตอร์วันที่ มีแค่ 3 ช่วง | ใช้สกิลรายงานตัวอื่นแทน (`maxxgpt-export-report` ฯลฯ) |
 | แชร์ลิงก์ให้เพื่อนแล้วเปิดไม่ได้ | `mcp` ปิดการแชร์สาธารณะ | ไม่ใช่บั๊ก · เพื่อนต้อง publish หน้าของตัวเอง |

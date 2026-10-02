@@ -17,9 +17,12 @@
           "daily_budget_execute",
           "daily_budget_insights",
           "daily_budget_snapshot",
+          "fatigue_report",
           "get_account_info",
           "get_dashboard_demographics",
           "get_job",
+          "list_ad_accounts",
+          "list_pages",
           "search_interest",
           "suggest_interest"
         ]
@@ -34,8 +37,6 @@
           "ads_create_campaign",
           "ads_create_creative",
           "ads_get_ad_account_custom_audiences",
-          "ads_get_ad_account_pages",
-          "ads_get_ad_accounts",
           "ads_get_ad_entities",
           "ads_get_datasets",
           "ads_update_entity"

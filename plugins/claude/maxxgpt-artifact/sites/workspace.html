@@ -791,7 +791,7 @@ body {
 <nav class="mx-tabs" role="tablist" aria-label="เครื่องมือ"><button class="mx-tab" type="button" role="tab" id="tab-interest" data-mod="interest" aria-controls="panel-interest" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><span class="mx-tab-label">Interest Finder</span></button><button class="mx-tab" type="button" role="tab" id="tab-heatmap" data-mod="heatmap" aria-controls="panel-heatmap" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="mx-tab-label">Audience Heatmap</span></button><button class="mx-tab" type="button" role="tab" id="tab-launch" data-mod="launch" aria-controls="panel-launch" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l14-7L5 5l2 7-2 7z"/><path d="M7 12h6"/></svg><span class="mx-tab-label">Ad Launcher</span></button><button class="mx-tab" type="button" role="tab" id="tab-fatigue" data-mod="fatigue" aria-controls="panel-fatigue" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l3 9 4-12 3 8h4"/></svg><span class="mx-tab-label">Creative Fatigue</span></button><button class="mx-tab" type="button" role="tab" id="tab-budget-scaling" data-mod="budget-scaling" aria-controls="panel-budget-scaling" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 3 7-8"/><path d="M15 7h5v5"/></svg><span class="mx-tab-label">Budget Scaling</span></button><button class="mx-tab" type="button" role="tab" id="tab-kill-switch" data-mod="kill-switch" aria-controls="panel-kill-switch" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 7.5a8 8 0 1 0 11.4 0"/></svg><span class="mx-tab-label">Kill Switch</span></button></nav>
 </header>
 <main class="mx-main" id="mx-main"><section class="mx-panel" id="panel-interest" role="tabpanel" aria-labelledby="tab-interest" hidden><div class="mx-page" data-mod="interest"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Interest Finder</h1><p class="mx-ph-desc">ค้นความสนใจของ Meta ให้ Claude หา interest ที่เกี่ยวข้อง แล้วเก็บเป็นชุดไว้ใช้ต่อ</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="interest"></div></section><section class="mx-panel" id="panel-heatmap" role="tabpanel" aria-labelledby="tab-heatmap" hidden><div class="mx-page" data-mod="heatmap"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Audience Heatmap</h1><p class="mx-ph-desc">ดูว่ากลุ่มอายุและเพศไหนได้ผลคุ้มที่สุด เพื่อใช้ตั้งกลุ่มเป้าหมายของ ad set</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="heatmap"></div></section><section class="mx-panel" id="panel-launch" role="tabpanel" aria-labelledby="tab-launch" hidden><div class="mx-page" data-mod="launch"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Ad Launcher</h1><p class="mx-ph-desc">เลือกบัญชี เพจ ไฟล์ใน Drive และ interest แล้วส่งให้ Claude สร้างแคมเปญ</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="launch"></div></section><section class="mx-panel" id="panel-fatigue" role="tabpanel" aria-labelledby="tab-fatigue" hidden><div class="mx-page" data-mod="fatigue"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Creative Fatigue</h1><p class="mx-ph-desc">ดูว่าโฆษณาไหนเริ่มล้า และควรเตรียมครีเอทีฟใหม่เมื่อไร จากผลรายวัน 30 วันล่าสุด</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="fatigue"></div></section><section class="mx-panel" id="panel-budget-scaling" role="tabpanel" aria-labelledby="tab-budget-scaling" hidden><div class="mx-page" data-mod="budget-scaling"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Budget Scaling</h1><p class="mx-ph-desc">ตรวจแคมเปญ CBO และ ad set ABO ที่กำลังวิ่งกับเกณฑ์ที่ตั้ง แล้วเพิ่มงบรายวันให้ตัวที่ผ่าน</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="budget-scaling"></div></section><section class="mx-panel" id="panel-kill-switch" role="tabpanel" aria-labelledby="tab-kill-switch" hidden><div class="mx-page" data-mod="kill-switch"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Kill Switch</h1><p class="mx-ph-desc">หาแคมเปญและ ad set ที่ไม่ผ่านเกณฑ์ แล้วปิดตัวที่คุณเลือก</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="kill-switch"></div></section></main>
-<footer class="mx-foot"><span>MaxxGPT Workspace 0.0.0</span><span>ข้อมูลของคุณไปได้แค่ MaxxGPT และ Meta เท่านั้น</span></footer>
+<footer class="mx-foot"><span>MaxxGPT Workspace 0.1.0</span><span>ข้อมูลของคุณไปได้แค่ MaxxGPT และ Meta เท่านั้น</span></footer>
 </div>
 <div id="mx-layer"></div>
 <script>window.__MX_COMPONENTS_CSS__ = "/* Shared components. Loaded once in the page and adopted into every module's\n   Shadow DOM, so class names here mean the same thing everywhere.\n   Colors come only from tokens.css. */\n:host {\n  display: block;\n  color: var(--ink);\n  font-family: var(--f-body);\n  font-size: var(--t-md);\n  line-height: 1.6;\n}\n*, *::before, *::after { box-sizing: border-box; }\n[hidden] { display: none !important; }\n\nh1, h2, h3, h4 {\n  font-family: var(--f-display);\n  font-weight: 600;\n  line-height: 1.3;\n  margin: 0;\n  text-wrap: balance;\n  color: var(--ink);\n}\nh1 { font-size: var(--t-2xl); }\nh2 { font-size: var(--t-xl); }\nh3 { font-size: var(--t-lg); }\nh4 { font-size: var(--t-md); }\np { margin: 0; }\n\n.muted { color: var(--muted); }\n.small { font-size: var(--t-sm); }\n.mono, code, kbd { font-family: var(--f-mono); font-size: 0.92em; }\n.num { font-variant-numeric: tabular-nums; }\n.eyebrow {\n  font-family: var(--f-display);\n  font-size: var(--t-xs);\n  font-weight: 500;\n  letter-spacing: 0.06em;\n  text-transform: uppercase;\n  color: var(--muted);\n}\n\n/* Text from outside (competitor ads, AI answers, db data) is shown as plain\n   text with its own line breaks, the way Meta shows ad copy. */\n.mx-pre { white-space: pre-wrap; overflow-wrap: anywhere; }\n.mx-clamp {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: var(--mx-lines, 3);\n  overflow: hidden;\n}\n.mx-more {\n  appearance: none;\n  border: 0;\n  background: none;\n  padding: 0;\n  margin-top: var(--s-1);\n  font: inherit;\n  font-size: var(--t-sm);\n  font-weight: 500;\n  color: var(--accent);\n  cursor: pointer;\n}\n.mx-more:hover { color: var(--accent-ink); text-decoration: underline; }\n\n/* Answers from Claude rendered by ctx.render.markdown (a safe subset, no HTML). */\n.mx-md { line-height: 1.65; overflow-wrap: anywhere; }\n.mx-md > * + * { margin-top: var(--s-2); }\n.mx-md p, .mx-md ul, .mx-md ol { margin-bottom: 0; }\n.mx-md p { margin-top: 0; }\n.mx-md .mx-md-h { font-family: var(--f-display); font-weight: 600; line-height: 1.3; margin: var(--s-4) 0 0; }\n.mx-md .mx-md-h:first-child { margin-top: 0; }\n.mx-md h3.mx-md-h { font-size: var(--t-lg); }\n.mx-md h4.mx-md-h { font-size: var(--t-md); }\n.mx-md h5.mx-md-h, .mx-md h6.mx-md-h { font-size: var(--t-md); color: var(--ink-2); }\n.mx-md ul, .mx-md ol { padding-left: 1.4em; }\n.mx-md li + li { margin-top: 3px; }\n.mx-md li > ul, .mx-md li > ol { margin-top: 3px; }\n.mx-md strong { font-weight: 600; }\n.mx-md code { font-family: var(--f-mono); font-size: .92em; background: var(--surface-2); padding: 1px 5px; border-radius: var(--r-sm); }\n.mx-md hr { border: 0; border-top: 1px solid var(--line); margin: var(--s-3) 0; }\n.mx-md-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }\n\n/* Buttons */\n.btn {\n  appearance: none;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: var(--s-2);\n  min-height: 36px;\n  padding: 0 var(--s-4);\n  border: 1px solid var(--line-strong);\n  border-radius: var(--r-sm);\n  background: var(--surface);\n  color: var(--ink);\n  font-family: var(--f-body);\n  font-size: var(--t-sm);\n  font-weight: 600;\n  line-height: 1;\n  cursor: pointer;\n  transition: background-color 0.15s, border-color 0.15s, color 0.15s;\n}\n.btn:hover { background: var(--surface-3); }\n.btn:focus-visible { outline: none; box-shadow: var(--focus); }\n.btn[aria-busy=\"true\"] { opacity: 0.55; cursor: not-allowed; }\n.btn-primary { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }\n.btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }\n/* white text on the light theme's red; the dark theme's red is light, so its text is dark (reskin step 5) */\n.btn-danger { background: var(--crit); border-color: var(--crit); color: var(--crit-ink); }\n.btn-danger:hover { filter: brightness(0.92); background: var(--crit); }\n/* a button that asks Claude to work; icon optional */\n.btn-ai { background: var(--ai); border-color: var(--ai); color: var(--ai-ink); }\n.btn-ai:hover { background: var(--ai-hover); border-color: var(--ai-hover); }\n.btn-quiet { background: transparent; border-color: transparent; color: var(--ink-2); }\n.btn-quiet:hover { background: var(--surface-3); }\n.btn-sm { min-height: 30px; padding: 0 var(--s-3); font-size: var(--t-xs); }\n/* A button that cannot be pressed is grey whatever its kind, so it never looks\n   like a live red or gold button (owner, 2026-09-28). Placed after the kinds. */\n.btn:disabled, .btn:disabled:hover, .btn[aria-disabled=\"true\"] {\n  background: var(--surface-3);\n  border-color: var(--line);\n  color: var(--faint);\n  filter: none;\n  opacity: 1;\n  cursor: not-allowed;\n}\n.btn[aria-disabled=\"true\"] { pointer-events: none; }\n\n/* Segmented control: one track, the chosen option raised on it (no gold, no underline). */\n.mx-seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--seg-track); border: 1px solid var(--line); border-radius: var(--r); }\n.mx-seg > button {\n  appearance: none;\n  border: 0;\n  background: transparent;\n  color: var(--muted);\n  font: inherit;\n  font-size: var(--t-sm);\n  padding: 6px 13px;\n  border-radius: var(--r-sm);\n  cursor: pointer;\n}\n.mx-seg > button:hover { color: var(--ink); }\n.mx-seg > button:focus-visible { outline: none; box-shadow: var(--focus); }\n.mx-seg > button[aria-pressed=\"true\"], .mx-seg > button[aria-selected=\"true\"] {\n  background: var(--seg-on);\n  color: var(--ink);\n  font-weight: 500;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px var(--seg-on-line);\n}\n\n/* Notice: a thin coloured edge on a quiet box, never a coloured block (reskin 2026-09-28).\n   Plain for information; -warn (orange) or -crit (red) only where the reader should stop. */\n.mx-notice { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--faint);\n  border-radius: var(--r-sm); background: var(--surface-2); color: var(--ink-2); font-size: var(--t-sm); }\n.mx-notice > svg { width: 16px; height: 16px; flex: none; margin-top: 2px; color: var(--muted); }\n.mx-notice-warn { border-left-color: var(--warn); }\n.mx-notice-warn > svg { color: var(--warn); }\n.mx-notice-crit { border-left-color: var(--crit); }\n.mx-notice-crit > svg { color: var(--crit); }\n\n/* Form fields */\n.field { display: grid; gap: var(--s-1); }\n.field > label, .label {\n  font-size: var(--t-sm);\n  font-weight: 500;\n  color: var(--ink-2);\n}\n.input, .select, .textarea {\n  width: 100%;\n  min-height: 38px;\n  padding: var(--s-2) var(--s-3);\n  border: 1px solid var(--line-strong);\n  border-radius: var(--r-sm);\n  background: var(--surface);\n  color: var(--ink);\n  font: inherit;\n  font-size: var(--t-md);\n}\n.textarea { min-height: 96px; resize: vertical; }\n.input:focus, .select:focus, .textarea:focus {\n  outline: none;\n  border-color: var(--accent);\n  box-shadow: var(--focus);\n}\n.hint { font-size: var(--t-xs); color: var(--muted); }\n\n/* Panels: one level of separation for a module's main blocks. */\n.panel {\n  background: var(--surface);\n  border: 1px solid var(--line);\n  border-radius: var(--r);\n  padding: var(--s-4);\n}\n.panel-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  justify-content: space-between;\n  gap: var(--s-2) var(--s-4);\n  margin-bottom: var(--s-3);\n}\n.stack { display: grid; gap: var(--s-4); }\n.row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }\n\n/* Tables: wide ones scroll inside their own box, never the page. */\n.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }\n.tbl { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }\n.tbl th {\n  position: sticky;\n  top: 0;\n  background: var(--surface-2);\n  color: var(--muted);\n  font-weight: 500;\n  text-align: left;\n  white-space: nowrap;\n}\n.tbl th, .tbl td { padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); }\n.tbl tr:last-child td { border-bottom: 0; }\n.tbl td.num, .tbl th.num { text-align: right; font-variant-numeric: tabular-nums; }\n\n/* Chips carry state, so each tone is a meaning, not a decoration. */\n.chip {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--s-1);\n  padding: 2px 10px;\n  border-radius: 999px;\n  background: var(--surface-3);\n  color: var(--ink-2);\n  font-size: var(--t-xs);\n  font-weight: 500;\n  white-space: nowrap;\n}\n.chip-ok { background: var(--ok-soft); color: var(--ok); }\n.chip-warn { background: var(--warn-soft); color: var(--warn); }\n.chip-crit { background: var(--crit-soft); color: var(--crit); }\n.chip-info { background: var(--info-soft); color: var(--info); }\n.chip-accent { background: var(--accent-soft); color: var(--accent-ink); }\n\n/* Banners: section-level status with the action that fixes it. */\n.banner {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: flex-start;\n  gap: var(--s-2) var(--s-3);\n  padding: var(--s-3) var(--s-4);\n  border: 1px solid var(--line);\n  border-left-width: 4px;\n  border-radius: var(--r-sm);\n  background: var(--surface-2);\n  font-size: var(--t-sm);\n}\n.banner-ok { border-left-color: var(--ok); background: var(--ok-soft); }\n.banner-warn { border-left-color: var(--warn); background: var(--warn-soft); }\n.banner-crit { border-left-color: var(--crit); background: var(--crit-soft); }\n.banner-info { border-left-color: var(--info); background: var(--info-soft); }\n.banner b { font-weight: 600; }\n\n/* Empty, loading, and error states */\n.empty {\n  display: grid;\n  justify-items: center;\n  gap: var(--s-2);\n  padding: var(--s-6) var(--s-4);\n  text-align: center;\n  color: var(--muted);\n}\n.spinner {\n  width: 18px;\n  height: 18px;\n  border: 2px solid var(--line-strong);\n  border-top-color: var(--accent);\n  border-radius: 50%;\n  animation: mx-spin 0.8s linear infinite;\n}\n@keyframes mx-spin { to { transform: rotate(360deg); } }\n.skeleton {\n  border-radius: var(--r-sm);\n  background: linear-gradient(90deg, var(--surface-3), var(--surface-2), var(--surface-3));\n  background-size: 200% 100%;\n  animation: mx-shimmer 1.4s ease-in-out infinite;\n}\n@keyframes mx-shimmer { to { background-position: -200% 0; } }\n\n@media (prefers-reduced-motion: reduce) {\n  .spinner, .skeleton { animation: none; }\n  .btn { transition: none; }\n}\n";</script>
@@ -1882,13 +1882,22 @@ body {
     return null;
   }
   // the reason the package cannot be used, or "" when the answer does not say so
+  // V4 2026-10-02: by MaxxGPT's code. The organisation being closed or missing locks like an expired
+  // package; a 403 with another code (an account or a page the customer did not link) is not a
+  // package problem; a 403 with no code at all is the system before V4 and still locks.
+  var NO_PACKAGE = ["SUBSCRIPTION_EXPIRED", "ORG_INACTIVE", "NO_ORGANIZATION"];
   function denial(b) {
     if (!b) return "";
-    if (b.code === "SUBSCRIPTION_EXPIRED") return "SUBSCRIPTION_EXPIRED";
+    if (NO_PACKAGE.indexOf(b.code) > -1) return b.code;
     if (b.reason === "Close") return "Close";
-    if (Number(b.status) === 403) return "403";
+    if (Number(b.status) === 403 && !b.code) return "403";
     return "";
   }
+  /* V4 2026-10-02: 428 NO_AD_ACCOUNT means the package is fine, but the customer has not connected
+     Facebook, has not selected an ad account, or linked more than the plan allows (reason OVER_QUOTA).
+     That is a customer: the gate opens and each tab says what to do in the MaxxGPT web app. Before
+     this the page said MaxxGPT could not be reached. */
+  function noAccount(b) { return !!b && b.code === "NO_AD_ACCOUNT"; }
   /* What MaxxGPT says about this site's releases, when it says anything (owner decision
      2026-09-27; field names proposed by us, to agree with the MaxxGPT team):
        "console_latest": { "workspace": "1.0.3" }   newest release: offer the update
@@ -1942,6 +1951,7 @@ body {
         var b = bodyOf(res);
         var no = denial(b);
         if (no) set({ status: "locked", reason: "inactive", because: no });
+        else if (noAccount(b)) { remember(); set({ status: "open", latest: null, noAccount: true }); }
         else if (p && typeof p === "object" && (p.success === false || Number(p.status) >= 400)) {
           unverified({ code: "upstream_error", message: "get_account_info: " + JSON.stringify(p).slice(0, 200) });
         } else {
@@ -1958,6 +1968,7 @@ body {
         var code = (e && e.code) || "upstream_error";
         var no = code === "tool_error" ? denial(bodyOf(e)) : "";
         if (no) set({ status: "locked", reason: "inactive", because: no, error: e });
+        else if (code === "tool_error" && noAccount(bodyOf(e))) { remember(); set({ status: "open", latest: null, noAccount: true }); }
         // any other tool failure is MaxxGPT failing, not the customer's package
         else if (TRANSIENT.indexOf(code) > -1 || code === "tool_error") unverified(e);
         else set({ status: "locked", reason: "connect", error: e });
@@ -2555,7 +2566,7 @@ body {
 })();
 
 </script>
-<script>MaxxConsole.assets("interest", {css: "/* Generated by tools/migrations/interest.py (tools/migrations/interest_style.css). Do not edit. */\n/* REWRITE 2026-09-29 (reskin step 4, docs/reskin-plan.md): the look of the agreed comparison\n   mock on the shared tokens. One colour per meaning: the size bars are grey, a picked row and the\n   set being edited are a quiet grey, the chosen keyword chip is raised like the segmented control,\n   orange only on the caution chips (\"กลุ่มเล็ก\", \"กว้างทั่วไป\"), red only on \"ลบ\". Gold stays on the\n   main buttons (ค้นหา, บันทึก) and the ticked boxes; the Claude button is the AI button. */\n:host{ display:block; font-family:var(--f-body); font-size:14px; line-height:1.55; color:var(--ink); }\n*{ box-sizing:border-box; }\n.wrap{ display:flex; flex-direction:column; gap:16px; padding-bottom:4px; }\nh1,h2,h3{ font-family:var(--f-display); margin:0; text-wrap:balance; }\nbutton,input,select,textarea{ font:inherit; color:inherit; }\nbutton{ cursor:pointer; }\n.btn svg{ width:15px; height:15px; flex:none; }\n.mono{ font-family:var(--f-mono); font-variant-numeric:tabular-nums; }\n[hidden]{ display:none !important; }\n\n/* the search box (step 4b, owner 2026-09-29, version ก): two halves with \"หรือ\" on the line\n   between them; asking Claude on the left, searching yourself on the right; each half has a\n   title, its field and button on one line, then one small line. Without Claude the right half\n   takes the whole box. */\n.card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); }\n.findbox{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:16px; padding:18px 0; }\n.half{ display:flex; flex-direction:column; gap:10px; min-width:0; }\n.aicol{ padding:0 24px 0 20px; }\n.mcol{ padding:0 20px 0 24px; position:relative; }\n.mcol::before{ content:\"\"; position:absolute; top:2px; bottom:2px; left:-8px; border-left:1px solid var(--line); }\n#ai-card[hidden] + .mcol{ grid-column:1 / -1; padding-left:20px; }\n#ai-card[hidden] + .mcol::before, #ai-card[hidden] + .mcol .ior{ display:none; }\n.hhead h3{ font-family:var(--f-display); font-size:14.5px; font-weight:600; }\n.hhead p{ margin:2px 0 0; font-size:12.5px; color:var(--muted); }\n.hhead p.one{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }\n.hbar{ display:flex; gap:8px; align-items:center; position:relative; }\n.hbar.top{ align-items:flex-start; }\n.ior{ position:absolute; left:-32px; top:50%; transform:translate(-50%,-50%); z-index:1; background:var(--surface); color:var(--muted); font-size:12px; padding:2px 8px; border:1px solid var(--line); border-radius:999px; }\n.hbar textarea{ flex:1 1 auto; min-width:0; height:60px; resize:vertical; padding:8px 11px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); font-size:14px; line-height:1.45; }\n.hbar textarea::placeholder{ color:var(--faint); }\n.hbar textarea:focus{ outline:none; box-shadow:var(--focus); }\n.ai-go, .go{ min-height:38px; flex:none; }\n.ai-msg{ margin:0; font-size:12.5px; color:var(--muted); line-height:1.55; display:flex; gap:8px; align-items:center; }\n.ai-msg:empty{ display:none; }\n.ai-msg.bad{ color:var(--warn); }\n.ai-msg .spin{ width:12px; height:12px; border:2px solid var(--line-strong); border-top-color:var(--ink-2); border-radius:50%; animation:sp .8s linear infinite; flex:none; }\n@keyframes sp{ to{ transform:rotate(360deg); } }\n@media (prefers-reduced-motion:reduce){ .ai-msg .spin{ animation:none; } }\n.field{ position:relative; flex:1 1 auto; min-width:0; }\n.field input{ width:100%; min-height:38px; padding:8px 11px 8px 36px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); font-size:14px; }\n.field input::placeholder{ color:var(--faint); }\n.field input:focus{ outline:none; box-shadow:var(--focus); }\n.field .ico{ position:absolute; left:11px; top:50%; transform:translateY(-50%); color:var(--muted); pointer-events:none; display:flex; }\n@media (max-width:900px){\n  .findbox{ grid-template-columns:1fr; row-gap:28px; }\n  .aicol, .mcol{ padding:0 20px; }\n  .mcol::before{ top:-14px; bottom:auto; left:20px; right:20px; border-left:0; border-top:1px solid var(--line); }\n  /* stacked: \"หรือ\" sits on the line above the right half */\n  .hbar.sbar{ position:static; }\n  .ior{ top:-14px; left:50%; }\n}\n.seeds{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; font-size:12.5px; color:var(--muted); }\n.seeds > span{ margin-right:4px; }\n.seed{ font-size:12.5px; border:1px solid var(--line); background:transparent; color:var(--ink-2); border-radius:999px; padding:3px 11px; }\n.seed:hover{ background:var(--surface-3); }\n.seed:focus-visible{ outline:none; box-shadow:var(--focus); }\n\n/* results, sets and the trail */\n.cols{ display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:16px; align-items:start; }\n@media (max-width:900px){ .cols{ grid-template-columns:1fr; } }\n.side{ display:grid; gap:16px; align-content:start; }\n/* the shared .panel pads its content; this page lays out its own rows edge to edge */\n.panel{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); overflow:hidden; padding:0; }\n.panel-head{ display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); margin:0; }\n.panel-head h2{ font-size:15px; font-weight:600; }\n.panel-head .count{ font-family:var(--f-mono); font-size:12px; color:var(--muted); }\n.panel-head .count{ margin-left:auto; }\n.sortl{ font-size:12.5px; color:var(--muted); margin-left:8px; }\n#sort{ border:1px solid var(--line); background:var(--surface-2); border-radius:var(--r-sm); padding:4px 8px; font-size:13px; }\n#sort:focus{ outline:none; box-shadow:var(--focus); }\n.kwstrip{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; padding:10px 18px; border-bottom:1px solid var(--line); font-size:12.5px; color:var(--muted); }\n.kwstrip > span{ margin-right:4px; }\n.kw{ font-size:12.5px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink-2); border-radius:999px; padding:3px 11px; }\n.kw:hover{ color:var(--ink); }\n.kw:focus-visible{ outline:none; box-shadow:var(--focus); }\n.kw .n{ font-family:var(--f-mono); font-size:11px; opacity:.7; margin-inline-start:4px; }\n.kw.on{ background:var(--seg-on); color:var(--ink); font-weight:500; border-color:transparent; box-shadow:var(--shadow), 0 0 0 1px var(--seg-on-line); }\n\n.rows{ list-style:none; margin:0; padding:0; }\n.row{ display:grid; grid-template-columns:20px minmax(0,1fr) auto; gap:12px; padding:11px 18px; border-bottom:1px solid var(--line); align-items:start; }\n.row:last-child{ border-bottom:0; }\n.row:hover, .row.picked{ background:var(--surface-2); }\n.row input[type=checkbox]{ width:16px; height:16px; margin:3px 0 0; accent-color:var(--primary); }\n.r-name{ font-weight:500; font-size:14px; line-height:1.35; background:none; border:0; padding:0; text-align:left; color:var(--ink); }\n.r-name:hover{ text-decoration:underline; text-underline-offset:3px; }\n.r-name:focus-visible{ outline:none; box-shadow:var(--focus); border-radius:4px; }\n.r-meta{ display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; margin-top:3px; font-size:11.5px; color:var(--muted); }\n.chip{ border:1px solid var(--line); border-radius:999px; padding:0 8px; font-size:11px; color:var(--ink-2); white-space:nowrap; }\n.chip.small{ border-color:var(--warn); color:var(--warn); }\n.id{ font-family:var(--f-mono); font-size:11px; color:var(--faint); }\n.path{ font-size:11.5px; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:100%; margin-top:2px; }\n.size{ text-align:right; min-width:128px; }\n.size .num{ font-family:var(--f-mono); font-variant-numeric:tabular-nums; font-size:12.5px; color:var(--ink-2); white-space:nowrap; }\n.size .track{ height:4px; border-radius:2px; background:var(--surface-3); margin-top:5px; overflow:hidden; }\n.size .fill{ height:100%; background:var(--ink-2); opacity:.5; border-radius:2px; }\n.size .approx{ font-size:10.5px; color:var(--faint); margin-top:2px; }\n@media (max-width:560px){\n  .row{ grid-template-columns:20px minmax(0,1fr); }\n  .size{ grid-column:2; text-align:left; min-width:0; }\n  .size .track{ max-width:180px; }\n}\n\n.trail{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:11px 18px; border-bottom:1px solid var(--line); font-size:12.5px; }\n.trail .step{ background:var(--surface-2); border:1px solid var(--line); border-radius:7px; padding:2px 9px; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink-2); }\nbutton.step{ font:inherit; }\nbutton.step:hover{ color:var(--ink); border-color:var(--line-strong); }\nbutton.step:focus-visible{ outline:none; box-shadow:var(--focus); }\n.trail .step.cur{ border-color:var(--line-strong); color:var(--ink); font-weight:500; }\n.trail .arrow, .trail-empty{ color:var(--faint); }\n\n.state{ padding:28px 18px; text-align:center; color:var(--muted); font-size:13.5px; }\n.state strong{ display:block; font-family:var(--f-display); font-size:15px; color:var(--ink); font-weight:600; margin-bottom:6px; }\n.state .btn{ margin-top:12px; }\n.skel{ padding:12px 18px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:20px 1fr 110px; gap:12px; align-items:center; }\n.sk{ height:11px; border-radius:5px; background:linear-gradient(90deg,var(--surface-2) 25%,var(--surface-3) 50%,var(--surface-2) 75%); background-size:220% 100%; animation:sh 1.5s linear infinite; }\n.sk.b{ height:14px; }\n.sk.s{ width:60%; }\n@keyframes sh{ to{ background-position:-220% 0; } }\n@media (prefers-reduced-motion:reduce){ .sk{ animation:none; } }\n\n.setlist{ list-style:none; margin:0; padding:0; max-height:300px; overflow:auto; }\n.setitem{ display:flex; gap:10px; align-items:center; justify-content:space-between; padding:11px 18px; border-bottom:1px solid var(--line); }\n.setitem:last-child{ border-bottom:0; }\n.setitem.cur{ background:var(--surface-2); }\n.setitem .nm{ font-weight:500; font-size:14px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }\n.setitem .sub{ font-size:11.5px; color:var(--muted); font-family:var(--f-mono); }\n.linkbtn{ background:none; border:0; color:var(--ink-2); font-size:12.5px; font-weight:500; padding:3px 6px; border-radius:6px; }\n.linkbtn:hover{ background:var(--surface-3); }\n.linkbtn:focus-visible{ outline:none; box-shadow:var(--focus); }\n.linkbtn.danger{ color:var(--crit); }\n.footnote{ font-size:12px; color:var(--faint); line-height:1.6; margin:0; }\n\n/* the basket, stuck to the bottom of the page */\n.dock{ position:sticky; bottom:0; z-index:5; margin-top:16px; background:var(--surface); border:1px solid var(--line); border-bottom:0; border-radius:var(--r-lg) var(--r-lg) 0 0; box-shadow:var(--shadow-lg); }\n.dock-in{ padding:11px 18px 13px; }\n.dock-bar{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:space-between; }\n.dock-cnt{ display:flex; align-items:center; gap:10px; font-size:13.5px; }\n.badge{ background:var(--ink); color:var(--surface); border-radius:999px; min-width:26px; height:24px; display:inline-flex; align-items:center; justify-content:center; padding:0 8px; font-family:var(--f-mono); font-size:12.5px; font-weight:500; }\n.dock-acts{ display:flex; gap:6px; flex-wrap:wrap; }\n.dock-body{ border-top:1px solid var(--line); margin-top:11px; padding-top:11px; max-height:34vh; overflow:auto; display:flex; flex-direction:column; gap:11px; }\n.pills{ display:flex; flex-wrap:wrap; gap:6px; }\n.pill{ display:inline-flex; align-items:center; gap:6px; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:3px 5px 3px 11px; font-size:12.5px; max-width:100%; }\n.pill .x{ border:0; background:none; color:var(--muted); font-size:15px; line-height:1; padding:2px 5px; border-radius:50%; }\n.pill .x:hover{ color:var(--crit); background:var(--surface-3); }\n.editrow{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }\n.editing{ margin:0; font-size:13px; color:var(--ink-2); flex:1 1 260px; }\n.saverow{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }\n.saverow input{ flex:1 1 240px; min-width:0; min-height:36px; padding:7px 11px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); }\n.saverow input:focus{ outline:none; box-shadow:var(--focus); }\n.savemsg{ font-size:12px; line-height:1.5; margin:0; color:var(--muted); }\n.savemsg:empty{ display:none; }\n.savemsg.bad{ color:var(--warn); }\n", view: "<!-- REWRITE 2026-09-29 (reskin step 4, docs/reskin-plan.md): the markup of the agreed comparison\n     mock (docs/design/reskin-options.src.html, Interest Finder). The title, description, update\n     time and refresh come from the shared page header (ctx.page); the page has no account bar.\n     The \"whose account\" line is gone (owner 2026-09-29); what the sizes mean stays in the\n     footnote. Every id the code uses is kept.\n     Step 4b (owner 2026-09-29, version ก of the mock): the search box is two halves with \"หรือ\"\n     between, asking Claude on the left and searching yourself on the right, each with its field\n     and button on one line; the Claude box is two lines; the sort sits on the results.\n     Step 4c (owner 2026-09-29): the six example words were always on screen under \"คำที่ใช้บ่อย\",\n     though they are fixed words, not the viewer's own. They are labelled \"ลองค้น\" and show only\n     while there are no results (renderResults). The Claude button reads \"ค้นด้วย Claude\", the same verb as ค้นหา beside\n     it, so the two read as two ways to search (owner 2026-09-29; first \"หา Interest\"). -->\n<div class=\"wrap\">\n  <section class=\"card findbox\" aria-label=\"ค้นหา interest\">\n    <div class=\"half aicol\" id=\"ai-card\" hidden>\n      <div class=\"hhead\">\n        <h3><label for=\"ai-input\">ให้ Claude หาให้<\/label><\/h3>\n        <p class=\"one\">บอกว่าขายอะไร ขายให้ใคร Claude จะเลือกคำค้น แล้วรวมผลของทุกคำมาให้<\/p>\n      <\/div>\n      <div class=\"hbar top\">\n        <textarea id=\"ai-input\" rows=\"2\" maxlength=\"1200\" placeholder=\"เช่น ครีมกันแดดสำหรับผู้หญิงทำงาน อายุ 25–40 ราคา 590 บาท ขายผ่านทักแชท เน้นคนกลัวฝ้า-กระ\"><\/textarea>\n        <button class=\"btn btn-ai ai-go\" id=\"ai-go\" type=\"button\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z\"/><path d=\"M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z\"/><\/svg><span id=\"ai-go-label\">ค้นด้วย Claude<\/span><\/button>\n      <\/div>\n      <p class=\"ai-msg\" id=\"ai-msg\"><\/p>\n    <\/div>\n\n    <div class=\"half mcol\">\n      <div class=\"hhead\">\n        <h3><label for=\"q\">ค้นเอง<\/label><\/h3>\n        <p class=\"one\">พิมพ์ชื่อความสนใจ ไทยหรืออังกฤษก็ได้<\/p>\n      <\/div>\n      <div class=\"hbar sbar\">\n        <span class=\"ior\" aria-hidden=\"true\">หรือ<\/span>\n        <div class=\"field\">\n          <span class=\"ico\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"4.6\"/><path d=\"M10.4 10.4 14 14\"/><\/svg><\/span>\n          <input id=\"q\" type=\"search\" placeholder=\"พิมพ์คำค้น เช่น กาแฟ, skincare, วิ่ง\" autocomplete=\"off\" spellcheck=\"false\">\n        <\/div>\n        <button class=\"btn btn-primary go\" id=\"go\" type=\"button\">ค้นหา<\/button>\n      <\/div>\n      <div class=\"seeds\" id=\"seeds\"><span>ลองค้น<\/span>\n        <button class=\"seed\" type=\"button\" data-seed=\"กาแฟ\">กาแฟ<\/button>\n        <button class=\"seed\" type=\"button\" data-seed=\"ดูแลผิว\">ดูแลผิว<\/button>\n        <button class=\"seed\" type=\"button\" data-seed=\"ฟิตเนส\">ฟิตเนส<\/button>\n        <button class=\"seed\" type=\"button\" data-seed=\"อาหารเสริม\">อาหารเสริม<\/button>\n        <button class=\"seed\" type=\"button\" data-seed=\"แม่และเด็ก\">แม่และเด็ก<\/button>\n        <button class=\"seed\" type=\"button\" data-seed=\"รถยนต์\">รถยนต์<\/button>\n      <\/div>\n    <\/div>\n  <\/section>\n\n  <div class=\"cols\">\n    <section class=\"panel\" aria-labelledby=\"h-res\">\n      <div class=\"panel-head\"><h2 id=\"h-res\">ผลการค้นหา<\/h2><span class=\"count\" id=\"res-count\"><\/span>\n        <label class=\"sortl\" for=\"sort\">เรียง<\/label>\n        <select id=\"sort\">\n          <option value=\"match\">เกี่ยวข้องมากสุด<\/option>\n          <option value=\"big\">ใหญ่ → เล็ก<\/option>\n          <option value=\"small\">เล็ก → ใหญ่<\/option>\n          <option value=\"name\">ชื่อ ก–ฮ / A–Z<\/option>\n        <\/select>\n      <\/div>\n      <div class=\"kwstrip\" id=\"kwstrip\" hidden><\/div>\n      <div id=\"res\"><\/div>\n    <\/section>\n\n    <div class=\"side\">\n      <section class=\"panel\" aria-labelledby=\"h-sets\">\n        <div class=\"panel-head\"><h2 id=\"h-sets\">ชุดที่บันทึกไว้<\/h2><span class=\"count\" id=\"sets-count\"><\/span><\/div>\n        <div id=\"sets\"><\/div>\n      <\/section>\n\n      <section class=\"panel\" aria-labelledby=\"h-rel\">\n        <div class=\"panel-head\"><h2 id=\"h-rel\">ไล่ดูตัวที่เกี่ยวข้อง<\/h2><span class=\"count\" id=\"rel-count\"><\/span><\/div>\n        <div class=\"trail\" id=\"trail\"><span class=\"trail-empty\">คลิกชื่อ interest ในผลการค้นหา เพื่อไล่ดูตัวที่เกี่ยวข้องต่อเป็นสาย<\/span><\/div>\n        <div id=\"rel\"><\/div>\n      <\/section>\n    <\/div>\n  <\/div>\n\n  <p class=\"footnote\">ขนาดกลุ่มเป็นค่าประมาณที่ Meta ให้มาเป็นช่วง (ต่ำสุด–สูงสุด) เปลี่ยนได้ตลอด ไม่ใช่จำนวนคนที่จะเห็นโฆษณาจริง · แถบขนาดใช้สเกลลอการิทึม เพราะค่าจริงห่างกันหลักหมื่นถึงหลักพันล้าน · การค้นแต่ละครั้งเรียก Meta ผ่านหลังบ้าน MaxxGPT ซึ่งจำกัด 200 ครั้งต่อชั่วโมง การให้ Claude หาให้หนึ่งครั้งใช้ไป 6 ครั้ง (คำละครั้ง) และใช้ Claude ของบัญชีที่เปิดหน้านี้<\/p>\n<\/div>\n\n<div class=\"dock\">\n  <div class=\"dock-in\">\n    <div class=\"dock-bar\">\n      <div class=\"dock-cnt\"><span class=\"badge\" id=\"b-count\">0<\/span><span id=\"b-label\">ยังไม่ได้เลือก interest<\/span>\n        <button class=\"linkbtn\" id=\"b-toggle\" type=\"button\" hidden>ซ่อนรายการ<\/button>\n      <\/div>\n      <div class=\"dock-acts\">\n        <button class=\"btn btn-sm\" id=\"c-names\" type=\"button\" disabled>ก๊อปชื่อ<\/button>\n        <button class=\"btn btn-sm\" id=\"c-ids\" type=\"button\" disabled>ก๊อป id<\/button>\n        <button class=\"btn btn-sm\" id=\"c-both\" type=\"button\" disabled>ก๊อปชื่อ + id<\/button>\n        <button class=\"btn btn-sm\" id=\"dl\" type=\"button\" disabled>ดาวน์โหลด CSV<\/button>\n        <button class=\"btn btn-sm btn-quiet\" id=\"clear\" type=\"button\" disabled>ล้าง<\/button>\n      <\/div>\n    <\/div>\n    <div class=\"dock-body\" id=\"dock-body\" hidden>\n      <div class=\"editrow\" id=\"editrow\" hidden>\n        <p class=\"editing\" id=\"editing\"><\/p>\n        <button class=\"btn btn-primary\" id=\"save-over\" type=\"button\">บันทึกทับชุดนี้<\/button>\n      <\/div>\n      <div class=\"pills\" id=\"pills\"><\/div>\n      <div class=\"saverow\">\n        <input id=\"setname\" type=\"text\" placeholder=\"ตั้งชื่อชุด เช่น ชุดคนรักสุขภาพ\" maxlength=\"80\">\n        <button class=\"btn btn-primary\" id=\"save\" type=\"button\">บันทึกเป็นชุดใหม่<\/button>\n      <\/div>\n      <p class=\"savemsg\" id=\"savemsg\"><\/p>\n    <\/div>\n  <\/div>\n<\/div>\n"});</script>
+<script>MaxxConsole.assets("interest", {css: "/* Generated by tools/migrations/interest.py (tools/migrations/interest_style.css). Do not edit. */\n/* REWRITE 2026-09-29 (reskin step 4, docs/reskin-plan.md): the look of the agreed comparison\n   mock on the shared tokens. One colour per meaning: the size bars are grey, a picked row and the\n   set being edited are a quiet grey, the chosen keyword chip is raised like the segmented control,\n   orange only on the caution chips (\"กลุ่มเล็ก\", \"กว้างทั่วไป\"), red only on \"ลบ\". Gold stays on the\n   main buttons (ค้นหา, บันทึก) and the ticked boxes; the Claude button is the AI button. */\n:host{ display:block; font-family:var(--f-body); font-size:14px; line-height:1.55; color:var(--ink); }\n*{ box-sizing:border-box; }\n.wrap{ display:flex; flex-direction:column; gap:16px; padding-bottom:4px; }\nh1,h2,h3{ font-family:var(--f-display); margin:0; text-wrap:balance; }\nbutton,input,select,textarea{ font:inherit; color:inherit; }\nbutton{ cursor:pointer; }\n.btn svg{ width:15px; height:15px; flex:none; }\n.mono{ font-family:var(--f-mono); font-variant-numeric:tabular-nums; }\n[hidden]{ display:none !important; }\n\n/* the search box (step 4b, owner 2026-09-29, version ก): two halves with \"หรือ\" on the line\n   between them; asking Claude on the left, searching yourself on the right; each half has a\n   title, its field and button on one line, then one small line. Without Claude the right half\n   takes the whole box. */\n.card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); }\n.findbox{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:16px; padding:18px 0; }\n.half{ display:flex; flex-direction:column; gap:10px; min-width:0; }\n.aicol{ padding:0 24px 0 20px; }\n.mcol{ padding:0 20px 0 24px; position:relative; }\n.mcol::before{ content:\"\"; position:absolute; top:2px; bottom:2px; left:-8px; border-left:1px solid var(--line); }\n#ai-card[hidden] + .mcol{ grid-column:1 / -1; padding-left:20px; }\n#ai-card[hidden] + .mcol::before, #ai-card[hidden] + .mcol .ior{ display:none; }\n.hhead h3{ font-family:var(--f-display); font-size:14.5px; font-weight:600; }\n.hhead p{ margin:2px 0 0; font-size:12.5px; color:var(--muted); }\n.hhead p.one{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }\n.hbar{ display:flex; gap:8px; align-items:center; position:relative; }\n.hbar.top{ align-items:flex-start; }\n.ior{ position:absolute; left:-32px; top:50%; transform:translate(-50%,-50%); z-index:1; background:var(--surface); color:var(--muted); font-size:12px; padding:2px 8px; border:1px solid var(--line); border-radius:999px; }\n.hbar textarea{ flex:1 1 auto; min-width:0; height:60px; resize:vertical; padding:8px 11px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); font-size:14px; line-height:1.45; }\n.hbar textarea::placeholder{ color:var(--faint); }\n.hbar textarea:focus{ outline:none; box-shadow:var(--focus); }\n.ai-go, .go{ min-height:38px; flex:none; }\n.ai-msg{ margin:0; font-size:12.5px; color:var(--muted); line-height:1.55; display:flex; gap:8px; align-items:center; }\n.ai-msg:empty{ display:none; }\n.ai-msg.bad{ color:var(--warn); }\n.ai-msg .spin{ width:12px; height:12px; border:2px solid var(--line-strong); border-top-color:var(--ink-2); border-radius:50%; animation:sp .8s linear infinite; flex:none; }\n@keyframes sp{ to{ transform:rotate(360deg); } }\n@media (prefers-reduced-motion:reduce){ .ai-msg .spin{ animation:none; } }\n.field{ position:relative; flex:1 1 auto; min-width:0; }\n.field input{ width:100%; min-height:38px; padding:8px 11px 8px 36px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); font-size:14px; }\n.field input::placeholder{ color:var(--faint); }\n.field input:focus{ outline:none; box-shadow:var(--focus); }\n.field .ico{ position:absolute; left:11px; top:50%; transform:translateY(-50%); color:var(--muted); pointer-events:none; display:flex; }\n@media (max-width:900px){\n  .findbox{ grid-template-columns:1fr; row-gap:28px; }\n  .aicol, .mcol{ padding:0 20px; }\n  .mcol::before{ top:-14px; bottom:auto; left:20px; right:20px; border-left:0; border-top:1px solid var(--line); }\n  /* stacked: \"หรือ\" sits on the line above the right half */\n  .hbar.sbar{ position:static; }\n  .ior{ top:-14px; left:50%; }\n}\n\n/* results, sets and the trail */\n.cols{ display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:16px; align-items:start; }\n@media (max-width:900px){ .cols{ grid-template-columns:1fr; } }\n.side{ display:grid; gap:16px; align-content:start; }\n/* the shared .panel pads its content; this page lays out its own rows edge to edge */\n.panel{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); overflow:hidden; padding:0; }\n.panel-head{ display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); margin:0; }\n.panel-head h2{ font-size:15px; font-weight:600; }\n.panel-head .count{ font-family:var(--f-mono); font-size:12px; color:var(--muted); }\n.panel-head .count{ margin-left:auto; }\n.sortl{ font-size:12.5px; color:var(--muted); margin-left:8px; }\n#sort{ border:1px solid var(--line); background:var(--surface-2); border-radius:var(--r-sm); padding:4px 8px; font-size:13px; }\n#sort:focus{ outline:none; box-shadow:var(--focus); }\n.kwstrip{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; padding:10px 18px; border-bottom:1px solid var(--line); font-size:12.5px; color:var(--muted); }\n.kwstrip > span{ margin-right:4px; }\n.kw{ font-size:12.5px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink-2); border-radius:999px; padding:3px 11px; }\n.kw:hover{ color:var(--ink); }\n.kw:focus-visible{ outline:none; box-shadow:var(--focus); }\n.kw .n{ font-family:var(--f-mono); font-size:11px; opacity:.7; margin-inline-start:4px; }\n.kw.on{ background:var(--seg-on); color:var(--ink); font-weight:500; border-color:transparent; box-shadow:var(--shadow), 0 0 0 1px var(--seg-on-line); }\n\n.rows{ list-style:none; margin:0; padding:0; }\n.row{ display:grid; grid-template-columns:20px minmax(0,1fr) auto; gap:12px; padding:11px 18px; border-bottom:1px solid var(--line); align-items:start; }\n.row:last-child{ border-bottom:0; }\n.row:hover, .row.picked{ background:var(--surface-2); }\n.row input[type=checkbox]{ width:16px; height:16px; margin:3px 0 0; accent-color:var(--primary); }\n.r-name{ font-weight:500; font-size:14px; line-height:1.35; background:none; border:0; padding:0; text-align:left; color:var(--ink); }\n.r-name:hover{ text-decoration:underline; text-underline-offset:3px; }\n.r-name:focus-visible{ outline:none; box-shadow:var(--focus); border-radius:4px; }\n.r-meta{ display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; margin-top:3px; font-size:11.5px; color:var(--muted); }\n.chip{ border:1px solid var(--line); border-radius:999px; padding:0 8px; font-size:11px; color:var(--ink-2); white-space:nowrap; }\n.chip.small{ border-color:var(--warn); color:var(--warn); }\n.id{ font-family:var(--f-mono); font-size:11px; color:var(--faint); }\n.path{ font-size:11.5px; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:100%; margin-top:2px; }\n.size{ text-align:right; min-width:128px; }\n.size .num{ font-family:var(--f-mono); font-variant-numeric:tabular-nums; font-size:12.5px; color:var(--ink-2); white-space:nowrap; }\n.size .track{ height:4px; border-radius:2px; background:var(--surface-3); margin-top:5px; overflow:hidden; }\n.size .fill{ height:100%; background:var(--ink-2); opacity:.5; border-radius:2px; }\n.size .approx{ font-size:10.5px; color:var(--faint); margin-top:2px; }\n@media (max-width:560px){\n  .row{ grid-template-columns:20px minmax(0,1fr); }\n  .size{ grid-column:2; text-align:left; min-width:0; }\n  .size .track{ max-width:180px; }\n}\n\n.trail{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:11px 18px; border-bottom:1px solid var(--line); font-size:12.5px; }\n.trail .step{ background:var(--surface-2); border:1px solid var(--line); border-radius:7px; padding:2px 9px; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink-2); }\nbutton.step{ font:inherit; }\nbutton.step:hover{ color:var(--ink); border-color:var(--line-strong); }\nbutton.step:focus-visible{ outline:none; box-shadow:var(--focus); }\n.trail .step.cur{ border-color:var(--line-strong); color:var(--ink); font-weight:500; }\n.trail .arrow, .trail-empty{ color:var(--faint); }\n\n.state{ padding:28px 18px; text-align:center; color:var(--muted); font-size:13.5px; }\n.state strong{ display:block; font-family:var(--f-display); font-size:15px; color:var(--ink); font-weight:600; margin-bottom:6px; }\n.state .btn{ margin-top:12px; }\n.skel{ padding:12px 18px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:20px 1fr 110px; gap:12px; align-items:center; }\n.sk{ height:11px; border-radius:5px; background:linear-gradient(90deg,var(--surface-2) 25%,var(--surface-3) 50%,var(--surface-2) 75%); background-size:220% 100%; animation:sh 1.5s linear infinite; }\n.sk.b{ height:14px; }\n.sk.s{ width:60%; }\n@keyframes sh{ to{ background-position:-220% 0; } }\n@media (prefers-reduced-motion:reduce){ .sk{ animation:none; } }\n\n.setlist{ list-style:none; margin:0; padding:0; max-height:300px; overflow:auto; }\n.setitem{ display:flex; gap:10px; align-items:center; justify-content:space-between; padding:11px 18px; border-bottom:1px solid var(--line); }\n.setitem:last-child{ border-bottom:0; }\n.setitem.cur{ background:var(--surface-2); }\n.setitem .nm{ font-weight:500; font-size:14px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }\n.setitem .sub{ font-size:11.5px; color:var(--muted); font-family:var(--f-mono); }\n.linkbtn{ background:none; border:0; color:var(--ink-2); font-size:12.5px; font-weight:500; padding:3px 6px; border-radius:6px; }\n.linkbtn:hover{ background:var(--surface-3); }\n.linkbtn:focus-visible{ outline:none; box-shadow:var(--focus); }\n.linkbtn.danger{ color:var(--crit); }\n.footnote{ font-size:12px; color:var(--faint); line-height:1.6; margin:0; }\n\n/* the basket, stuck to the bottom of the page */\n.dock{ position:sticky; bottom:0; z-index:5; margin-top:16px; background:var(--surface); border:1px solid var(--line); border-bottom:0; border-radius:var(--r-lg) var(--r-lg) 0 0; box-shadow:var(--shadow-lg); }\n.dock-in{ padding:11px 18px 13px; }\n.dock-bar{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:space-between; }\n.dock-cnt{ display:flex; align-items:center; gap:10px; font-size:13.5px; }\n.badge{ background:var(--ink); color:var(--surface); border-radius:999px; min-width:26px; height:24px; display:inline-flex; align-items:center; justify-content:center; padding:0 8px; font-family:var(--f-mono); font-size:12.5px; font-weight:500; }\n.dock-acts{ display:flex; gap:6px; flex-wrap:wrap; }\n.dock-body{ border-top:1px solid var(--line); margin-top:11px; padding-top:11px; max-height:34vh; overflow:auto; display:flex; flex-direction:column; gap:11px; }\n.pills{ display:flex; flex-wrap:wrap; gap:6px; }\n.pill{ display:inline-flex; align-items:center; gap:6px; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:3px 5px 3px 11px; font-size:12.5px; max-width:100%; }\n.pill .x{ border:0; background:none; color:var(--muted); font-size:15px; line-height:1; padding:2px 5px; border-radius:50%; }\n.pill .x:hover{ color:var(--crit); background:var(--surface-3); }\n.editrow{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }\n.editing{ margin:0; font-size:13px; color:var(--ink-2); flex:1 1 260px; }\n.saverow{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }\n.saverow input{ flex:1 1 240px; min-width:0; min-height:36px; padding:7px 11px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); }\n.saverow input:focus{ outline:none; box-shadow:var(--focus); }\n.savemsg{ font-size:12px; line-height:1.5; margin:0; color:var(--muted); }\n.savemsg:empty{ display:none; }\n.savemsg.bad{ color:var(--warn); }\n", view: "<!-- REWRITE 2026-09-29 (reskin step 4, docs/reskin-plan.md): the markup of the agreed comparison\n     mock (docs/design/reskin-options.src.html, Interest Finder). The title, description, update\n     time and refresh come from the shared page header (ctx.page); the page has no account bar.\n     The \"whose account\" line is gone (owner 2026-09-29); what the sizes mean stays in the\n     footnote. Every id the code uses is kept.\n     Step 4b (owner 2026-09-29, version ก of the mock): the search box is two halves with \"หรือ\"\n     between, asking Claude on the left and searching yourself on the right, each with its field\n     and button on one line; the Claude box is two lines; the sort sits on the results.\n     Step 4c (owner 2026-09-29): the Claude button reads \"ค้นด้วย Claude\", the same verb as ค้นหา beside\n     it, so the two read as two ways to search (first \"หา Interest\").\n     2026-10-01 (owner): the six example words (\"ลองค้น\", once \"คำที่ใช้บ่อย\") are gone. They were fixed\n     general words that rarely match the viewer's business; the search field's placeholder still gives\n     examples, and the Claude box covers \"I do not know what to search\". -->\n<div class=\"wrap\">\n  <section class=\"card findbox\" aria-label=\"ค้นหา interest\">\n    <div class=\"half aicol\" id=\"ai-card\" hidden>\n      <div class=\"hhead\">\n        <h3><label for=\"ai-input\">ให้ Claude หาให้<\/label><\/h3>\n        <p class=\"one\">บอกว่าขายอะไร ขายให้ใคร Claude จะเลือกคำค้น แล้วรวมผลของทุกคำมาให้<\/p>\n      <\/div>\n      <div class=\"hbar top\">\n        <textarea id=\"ai-input\" rows=\"2\" maxlength=\"1200\" placeholder=\"เช่น ครีมกันแดดสำหรับผู้หญิงทำงาน อายุ 25–40 ราคา 590 บาท ขายผ่านทักแชท เน้นคนกลัวฝ้า-กระ\"><\/textarea>\n        <button class=\"btn btn-ai ai-go\" id=\"ai-go\" type=\"button\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z\"/><path d=\"M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z\"/><\/svg><span id=\"ai-go-label\">ค้นด้วย Claude<\/span><\/button>\n      <\/div>\n      <p class=\"ai-msg\" id=\"ai-msg\"><\/p>\n    <\/div>\n\n    <div class=\"half mcol\">\n      <div class=\"hhead\">\n        <h3><label for=\"q\">ค้นเอง<\/label><\/h3>\n        <p class=\"one\">พิมพ์ชื่อความสนใจ ไทยหรืออังกฤษก็ได้<\/p>\n      <\/div>\n      <div class=\"hbar sbar\">\n        <span class=\"ior\" aria-hidden=\"true\">หรือ<\/span>\n        <div class=\"field\">\n          <span class=\"ico\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"7\" r=\"4.6\"/><path d=\"M10.4 10.4 14 14\"/><\/svg><\/span>\n          <input id=\"q\" type=\"search\" placeholder=\"พิมพ์คำค้น เช่น กาแฟ, skincare, วิ่ง\" autocomplete=\"off\" spellcheck=\"false\">\n        <\/div>\n        <button class=\"btn btn-primary go\" id=\"go\" type=\"button\">ค้นหา<\/button>\n      <\/div>\n    <\/div>\n  <\/section>\n\n  <div class=\"cols\">\n    <section class=\"panel\" aria-labelledby=\"h-res\">\n      <div class=\"panel-head\"><h2 id=\"h-res\">ผลการค้นหา<\/h2><span class=\"count\" id=\"res-count\"><\/span>\n        <label class=\"sortl\" for=\"sort\">เรียง<\/label>\n        <select id=\"sort\">\n          <option value=\"match\">เกี่ยวข้องมากสุด<\/option>\n          <option value=\"big\">ใหญ่ → เล็ก<\/option>\n          <option value=\"small\">เล็ก → ใหญ่<\/option>\n          <option value=\"name\">ชื่อ ก–ฮ / A–Z<\/option>\n        <\/select>\n      <\/div>\n      <div class=\"kwstrip\" id=\"kwstrip\" hidden><\/div>\n      <div id=\"res\"><\/div>\n    <\/section>\n\n    <div class=\"side\">\n      <section class=\"panel\" aria-labelledby=\"h-sets\">\n        <div class=\"panel-head\"><h2 id=\"h-sets\">ชุดที่บันทึกไว้<\/h2><span class=\"count\" id=\"sets-count\"><\/span><\/div>\n        <div id=\"sets\"><\/div>\n      <\/section>\n\n      <section class=\"panel\" aria-labelledby=\"h-rel\">\n        <div class=\"panel-head\"><h2 id=\"h-rel\">ไล่ดูตัวที่เกี่ยวข้อง<\/h2><span class=\"count\" id=\"rel-count\"><\/span><\/div>\n        <div class=\"trail\" id=\"trail\"><span class=\"trail-empty\">คลิกชื่อ interest ในผลการค้นหา เพื่อไล่ดูตัวที่เกี่ยวข้องต่อเป็นสาย<\/span><\/div>\n        <div id=\"rel\"><\/div>\n      <\/section>\n    <\/div>\n  <\/div>\n\n  <p class=\"footnote\">ขนาดกลุ่มเป็นค่าประมาณที่ Meta ให้มาเป็นช่วง (ต่ำสุด–สูงสุด) เปลี่ยนได้ตลอด ไม่ใช่จำนวนคนที่จะเห็นโฆษณาจริง · แถบขนาดใช้สเกลลอการิทึม เพราะค่าจริงห่างกันหลักหมื่นถึงหลักพันล้าน · การค้นแต่ละครั้งเรียก Meta ผ่านหลังบ้าน MaxxGPT ซึ่งจำกัด 200 ครั้งต่อชั่วโมง การให้ Claude หาให้หนึ่งครั้งใช้ไป 6 ครั้ง (คำละครั้ง) และใช้ Claude ของบัญชีที่เปิดหน้านี้<\/p>\n<\/div>\n\n<div class=\"dock\">\n  <div class=\"dock-in\">\n    <div class=\"dock-bar\">\n      <div class=\"dock-cnt\"><span class=\"badge\" id=\"b-count\">0<\/span><span id=\"b-label\">ยังไม่ได้เลือก interest<\/span>\n        <button class=\"linkbtn\" id=\"b-toggle\" type=\"button\" hidden>ซ่อนรายการ<\/button>\n      <\/div>\n      <div class=\"dock-acts\">\n        <button class=\"btn btn-sm\" id=\"c-names\" type=\"button\" disabled>ก๊อปชื่อ<\/button>\n        <button class=\"btn btn-sm\" id=\"c-ids\" type=\"button\" disabled>ก๊อป id<\/button>\n        <button class=\"btn btn-sm\" id=\"c-both\" type=\"button\" disabled>ก๊อปชื่อ + id<\/button>\n        <button class=\"btn btn-sm\" id=\"dl\" type=\"button\" disabled>ดาวน์โหลด CSV<\/button>\n        <button class=\"btn btn-sm btn-quiet\" id=\"clear\" type=\"button\" disabled>ล้าง<\/button>\n      <\/div>\n    <\/div>\n    <div class=\"dock-body\" id=\"dock-body\" hidden>\n      <div class=\"editrow\" id=\"editrow\" hidden>\n        <p class=\"editing\" id=\"editing\"><\/p>\n        <button class=\"btn btn-primary\" id=\"save-over\" type=\"button\">บันทึกทับชุดนี้<\/button>\n      <\/div>\n      <div class=\"pills\" id=\"pills\"><\/div>\n      <div class=\"saverow\">\n        <input id=\"setname\" type=\"text\" placeholder=\"ตั้งชื่อชุด เช่น ชุดคนรักสุขภาพ\" maxlength=\"80\">\n        <button class=\"btn btn-primary\" id=\"save\" type=\"button\">บันทึกเป็นชุดใหม่<\/button>\n      <\/div>\n      <p class=\"savemsg\" id=\"savemsg\"><\/p>\n    <\/div>\n  <\/div>\n<\/div>\n"});</script>
 <script>
 (function (defineModule, defineLogic) {
 /* Interest search: generated by tools/migrations/interest.py from
@@ -2765,14 +2776,12 @@ function renderKwStrip(){
 function renderResults(){
   var host = $("res"), cnt = $("res-count");
   renderKwStrip();
-  /* step 4c (owner 2026-09-29): the example words only while there is nothing listed and a search can run */
-  $("seeds").hidden = !(view.rstate === "idle" || view.rstate === "error" || (view.rstate === "ok" && !(view.results || []).length));
   if (view.rstate === "nocap"){ fill(host, connectorState()); cnt.textContent = ""; return; }
   if (view.rstate === "loading"){ fill(host, skeleton(6)); cnt.textContent = "กำลังค้น…"; return; }
   if (view.rstate === "error"){ fill(host, errorState(view.rerr, "search")); cnt.textContent = ""; return; }
   if (view.rstate === "idle"){
-    fill(host, stateBox("พิมพ์คำค้นแล้วกดปุ่ม “ค้นหา”",
-      "ค้นได้ทั้งไทยและอังกฤษ · หน้านี้จะไม่ค้นเองจนกว่าคุณจะกด (กด Enter ในช่องก็ได้)\nหรือบอกด้านบนว่าขายอะไร แล้วให้ Claude หาคำค้นให้"));
+    // owner 2026-10-01: one quiet line; the search box above already says how to search and that Claude can
+    fill(host, stateBox(null, "ยังไม่มีผลการค้นหา"));
     cnt.textContent = ""; return;
   }
   var all = view.results || [];
@@ -3262,12 +3271,6 @@ $("ai-input").addEventListener("keydown", function(e){
 $("go").addEventListener("click", submitSearch);
 $("q").addEventListener("keydown", function(e){ if (e.key === "Enter"){ e.preventDefault(); submitSearch(); } });
 $("q").addEventListener("search", function(e){ if (!e.target.value.trim()) runSearch(""); });  /* the input's own clear button */
-root.querySelectorAll(".seed").forEach(function(b){
-  b.addEventListener("click", function(){
-    var s = b.getAttribute("data-seed");
-    $("q").value = s; runSearch(s);
-  });
-});
 $("sort").addEventListener("change", function(){ renderResults(); renderRelated(); renderBasket(); });
 
 /* run01 OBS-02: opening a set replaces the basket; when the basket holds anything, ask first */
@@ -4382,29 +4385,56 @@ function useOtherAccount(force){
 }
 
 /* ============ บัญชี + เพจ + audience ============ */
+/* REWRITE 2026-10-02 (MaxxGPT V4, original lines 743-769): the "other account" list is the ad
+   accounts the customer linked in MaxxGPT (list_ad_accounts), not every account the Meta
+   connector can see, so the launcher offers the same accounts as the other tabs. Each account
+   keeps the shape the rest of the page reads (ad_account_id without act_, ad_account_name,
+   business_name, currency). The minimum daily budget is not in MaxxGPT's list; it is read from
+   MaxxGPT when an account is chosen (launch_v4_pages.js). The account can still be typed by ID. */
+// what a MaxxGPT refusal says, by its code (the tool answers with an error whose text is JSON)
+function maxxCode(e){
+  var r = e && e.result && typeof e.result==="object" ? e.result : null;
+  var texts = r ? [r.payload, r.structuredContent].concat((Array.isArray(r.content)? r.content : []).map(function(c){ return c && c.text; })) : [];
+  texts.push(e && e.message);
+  for(var i=0;i<texts.length;i++){
+    var v=texts[i];
+    if(typeof v==="string"){ try{ v=JSON.parse(v); }catch(x){ v=null; } }
+    if(v && typeof v==="object" && v.code) return (v.code==="NO_AD_ACCOUNT" && v.reason==="OVER_QUOTA") ? "OVER_QUOTA" : String(v.code);
+  }
+  return "";
+}
+var MAXX_WHY = {
+  NO_AD_ACCOUNT: "ยังไม่ได้เชื่อม Facebook หรือยังไม่ได้เลือกบัญชีโฆษณาใน MaxxGPT เปิดเว็บ MaxxGPT เพื่อเชื่อมต่อและเลือกบัญชีก่อน",
+  OVER_QUOTA: "บัญชีโฆษณาหรือเพจที่ผูกไว้ใน MaxxGPT เกินจำนวนที่แพ็กเกจให้ เปิดเว็บ MaxxGPT → จัดการบัญชี แล้วเลือกตัวที่จะเก็บไว้",
+  SUBSCRIPTION_EXPIRED: "แพ็กเกจ MaxxGPT ของคุณใช้งานไม่ได้แล้ว ต่ออายุในเว็บ MaxxGPT ก่อน",
+  AD_ACCOUNT_NOT_ALLOWED: "บัญชีนี้ไม่ได้ผูกกับ MaxxGPT ของคุณ",
+};
+function maxxText(e){ return MAXX_WHY[maxxCode(e)] || errText(e); }
 function loadAccounts(){
   var b=$("btnAccounts");
   b.disabled=true; b.innerHTML='<span class="spin"></span> กำลังโหลด';
-  setChip("c-meta","busy","Meta ads");
-  callTool("meta","ads_get_ad_accounts",metaArgs("ขอดูรายการบัญชีโฆษณาที่ใช้ได้",{limit:50}))
+  setChip("c-maxx","busy","MaxxGPT");
+  callTool("maxxgpt","list_ad_accounts",{limit:200})
   .then(function(d){
-    S.accounts = d.ad_accounts || [];
+    S.accounts = (d.ad_accounts || []).map(function(a){
+      return {ad_account_id:String(a.id||"").replace(/^act_/,""), ad_account_name:a.name||"", business_name:a.business_name||"",
+        currency:a.currency||"", tz:a.timezone_name||""};
+    }).filter(function(a){ return a.ad_account_id; });
     var sel=$("accountSel");
     sel.innerHTML='<option value="">— เลือกบัญชี —</option>';
     S.accounts.forEach(function(a){
-      if(a.is_ads_mcp_enabled===false) return;
       var o=document.createElement("option");
       o.value=a.ad_account_id;
       o.textContent=(a.ad_account_name||a.ad_account_id)+(a.business_name?" · "+a.business_name:"")+" ("+(a.currency||"?")+")";
       sel.appendChild(o);
     });
-    setChip("c-meta","on","Meta ads · "+S.accounts.length+" บัญชี");
-    $("acctNote").textContent="โหลดแล้ว "+S.accounts.length+" บัญชี"+(d.next_cursor?" (ยังมีอีก — พิมพ์ ID เองได้ถ้าไม่เจอ)":"");
+    setChip("c-maxx","on",S.bound?"MaxxGPT · ผูกบัญชีแล้ว":"MaxxGPT");
+    $("acctNote").textContent="โหลดแล้ว "+S.accounts.length+" บัญชีที่ผูกไว้ใน MaxxGPT"+(d.matched>S.accounts.length?" (ยังมีอีก — พิมพ์ ID เองได้ถ้าไม่เจอ)":"");
     $("acctNote").className="note ok";
   })
   .catch(function(e){
-    setChip("c-meta","off","Meta ads");
-    $("acctNote").textContent=errText(e); $("acctNote").className="note bad";
+    setChip("c-maxx","off","MaxxGPT");
+    $("acctNote").textContent=maxxText(e); $("acctNote").className="note bad";
   })
   .then(function(){ b.disabled=false; b.textContent="โหลดบัญชี"; });
 }
@@ -4423,25 +4453,47 @@ function onAccountChange(){
   loadPages(id); loadCustomAudiences(id); loadDatasets(id); render();
 }
 
+/* REWRITE 2026-10-02 (MaxxGPT V4, original lines 784-803): the pages are the ones the customer
+   linked in MaxxGPT (list_pages) instead of the Meta connector's pages of the ad account. MaxxGPT
+   keeps pages apart from ad accounts, so the same list serves every account; the page selected in
+   the MaxxGPT web app is chosen to start with. MaxxGPT does not say whether a page accepted the
+   lead-form terms, so that hint is gone. The page can still be typed by ID.
+   The account's minimum daily budget comes from MaxxGPT too (daily_budget_account, which reads it
+   from Meta for that account): Meta's account list carried it, MaxxGPT's list does not. */
 function loadPages(id){
-  callTool("meta","ads_get_ad_account_pages",metaArgs("ขอดูเพจที่ผูกกับบัญชีนี้",{ad_account_id:id,limit:50}))
+  callTool("maxxgpt","list_pages",{})
   .then(function(d){
-    S.pages = d.pages || [];
+    if(val("accountSel")!==id) return;   // another account was chosen meanwhile
+    S.pages = (d.pages || []).map(function(p){ return {page_id:String(p.id||""), page_name:p.name||String(p.id||""), is_active:p.is_active===true}; })
+      .filter(function(p){ return p.page_id; });
     var sel=$("pageSel");
     sel.innerHTML='<option value="">— เลือกเพจ —</option>';
     S.pages.forEach(function(p){
       var o=document.createElement("option");
       o.value=p.page_id;
-      o.textContent=p.page_name+(p.leadgen_tos_accepted?"":" · ยังไม่รับ ToS ลีด");
+      o.textContent=p.page_name;
       sel.appendChild(o);
     });
-    if(S.pages.length===1){ sel.value=S.pages[0].page_id; onPageChange(); }
+    var first = S.pages.length===1 ? S.pages[0] : S.pages.filter(function(p){ return p.is_active; })[0];
+    if(first){ sel.value=first.page_id; onPageChange(); }
     render();
   })
   .catch(function(e){
     $("pageSel").innerHTML='<option value="">— โหลดเพจไม่สำเร็จ —</option>';
-    $("acctNote").textContent=errText(e); $("acctNote").className="note bad";
+    $("acctNote").textContent=maxxText(e); $("acctNote").className="note bad";
   });
+  loadMinBudget(id);
+}
+function loadMinBudget(id){
+  callTool("maxxgpt","daily_budget_account",{ad_account_id:"act_"+id})
+  .then(function(d){
+    var mb = d && d.data ? Number(d.data.min_daily_budget) : 0;
+    if(!S.account || S.account.ad_account_id!==id || !(mb>0)) return;
+    S.account.min_daily_budget_cents = mb;
+    $("minBudgetNote").textContent = "งบขั้นต่ำ "+(mb/100).toFixed(2)+" บาท/วัน";
+    render();
+  })
+  .catch(function(){ /* the budget warning is a help, not a gate: without it Meta still refuses a budget that is too low */ });
 }
 function onPageChange(){
   var id=val("pageSel");
@@ -5657,203 +5709,6 @@ api = { started: false, boot: function () { return boot(); }, recheck: function 
 <script>MaxxConsole.assets("fatigue", {css: "/* Generated by tools/migrations/fatigue.py (tools/migrations/fatigue_style.css). Do not edit. */\n/* REWRITE 2026-09-29 (reskin step 3, docs/reskin-plan.md): the look of the agreed comparison\n   mock on the shared tokens. One colour for charts (ink, red only for the \"fatigued\" line and an\n   ad that is fatigued), status colours only on the tier dots and bad changes, notices with a\n   coloured edge (.mx-notice from the shared components). */\n*{box-sizing:border-box}\n:host{ font-family:var(--f-body); font-size:14px; line-height:1.55; color:var(--ink); }\n.wrap{ display:flex; flex-direction:column; gap:16px; }\nh1,h2,h3{ font-family:var(--f-display); text-wrap:balance; margin:0; }\nh2{ font-size:15px; font-weight:600; }\np{ margin:0; }\n.num,td.n,.mono{ font-variant-numeric:tabular-nums; }\n.mono{ font-family:var(--f-mono); }\nbutton,select,input{ font:inherit; color:inherit; }\na.btn{ text-decoration:none; }\n.btn svg{ width:14px; height:14px; flex:none; }\n.dot{ display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--faint); flex:none; }\n.dot.crit{ background:var(--crit); } .dot.warn{ background:var(--warn); } .dot.ok{ background:var(--ok); }\n.mx-notice > span{ flex:1; }\n.mx-notice .btn{ align-self:center; }\n\n/* summary: five boxes, the first one stands out with a red edge (owner kept the five boxes) */\n.summary{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }\n.stat{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:12px 14px; display:flex; flex-direction:column; gap:4px; }\n.stat .k{ font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:6px; }\n.stat .v{ font-family:var(--f-display); font-size:24px; font-weight:600; line-height:1.2; }\n.stat.hero{ border-left:3px solid var(--crit); }\n.stat.hero .v{ color:var(--crit); }\n@media (max-width:760px){ .summary{ grid-template-columns:repeat(2,minmax(0,1fr)); } .stat.hero{ grid-column:1/-1; } }\n\n/* whole-page states and loading */\n.card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); }\n.card > .hd{ display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); }\n.card > .hd .sub{ margin-left:auto; font-size:12.5px; color:var(--muted); }\n.state{ padding:40px 24px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; }\n.state > svg{ width:30px; height:30px; color:var(--faint); }\n.state.err > svg{ color:var(--crit); }\n.state h3{ font-size:16px; font-weight:600; }\n.state p{ max-width:60ch; color:var(--muted); font-size:13.5px; }\n.state ol{ margin:0; padding-left:20px; text-align:left; color:var(--ink-2); max-width:60ch; font-size:13.5px; }\n.state .btn{ margin-top:6px; }\n.sk{ background:linear-gradient(90deg,var(--surface-2) 25%,var(--surface-3) 50%,var(--surface-2) 75%); background-size:200% 100%; animation:sh 1.4s infinite; border-radius:6px; height:14px; }\n@keyframes sh{ to{ background-position:-200% 0; } }\n@media (prefers-reduced-motion:reduce){ .sk{ animation:none; } .chev svg{ transition:none; } }\n\n/* the ad table: the filters sit on its head, the explanation under it */\n.tablebox{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); overflow:hidden; }\n.tablehead{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; padding:12px 18px; border-bottom:1px solid var(--line); }\n/* ads that stopped delivering: a box right after the title shows them (owner 2026-09-29) */\n.stopchk{ display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--muted); white-space:nowrap; cursor:pointer; }\n.stopchk input{ margin:0; accent-color:var(--primary); cursor:pointer; }\n.stopchk input:focus-visible{ outline:none; box-shadow:var(--focus); }\n.filters{ margin-left:auto; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; font-size:13px; color:var(--muted); }\n.filters label{ display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }\n.filters input{ width:84px; text-align:right; font-size:13.5px; padding:5px 8px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); color:var(--ink); font-variant-numeric:tabular-nums; }\n.filters input:focus-visible{ outline:none; box-shadow:var(--focus); }\n.cap{ padding:10px 18px; font-size:12px; color:var(--faint); border-top:1px solid var(--line); }\n.scroll{ overflow-x:auto; }\ntable{ width:100%; border-collapse:collapse; font-size:13.5px; }\nth{ font-size:12px; font-weight:500; color:var(--faint); text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); white-space:nowrap; }\nth.n,td.n{ text-align:right; }\ntd{ padding:10px; border-bottom:1px solid var(--line); vertical-align:middle; }\ntr.ad{ cursor:pointer; }\ntr.ad:hover td{ background:var(--surface-2); }\ntr.ad:focus-visible{ outline:none; }\ntr.ad:focus-visible td{ box-shadow:inset 0 2px 0 var(--line-strong), inset 0 -2px 0 var(--line-strong); }\ntr.ad.ordered td:not(.keep){ opacity:.6; }\ntr.ad[aria-expanded=\"true\"] td, tr.detail td{ background:var(--surface-2); }\ntd.c-chev{ width:28px; padding-right:0; }\n.chev{ display:inline-flex; color:var(--faint); }\n.chev svg{ width:14px; height:14px; transform:rotate(-90deg); transition:transform .15s; }\ntr.ad[aria-expanded=\"true\"] .chev svg{ transform:none; }\n.tier{ display:inline-flex; align-items:center; gap:6px; font-size:13px; white-space:nowrap; }\n.adname{ font-weight:500; max-width:280px; overflow-wrap:anywhere; }\n.adid{ font-family:var(--f-mono); font-size:11.5px; color:var(--faint); }\n.tag{ display:block; font-size:11.5px; color:var(--faint); margin-top:2px; }\n.delta{ color:var(--muted); }\n.delta.bad{ color:var(--crit); font-weight:500; }\n.chk{ display:inline-flex; gap:6px; align-items:center; font-size:12.5px; color:var(--muted); cursor:pointer; white-space:nowrap; }\n.chk input{ width:16px; height:16px; accent-color:var(--primary); }\n.spark{ display:block; }\ntr.detail td{ padding:4px 10px 14px; cursor:default; }\n.detail-meta{ display:flex; flex-wrap:wrap; gap:4px 18px; margin:2px 0 10px; font-size:12.5px; color:var(--muted); }\n.charts{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }\n.chart{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:10px 12px; }\n.chart h3{ font-family:var(--f-body); font-size:12.5px; font-weight:400; color:var(--muted); display:flex; justify-content:space-between; gap:8px; margin-bottom:4px; }\n.chart h3 span b{ color:var(--ink); font-family:var(--f-display); font-weight:600; }\n.chart svg{ width:100%; height:auto; display:block; }\n.chart .empty{ color:var(--muted); font-size:12.5px; padding:24px 0; }\n@media (max-width:760px){ .charts{ grid-template-columns:1fr; } }\n\n/* the criteria, folded under the table (owner 2026-09-29) */\ndetails.criteria{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); }\ndetails.criteria > summary{ list-style:none; display:flex; align-items:center; gap:10px; padding:14px 18px; cursor:pointer; }\ndetails.criteria > summary::-webkit-details-marker{ display:none; }\ndetails.criteria > summary:focus-visible{ outline:none; box-shadow:var(--focus); border-radius:var(--r-lg); }\ndetails.criteria > summary .sub{ margin-left:auto; font-size:12.5px; color:var(--muted); }\ndetails.criteria > summary .sub::after{ content:\" · กดเพื่อดู\"; }\ndetails.criteria[open] > summary .sub::after{ content:\" · กดเพื่อซ่อน\"; }\ndetails.criteria[open] > summary{ border-bottom:1px solid var(--line); }\n.crit-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 28px; padding:16px 18px; }\n.crit-grid h3{ font-size:13.5px; font-weight:600; margin-bottom:6px; }\n.crit-grid dl{ margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px 12px; font-size:13px; }\n.crit-grid dt{ white-space:nowrap; display:inline-flex; align-items:center; gap:6px; font-weight:500; }\n.crit-grid dd{ margin:0; color:var(--muted); }\n.crit-grid p{ font-size:13px; color:var(--muted); }\n@media (max-width:760px){ .crit-grid{ grid-template-columns:1fr; } }\n", view: "<!-- REWRITE 2026-09-29 (reskin step 3, docs/reskin-plan.md): the markup of the agreed comparison\n     mock (docs/design/reskin-options.src.html, Creative Fatigue). The title, description, update\n     time, refresh and the account (with the account menu) come from the shared page header\n     (ctx.page). The filters sit on the table they filter and stay in place while the table\n     redraws, so typing in them keeps focus. The criteria box is folded under the table (owner). -->\n<div class=\"wrap\">\n  <div id=\"banner\" hidden><\/div>\n\n  <section class=\"summary\" id=\"summary\" aria-label=\"สรุป\">\n    <div class=\"stat hero\"><span class=\"k\">ต้องเปลี่ยนภายในสัปดาห์นี้<\/span><span class=\"v num\" id=\"sWeek\">–<\/span><\/div>\n    <div class=\"stat\"><span class=\"k\"><span class=\"dot crit\" aria-hidden=\"true\"><\/span>ล้าแล้ว<\/span><span class=\"v num\" id=\"sRed\">–<\/span><\/div>\n    <div class=\"stat\"><span class=\"k\"><span class=\"dot warn\" aria-hidden=\"true\"><\/span>เริ่มล้า<\/span><span class=\"v num\" id=\"sYellow\">–<\/span><\/div>\n    <div class=\"stat\"><span class=\"k\"><span class=\"dot ok\" aria-hidden=\"true\"><\/span>ยังสด<\/span><span class=\"v num\" id=\"sGreen\">–<\/span><\/div>\n    <div class=\"stat\"><span class=\"k\">สั่งทำครีเอทีฟใหม่แล้ว<\/span><span class=\"v num\" id=\"sOrdered\">–<\/span><\/div>\n  <\/section>\n\n  <section id=\"main\"><\/section>\n\n  <div class=\"tablebox\" id=\"tableBox\" hidden>\n    <div class=\"tablehead\">\n      <h2 id=\"tblTitle\">โฆษณา<\/h2>\n      <label class=\"stopchk\" id=\"stopLine\" hidden><input type=\"checkbox\" id=\"showStopped\"> <span id=\"stopText\"><\/span><\/label>\n      <div class=\"filters\">\n        <label>ใช้จ่ายรวมขั้นต่ำ ฿ <input id=\"minSpend\" type=\"number\" min=\"0\" step=\"100\" value=\"1000\" inputmode=\"numeric\"><\/label>\n        <label>รันต่อเนื่องขั้นต่ำ <input id=\"minDays\" type=\"number\" min=\"1\" max=\"30\" step=\"1\" value=\"7\" inputmode=\"numeric\"> วัน<\/label>\n      <\/div>\n    <\/div>\n    <div id=\"tblBody\"><\/div>\n    <p class=\"cap\" id=\"tblCap\">กดแถวเพื่อดูกราฟ 4 ตัวชี้วัด · Δ = 3 วันล่าสุด เทียบ 3 วันแรกที่ส่ง<\/p>\n  <\/div>\n\n  <details class=\"criteria\" id=\"criteria\">\n    <summary><h2>เกณฑ์ที่หน้านี้ใช้ตัดสิน<\/h2><span class=\"sub\">ตายตัว<\/span><\/summary>\n    <div class=\"crit-grid\">\n      <div>\n        <h3>สัญญาณล้า เทียบ 3 วันแรกที่มีการส่ง กับ 3 วันล่าสุดที่มีการส่ง ในช่วง 30 วัน<\/h3>\n        <dl>\n          <dt class=\"mono\">Frequency ≥ +10%<\/dt><dd>ความถี่รายวันสูงขึ้น<\/dd>\n          <dt class=\"mono\">CTR ≤ −15%<\/dt><dd>CTR (ทั้งหมด) รายวันลดลง<\/dd>\n          <dt class=\"mono\">CPM ≥ +15%<\/dt><dd>ค่า CPM รายวันแพงขึ้น<\/dd>\n        <\/dl>\n      <\/div>\n      <div>\n        <h3>การจัดระดับ<\/h3>\n        <dl>\n          <dt><span class=\"dot crit\" aria-hidden=\"true\"><\/span>ล้าแล้ว<\/dt><dd>CTR ลดลง ≥ 25% พร้อม Frequency หรือ CPM ขึ้นถึงเกณฑ์ หรือ CTR ลดลง ≥ 40% แม้ตัวอื่นไม่ขึ้น<\/dd>\n          <dt><span class=\"dot warn\" aria-hidden=\"true\"><\/span>เริ่มล้า<\/dt><dd>CTR ลดลง ≥ 15% หรือเส้นแนวโน้ม CTR ถึงเส้นล้าแล้ว หรือจะถึงภายใน 7 วัน<\/dd>\n          <dt><span class=\"dot ok\" aria-hidden=\"true\"><\/span>ยังสด<\/dt><dd>นอกเหนือจากนั้น<\/dd>\n          <dt><span class=\"dot\" aria-hidden=\"true\"><\/span>ข้อมูลยังไม่พอ<\/dt><dd>มีวันที่ส่งโฆษณาจริงน้อยกว่า 7 วัน ไม่ประเมิน (ไม่ขึ้นกับตัวกรองที่หัวตาราง)<\/dd>\n        <\/dl>\n      <\/div>\n      <div>\n        <h3>“เหลืออีก” (ค่าประมาณ ไม่ใช่ตัวเลขแม่นยำ)<\/h3>\n        <p>ลากเส้นแนวโน้มตรง (linear regression) ของ CTR รายวันจาก 14 วันล่าสุดที่มีการส่ง แล้วดูว่าอีกกี่วันเส้นจะแตะ CTR ตั้งต้น × 0.75 (ลด 25% = เส้นล้าแล้ว) ถ้า CTR ไม่ได้มีแนวโน้มลดจะขึ้น “ยังไม่ลด” ล้าแล้วนับเป็น 0 วัน<\/p>\n      <\/div>\n      <div>\n        <h3>“ต้องเปลี่ยนภายในสัปดาห์นี้”<\/h3>\n        <p>นับโฆษณาที่ยังส่งอยู่ (มีการส่งภายใน 2 วันล่าสุด) ที่ล้าแล้ว หรือประมาณว่าเหลือ ≤ 7 วัน และยังไม่ได้ติ๊ก “สั่งทำใหม่แล้ว” · รันต่อเนื่อง = จำนวนวันติดกันที่มีการใช้จ่าย นับย้อนจากวันล่าสุดที่ส่ง<\/p>\n      <\/div>\n    <\/div>\n  <\/details>\n<\/div>\n"});</script>
 <script>
 (function (defineModule, defineLogic) {
-/* fatigue.report: generated by tools/migrations/fatigue.py from
-   server-specs/fatigue_report/reference.mjs, which matches imports/fatigue.html
-   (proven by server-specs/fatigue_report/check-original.mjs). Do not edit. */
-(function () {
-// fatigue_report — reference implementation (MaxxGPT MCP server, v1.1)
-//
-// Source: imports/fatigue.html ("ตัวติดตามความล้าของครีเอทีฟ").
-// Blocks marked "COPIED" are the page's own source text, byte-for-byte, at the
-// line numbers given. Blocks marked "EDITED" are page lines with the listed
-// replacements only. Blocks marked "NEW" do not exist in the page.
-// Every change is listed in spec.md (section 9) with the original line numbers.
-// check-original.mjs re-runs every case against the page's own code.
-//
-// All arithmetic is IEEE-754 double precision. A port must keep the same
-// operation order (sum left to right, then divide) to match cases.json.
-
-// ===== COPIED imports/fatigue.html:236-238 =====
-// fixed thresholds
-const FREQ_UP = 0.10, CTR_DOWN = 0.15, CPM_UP = 0.15, CTR_RED = 0.25;
-const MIN_DATA_DAYS = 7, BASE_DAYS = 3, TREND_DAYS = 14, WEEK = 7, RUNNING_GAP = 2;
-const CTR_SEVERE = 0.40; // RULES 2026-09-24: this much CTR drop alone means fatigued
-
-// ===== COPIED imports/fatigue.html:282-300 =====
-// ---------- parsing ----------
-function num(v){
-  if (v == null) return null;
-  if (typeof v === "number") return isFinite(v) ? v : null;
-  if (typeof v === "object" && !Array.isArray(v) && "value" in v) return num(v.value); // FIX: {value, unit}
-  const s = String(v);
-  if (/not available/i.test(s)) return null;
-  const m = s.replace(/,/g, "").match(/-?(?:\d+(?:\.\d*)?|\.\d+)(?:e[-+]?\d+)?/i); // FIX: .5 and 1e-3
-  return m ? parseFloat(m[0]) : null;
-}
-function parseCpr(v){
-  let s = v;
-  if (Array.isArray(v)) s = v[0];
-  let ct = "";
-  if (s && typeof s === "object"){ ct = s.conversion_type ? String(s.conversion_type) : ""; s = s.value ?? s.amount ?? ""; } // FIX: conversion_type
-  if (s == null) return { val: null, type: ct };
-  s = String(s);
-  const t = (s.match(/\(([^)]+)\)\s*$/) || [])[1] || ct;
-  if (/not available/i.test(s)) return { val: null, type: t };
-  return { val: num(s.replace(/\([^)]*\)\s*$/, "")), type: t };
-}
-// ===== COPIED imports/fatigue.html:310-311 =====
-const dayMs = 86400000;
-const dnum = (d) => Math.round(Date.parse(d + "T00:00:00Z") / dayMs);
-
-// ===== COPIED imports/fatigue.html:313-388 =====
-function buildAds(rows){
-  const by = new Map();
-  let maxD = null;
-  for (const r of rows){
-    if (!r || r.id == null) continue;
-    const id = String(r.id);
-    const date = r.date_start || r.date_stop;
-    if (!date) continue;
-    if (!maxD || date > maxD) maxD = date;
-    if (!by.has(id)) by.set(id, { id, name: r.name || "", days: new Map() });
-    const ad = by.get(id);
-    if (r.name) ad.name = r.name;
-    const cpr = parseCpr(r.cost_per_result);
-    ad.days.set(date, {
-      date, d: dnum(date),
-      spend: num(r.amount_spent) || 0,
-      imp: num(r.impressions) || 0,
-      freq: num(r.frequency), cpm: num(r.cpm), ctr: num(r.ctr),
-      cpr: cpr.val, cprType: cpr.type,
-    });
-  }
-  const maxDn = maxD ? dnum(maxD) : 0;
-  const out = [];
-  for (const ad of by.values()){
-    const days = [...ad.days.values()].sort((a,b) => a.d - b.d);
-    const active = days.filter(x => x.spend > 0 && x.imp > 0);
-    const total = days.reduce((s,x) => s + x.spend, 0);
-    const cprType = (days.find(x => x.cprType) || {}).cprType || "";
-    let streak = 0, lastD = null;
-    if (active.length){
-      lastD = active[active.length-1].d;
-      const set = new Set(active.map(x => x.d));
-      for (let d = lastD; set.has(d); d--) streak++;
-    }
-    const running = lastD != null && (maxDn - lastD) <= RUNNING_GAP;
-    const a = { id: ad.id, name: ad.name, days, active, total, streak, running, cprType, lastD };
-    evaluate(a);
-    out.push(a);
-  }
-  return { ads: out, maxDate: maxD };
-}
-const avg = (arr) => { const v = arr.filter(x => x != null && isFinite(x)); return v.length ? v.reduce((s,x)=>s+x,0)/v.length : null; };
-const pct = (a,b) => (a == null || b == null || b === 0) ? null : (a - b) / b;
-function evaluate(a){
-  a.enough = a.active.length >= MIN_DATA_DAYS;
-  a.tier = "na"; a.score = -1; a.daysLeft = null; a.trend = "";
-  if (!a.enough) return;
-  const base = a.active.slice(0, BASE_DAYS), rec = a.active.slice(-BASE_DAYS);
-  a.base = { freq: avg(base.map(x=>x.freq)), ctr: avg(base.map(x=>x.ctr)), cpm: avg(base.map(x=>x.cpm)) };
-  a.rec  = { freq: avg(rec.map(x=>x.freq)),  ctr: avg(rec.map(x=>x.ctr)),  cpm: avg(rec.map(x=>x.cpm)) };
-  a.dF = pct(a.rec.freq, a.base.freq); a.dC = pct(a.rec.ctr, a.base.ctr); a.dM = pct(a.rec.cpm, a.base.cpm);
-  const sF = a.dF != null && a.dF >= FREQ_UP;
-  const sC = a.dC != null && a.dC <= -CTR_DOWN;
-  const sM = a.dM != null && a.dM >= CPM_UP;
-  // RULES 2026-09-24: red = CTR down >= 25% with frequency or CPM up, or CTR down >= 40% alone;
-  // yellow = CTR down >= 15%, or the CTR trend reaches the red line within WEEK days; green = the rest.
-  const ctrRed = a.dC != null && a.dC <= -CTR_RED;
-  const ctrSevere = a.dC != null && a.dC <= -CTR_SEVERE;
-  a.tier = (ctrRed && (sF || sM)) || ctrSevere ? "red" : "green";
-  const clamp = (x) => Math.max(0, Math.min(2, x || 0));
-  a.idx = clamp(a.dF / FREQ_UP) + clamp(-a.dC / CTR_DOWN) + clamp(a.dM / CPM_UP);
-  const finish = () => {
-    if (a.tier !== "red" && (sC || (a.daysLeft != null && a.daysLeft <= WEEK))) a.tier = "yellow";
-    a.score = ({red:3, yellow:2, green:1})[a.tier] * 10 + a.idx;
-  };
-  // CTR trend → days left until CTR hits base × (1 − CTR_RED)
-  if (a.tier === "red"){ a.daysLeft = 0; finish(); return; }
-  const pts = a.active.slice(-TREND_DAYS).filter(x => x.ctr != null);
-  if (pts.length < 3 || a.base.ctr == null){ a.trend = "n/a"; finish(); return; }
-  const x0 = pts[0].d, xs = pts.map(p => p.d - x0), ys = pts.map(p => p.ctr);
-  const mx = avg(xs), my = avg(ys);
-  let sxy = 0, sxx = 0;
-  xs.forEach((x,i) => { sxy += (x-mx)*(ys[i]-my); sxx += (x-mx)**2; });
-  const b = sxx ? sxy/sxx : 0, c = my - b*mx;
-  const now = c + b*xs[xs.length-1];
-  const line = a.base.ctr * (1 - CTR_RED);
-  if (now <= line){ a.daysLeft = 0; finish(); return; }
-  if (b >= 0){ a.trend = "flat"; finish(); return; }
-  a.daysLeft = Math.min(60, (now - line) / (-b));
-  finish();
-}
-
-// ===== NEW: output shape of one ad =====
-// The ad object built by buildAds()/evaluate(), unchanged, except `active`
-// (a filtered copy of `days`) is replaced by its length. The page only reads
-// a.active.length outside evaluate() (imports/fatigue.html:474).
-function toOut(a){
-  const { active, ...rest } = a;
-  return { ...rest, activeDays: active.length };
-}
-
-// ===== NEW: module entry =====
-function run(input){
-  if (!input || typeof input !== "object" || Array.isArray(input)) throw new TypeError("fatigue_report: input must be an object");
-  if (!Array.isArray(input.rows)) throw new TypeError("fatigue_report: input.rows must be an array");
-  const settings = input.settings == null ? {} : input.settings;
-  if (typeof settings !== "object" || Array.isArray(settings)) throw new TypeError("fatigue_report: input.settings must be an object");
-  const ordered = input.ordered == null ? [] : input.ordered;
-  if (!Array.isArray(ordered)) throw new TypeError("fatigue_report: input.ordered must be an array");
-
-  // NEW: the part of the page state object S (imports/fatigue.html:271-280) that the logic reads.
-  const S = { ads: [], maxDate: null, ordered: new Map(), minSpend: 1000, minDays: 7 };
-
-  // ===== EDITED imports/fatigue.html:804-806 (body of readFilters) =====
-  // $("minSpend").value / $("minDays").value -> settings.minSpend / settings.minDays,
-  // falling back to the input boxes' default values (lines 173, 177).
-  const s = parseFloat(settings.minSpend ?? 1000), d = parseInt(settings.minDays ?? 7, 10);
-  S.minSpend = isFinite(s) && s >= 0 ? s : 0;
-  S.minDays = isFinite(d) && d >= 1 ? Math.min(30, d) : 1;
-
-  // ===== EDITED imports/fatigue.html:695-697 (body of recompute) =====
-  // rows of all fetched pages -> input.rows
-  const rows = input.rows;
-  const r = buildAds(rows);
-  S.ads = r.ads; S.maxDate = r.maxDate;
-
-  // ===== EDITED imports/fatigue.html:771-773 (db "ordered" snapshot handler) =====
-  // snap.docs -> input.ordered (the same documents); render() dropped
-      const m = new Map();
-      for (const v of ordered){ if (v && v.adId) m.set(String(v.adId), v); }
-      S.ordered = m;
-
-  // ===== EDITED imports/fatigue.html:558-568 (inside render) =====
-  // setSummary({...}) -> const summary = ({...})
-  const list = S.ads.filter(a => a.total >= S.minSpend && a.streak >= S.minDays);
-  const isOrd = (a) => S.ordered.has(a.id);
-  list.sort((a,b) => (isOrd(a) - isOrd(b)) || (b.score - a.score) || (b.total - a.total));
-  const week = list.filter(a => !isOrd(a) && a.running && (a.tier === "red" || (a.daysLeft != null && a.daysLeft <= WEEK))).length;
-  const summary = ({
-    week,
-    red: list.filter(a => a.tier === "red").length,
-    yellow: list.filter(a => a.tier === "yellow").length,
-    green: list.filter(a => a.tier === "green").length,
-    ordered: list.filter(isOrd).length,
-  });
-
-  // ===== NEW: result =====
-  return {
-    settings: { minSpend: S.minSpend, minDays: S.minDays },
-    maxDate: S.maxDate,
-    ads: S.ads.map(toOut),
-    list: list.map(a => a.id),
-    summary,
-  };
-}
-defineLogic("fatigue.report", { local: run, server: { key: "maxxgpt", tool: "fatigue_report" } });
-})();
-
 /* Creative fatigue tracker: generated by tools/migrations/fatigue.py from
    imports/fatigue.html (sha256 f8058096628c...). Do not edit; change the migration. */
 let api = null;
@@ -5861,36 +5716,17 @@ defineModule({
   id: "fatigue",
   mount: function (root, ctx) {
 let boot = null;
-const T_ACCTS = "ads_get_ad_accounts";
-const T_ENT = "ads_get_ad_entities";
-const FIELDS = ["id","name","frequency","cpm","ctr","cost_per_result","amount_spent","impressions"];
-const REQ_ACCTS = "เลือกบัญชี → ดึงผลรายวัน 30 วันล่าสุด ระดับโฆษณา";
-const REQ_ENT = "ดึงผลรายวัน 30 วันล่าสุด ระดับโฆษณา ต้องได้ Frequency, CPM, CTR, ต้นทุนต่อผล แยกเป็นรายวัน";
+const T_ACCTS = "list_ad_accounts", T_REPORT = "fatigue_report", T_JOB = "get_job";
 // fixed thresholds
 const FREQ_UP = 0.10, CTR_DOWN = 0.15, CPM_UP = 0.15, CTR_RED = 0.25;
 const MIN_DATA_DAYS = 7, BASE_DAYS = 3, TREND_DAYS = 14, WEEK = 7, RUNNING_GAP = 2;
-const MAX_PAGES = 10, GAP_MS = 700;
 const CACHE = { staleTime: 300000, gcTime: 86400000 };
 
 const $ = (id) => root.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-// conversation id: 20 chars, one per page load (the merged site keeps no per-tab storage)
-function convId(){
-  const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const a = new Uint32Array(20); crypto.getRandomValues(a);
-  return Array.from(a, x => abc[x % abc.length]).join("");
-}
-const CONV = convId();
 
-// ---------- serial queue: one connector request at a time ----------
-let qTail = Promise.resolve();
-function enqueue(fn){
-  const p = qTail.then(fn, fn);
-  qTail = p.then(() => sleep(GAP_MS), () => sleep(GAP_MS));
-  return p;
-}
 
 // ---------- state ----------
 const S = {
@@ -5905,18 +5741,9 @@ const S = {
   expanded: new Set(),
   minSpend: 1000, minDays: 7,
   list: [], summary: null, seq: 0, computing: false, active: true, mcpOk: false,
-  units: [], truncated: false, incomplete: false,
+  incomplete: false, job: null, range: null, viewKey: null,
 };
 
-function entitiesFrom(payload){
-  let p = payload;
-  if (typeof p === "string") { try { p = JSON.parse(p); } catch { return { rows: [], next: null }; } }
-  let list = p && p.ad_entities;
-  if (typeof list === "string") { try { list = JSON.parse(list); } catch { list = []; } }
-  if (!Array.isArray(list)) list = [];
-  const next = (p && ((p.pagination && p.pagination.next_cursor) || p.next_cursor)) || null;
-  return { rows: list, next };
-}
 
 // ---------- formatting ----------
 function currency(){ const ac = S.accounts.find(x => x.id === S.acct); return (ac && ac.currency) || ""; }
@@ -6020,6 +5847,14 @@ const RESULT_TH = {
   "post engagements": "การมีส่วนร่วมกับโพสต์", "meta purchases": "การซื้อ", "meta leads": "ลีด",
   "adds to cart with shared items": "เพิ่มลงตะกร้า (สินค้าที่แชร์)", "purchases with shared items": "การซื้อ (สินค้าที่แชร์)",
   "timeonpage": "เวลาบนหน้าเว็บ", "video_thruplay_watched_actions": "ดูวิดีโอจนจบหรือ 15 วินาที", "mixed": "หลายประเภท",
+  // V4 2026-10-02: MaxxGPT sends the result type as Graph's indicator ("actions:link_click")
+  "actions:onsite_conversion.messaging_conversation_started_7d": "เริ่มแชท", "actions:link_click": "คลิกลิงก์",
+  "actions:post_engagement": "การมีส่วนร่วมกับโพสต์", "actions:page_engagement": "การมีส่วนร่วมกับเพจ",
+  "actions:omni_purchase": "การซื้อ", "actions:offsite_conversion.fb_pixel_purchase": "การซื้อ",
+  "actions:lead": "ลีด", "actions:onsite_conversion.lead_grouped": "ลีด", "actions:landing_page_view": "เปิดหน้าเว็บปลายทาง",
+  "actions:video_thruplay_watched_actions": "ดูวิดีโอจนจบหรือ 15 วินาที", "reach": "การเข้าถึง",
+  "actions:omni_add_to_cart": "เพิ่มลงตะกร้า", "catalog_segment_actions:omni_purchase": "การซื้อ (สินค้าที่แชร์)",
+  "catalog_segment_actions:omni_add_to_cart": "เพิ่มลงตะกร้า (สินค้าที่แชร์)",
 };
 function resultLabel(t){ return RESULT_TH[String(t).trim().toLowerCase()] || t; }
 function detailHtml(a){
@@ -6054,7 +5889,7 @@ function setSummary(vals){
 }
 function skeleton(){
   const rows = Array.from({length: 6}, () => `<tr>${'<td><div class="sk"></div></td>'.repeat(8)}</tr>`).join("");
-  return `<div class="card"><div class="hd"><h2>กำลังดึงผลรายวัน…</h2><span class="sub">ทยอยโหลดทีละช่วง 10 วัน</span></div>
+  return `<div class="card"><div class="hd"><h2>กำลังดึงผลรายวัน…</h2><span class="sub">MaxxGPT กำลังดึงผล 30 วันล่าสุดจาก Meta ใช้เวลาไม่ถึงนาที</span></div>
     <div class="scroll"><table><tbody>${rows}</tbody></table></div></div>`;
 }
 function stateBox(icon, title, body, cls){
@@ -6065,26 +5900,26 @@ function stateBox(icon, title, body, cls){
 function pageState(html){ $("main").innerHTML = html; $("main").hidden = false; $("tableBox").hidden = true; $("tblBody").innerHTML = ""; }
 function connectorState(code, msg){
   const title = {
-    needs_reauth: "การเชื่อมต่อ Meta ads หมดอายุ",
-    server_not_connected: "ยังไม่ได้ต่อ connector Meta ads",
-    selection_required: "มี connector Meta ads มากกว่าหนึ่งตัว",
-    not_in_manifest: "หน้านี้ยังไม่ได้รับอนุญาตให้ใช้ Meta ads",
+    needs_reauth: "การเชื่อมต่อ MaxxGPT หมดอายุ",
+    server_not_connected: "ยังไม่ได้ต่อ connector MaxxGPT",
+    selection_required: "มี connector MaxxGPT มากกว่าหนึ่งตัว",
+    not_in_manifest: "หน้านี้ยังไม่ได้รับอนุญาตให้ใช้เครื่องมือนี้ของ MaxxGPT",
     blocked_by_policy: "องค์กรของคุณปิดการใช้เครื่องมือนี้",
     approval_required: "เครื่องมือนี้ต้องได้รับการอนุมัติก่อนใช้",
     no_mcp: "มุมมองนี้เรียก connector ไม่ได้",
   }[code] || "เรียก connector ไม่ได้";
   const how = {
-    needs_reauth: "เชื่อมต่อ Meta ads ใหม่ที่ claude.ai → Settings → Connectors แล้วกลับมาเปิดหน้านี้อีกครั้ง",
-    server_not_connected: "เพิ่ม connector “Meta ads” (https://mcp.facebook.com/ads) ที่ claude.ai → Settings → Connectors แล้วโหลดหน้านี้ใหม่",
-    selection_required: "เลือก connector Meta ads ที่ต้องการใช้จากหน้าต่างที่ Claude แสดง แล้วโหลดหน้าใหม่",
-    not_in_manifest: "เปิดสิทธิ์ให้หน้านี้ใช้ Meta ads (ถ้าเคยกดปฏิเสธไว้ ให้โหลดหน้าใหม่แล้วกดอนุญาต)",
-    blocked_by_policy: "ติดต่อผู้ดูแลองค์กรให้เปิดเครื่องมือ Meta ads",
+    needs_reauth: "เชื่อมต่อ MaxxGPT ใหม่ที่ claude.ai → Settings → Connectors แล้วกลับมาเปิดหน้านี้อีกครั้ง",
+    server_not_connected: "เพิ่ม connector “MaxxGPT” (https://mcp.maxxgpt.ai/mcp) ที่ claude.ai → Settings → Connectors แล้วโหลดหน้านี้ใหม่",
+    selection_required: "เลือก connector MaxxGPT ที่ต้องการใช้จากหน้าต่างที่ Claude แสดง แล้วโหลดหน้าใหม่",
+    not_in_manifest: "พิมพ์ “อัปเดตเว็บ MaxxGPT” ในแชทของ Claude เพื่อให้หน้านี้ได้สิทธิ์ใช้เครื่องมือชุดล่าสุด (ถ้าเคยกดปฏิเสธไว้ ให้โหลดหน้าใหม่แล้วกดอนุญาต)",
+    blocked_by_policy: "ติดต่อผู้ดูแลองค์กรให้เปิดเครื่องมือ MaxxGPT",
     approval_required: "ติดต่อผู้ดูแลองค์กรเพื่อขออนุมัติ",
-    no_mcp: "เปิดหน้านี้ใน claude.ai (แอปหรือเว็บ) และต่อ connector “Meta ads” ไว้ในบัญชีของคุณ",
-  }[code] || "ตรวจสอบ connector Meta ads ที่ claude.ai → Settings → Connectors";
+    no_mcp: "เปิดหน้านี้ใน claude.ai (แอปหรือเว็บ) และต่อ connector “MaxxGPT” ไว้ในบัญชีของคุณ",
+  }[code] || "ตรวจสอบ connector MaxxGPT ที่ claude.ai → Settings → Connectors";
   return stateBox(ICON.plug, title,
-    `<p>หน้านี้ต้องใช้ connector <b>Meta ads</b> เพื่อดึง: รายชื่อบัญชีโฆษณา และผลรายวันระดับโฆษณา (Frequency · CPM · CTR · ต้นทุนต่อผล)</p>
-    <ol><li>${esc(how)}</li><li>ให้สิทธิ์หน้านี้ใช้ Meta ads เมื่อระบบถาม</li></ol>
+    `<p>หน้านี้ต้องใช้ connector <b>MaxxGPT</b> เพื่อดึง: รายชื่อบัญชีโฆษณาที่ผูกไว้ และรายงานความล้าจากผลรายวันระดับโฆษณา (Frequency · CPM · CTR · ต้นทุนต่อผล)</p>
+    <ol><li>${esc(how)}</li><li>ให้สิทธิ์หน้านี้ใช้ MaxxGPT เมื่อระบบถาม</li></ol>
     ${msg ? `<p class="mono" style="font-size:12px">${esc(msg)}</p>` : ""}`);
 }
 const AUTHZ = new Set(["needs_reauth","server_not_connected","selection_required","not_in_manifest","blocked_by_policy","approval_required","not_granted","capability_disabled","capability_removed","server_not_found","consent_required"]);
@@ -6099,7 +5934,7 @@ function render(){
     setSummary(null); return;
   }
   if (!S.accounts.length && !S.acctDone){ pageState(skeleton()); setSummary(null); return; }
-  if (!S.accounts.length){ pageState(stateBox(ICON.acct, "ไม่พบบัญชีโฆษณา", "<p>บัญชี Meta ที่ต่อไว้ยังไม่มีสิทธิ์เข้าถึงบัญชีโฆษณาใดเลย</p>")); setSummary(null); return; }
+  if (!S.accounts.length){ pageState(stateBox(ICON.acct, "ยังไม่มีบัญชีโฆษณาใน MaxxGPT", "<p>เปิดเว็บ MaxxGPT เพื่อเชื่อมต่อ Facebook และเลือกบัญชีโฆษณาที่จะใช้ แล้วกลับมากดรีเฟรชหน้านี้</p>")); setSummary(null); return; }
   if (!S.acct){ pageState(stateBox(ICON.acct, "เลือกบัญชีโฆษณาเพื่อเริ่ม", "<p>กด “เลือกบัญชี” ด้านบน หน้าจะดึงผลรายวัน 30 วันล่าสุดระดับโฆษณามาวิเคราะห์ความล้าให้</p>")); setSummary(null); return; }
 
   if (S.entError && AUTHZ.has(S.entError.code)){ pageState(connectorState(S.entError.code, S.entError.message)); setSummary(null); return; }
@@ -6204,24 +6039,97 @@ function renderFresh(){
 }
 
 // ---------- accounts ----------
-function accountsInput(cursor){
-  const i = { client_conversation_id: CONV, advertiser_request: REQ_ACCTS, limit: 50 };
-  if (cursor) i.cursor = cursor;
-  return i;
-}
-function onAccountsPage(idx, payload){
+// REWRITE 2026-10-02 (MaxxGPT V4): the accounts come from MaxxGPT (list_ad_accounts) instead of
+// the Meta connector. The list is the ad accounts the customer linked in MaxxGPT, the same ids
+// every MaxxGPT tool accepts as ad_account_id, so an account in the menu is one the report can
+// run on. One answer holds them all (a plan allows a handful): no pages to follow. The account
+// selected in the MaxxGPT web app comes in the same answer (active_ad_account_id) and is the
+// default when the viewer has not picked one, as the bound account was (owner 2026-09-29).
+function onAccounts(payload){
   let p = payload; if (typeof p === "string"){ try { p = JSON.parse(p); } catch { p = {}; } }
   const list = (p && Array.isArray(p.ad_accounts)) ? p.ad_accounts : [];
-  S.acctPages[idx] = list.map(x => ({
-    id: cleanAcct(x.ad_account_id), name: x.ad_account_name || "", biz: x.business_name || "",
-    currency: x.currency || "", ok: x.is_ads_mcp_enabled !== false && x.is_queryable !== false,
-    reason: x.is_ads_mcp_enabled === false ? "ยังใช้กับ Ads MCP ไม่ได้" : (x.not_queryable_reason || ""),
+  S.accounts = list.map(x => ({
+    id: cleanAcct(x.id), name: x.name || "", biz: x.business_name || "",
+    currency: x.currency || "", ok: true, reason: "",
   }));
-  S.accounts = S.acctPages.flat().filter(Boolean);
-  const next = p && p.next_cursor;
-  if (next && idx + 1 < MAX_PAGES) return next;
+  S.boundId = cleanAcct(p && p.active_ad_account_id);
   S.acctDone = true;
+}
+
+// ---------- what MaxxGPT answered ----------
+// A MaxxGPT tool that refuses answers with isError and a JSON body { status, success: false, code,
+// reason, message }; the runtime turns that into a tool_error carrying the answer on .result. The
+// same body can also arrive as a normal payload. maxxBody finds it in either place.
+function maxxBody(x){
+  if (!x || typeof x !== "object") return null;
+  const r = x.result && typeof x.result === "object" ? x.result : x;
+  const tries = [r.payload, r.structuredContent];
+  (Array.isArray(r.content) ? r.content : []).forEach(c => { if (c && c.type === "text") tries.push(c.text); });
+  tries.push(x.message);
+  for (let v of tries){
+    if (typeof v === "string"){ try { v = JSON.parse(v); } catch { v = null; } }
+    if (v && typeof v === "object" && ("status" in v || "success" in v || "code" in v || "reason" in v)) return v;
+  }
   return null;
+}
+// What to tell the viewer, by MaxxGPT's code. `again` = pressing "ลองใหม่" can help.
+const MAXX_TH = {
+  NO_AD_ACCOUNT: ["ยังไม่ได้เชื่อม Facebook หรือยังไม่ได้เลือกบัญชีโฆษณาใน MaxxGPT เปิดเว็บ MaxxGPT เพื่อเชื่อมต่อและเลือกบัญชี แล้วกลับมากดรีเฟรช", false],
+  OVER_QUOTA: ["บัญชีโฆษณาหรือเพจที่ผูกไว้ใน MaxxGPT เกินจำนวนที่แพ็กเกจให้ เปิดเว็บ MaxxGPT → จัดการบัญชี เลือกตัวที่จะเก็บไว้ แล้วกลับมากดรีเฟรช", false],
+  AD_ACCOUNT_NOT_ALLOWED: ["บัญชีนี้ไม่ได้ผูกกับ MaxxGPT ของคุณแล้ว เลือกบัญชีอื่นจากแถบบัญชีด้านบน", false],
+  SUBSCRIPTION_EXPIRED: ["แพ็กเกจ MaxxGPT ของคุณใช้งานไม่ได้แล้ว ต่ออายุในเว็บ MaxxGPT แล้วกลับมากดรีเฟรช", false],
+  NOT_ENTITLED: ["แพ็กเกจ MaxxGPT ของคุณไม่รวมเครื่องมือนี้", false],
+  INSUFFICIENT_CREDIT: ["เครดิต MaxxGPT ไม่พอ", false],
+  META_TOKEN_INVALID: ["การเชื่อมต่อ Facebook ใน MaxxGPT หมดอายุ เปิดเว็บ MaxxGPT แล้วเชื่อมต่อ Facebook ใหม่ จากนั้นกลับมากดรีเฟรช", false],
+  META_PERMISSION_DENIED: ["Facebook ที่เชื่อมไว้ใน MaxxGPT ไม่มีสิทธิ์อ่านบัญชีโฆษณานี้", false],
+  META_RATE_LIMITED: ["Meta จำกัดการเรียกข้อมูลของบัญชีนี้ชั่วคราว รอสักครู่แล้วลองใหม่", true],
+  META_ERROR: ["Meta ตอบกลับมาไม่สำเร็จ ลองใหม่อีกครั้ง", true],
+  time_out: ["MaxxGPT ใช้เวลาดึงข้อมูลนานเกินกำหนด ลองใหม่อีกครั้ง", true],
+};
+function maxxError(body, fallback){
+  const b = body || {};
+  const key = b.code === "NO_AD_ACCOUNT" && (b.reason === "OVER_QUOTA" || b.ad_account_issue === "OVER_QUOTA") ? "OVER_QUOTA" : (b.code || b.error || "");
+  const known = MAXX_TH[key];
+  if (known) return { code: known[1] ? "tool_error" : "maxx_refused", message: known[0], maxx: key };
+  const text = b.message || (fallback && fallback.message) || "";
+  // the hourly limit of a tool answers in plain text
+  if (/rate limit reached/i.test(text)) return { code: "rate_limited", message: "เรียก MaxxGPT บ่อยเกินไป รอสักครู่แล้วลองใหม่", maxx: "RATE_LIMIT" };
+  return { code: (fallback && fallback.code) || "tool_error", message: (key ? key + ": " : "") + (text || "MaxxGPT ตอบกลับมาไม่สำเร็จ"), maxx: key };
+}
+// one MaxxGPT read: resolves the parsed answer, rejects with an error the screen can show
+function maxxCall(tool, input){
+  return ctx.read.call("maxxgpt", tool, input, { cache: { refresh: true } }).then((res) => {
+    let p = res && res.payload;
+    if (typeof p === "string"){ try { p = JSON.parse(p); } catch { p = null; } }
+    if (!p || typeof p !== "object") throw { code: "tool_error", message: "MaxxGPT ตอบกลับมาในรูปที่อ่านไม่ได้" };
+    if (p.success === false && p.reason !== "job_unusable" || Number(p.status) >= 400) throw maxxError(p);
+    return p;
+  }, (e) => {
+    if (AUTHZ.has(e && e.code)) throw e;
+    const body = e && e.code === "tool_error" ? maxxBody(e) : null;
+    throw body ? maxxError(body, e) : e;
+  });
+}
+
+let acctUnsub = null;
+function loadAccounts(){
+  if (acctUnsub){ acctUnsub(); acctUnsub = null; }
+  S.acctDone = false; S.acctError = null;
+  if (!S.active) return;
+  acctUnsub = ctx.read.watch("maxxgpt", T_ACCTS, { limit: 200 }, (ev) => {
+    if (ev.type === "error"){
+      const body = ev.error && ev.error.code === "tool_error" ? maxxBody(ev.error) : null;
+      S.acctError = body ? maxxError(body, ev.error) : ev.error;
+      if (AUTHZ.has(S.acctError.code)){ S.accounts = []; }
+      S.acctDone = true;
+    } else {
+      S.acctError = null;
+      onAccounts(ev.result.payload);
+      fillAccountSelect();
+      if (S.acct && !S.gen && S.accounts.some(a => a.id === S.acct && a.ok)) startEntities();
+    }
+    updateAcctButton(); render();
+  }, { cache: CACHE });
 }
 // REWRITE 2026-09-29 (reskin step 3) of fillAccountSelect: the account is the shared account bar
 // (ctx.page.account) with its menu instead of a select. Accounts Meta will not serve stay in the
@@ -6231,8 +6139,9 @@ function onAccountsPage(idx, payload){
 // stops with it (the clearing fix of the migration).
 // FIX 2026-09-29 (owner): with no account chosen, the page starts on the account bound to MaxxGPT,
 // like the other tabs, and the bar tags it "ผูกกับ MaxxGPT". The default is not saved, so the page
-// follows the bound account if it changes; an account the viewer picks is saved as before. A bound
-// account that is not in Meta's list, or that Meta will not serve, leaves nothing chosen.
+// follows the bound account if it changes; an account the viewer picks is saved as before.
+// V4 2026-10-02: the list is MaxxGPT's (list_ad_accounts) and the bound account is the one it marks
+// as selected in the MaxxGPT web app (onAccounts), so no get_account_info call is needed.
 function fillAccountSelect(){
   const ok = S.accounts.filter(a => a.ok);
   if (S.acct && ok.some(a => a.id === S.acct)){ drawAccount(); return; }
@@ -6246,15 +6155,6 @@ function applyBoundDefault(){
   drawAccount();
   startEntities();
   return true;
-}
-function loadBoundAccount(){
-  ctx.read.call("maxxgpt", "get_account_info", {}, { cache: CACHE }).then((res) => {
-    const a = res && res.payload && res.payload.ad_account;
-    const id = a ? cleanAcct(a.account_id || a.id) : "";
-    if (!id) return;
-    S.boundId = id;
-    if (!applyBoundDefault()) drawAccount();
-  }).catch((e) => { ctx.log("warn", "fatigue: the account bound to MaxxGPT could not be read (" + ((e && e.code) || "error") + "); no default account"); });
 }
 // drawn again only when something in it changed, so a menu the viewer has open is not
 // closed by a watch that delivers the same accounts again
@@ -6280,225 +6180,129 @@ function chooseAccount(id){
   drawAccount(); setBanner(null);
   if (S.acct) startEntities(); else { stopEntities(); S.gen++; S.ads = []; S.fetchedAt = null; S.loading = false; render(); renderFresh(); }
 }
-let acctUnsubs = [];
-function loadAccounts(){
-  acctUnsubs.forEach(u => u()); acctUnsubs = [];
-  S.acctPages = []; S.acctDone = false; S.acctError = null;
-  const step = (idx, cursor) => enqueue(() => new Promise(resolve => {
-    if (!S.active){ resolve(); return; }
-    let first = true, nextStarted = null;
-    const unsub = ctx.read.watch("meta", T_ACCTS, accountsInput(cursor), (ev) => {
-      if (ev.type === "error"){
-        S.acctError = ev.error; if (AUTHZ.has(ev.error.code)){ S.accounts = []; }
-        S.acctDone = true;
-      } else {
-        S.acctError = null;
-        const next = onAccountsPage(idx, ev.result.payload);
-        if (next && nextStarted !== next){ nextStarted = next; step(idx + 1, next); }
-        fillAccountSelect();
-        if (S.acct && !S.gen && S.accounts.some(a => a.id === S.acct && a.ok)) startEntities();
-      }
-      updateAcctButton(); render();
-      if (first){ first = false; resolve(); }
-    }, { cache: CACHE });
-    acctUnsubs.push(unsub);
-  }));
-  step(0, null);
-}
 function updateAcctButton(){ drawAccount(); }
 
-// ---------- entities ----------
-// REWRITE 2026-09-24 (backlog: fatigue, blocks use). Meta returns at most
-// `limit` daily rows and no cursor, so one 30-day request silently dropped
-// rows on larger accounts (one real account: about 1,020 rows, 1,000 received). The page
-// now asks for 10-day windows and splits any window that comes back full.
-const WINDOW_DAYS = 10, PAGE_LIMIT = 1000, MAX_UNITS = 40, RETRY_MS = 2500;
-const dayStr = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
-function addDays(d, n){ const x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() + n); return x; }
-function spanDays(w){ return Math.round((Date.parse(w.until + "T00:00:00Z") - Date.parse(w.since + "T00:00:00Z")) / 86400000) + 1; }
-// The same days as Meta's last_30d: yesterday and the 29 days before it, in the viewer's calendar.
-function last30Windows(){
-  const today = new Date();
-  const out = [];
-  for (let end = -1; end >= -30; end -= WINDOW_DAYS){
-    const start = Math.max(-30, end - WINDOW_DAYS + 1);
-    out.unshift({ since: dayStr(addDays(today, start)), until: dayStr(addDays(today, end)) });
-  }
-  return out;
+
+// ---------- the report ----------
+// REWRITE 2026-10-02 (MaxxGPT V4): MaxxGPT reads the 30 days of daily ad rows from Meta itself and
+// judges them (tool fatigue_report). The page used to ask the Meta connector for 10-day windows,
+// fill the quiet days and run the rules in the browser (fatigue_windows.js, fatigue_start.js,
+// logic.js); none of that is in the page any more.
+//   start:   fatigue_report({ ad_account_id, settings, ordered }) answers { job_id }
+//   wait:    get_job({ job_id }) until job_status is "success"; data is the report
+//            { settings, maxDate, ads, list, summary, range, timezone, rules }
+//   again:   fatigue_report({ job_id, settings, ordered }) answers { list, summary } for new
+//            filters or a new "ordered" set, from the stored report, with no Meta call
+// A report of the same account that is younger than the cache window is used again (its job_id is
+// kept in ctx.prefs), so coming back to the tab or reloading the page does not start a new one.
+const POLL_MIN_MS = 2000, POLL_MAX_MS = 15000, POLL_LIMIT = 60;
+const actId = (id) => "act_" + cleanAcct(id);
+const filterSettings = () => ({ minSpend: S.minSpend, minDays: S.minDays });
+const orderedIds = () => [...S.ordered.keys()].sort();
+const viewKey = () => JSON.stringify([S.minSpend, S.minDays, orderedIds()]);
+function keptJob(acct){
+  const k = ctx.prefs.get("job", null);
+  return k && k.acct === acct && k.id && Date.now() - k.at < CACHE.staleTime ? k : null;
 }
-function splitWindow(w){
-  const s = new Date(w.since + "T00:00:00"), half = Math.floor(spanDays(w) / 2);
-  return [
-    { since: w.since, until: dayStr(addDays(s, half - 1)) },
-    { since: dayStr(addDays(s, half)), until: w.until },
-  ];
+function stopEntities(){
+  // a running wait stops on S.gen; nothing else is held open
+  S.job = null;
 }
-function entInput(win, cursor){
-  const i = {
-    client_conversation_id: CONV, advertiser_request: REQ_ENT,
-    ad_account_id: S.acct, level: "ad", fields: FIELDS,
-    // Meta takes time_range as JSON text; an object is refused with -32602 "Expected string"
-    time_range: JSON.stringify({ since: win.since, until: win.until }), time_increment: "1",
-    filtering: [{ field: "ad.amount_spent", operator: "GREATER_THAN", value: ["0"] }],
-    limit: PAGE_LIMIT, include_additional_context: false,
+function startEntities(opts = {}){
+  stopEntities();
+  const gen = ++S.gen;
+  const acct = S.acct;
+  S.entError = null; S.loading = true; S.incomplete = false;
+  if (!opts.keep){ S.ads = []; S.fetchedAt = null; S.expanded.clear(); S.seq++; S.list = []; S.summary = null; S.maxDate = null; S.range = null; }
+  render(); renderFresh();
+  subscribeOrdered();
+  const mine = () => gen === S.gen && S.active;
+  const fail = (e) => {
+    if (gen !== S.gen) return;
+    S.entError = e; S.loading = false;
+    if (AUTHZ.has(e.code) || e.code === "maxx_refused") S.ads = [];
+    ctx.log("warn", "fatigue: report failed (" + (e.maxx || e.code) + ")");
+    render(); renderFresh();
   };
-  if (cursor) i.cursor = cursor;
-  return i;
-}
-// Meta sends every day of a window for each ad that spent in that window, zero-spend days
-// included, and leaves out ads that spent nothing in it (seen 2026-09-24). The single 30-day
-// request had every day for every ad. Fill the left-out days in the same shape, only for
-// windows that arrived, so "still running" and the chart dates mean what they meant before.
-function withQuietDays(){
-  const rows = [], seen = new Map(), have = new Set(), covered = new Set();
-  for (const p of S.pages){
-    if (!p) continue;
-    for (const r of p.rows){
-      rows.push(r);
-      const date = r && (r.date_start || r.date_stop);
-      if (!r || r.id == null || !date) continue;
-      const id = String(r.id);
-      if (!seen.has(id)) seen.set(id, r.name || "");
-      have.add(id + "|" + date);
+  const show = (jobId, data, at, key) => {
+    if (!mine()) return;
+    S.job = { id: jobId, acct };
+    S.ads = Array.isArray(data.ads) ? data.ads : [];
+    S.maxDate = data.maxDate || null; S.range = data.range || null;
+    S.list = Array.isArray(data.list) ? data.list : []; S.summary = data.summary || null;
+    S.viewKey = key;
+    S.fetchedAt = at; S.loading = false; S.entError = null;
+    ctx.prefs.set("job", { acct, id: jobId, at });
+    ctx.log("info", "fatigue_report: ads=" + S.ads.length + " shown=" + S.list.length + " job=" + jobId);
+    render(); renderFresh();
+    // the filters or the ordered set may have changed while the report was on its way
+    if (viewKey() !== S.viewKey) recompute();
+  };
+  // resolves { data, key } once the job has a report; key = the filters the report was made for, or
+  // null when that is not known (a kept job)
+  const wait = (jobId, key, n) => maxxCall(T_JOB, { job_id: jobId }).then((j) => {
+    if (!mine()) return null;
+    if (j.job_status === "success"){
+      let data = j.data;
+      if (typeof data === "string"){ try { data = JSON.parse(data); } catch { data = null; } }
+      if (!data || !Array.isArray(data.ads)) throw { code: "tool_error", message: "MaxxGPT ส่งรายงานกลับมาในรูปที่อ่านไม่ได้" };
+      return { data, key };
     }
-    if (p.pending || p.failed || p.split) continue;
-    let d = new Date(p.unit.win.since + "T00:00:00");
-    for (let n = spanDays(p.unit.win); n > 0; n--){ covered.add(dayStr(d)); d = addDays(d, 1); }
-  }
-  for (const [id, name] of seen) for (const date of covered){
-    if (have.has(id + "|" + date)) continue;
-    rows.push({ id, name, date_start: date, date_stop: date, amount_spent: "0", impressions: "0",
-      frequency: "0", cpm: null, ctr: null, cost_per_result: null });
-  }
-  return rows;
+    if (j.job_status === "failed") throw maxxError(j.data && typeof j.data === "object" ? { code: j.data.error, message: j.data.message } : {}, { code: "tool_error", message: "MaxxGPT ทำรายงานไม่สำเร็จ" });
+    if (n >= POLL_LIMIT) throw maxxError({ code: "time_out" });
+    const hint = j.poll_hint && Number(j.poll_hint.poll_after_seconds) * 1000;
+    const ms = Math.max(POLL_MIN_MS, Math.min(POLL_MAX_MS, hint || POLL_MIN_MS));
+    return new Promise((resolve, reject) => { ctx.after(ms, () => { wait(jobId, key, n + 1).then(resolve, reject); }); });
+  });
+  const begin = () => {
+    const key = viewKey();
+    return maxxCall(T_REPORT, { ad_account_id: actId(acct), settings: filterSettings(), ordered: orderedIds() }).then((r) => {
+      if (!r.job_id) throw { code: "tool_error", message: "MaxxGPT ไม่ได้ส่งเลขงานกลับมา" };
+      // JOB_ALREADY_RUNNING hands back the report already on its way for this account: follow it;
+      // its filters are not known, so the list is asked again once it arrives
+      const at = Date.now();
+      // kept from the start, so leaving the tab or reloading while it runs follows the same job
+      ctx.prefs.set("job", { acct, id: r.job_id, at });
+      return { jobId: r.job_id, key: r.code === "JOB_CREATED" ? key : null, at };
+    });
+  };
+  const kept = opts.fresh ? null : keptJob(acct);
+  const first = kept
+    ? wait(kept.id, null, 0).then((r) => r && { ...r, jobId: kept.id, at: kept.at }, () => null)
+    : Promise.resolve(null);
+  first.then((r) => {
+    if (r || !mine()) return r;
+    // nothing kept, or the kept job is gone or failed: start a new report
+    return begin().then((b) => wait(b.jobId, b.key, 0).then((w) => w && { ...w, jobId: b.jobId, at: b.at }));
+  }).then((r) => { if (r) show(r.jobId, r.data, r.at, r.key); }, fail);
 }
+// the list and the summary for the filters and the ordered set on screen now, from the stored report
 function recompute(){
-  // Tiers from part of the 30 days can be far off (seen 2026-09-24: 1 red while loading,
-  // 0 red once complete), so nothing is judged until every window has arrived. The first
-  // load shows the skeleton meanwhile; a refresh keeps the previous table.
-  if (S.loading){ render(); return; }
-  const rows = withQuietDays();
-  S.partial = false;
+  if (S.loading || !S.job){ render(); return; }
+  const key = viewKey();
+  if (key === S.viewKey){ render(); return; }
   const seq = ++S.seq;
+  const jobId = S.job.id;
   S.computing = true;
-  ctx.logic.run("fatigue.report", {
-    rows, settings: { minSpend: S.minSpend, minDays: S.minDays }, ordered: [...S.ordered.values()],
-  }).then((r) => {
-    if (seq !== S.seq){ ctx.log("info", "fatigue.report: older result ignored"); return; }
+  maxxCall(T_REPORT, { job_id: jobId, settings: filterSettings(), ordered: orderedIds() }).then((r) => {
+    if (seq !== S.seq) return;
     S.computing = false;
-    S.ads = r.ads; S.maxDate = r.maxDate; S.list = r.list; S.summary = r.summary;
-    ctx.log("info", "fatigue.report: rows=" + rows.length + " ads=" + r.ads.length + " shown=" + r.list.length +
-      " minSpend=" + r.settings.minSpend + " minDays=" + r.settings.minDays);
+    if (r.success === false){
+      // the stored report is gone (reason job_unusable): make a new one
+      ctx.log("warn", "fatigue_report: stored report unusable (" + (r.job_status || "") + "); starting a new one");
+      startEntities({ fresh: true, keep: true });
+      return;
+    }
+    S.list = Array.isArray(r.list) ? r.list : []; S.summary = r.summary || null; S.viewKey = key;
+    ctx.log("info", "fatigue_report: shown=" + S.list.length + " minSpend=" + S.minSpend + " minDays=" + S.minDays);
     render();
   }, (err) => {
     if (seq !== S.seq) return;
     S.computing = false;
-    ctx.log("error", "fatigue.report failed: " + (err && (err.code || err.message) || err));
-    setBanner("err", `<span>คำนวณความล้าไม่สำเร็จ (${esc((err && err.code) || "error")}) กดรีเฟรชเพื่อลองใหม่</span>`);
+    if (err && err.maxx === "JOB_NOT_FOUND"){ startEntities({ fresh: true, keep: true }); return; }
+    ctx.log("error", "fatigue_report (filters) failed: " + ((err && (err.maxx || err.code)) || err));
+    setBanner("err", `<span>ปรับตารางตามตัวกรองไม่สำเร็จ (${esc((err && err.message) || "error")}) กดรีเฟรชเพื่อลองใหม่</span>`);
   });
-}
-function stopEntities(){
-  for (const p of S.pages) if (p && p.unsub) p.unsub();
-  S.pages = [];
-}
-// REWRITE 2026-09-24: one unit per date window (plus any cursor pages Meta
-// does return). A window that comes back full is replaced by its two halves.
-// A unit that fails before delivering anything is retried once; if it still
-// fails, the data is marked incomplete (owner decision 2026-09-24).
-function startEntities(opts = {}){
-  stopEntities();
-  const gen = ++S.gen;
-  S.entError = null; S.loading = true; S.truncated = false; S.incomplete = false;
-  if (!opts.keep){ S.ads = []; S.fetchedAt = null; S.expanded.clear(); S.seq++; S.list = []; S.summary = null; }
-  S.units = last30Windows().map(win => ({ win, cursor: null, tries: 0 }));
-  render(); renderFresh();
-  const settle = () => {
-    S.loading = !S.units.every((u, k) => S.pages[k] && !S.pages[k].pending);
-    S.incomplete = S.truncated || S.pages.some(p => p && p.failed);
-    const at = S.pages.filter(p => p && p.at).map(p => p.at);
-    if (at.length) S.fetchedAt = Math.min(...at);
-  };
-  const addUnit = (unit) => {
-    if (S.units.length >= MAX_UNITS){ S.truncated = true; ctx.log("warn", "fatigue: too many windows; data may be incomplete"); return; }
-    S.units.push(unit);
-    step(S.units.length - 1);
-  };
-  const label = (u) => u.win.since + ".." + u.win.until + (u.cursor ? " (next page)" : "");
-  const step = (k) => enqueue(async () => {
-    if (gen !== S.gen) return;
-    const unit = S.units[k];
-    const input = entInput(unit.win, unit.cursor);
-    if (opts.fresh){
-      // one fresh execution, then the watch below replays it from cache
-      try { await ctx.read.call("meta", T_ENT, input, { cache: { ...CACHE, refresh: true } }); }
-      catch (e) { /* the watch will surface the error */ }
-      if (gen !== S.gen) return;
-    }
-    await new Promise(resolve => {
-      let first = true, followed = false;
-      if (S.pages[k] && S.pages[k].unsub) S.pages[k].unsub();
-      const page = { unit, rows: [], pending: true, failed: false, split: false, at: 0, unsub: null };
-      S.pages[k] = page;
-      const done = () => { if (first){ first = false; resolve(); } };
-      const handle = (ev) => {
-        if (gen !== S.gen || page.split) return;
-        if (ev.type === "error"){
-          const e = ev.error;
-          if (e.code === "bad_request" && first){ fallbackCall(); return; }
-          if (AUTHZ.has(e.code)){
-            // no access: stop every window, not only this one
-            stopEntities(); S.gen++;
-            S.entError = e; S.ads = []; S.loading = false;
-            render(); renderFresh(); done(); return;
-          }
-          if (!page.rows.length && unit.tries < 1){
-            unit.tries++;
-            if (page.unsub) page.unsub();
-            ctx.log("warn", "fatigue: " + label(unit) + " failed (" + e.code + "), trying once more");
-            ctx.after(RETRY_MS, () => { if (gen === S.gen) step(k); });
-            done(); return;
-          }
-          S.entError = e;
-          page.pending = false;
-          if (!page.rows.length) page.failed = true;
-          ctx.log("warn", "fatigue: " + label(unit) + " failed (" + e.code + ")");
-          settle();
-          recompute();
-        } else {
-          const { rows, next } = entitiesFrom(ev.result.payload);
-          page.rows = rows; page.pending = false; page.failed = false; S.entError = null;
-          page.at = (ev.result.cache && ev.result.cache.storedAt) || Date.now();
-          // checked on every delivery: a later refresh can come back full when the cached copy was not
-          if (next){
-            if (!followed){ followed = true; addUnit({ win: unit.win, cursor: next, tries: 0 }); }
-          } else if (rows.length >= PAGE_LIMIT){
-            if (spanDays(unit.win) > 1 && !unit.cursor){
-              page.split = true; page.rows = [];
-              if (page.unsub) page.unsub();
-              ctx.log("info", "fatigue: " + label(unit) + " came back full; asking for each half");
-              splitWindow(unit.win).forEach(w => addUnit({ win: w, cursor: null, tries: 0 }));
-            } else if (!S.truncated){
-              S.truncated = true;
-              ctx.log("warn", "fatigue: " + label(unit) + " came back full and cannot be split; data may be incomplete");
-            }
-          }
-          settle();
-          recompute();
-        }
-        settle();
-        render(); renderFresh();
-        done();
-      };
-      const fallbackCall = () => {
-        ctx.read.call("meta", T_ENT, input, { cache: CACHE })
-          .then(res => handle({ type: "data", result: res }))
-          .catch(err => { first = false; handle({ type: "error", error: err }); resolve(); });
-      };
-      page.unsub = ctx.read.watch("meta", T_ENT, input, handle, { cache: CACHE });
-    });
-  });
-  S.units.forEach((u, k) => step(k));
-  subscribeOrdered();
 }
 
 // ---------- shared "ordered" state ----------
@@ -6546,7 +6350,7 @@ function readFilters(){
   S.minSpend = isFinite(s) && s >= 0 ? s : 0;
   S.minDays = isFinite(d) && d >= 1 ? Math.min(30, d) : 1;
   ctx.prefs.set("filters", { s: S.minSpend, d: S.minDays });
-  ctx.log("info", "filters changed: minSpend=" + S.minSpend + " minDays=" + S.minDays + " pages=" + S.pages.length + " loading=" + S.loading);
+  ctx.log("info", "filters changed: minSpend=" + S.minSpend + " minDays=" + S.minDays + " loading=" + S.loading);
   recompute();
 }
 ["minSpend","minDays"].forEach(id => $(id).addEventListener("input", () => { clearTimeout(fTimer); fTimer = setTimeout(readFilters, 150); }));
@@ -6608,14 +6412,13 @@ boot = async () => {
   if (!db) S.dbNote = "มุมมองนี้บันทึกสถานะร่วมไม่ได้";
   if (!mcpOk){ render(); renderFresh(); return; }
   S.loading = false;
-  loadBoundAccount();
   loadAccounts();
   render(); renderFresh();
 };
 api = {
   started: false,
   boot: () => boot(),
-  // The shell already stopped watches and db subscriptions; queued pages stop on S.active and S.gen.
+  // The shell already stopped watches, timers and db subscriptions; a running wait stops on S.gen.
   pause: () => { S.active = false; S.gen++; },
   // Coming back within the cache window keeps the table as it is; older data refreshes in place.
   resume: () => {
@@ -6623,8 +6426,7 @@ api = {
     loadAccounts();
     if (!S.acct) return;
     // An update that leaving the tab cut short must restart, or it stays 'updating' forever.
-    const fresh = S.fetchedAt && Date.now() - S.fetchedAt < CACHE.staleTime && !S.loading
-      && !S.pages.some(p => p && p.pending);
+    const fresh = S.fetchedAt && Date.now() - S.fetchedAt < CACHE.staleTime && !S.loading && S.job;
     if (fresh) { subscribeOrdered(); render(); renderFresh(); }
     else startEntities({ keep: true });
   },
@@ -8720,4 +8522,4 @@ api = { started: false, boot: function () { return boot(); } };
 });
 })(MaxxConsole.defineModule, MaxxConsole.defineLogic);
 </script>
-<script>MaxxConsole._internal.boot({"id": "workspace", "title": "MaxxGPT Workspace", "version": "0.0.0", "channel": "release", "allowWrites": true, "optionalConnectors": ["drive"], "connectorTools": {"drive": ["search_files"], "maxxgpt": ["analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "daily_budget_account", "daily_budget_execute", "daily_budget_insights", "daily_budget_snapshot", "get_account_info", "get_dashboard_demographics", "get_job", "search_interest", "suggest_interest"], "meta": ["ads_account_get_activity_logs", "ads_activate_entity", "ads_create_ad", "ads_create_ad_set", "ads_create_campaign", "ads_create_creative", "ads_get_ad_account_custom_audiences", "ads_get_ad_account_pages", "ads_get_ad_accounts", "ads_get_ad_entities", "ads_get_datasets", "ads_update_entity"]}, "logicMode": {}, "changes": [], "updatePhrase": "อัปเดตเว็บ MaxxGPT", "modules": [{"id": "interest", "title": "Interest Finder", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "suggest_interest"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db", "sample", "downloads"], "page": true}, {"id": "heatmap", "title": "Audience Heatmap", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": ["heatmap.rank"], "connectors": {"maxxgpt": {"reads": ["get_dashboard_demographics", "get_account_info"], "writes": []}}, "optionalConnectors": [], "capabilities": ["sample"], "page": true}, {"id": "launch", "title": "Ad Launcher", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": [], "connectors": {"maxxgpt": {"reads": ["get_account_info", "search_interest"], "writes": []}, "meta": {"reads": ["ads_get_ad_accounts", "ads_get_ad_account_pages", "ads_get_ad_account_custom_audiences", "ads_get_datasets", "ads_get_ad_entities"], "writes": ["ads_create_campaign", "ads_create_ad_set", "ads_create_creative", "ads_create_ad", "ads_update_entity"]}, "drive": {"reads": ["search_files"], "writes": []}}, "optionalConnectors": ["drive"], "capabilities": ["db", "sample", "comments"], "page": true}, {"id": "fatigue", "title": "Creative Fatigue", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": ["fatigue.report"], "connectors": {"maxxgpt": {"reads": ["get_account_info"], "writes": []}, "meta": {"reads": ["ads_get_ad_accounts", "ads_get_ad_entities"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "budget-scaling", "title": "Budget Scaling", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["budgetscaling.evaluate"], "connectors": {"maxxgpt": {"reads": ["daily_budget_account", "daily_budget_snapshot", "daily_budget_insights", "get_job"], "writes": ["daily_budget_execute"]}, "meta": {"reads": ["ads_account_get_activity_logs", "ads_get_ad_entities"], "writes": ["ads_update_entity", "ads_activate_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "kill-switch", "title": "Kill Switch", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["killswitch.candidates"], "connectors": {"maxxgpt": {"reads": ["get_account_info", "analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "get_job"], "writes": []}, "meta": {"reads": ["ads_get_ad_entities", "ads_account_get_activity_logs"], "writes": ["ads_update_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}]});</script>
+<script>MaxxConsole._internal.boot({"id": "workspace", "title": "MaxxGPT Workspace", "version": "0.1.0", "channel": "release", "allowWrites": true, "optionalConnectors": ["drive"], "connectorTools": {"drive": ["search_files"], "maxxgpt": ["analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "daily_budget_account", "daily_budget_execute", "daily_budget_insights", "daily_budget_snapshot", "fatigue_report", "get_account_info", "get_dashboard_demographics", "get_job", "list_ad_accounts", "list_pages", "search_interest", "suggest_interest"], "meta": ["ads_account_get_activity_logs", "ads_activate_entity", "ads_create_ad", "ads_create_ad_set", "ads_create_campaign", "ads_create_creative", "ads_get_ad_account_custom_audiences", "ads_get_ad_entities", "ads_get_datasets", "ads_update_entity"]}, "logicMode": {}, "changes": [{"version": "0.1.0", "date": "2026-10-03", "notes": ["Creative Fatigue: MaxxGPT ดึงผลรายวันและประเมินความล้าให้เอง แท็บนี้ไม่ต้องใช้ connector Meta ads แล้ว และเลือกได้เฉพาะบัญชีโฆษณาที่ผูกไว้ใน MaxxGPT", "Ad Launcher: รายการ “บัญชีอื่น” และเพจ มาจากที่ผูกไว้ใน MaxxGPT", "ถ้าแท็บ Creative Fatigue ขึ้นว่ายังไม่ได้รับอนุญาตให้ใช้เครื่องมือของ MaxxGPT ให้พิมพ์ “อัปเดตเว็บ MaxxGPT” ในแชทของ Claude อีกครั้ง"]}], "updatePhrase": "อัปเดตเว็บ MaxxGPT", "modules": [{"id": "interest", "title": "Interest Finder", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "suggest_interest"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db", "sample", "downloads"], "page": true}, {"id": "heatmap", "title": "Audience Heatmap", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": ["heatmap.rank"], "connectors": {"maxxgpt": {"reads": ["get_dashboard_demographics", "get_account_info"], "writes": []}}, "optionalConnectors": [], "capabilities": ["sample"], "page": true}, {"id": "launch", "title": "Ad Launcher", "version": "1.1.0", "placeholder": false, "gated": true, "writes": true, "logic": [], "connectors": {"maxxgpt": {"reads": ["get_account_info", "search_interest", "list_ad_accounts", "list_pages", "daily_budget_account"], "writes": []}, "meta": {"reads": ["ads_get_ad_account_custom_audiences", "ads_get_datasets", "ads_get_ad_entities"], "writes": ["ads_create_campaign", "ads_create_ad_set", "ads_create_creative", "ads_create_ad", "ads_update_entity"]}, "drive": {"reads": ["search_files"], "writes": []}}, "optionalConnectors": ["drive"], "capabilities": ["db", "sample", "comments"], "page": true}, {"id": "fatigue", "title": "Creative Fatigue", "version": "1.1.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["list_ad_accounts", "fatigue_report", "get_job"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "budget-scaling", "title": "Budget Scaling", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["budgetscaling.evaluate"], "connectors": {"maxxgpt": {"reads": ["daily_budget_account", "daily_budget_snapshot", "daily_budget_insights", "get_job"], "writes": ["daily_budget_execute"]}, "meta": {"reads": ["ads_account_get_activity_logs", "ads_get_ad_entities"], "writes": ["ads_update_entity", "ads_activate_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "kill-switch", "title": "Kill Switch", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["killswitch.candidates"], "connectors": {"maxxgpt": {"reads": ["get_account_info", "analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "get_job"], "writes": []}, "meta": {"reads": ["ads_get_ad_entities", "ads_account_get_activity_logs"], "writes": ["ads_update_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}]});</script>

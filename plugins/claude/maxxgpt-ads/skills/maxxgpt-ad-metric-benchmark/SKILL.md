@@ -62,20 +62,20 @@ STEP 2  ad_benchmark_metrics(date_start, date_end, indicator=<ค่าที่
 **ชื่อ tool ของแต่ละ user อาจไม่ตรงเป๊ะ** (เปลี่ยนชื่อเองได้) → จับคู่จาก *ความสามารถ* ไม่ใช่ชื่อเป๊ะ ๆ
 
 > **บัญชีโฆษณา · เพจ (MaxxGPT V4)** — ไม่ส่งอะไร = tool ใช้บัญชี/เพจที่ user เลือกไว้ในเว็บ MaxxGPT (กรณีปกติ) ·
-> ทุก tool รับ `ad_account_id` (`act_…`) และ `page_id` แบบ **optional** เพื่อรันกับบัญชี/เพจอื่นที่ user ผูกไว้ **เฉพาะครั้งนั้น** (ไม่เปลี่ยนค่าที่เลือกในเว็บ) ·
+> tool ที่ทำงานกับบัญชีโฆษณารับ `ad_account_id` (`act_…`) และ `page_id` แบบ **optional** เพื่อรันกับบัญชี/เพจอื่นที่ user ผูกไว้ **เฉพาะครั้งนั้น** (ไม่เปลี่ยนค่าที่เลือกในเว็บ · `get_job` / `search_interest` / `suggest_interest` ไม่มีสอง argument นี้) ·
 > id ต้องมาจาก `list_ad_accounts` / `list_pages` เท่านั้น — **ห้ามเดา** · ส่งตัวที่ไม่ได้ผูก = `AD_ACCOUNT_NOT_ALLOWED` / `PAGE_NOT_ALLOWED` (ไม่ fallback เงียบ) ·
-> user มีหลายบัญชีแล้วไม่ระบุ → ใช้ค่า default ไปก่อน แล้วบอกชื่อบัญชีที่ใช้ในหัวรายงาน (ทุกคำตอบแนบ `ad_account {id,name,source}` — `source: requested` = มาจากที่ส่ง)
+> user มีหลายบัญชีแล้วไม่ระบุ → ใช้ค่า default ไปก่อน แล้วบอกชื่อบัญชีที่ใช้ในหัวรายงาน (คำตอบแนบ `ad_account {id,name,source}` — `source: requested` = มาจากที่ส่ง · ยกเว้น `get_job` และ `get_dashboard_demographics` ที่ไม่แนบ) · ส่ง `ad_account_id` ให้ tool ใด ต้องส่งค่าเดียวกันให้ `get_account_info` ด้วย และเรียก `get_account_info` ใหม่เมื่อเปลี่ยนบัญชี (สกุลเงิน/โซนเวลาเป็นของบัญชีนั้น)
 >
 > **รหัสที่ต้องรู้จัก (V4):** `NO_AD_ACCOUNT` (428) = ยังไม่ต่อ Meta / ยังไม่เลือกบัญชี → ให้ user เปิดเว็บ MaxxGPT ต่อ Meta แล้วเลือกบัญชี ·
-> `reason: OVER_QUOTA` = ผูกบัญชี/เพจเกินโควตาแพ็กเกจ (`ad_account_quota.linked > max_ad_accounts`) → ให้ไปกด "จัดการบัญชี" ในเว็บเลือกตัวที่จะเก็บก่อน **อย่า retry** ·
-> `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์นี้ · `JOB_RUNNING_FOR_OTHER_ACCOUNT` = งานชนิดเดียวกันกำลังรันให้อีกบัญชีของ user นี้ รอจบก่อน · `JOB_NOT_FOUND` = `job_id` ไม่ใช่ของ user นี้
+> `reason: OVER_QUOTA` = ผูกบัญชีโฆษณาหรือเพจเกินโควตาแพ็กเกจ (`ad_account_quota.over_quota` / `page_quota.over_quota`) → ให้ไปกด "จัดการบัญชี" ในเว็บเลือกตัวที่จะเก็บก่อน **อย่า retry** ·
+> `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่สกิลนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้) · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ → ให้ต่ออายุในเว็บ MaxxGPT (ล็อกอินใหม่ไม่ช่วย) · `NO_SESSION` / `USER_NOT_FOUND` (401) = connector ไม่รู้จักผู้ใช้ → ให้เชื่อมต่อ connector MaxxGPT ใหม่ · `JOB_RUNNING_FOR_OTHER_ACCOUNT` = งานชนิดเดียวกันกำลังรันให้อีกบัญชีของ user นี้ รอจบก่อน · `JOB_NOT_FOUND` = `job_id` ไม่ใช่ของ user นี้
 
 ---
 
 ## ⚡ ทางลัด · มี `job_id` มาแล้ว = ข้ามไปต่อจากตรงนั้นเลย
 
 **ถ้าข้อความของ user มี `job_id` ติดมา ให้ข้ามการยิง tool ของสเต็ปนั้นไปเลย** — สกิลนี้เป็นงาน 2 สเต็ป
-job หนึ่งใบเป็นได้ทั้งสเต็ป 1 และสเต็ป 2 → **ต้องดูจาก `data` ก่อนว่าเป็นใบไหน**
+job หนึ่งใบเป็นได้ทั้งสเต็ป 1 และสเต็ป 2 → **ต้องดูจาก `function_name` (หรือ `data`) ก่อนว่าเป็นใบไหน**
 
 **นับว่า "มี job_id" เมื่อ:** user พิมพ์/วางมาตรง ๆ (`job_id=…` · `[job_id=…]` · "ดูผลจากจ็อบ …" ·
 วาง id ดิบ ๆ มาพร้อมบอกให้วิเคราะห์) · สกิลอื่นหรือเทิร์นก่อนหน้าส่งต่อมาให้ · งานตั้งเวลา/ระบบภายนอกแนบมา
@@ -83,13 +83,13 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
 ### ทำตามนี้
 
 1. **`get_job(job_id)` ทันที** — `processing` ก็ poll ต่อตามปกติ (`data` อาจเป็นสตริง JSON → parse ก่อน)
-2. **`get_account_info`** ยังต้องเรียก (1 ครั้งต่อ session) เพื่อเอาสกุลเงิน + ชื่อบัญชีไปใส่หัวเรื่อง
+2. **`get_account_info`** ยังต้องเรียก (1 ครั้งต่อ session ต่อบัญชี) เพื่อเอาสกุลเงิน + ชื่อบัญชีไปใส่หัวเรื่อง
 3. **ดูว่าเป็น job ของสเต็ปไหน:**
 
-| `data` หน้าตาแบบนี้ | คือ | ทำต่อยังไง |
+| `function_name` / `data` หน้าตาแบบนี้ | คือ | ทำต่อยังไง |
 |---|---|---|
-| มีคีย์ `OV` (+ `Gender` `Age`) | **สเต็ป 1 · overview** | ข้ามขั้น 2 ไปทำ **ขั้น 3** เลย — สรุป `OV` แล้วให้ user เลือก `Result_indicator` |
-| มีบล็อก `CTR` `CTR_LINK_CLICK` `Engagement_Rate` `CPM` `FRQ` `Cost_Per_Result` + คู่ `*_AD` | **สเต็ป 2 · metrics** | ข้ามขั้น 2-4 ไปทำ **ขั้น 5** เลย — แสดงตารางเทียบระดับ |
+| `resultOverAll` · มีคีย์ `OV` | **สเต็ป 1 · overview** | ข้ามขั้น 2 ไปทำ **ขั้น 3** เลย — สรุป `OV` แล้วให้ user เลือก `Result_indicator` |
+| `CtrCpmFrq` · มีบล็อก `CTR` `CTR_LINK_CLICK` `Engagement_Rate` `CPM` `FRQ` `Cost_Per_Result` + คู่ `*_AD` | **สเต็ป 2 · metrics** | ข้ามขั้น 2-4 ไปทำ **ขั้น 5** เลย — แสดงตารางเทียบระดับ |
 | ไม่ใช่ทั้งสองแบบ | เป็นของสกิลอื่น | ห้ามฝืนแปลง ชี้สกิลที่ตรงจากตารางข้างล่าง |
 
 4. 🔴 **ได้ job สเต็ป 1 มาแล้วจะยิงสเต็ป 2 ต่อ — ต้องรู้ช่วงวันที่ก่อน**
@@ -97,31 +97,54 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
    **ห้ามเดาช่วงวัน** · user ไม่ได้บอกมา = **ถามก่อนยิงสเต็ป 2** (ยิงด้วยช่วงผิด = ได้ตัวเลขคนละชุดโดยไม่มีใครรู้)
 5. **ได้ job สเต็ป 2 มา — `indicator` ก็ไม่ได้ติดมาเหมือนกัน** → เขียนใน `note` ว่าไม่ทราบว่าเทียบจาก
    result indicator ตัวไหนและช่วงวันไหน **ห้ามเดา** · user บอกมาก็ใส่ตามนั้น
-6. **ช่วงวันที่: `get_job` ไม่ได้คืนมาด้วย** — 🔴 **ห้ามเดา ห้ามใส่ช่วงมั่ว ๆ ในหัวเรื่อง**
+6. **ช่วงวันที่และบัญชีของ job: `get_job` ไม่ได้คืนมาด้วย** — 🔴 **ห้ามเดา ห้ามใส่ช่วงมั่ว ๆ ในหัวเรื่อง**
    · user บอกช่วงมาด้วย = ใช้ตามนั้น · ไม่บอก = เว้นช่วงวันที่ในหัวเรื่องไว้ แล้วเขียนในหมายเหตุว่า
-   "ผลชุดนี้มาจาก job ที่ส่งมา — ระบบไม่ได้แนบช่วงวันที่มาด้วย"
-7. `code: JOB_NOT_FOUND` = **job_id ผิด หรือเป็นของ user คนอื่น** (job ผูกกับ login) →
+   "ผลชุดนี้มาจาก job ที่ส่งมา — ระบบไม่ได้แนบช่วงวันที่มาด้วย" ·
+   ชื่อบัญชีในหัวเรื่องคือบัญชีจาก `get_account_info` ตอนนี้ — เขียนในหมายเหตุด้วยว่า **ไม่ยืนยันว่า job นี้รันกับบัญชีนั้น**
+7. `code: JOB_NOT_FOUND` = **job_id ผิด เป็นของ user คนอื่น หรือเป็น job_id จากระบบเดิมก่อน V4** (job ผูกกับ login) →
    บอกตรง ๆ แล้วเสนอรันใหม่ตามขั้น 1-2 ปกติ · **ห้าม poll ซ้ำ** (`poll_hint.poll_after_seconds` = 0)
-8. `job_status: failed` = งานเก่าตายไปแล้ว → เสนอรันใหม่ · `data` ว่าง `{}` = ช่วงนั้นไม่มีข้อมูล ไม่ใช่ error
+8. `job_status: failed` = งานเก่าล้มไปแล้ว → อ่าน `data.error` (ดู "งานล้ม / error" ในขั้น 2) ก่อนเสนอรันใหม่ · `OV` เป็น `[]` หรือ `*_AD` ว่างทุกตาราง = ช่วงนั้นไม่มีข้อมูล ไม่ใช่ error ·
+   `job_status: success` แต่ `data` เป็น `null` = ผลหมดอายุแล้ว (ระบบเก็บผล 7 วัน) → เสนอรันใหม่
 
 ### ตารางลายเซ็น — job_id นี้เป็นของหัวข้อไหน
+
+**ดู `function_name` ก่อนเสมอ** — `get_job` คืนค่านี้มาด้วย และใช้ได้แม้ `data` เป็น `{}`
+
+| `function_name` | หัวข้อ | สกิลที่ควรใช้ |
+|---|---|---|
+| `badInbox` · `badLead` · `badPurchase` | Bottom Rank (วัดด้วย inbox / lead / purchase) | `maxxgpt-rank-bottom-ads` |
+| `topStar` | Rising Stars | `maxxgpt-rank-rising-stars` |
+| `topAware` | Audience Growth | `maxxgpt-rank-audience-growth` |
+| `goodInbox` · `goodLead` · `goodPurchase` · `goodROAS` | Top Rank (วัดด้วย inbox / lead / purchase / roas) | `maxxgpt-rank-top-ads` |
+| `videoAdsAnalysis` | โฆษณาวิดีโอ | `maxxgpt-analysis-video-ads` |
+| `postEngagement` | เอนเกจโพสต์ | `maxxgpt-analysis-post-engagement` |
+| `messageAnalysis` | ทักแชท | `maxxgpt-analysis-message` |
+| `leadAdsAnalysis` | ลีด | `maxxgpt-analysis-leads` |
+| `purchaseAnalysisMETA` | ยอดซื้อ Meta | `maxxgpt-analysis-purchase-meta` |
+| `purchaseAnalysisCPAS` | ยอดซื้อ CPAS | `maxxgpt-analysis-purchase-cpas` |
+| `resultOverAll` | Ad Metric Benchmark (สเต็ป 1) | `maxxgpt-ad-metric-benchmark` |
+| `CtrCpmFrq` | Ad Metric Benchmark (สเต็ป 2) | `maxxgpt-ad-metric-benchmark` |
+| `exportAds` | รายงานโฆษณาแบบดิบ | `maxxgpt-export-report` |
+| `recomendedDashboard` | Ad Spotlight (ผลจริงอ่านจาก `spotlight_get`) | `maxxgpt-ad-spotlight` |
+
+**ไม่มี `function_name` ในคำตอบ** = ใช้ลายเซ็นใน `data` แทน:
 
 | ลายเซ็นใน `data` | หัวข้อ | สกิลที่ควรใช้ |
 |---|---|---|
 | `Ad` เป็น **object** `{Close,Watch,Keep}` | Bottom Rank | `maxxgpt-rank-bottom-ads` |
 | แถวมี `Score` + `CPC` · **ไม่มี `CPM`** และไม่มีคอลัมน์ผลลัพธ์ | Rising Stars | `maxxgpt-rank-rising-stars` |
 | แถวมี `Score` + `Reach` + `Frequency` + `CPM` + `CPC` | Audience Growth | `maxxgpt-rank-audience-growth` |
-| แถวมี `Score` + `CPM` + `Cost_per_*` (`per` ตัวเล็ก) · ไม่มี `Reach`/`CPC` | Top Rank | `maxxgpt-rank-top-ads` |
+| แถวมี `Score` + `CPM` · ไม่มี `Reach`/`CPC` (`Cost_per_*` `per` ตัวเล็ก มีเฉพาะเมตริก inbox / lead) | Top Rank | `maxxgpt-rank-top-ads` |
 | แถวมี `Video_plays` + `Completion_Rate` | โฆษณาวิดีโอ | `maxxgpt-analysis-video-ads` |
 | แถวมี `Post_Engagement` + `post_engagement_rate` | เอนเกจโพสต์ | `maxxgpt-analysis-post-engagement` |
 | แถวมี `Inbox` + `MSS_VIEW` + `Cost_Per_Inbox` (`Per` ตัวใหญ่) | ทักแชท | `maxxgpt-analysis-message` |
 | แถวมี `Lead` + `Cost_per_lead` | ลีด | `maxxgpt-analysis-leads` |
 | แถวมี `Purchase`/`Purchase_Value`/`ROAS` **และ** มีคีย์ `Age`/`Gender` | ยอดซื้อ Meta | `maxxgpt-analysis-purchase-meta` |
-| แถวมี `Purchase`/`Purchase_Value`/`ROAS` **แต่ไม่มี** คีย์ `Age`/`Gender` | ยอดซื้อ CPAS | `maxxgpt-analysis-purchase-cpas` |
+| แถวมี `Purchase`/`Purchase_Value`/`ROAS` **แต่ไม่มี** คีย์ `Age`/`Gender` และไม่มี `Score` | ยอดซื้อ CPAS | `maxxgpt-analysis-purchase-cpas` |
 | `data` มีคีย์ `OV` | Ad Metric Benchmark (สเต็ป 1) | `maxxgpt-ad-metric-benchmark` |
 | `data` มีบล็อก `CTR`/`CPM`/`FRQ` + `*_AD` | Ad Metric Benchmark (สเต็ป 2) | `maxxgpt-ad-metric-benchmark` |
 
-⚠️ `purchase_meta` กับ `purchase_cpas` คอลัมน์เหมือนกันเป๊ะ แยกได้แค่จากคีย์ `Age`/`Gender` —
+⚠️ `purchase_meta` กับ `purchase_cpas` คอลัมน์เหมือนกันเป๊ะ ถ้าไม่มี `function_name` จะแยกได้แค่จากคีย์ `Age`/`Gender` —
 **ถ้าไม่มั่นใจให้บอก user ตรง ๆ ว่าเดาว่าเป็นหัวข้อไหน แล้วให้ยืนยัน** อย่าเงียบแล้วเดา
 
 ---
@@ -129,7 +152,7 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
 ## ผังการทำงาน · Flow
 
 ```
-0  get_account_info ──► ชื่อบัญชี + สกุลเงิน + โซนเวลา (ครั้งเดียวต่อ session)
+0  get_account_info ──► ชื่อบัญชี + สกุลเงิน + โซนเวลา (ครั้งเดียวต่อ session ต่อบัญชี)
 1  ถามเลือกช่วงเวลา ด้วย AskUserQuestion  ◄── ข้ามได้ถ้า user บอกช่วงมาแล้ว
 2  ad_benchmark_overview(date_start,date_end) → job_id → poll get_job จน success
 3  พิมพ์ตารางภาพรวม + ถาม Result indicator ด้วย AskUserQuestion
@@ -139,8 +162,8 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
 
 ### ขั้น 0 · รู้ก่อนว่าบัญชีไหน
 
-เรียก `get_account_info` **หนึ่งครั้งต่อ session** เก็บ ชื่อบัญชี / `act_…` / สกุลเงิน / โซนเวลา ไว้ใช้ทุกขั้น
-(แมป `ad_account.timezone_name` → `timezone`, `account_status` เป็นตัวเลข `1`=ใช้งานได้ · เหมือนสกิล analysis)
+เรียก `get_account_info` **หนึ่งครั้งต่อ session ต่อบัญชี** เก็บ ชื่อบัญชี / `act_…` / สกุลเงิน / โซนเวลา ไว้ใช้ทุกขั้น
+(แมป `ad_account.timezone_name` → `timezone`, `account_status` เป็นตัวเลข `1`=ใช้งานได้ · `null` = MaxxGPT ยังไม่เคยอ่านจาก Meta · สองค่านี้คือค่าที่ MaxxGPT อ่านจาก Meta ล่าสุด ณ `ad_account.synced_at` · เหมือนสกิล analysis)
 โซนเวลาใช้คำนวณ **"วันนี้"** ตอนแปลงคำพูดเป็นช่วงวันที่ — หาไม่เจอใช้ `Asia/Bangkok` ·
 สกุลเงินใช้ต่อท้ายตัวเลขเงินทุกตัว — หาไม่เจอเว้นว่าง **ห้ามเดาว่าเป็น THB**
 
@@ -162,12 +185,22 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
 | `JOB_CREATED` | เริ่มงานใหม่แล้ว | poll ตามปกติ |
 | `JOB_ALREADY_RUNNING` | **มีงาน overview ค้างอยู่ — `job_id` เป็นของงานเก่า (ช่วงวันเก่า)** | poll ต่อได้ แต่บอก user ตรง ๆ ว่าผลเป็นของช่วงก่อน แล้วเสนอรันใหม่หลังงานเก่าจบ |
 
+**งานล้ม / error (ใช้กับทั้ง 2 สเต็ป):**
+
+- `failed` + `data = {"error":"time_out"}` → เกินเพดานเวลา 5 นาที **ห้ามยิงซ้ำทันที**: บอก user ว่าช่วงที่ขอหนักไป แล้วเสนอย่นช่วงวันก่อนรันใหม่
+- `failed` ที่ `data.error` เป็นค่าอื่น → **อย่ารันซ้ำเฉย ๆ** ให้อ่านรหัสก่อน: `META_TOKEN_INVALID` = การเชื่อมต่อ Meta หมดอายุ/ถูกยกเลิก →
+  ให้ user ต่อ Meta ใหม่ในเว็บ MaxxGPT (รันซ้ำไม่ช่วย) · `META_RATE_LIMITED` = Meta จำกัดคำขอชั่วคราว รอ 2-3 นาทีแล้วค่อยรันใหม่ ·
+  `META_PERMISSION_DENIED` = บัญชีที่ต่อไว้ไม่มีสิทธิ์ในบัญชีโฆษณานี้ · รหัสอื่น (`META_ERROR` ฯลฯ) = บอก `data.message` แล้วเสนอรันใหม่
+- tool ตอบ error แทน `job_id` → อ่าน `code` ตามกล่อง "รหัสที่ต้องรู้จัก (V4)" ข้างบน · วันที่ผิดรูป (ไม่ใช่ `YYYY-MM-DD`) ถูกปฏิเสธตั้งแต่ตอนเรียก tool
+- ได้ข้อความ `Rate limit reached …` → รอตามจำนวนวินาทีที่ข้อความบอก แล้วทำต่อเอง **ห้ามจบ turn** (เริ่มงานได้ 60 ครั้ง/ชั่วโมงต่อ tool)
+
 ### ขั้น 3 · poll แล้วให้เลือก Result indicator
 
 `get_job(job_id)` จน `job_status = success` (ตาม `poll_hint` · `data` อาจเป็นสตริง JSON → parse ก่อน) ·
-อ่าน `data = { OV, Gender, Age }` (โครงสร้างเต็ม: [references/output-shape.md](references/output-shape.md))
+อ่าน `data = { OV }` (โครงสร้างเต็ม: [references/output-shape.md](references/output-shape.md))
 
-**`OV` = 1 แถวต่อ (Objective × Result indicator)** พร้อม Result / Spend / CTR / CPM / FRQ / Cost per result
+**`OV` = 1 แถวต่อ (Objective × Result indicator)** พร้อม Result / Spend / CTR / CPM / FRQ / Cost per result ·
+`OV` เป็น `[]` = ช่วงนั้นไม่มีโฆษณาที่มี impression → บอก user แล้วเสนอช่วงอื่น (ไม่ต้องไปสเต็ป 2)
 
 1. **พิมพ์ตาราง `OV` ให้ user เห็นตัวเลขก่อน** (ทุกแถว ปกติมีไม่กี่แถว) แล้ว**ถามด้วย `AskUserQuestion`
    ว่าจะเจาะ Result indicator ตัวไหน** — `label` = ชื่ออ่านง่าย · `description` = Objective + Result + Spend ของแถวนั้น
@@ -180,7 +213,8 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
 ### ขั้น 4 · ยิง metrics
 
 `ad_benchmark_metrics(date_start, date_end, indicator)` — **ช่วงวันเดิมกับ overview** · `indicator` = ค่าดิบที่เลือก
-→ `{ job_id, code }` (code แบบเดียวกับข้างบน) · เกณฑ์ปลายทาง: เอาเฉพาะ ad ที่ตรง indicator และ **impression ≥ 1000**
+→ `{ job_id, code }` (code แบบเดียวกับข้างบน) · เกณฑ์ปลายทาง: เอาเฉพาะ ad ที่ตรง indicator และ **impression ≥ 1000** ·
+ไม่มีตัวไหนผ่าน = `*_AD` ว่างทุกตาราง และคีย์สรุป `Count` = 0 ทุกระดับ (ไม่ใช่ error)
 
 ### ขั้น 5 · poll แล้วแสดงตารางเทียบระดับ
 
@@ -206,7 +240,7 @@ job หนึ่งใบเป็นได้ทั้งสเต็ป 1 แ�
 |---|---|
 | หน้า **overview (ให้เลือก)** · ตาราง | 1 ตาราง `OV` ครบทุกแถว (ปกติไม่กี่แถว) คอลัมน์: Objective · Result indicator · Result · Spend · CTR · CPM · FRQ · Cost/result |
 | หน้า **overview** · คำถามปิดท้าย | ลิสต์ Result indicator ที่ไม่ซ้ำเป็นข้อ ๆ ให้เลือก (+ บอกว่าเปลี่ยนช่วงเวลาได้) |
-| หน้า **ผลเทียบระดับ** · ตาราง | 6 ตาราง (เมตริกละตาราง) · **แต่ละระดับเอา 10 แถวแรก** เรียงตาม Level (High→Low) แล้ว Spend มาก→น้อย · ตัดออกให้เขียนใต้ตารางว่า "แสดง 10 จาก N" |
+| หน้า **ผลเทียบระดับ** · ตาราง | 6 ตาราง (เมตริกละตาราง) · **แต่ละตารางเอา 10 แถวแรก** — เรียงมาให้แล้วตามค่าเมตริกมาก→น้อย (= High → Medium → Low) · ตัดออกให้เขียนใต้ตารางว่า "แสดง 10 จาก N" |
 | หน้า **ผลเทียบระดับ** · คอลัมน์ต่อตาราง | Ad Name · Spend · Result · เมตริกนั้น · **Level ของเมตริกนั้น** (5 คอลัมน์พอ) |
 | สรุปรวม | การกระจายระดับของเมตริกหลัก เช่น "CTR: High 4 · Med 9 · Low 6" (จากคีย์สรุป `CTR` = `{level,Count,Min,Max}`) |
 

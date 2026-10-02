@@ -39,7 +39,7 @@ ChatGPT บนเว็บ: ดาวน์โหลด [`downloads/maxxgpt-ads-
 
 ## ปลั๊กอิน
 
-### maxxgpt-ads 0.8.1
+### maxxgpt-ads 0.9.0
 
 ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ, ส่งออกรายงาน, หน้าเครื่องมือค้น interest และแผนที่ความร้อนกลุ่มเป้าหมายอายุ×เพศ · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา
 
@@ -71,7 +71,7 @@ Claude 22 skill · ChatGPT 20 skill
 - `maxxgpt-audience-heatmap`
 - `maxxgpt-interest-explorer`
 
-### maxxgpt-artifact 0.3.0
+### maxxgpt-artifact 0.4.0
 
 เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Interest Finder, Audience Heatmap, Ad Launcher, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ "ติดตั้งเว็บ MaxxGPT" เพื่อติดตั้ง หรือ "อัปเดตเว็บ MaxxGPT" หลังอัปเดตปลั๊กอิน
 
