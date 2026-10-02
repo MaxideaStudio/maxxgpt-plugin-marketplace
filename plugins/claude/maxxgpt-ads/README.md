@@ -101,7 +101,7 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 
 หลังบ้านของ `https://mcp.maxxgpt.ai/mcp` ย้ายจาก n8n มาเป็น V4 (monorepo นี้ · `apps/mcp` + `apps/worker`) — **URL · ชื่อ tool · รูปแบบผลลัพธ์ทุกตัวเหมือนเดิม** สิ่งที่เพิ่มและทุก skill รู้จักแล้วตั้งแต่ 0.7.0:
 
-- **บัญชี/เพจเลือกได้ต่อครั้ง** — tool ที่ทำงานกับบัญชีโฆษณารับ `ad_account_id` / `page_id` แบบ optional (ยกเว้น `get_job` · `search_interest` · `suggest_interest`) · ไม่ส่ง = ใช้ที่เลือกในเว็บ · id ต้องมาจาก `list_ad_accounts` / `list_pages` · คำตอบแนบ `ad_account {id,name,source}` (ยกเว้น `get_job` และ `get_dashboard_demographics`)
+- **บัญชี/เพจเลือกได้ต่อครั้ง** — tool ที่ทำงานกับบัญชีโฆษณารับ `ad_account_id` / `page_id` แบบ optional (ยกเว้น `get_job` · `search_interest` · `suggest_interest`) · ไม่ส่ง = ใช้ที่เลือกในเว็บ · id ต้องมาจาก `list_ad_accounts` / `list_pages` · คำตอบแนบ `ad_account {id,name,source}` (ยกเว้น `get_job` · `get_dashboard_demographics` แนบตั้งแต่ MCP 1.23.2)
 - **โควตาบัญชีและเพจต่อแพ็กเกจ** — `NO_AD_ACCOUNT` (428) + `reason: OVER_QUOTA` = ผู้ใช้ต้องไปเลือกบัญชี/เพจที่จะเก็บในเว็บก่อน · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ · `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่ skill ชุดนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้)
 - **งานผูกกับบัญชี** — `JOB_RUNNING_FOR_OTHER_ACCOUNT` · `JOB_NOT_FOUND` ถ้า `job_id` ไม่ใช่ของผู้ใช้นี้
 - `worker_ping` (ใหม่ · ไม่คิดเครดิต) เอาไว้พิสูจน์ว่า MCP → คิว → worker ต่อกันอยู่
@@ -136,6 +136,12 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 - แถวระดับโฆษณา / ad set ไม่มีชื่อแคมเปญติดมา ให้กำกับด้วย id (อยากได้ชื่อแคมเปญใช้ `maxxgpt-export-report`)
 - หน้า **interest explorer** และ **audience heatmap**: คำตอบ error ของ MaxxGPT (ยังไม่ผูกบัญชี · เกินโควตา · แพ็กเกจหมดอายุ · เรียกถี่เกิน) ขึ้นเป็นข้อความบอกสาเหตุ ไม่ใช่ "ไม่พบผลลัพธ์" · heatmap ใช้สัญลักษณ์เงินตามสกุลของบัญชี และบอกว่าต้นทุนต่อการเข้าถึงคิดต่อ 1,000 คน · ผู้ใช้ที่ publish สองหน้านี้ไว้แล้วต้องสั่ง skill ให้ publish ทับ
 
+## 0.9.1 — `get_dashboard_demographics` บอกบัญชีและเวลาของข้อมูล (MCP 1.23.2)
+
+ตั้งแต่ MaxxGPT MCP 1.23.2 คำตอบของ `get_dashboard_demographics` มี `ad_account` (บัญชีของตาราง) และ `as_of` (เวลาที่ MaxxGPT ดึงจาก Meta ·
+cache ต่อบัญชีไม่เกิน 60 นาที · `stale: true` = ดึงรอบใหม่ไม่สำเร็จ ใช้ชุดเก่า) ข้างตาราง 3 ช่วง เหมือน tool อื่น · skill 17 ตัวแก้ประโยคที่เคยบอกว่า
+tool นี้ไม่แนบ `ad_account` · ตาราง ชื่อ tool และ argument ไม่เปลี่ยน · หน้าที่ publish ไว้แล้วไม่ต้อง publish ทับ
+
 ## Version
 
-0.9.0
+0.9.1

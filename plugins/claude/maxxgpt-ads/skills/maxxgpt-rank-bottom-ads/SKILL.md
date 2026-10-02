@@ -50,7 +50,7 @@ Sort every ad into stop / watch / keep — then stay for follow-ups.
 > **บัญชีโฆษณา · เพจ (MaxxGPT V4)** — ไม่ส่งอะไร = tool ใช้บัญชี/เพจที่ user เลือกไว้ในเว็บ MaxxGPT (กรณีปกติ) ·
 > tool ที่ทำงานกับบัญชีโฆษณารับ `ad_account_id` (`act_…`) และ `page_id` แบบ **optional** เพื่อรันกับบัญชี/เพจอื่นที่ user ผูกไว้ **เฉพาะครั้งนั้น** (ไม่เปลี่ยนค่าที่เลือกในเว็บ · `get_job` / `search_interest` / `suggest_interest` ไม่มีสอง argument นี้) ·
 > id ต้องมาจาก `list_ad_accounts` / `list_pages` เท่านั้น — **ห้ามเดา** · ส่งตัวที่ไม่ได้ผูก = `AD_ACCOUNT_NOT_ALLOWED` / `PAGE_NOT_ALLOWED` (ไม่ fallback เงียบ) ·
-> user มีหลายบัญชีแล้วไม่ระบุ → ใช้ค่า default ไปก่อน แล้วบอกชื่อบัญชีที่ใช้ในหัวรายงาน (คำตอบแนบ `ad_account {id,name,source}` — `source: requested` = มาจากที่ส่ง · ยกเว้น `get_job` และ `get_dashboard_demographics` ที่ไม่แนบ) · ส่ง `ad_account_id` ให้ tool ใด ต้องส่งค่าเดียวกันให้ `get_account_info` ด้วย และเรียก `get_account_info` ใหม่เมื่อเปลี่ยนบัญชี (สกุลเงิน/โซนเวลาเป็นของบัญชีนั้น)
+> user มีหลายบัญชีแล้วไม่ระบุ → ใช้ค่า default ไปก่อน แล้วบอกชื่อบัญชีที่ใช้ในหัวรายงาน (คำตอบแนบ `ad_account {id,name,source}` — `source: requested` = มาจากที่ส่ง · ยกเว้น `get_job` · `get_dashboard_demographics` แนบตั้งแต่ MCP 1.23.2) · ส่ง `ad_account_id` ให้ tool ใด ต้องส่งค่าเดียวกันให้ `get_account_info` ด้วย และเรียก `get_account_info` ใหม่เมื่อเปลี่ยนบัญชี (สกุลเงิน/โซนเวลาเป็นของบัญชีนั้น)
 >
 > **รหัสที่ต้องรู้จัก (V4):** `NO_AD_ACCOUNT` (428) = ยังไม่ต่อ Meta / ยังไม่เลือกบัญชี → ให้ user เปิดเว็บ MaxxGPT ต่อ Meta แล้วเลือกบัญชี ·
 > `reason: OVER_QUOTA` = ผูกบัญชีโฆษณาหรือเพจเกินโควตาแพ็กเกจ (`ad_account_quota.over_quota` / `page_quota.over_quota`) → ให้ไปกด "จัดการบัญชี" ในเว็บเลือกตัวที่จะเก็บก่อน **อย่า retry** ·

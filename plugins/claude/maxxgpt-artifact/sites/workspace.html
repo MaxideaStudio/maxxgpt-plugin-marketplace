@@ -791,7 +791,7 @@ body {
 <nav class="mx-tabs" role="tablist" aria-label="เครื่องมือ"><button class="mx-tab" type="button" role="tab" id="tab-interest" data-mod="interest" aria-controls="panel-interest" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><span class="mx-tab-label">Interest Finder</span></button><button class="mx-tab" type="button" role="tab" id="tab-heatmap" data-mod="heatmap" aria-controls="panel-heatmap" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="mx-tab-label">Audience Heatmap</span></button><button class="mx-tab" type="button" role="tab" id="tab-launch" data-mod="launch" aria-controls="panel-launch" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l14-7L5 5l2 7-2 7z"/><path d="M7 12h6"/></svg><span class="mx-tab-label">Ad Launcher</span></button><button class="mx-tab" type="button" role="tab" id="tab-fatigue" data-mod="fatigue" aria-controls="panel-fatigue" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l3 9 4-12 3 8h4"/></svg><span class="mx-tab-label">Creative Fatigue</span></button><button class="mx-tab" type="button" role="tab" id="tab-budget-scaling" data-mod="budget-scaling" aria-controls="panel-budget-scaling" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 3 7-8"/><path d="M15 7h5v5"/></svg><span class="mx-tab-label">Budget Scaling</span></button><button class="mx-tab" type="button" role="tab" id="tab-kill-switch" data-mod="kill-switch" aria-controls="panel-kill-switch" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 7.5a8 8 0 1 0 11.4 0"/></svg><span class="mx-tab-label">Kill Switch</span></button></nav>
 </header>
 <main class="mx-main" id="mx-main"><section class="mx-panel" id="panel-interest" role="tabpanel" aria-labelledby="tab-interest" hidden><div class="mx-page" data-mod="interest"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Interest Finder</h1><p class="mx-ph-desc">ค้นความสนใจของ Meta ให้ Claude หา interest ที่เกี่ยวข้อง แล้วเก็บเป็นชุดไว้ใช้ต่อ</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="interest"></div></section><section class="mx-panel" id="panel-heatmap" role="tabpanel" aria-labelledby="tab-heatmap" hidden><div class="mx-page" data-mod="heatmap"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Audience Heatmap</h1><p class="mx-ph-desc">ดูว่ากลุ่มอายุและเพศไหนได้ผลคุ้มที่สุด เพื่อใช้ตั้งกลุ่มเป้าหมายของ ad set</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="heatmap"></div></section><section class="mx-panel" id="panel-launch" role="tabpanel" aria-labelledby="tab-launch" hidden><div class="mx-page" data-mod="launch"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Ad Launcher</h1><p class="mx-ph-desc">เลือกบัญชี เพจ ไฟล์ใน Drive และ interest แล้วส่งให้ Claude สร้างแคมเปญ</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="launch"></div></section><section class="mx-panel" id="panel-fatigue" role="tabpanel" aria-labelledby="tab-fatigue" hidden><div class="mx-page" data-mod="fatigue"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Creative Fatigue</h1><p class="mx-ph-desc">ดูว่าโฆษณาไหนเริ่มล้า และควรเตรียมครีเอทีฟใหม่เมื่อไร จากผลรายวัน 30 วันล่าสุด</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="fatigue"></div></section><section class="mx-panel" id="panel-budget-scaling" role="tabpanel" aria-labelledby="tab-budget-scaling" hidden><div class="mx-page" data-mod="budget-scaling"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Budget Scaling</h1><p class="mx-ph-desc">ตรวจแคมเปญ CBO และ ad set ABO ที่กำลังวิ่งกับเกณฑ์ที่ตั้ง แล้วเพิ่มงบรายวันให้ตัวที่ผ่าน</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="budget-scaling"></div></section><section class="mx-panel" id="panel-kill-switch" role="tabpanel" aria-labelledby="tab-kill-switch" hidden><div class="mx-page" data-mod="kill-switch"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Kill Switch</h1><p class="mx-ph-desc">หาแคมเปญและ ad set ที่ไม่ผ่านเกณฑ์ แล้วปิดตัวที่คุณเลือก</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="kill-switch"></div></section></main>
-<footer class="mx-foot"><span>MaxxGPT Workspace 0.1.0</span><span>ข้อมูลของคุณไปได้แค่ MaxxGPT และ Meta เท่านั้น</span></footer>
+<footer class="mx-foot"><span>MaxxGPT Workspace 0.1.1</span><span>ข้อมูลของคุณไปได้แค่ MaxxGPT และ Meta เท่านั้น</span></footer>
 </div>
 <div id="mx-layer"></div>
 <script>window.__MX_COMPONENTS_CSS__ = "/* Shared components. Loaded once in the page and adopted into every module's\n   Shadow DOM, so class names here mean the same thing everywhere.\n   Colors come only from tokens.css. */\n:host {\n  display: block;\n  color: var(--ink);\n  font-family: var(--f-body);\n  font-size: var(--t-md);\n  line-height: 1.6;\n}\n*, *::before, *::after { box-sizing: border-box; }\n[hidden] { display: none !important; }\n\nh1, h2, h3, h4 {\n  font-family: var(--f-display);\n  font-weight: 600;\n  line-height: 1.3;\n  margin: 0;\n  text-wrap: balance;\n  color: var(--ink);\n}\nh1 { font-size: var(--t-2xl); }\nh2 { font-size: var(--t-xl); }\nh3 { font-size: var(--t-lg); }\nh4 { font-size: var(--t-md); }\np { margin: 0; }\n\n.muted { color: var(--muted); }\n.small { font-size: var(--t-sm); }\n.mono, code, kbd { font-family: var(--f-mono); font-size: 0.92em; }\n.num { font-variant-numeric: tabular-nums; }\n.eyebrow {\n  font-family: var(--f-display);\n  font-size: var(--t-xs);\n  font-weight: 500;\n  letter-spacing: 0.06em;\n  text-transform: uppercase;\n  color: var(--muted);\n}\n\n/* Text from outside (competitor ads, AI answers, db data) is shown as plain\n   text with its own line breaks, the way Meta shows ad copy. */\n.mx-pre { white-space: pre-wrap; overflow-wrap: anywhere; }\n.mx-clamp {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: var(--mx-lines, 3);\n  overflow: hidden;\n}\n.mx-more {\n  appearance: none;\n  border: 0;\n  background: none;\n  padding: 0;\n  margin-top: var(--s-1);\n  font: inherit;\n  font-size: var(--t-sm);\n  font-weight: 500;\n  color: var(--accent);\n  cursor: pointer;\n}\n.mx-more:hover { color: var(--accent-ink); text-decoration: underline; }\n\n/* Answers from Claude rendered by ctx.render.markdown (a safe subset, no HTML). */\n.mx-md { line-height: 1.65; overflow-wrap: anywhere; }\n.mx-md > * + * { margin-top: var(--s-2); }\n.mx-md p, .mx-md ul, .mx-md ol { margin-bottom: 0; }\n.mx-md p { margin-top: 0; }\n.mx-md .mx-md-h { font-family: var(--f-display); font-weight: 600; line-height: 1.3; margin: var(--s-4) 0 0; }\n.mx-md .mx-md-h:first-child { margin-top: 0; }\n.mx-md h3.mx-md-h { font-size: var(--t-lg); }\n.mx-md h4.mx-md-h { font-size: var(--t-md); }\n.mx-md h5.mx-md-h, .mx-md h6.mx-md-h { font-size: var(--t-md); color: var(--ink-2); }\n.mx-md ul, .mx-md ol { padding-left: 1.4em; }\n.mx-md li + li { margin-top: 3px; }\n.mx-md li > ul, .mx-md li > ol { margin-top: 3px; }\n.mx-md strong { font-weight: 600; }\n.mx-md code { font-family: var(--f-mono); font-size: .92em; background: var(--surface-2); padding: 1px 5px; border-radius: var(--r-sm); }\n.mx-md hr { border: 0; border-top: 1px solid var(--line); margin: var(--s-3) 0; }\n.mx-md-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }\n\n/* Buttons */\n.btn {\n  appearance: none;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: var(--s-2);\n  min-height: 36px;\n  padding: 0 var(--s-4);\n  border: 1px solid var(--line-strong);\n  border-radius: var(--r-sm);\n  background: var(--surface);\n  color: var(--ink);\n  font-family: var(--f-body);\n  font-size: var(--t-sm);\n  font-weight: 600;\n  line-height: 1;\n  cursor: pointer;\n  transition: background-color 0.15s, border-color 0.15s, color 0.15s;\n}\n.btn:hover { background: var(--surface-3); }\n.btn:focus-visible { outline: none; box-shadow: var(--focus); }\n.btn[aria-busy=\"true\"] { opacity: 0.55; cursor: not-allowed; }\n.btn-primary { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }\n.btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }\n/* white text on the light theme's red; the dark theme's red is light, so its text is dark (reskin step 5) */\n.btn-danger { background: var(--crit); border-color: var(--crit); color: var(--crit-ink); }\n.btn-danger:hover { filter: brightness(0.92); background: var(--crit); }\n/* a button that asks Claude to work; icon optional */\n.btn-ai { background: var(--ai); border-color: var(--ai); color: var(--ai-ink); }\n.btn-ai:hover { background: var(--ai-hover); border-color: var(--ai-hover); }\n.btn-quiet { background: transparent; border-color: transparent; color: var(--ink-2); }\n.btn-quiet:hover { background: var(--surface-3); }\n.btn-sm { min-height: 30px; padding: 0 var(--s-3); font-size: var(--t-xs); }\n/* A button that cannot be pressed is grey whatever its kind, so it never looks\n   like a live red or gold button (owner, 2026-09-28). Placed after the kinds. */\n.btn:disabled, .btn:disabled:hover, .btn[aria-disabled=\"true\"] {\n  background: var(--surface-3);\n  border-color: var(--line);\n  color: var(--faint);\n  filter: none;\n  opacity: 1;\n  cursor: not-allowed;\n}\n.btn[aria-disabled=\"true\"] { pointer-events: none; }\n\n/* Segmented control: one track, the chosen option raised on it (no gold, no underline). */\n.mx-seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--seg-track); border: 1px solid var(--line); border-radius: var(--r); }\n.mx-seg > button {\n  appearance: none;\n  border: 0;\n  background: transparent;\n  color: var(--muted);\n  font: inherit;\n  font-size: var(--t-sm);\n  padding: 6px 13px;\n  border-radius: var(--r-sm);\n  cursor: pointer;\n}\n.mx-seg > button:hover { color: var(--ink); }\n.mx-seg > button:focus-visible { outline: none; box-shadow: var(--focus); }\n.mx-seg > button[aria-pressed=\"true\"], .mx-seg > button[aria-selected=\"true\"] {\n  background: var(--seg-on);\n  color: var(--ink);\n  font-weight: 500;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px var(--seg-on-line);\n}\n\n/* Notice: a thin coloured edge on a quiet box, never a coloured block (reskin 2026-09-28).\n   Plain for information; -warn (orange) or -crit (red) only where the reader should stop. */\n.mx-notice { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--faint);\n  border-radius: var(--r-sm); background: var(--surface-2); color: var(--ink-2); font-size: var(--t-sm); }\n.mx-notice > svg { width: 16px; height: 16px; flex: none; margin-top: 2px; color: var(--muted); }\n.mx-notice-warn { border-left-color: var(--warn); }\n.mx-notice-warn > svg { color: var(--warn); }\n.mx-notice-crit { border-left-color: var(--crit); }\n.mx-notice-crit > svg { color: var(--crit); }\n\n/* Form fields */\n.field { display: grid; gap: var(--s-1); }\n.field > label, .label {\n  font-size: var(--t-sm);\n  font-weight: 500;\n  color: var(--ink-2);\n}\n.input, .select, .textarea {\n  width: 100%;\n  min-height: 38px;\n  padding: var(--s-2) var(--s-3);\n  border: 1px solid var(--line-strong);\n  border-radius: var(--r-sm);\n  background: var(--surface);\n  color: var(--ink);\n  font: inherit;\n  font-size: var(--t-md);\n}\n.textarea { min-height: 96px; resize: vertical; }\n.input:focus, .select:focus, .textarea:focus {\n  outline: none;\n  border-color: var(--accent);\n  box-shadow: var(--focus);\n}\n.hint { font-size: var(--t-xs); color: var(--muted); }\n\n/* Panels: one level of separation for a module's main blocks. */\n.panel {\n  background: var(--surface);\n  border: 1px solid var(--line);\n  border-radius: var(--r);\n  padding: var(--s-4);\n}\n.panel-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  justify-content: space-between;\n  gap: var(--s-2) var(--s-4);\n  margin-bottom: var(--s-3);\n}\n.stack { display: grid; gap: var(--s-4); }\n.row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }\n\n/* Tables: wide ones scroll inside their own box, never the page. */\n.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }\n.tbl { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }\n.tbl th {\n  position: sticky;\n  top: 0;\n  background: var(--surface-2);\n  color: var(--muted);\n  font-weight: 500;\n  text-align: left;\n  white-space: nowrap;\n}\n.tbl th, .tbl td { padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); }\n.tbl tr:last-child td { border-bottom: 0; }\n.tbl td.num, .tbl th.num { text-align: right; font-variant-numeric: tabular-nums; }\n\n/* Chips carry state, so each tone is a meaning, not a decoration. */\n.chip {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--s-1);\n  padding: 2px 10px;\n  border-radius: 999px;\n  background: var(--surface-3);\n  color: var(--ink-2);\n  font-size: var(--t-xs);\n  font-weight: 500;\n  white-space: nowrap;\n}\n.chip-ok { background: var(--ok-soft); color: var(--ok); }\n.chip-warn { background: var(--warn-soft); color: var(--warn); }\n.chip-crit { background: var(--crit-soft); color: var(--crit); }\n.chip-info { background: var(--info-soft); color: var(--info); }\n.chip-accent { background: var(--accent-soft); color: var(--accent-ink); }\n\n/* Banners: section-level status with the action that fixes it. */\n.banner {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: flex-start;\n  gap: var(--s-2) var(--s-3);\n  padding: var(--s-3) var(--s-4);\n  border: 1px solid var(--line);\n  border-left-width: 4px;\n  border-radius: var(--r-sm);\n  background: var(--surface-2);\n  font-size: var(--t-sm);\n}\n.banner-ok { border-left-color: var(--ok); background: var(--ok-soft); }\n.banner-warn { border-left-color: var(--warn); background: var(--warn-soft); }\n.banner-crit { border-left-color: var(--crit); background: var(--crit-soft); }\n.banner-info { border-left-color: var(--info); background: var(--info-soft); }\n.banner b { font-weight: 600; }\n\n/* Empty, loading, and error states */\n.empty {\n  display: grid;\n  justify-items: center;\n  gap: var(--s-2);\n  padding: var(--s-6) var(--s-4);\n  text-align: center;\n  color: var(--muted);\n}\n.spinner {\n  width: 18px;\n  height: 18px;\n  border: 2px solid var(--line-strong);\n  border-top-color: var(--accent);\n  border-radius: 50%;\n  animation: mx-spin 0.8s linear infinite;\n}\n@keyframes mx-spin { to { transform: rotate(360deg); } }\n.skeleton {\n  border-radius: var(--r-sm);\n  background: linear-gradient(90deg, var(--surface-3), var(--surface-2), var(--surface-3));\n  background-size: 200% 100%;\n  animation: mx-shimmer 1.4s ease-in-out infinite;\n}\n@keyframes mx-shimmer { to { background-position: -200% 0; } }\n\n@media (prefers-reduced-motion: reduce) {\n  .spinner, .skeleton { animation: none; }\n  .btn { transition: none; }\n}\n";</script>
@@ -3942,10 +3942,11 @@ defineModule({
   function onData(result){
     var p = result && result.payload;
     if(!p || typeof p!=="object"){ handleFailure({code:"upstream_error", message:"รูปแบบข้อมูลไม่ถูกต้อง"}); return; }
-    if(p.success===false){ handleFailure({code:"tool_error", message:(p.message||"ระบบตอบกลับว่าไม่สำเร็จ")}); return; }
+    if(p.success===false){ handleFailure({code:"tool_error", message:(p.message||"ระบบตอบกลับว่าไม่สำเร็จ"), result:{payload:p}}); return; }
     payload = p;
     retriedThisCycle = false;
-    var ts = (result.cache && result.cache.storedAt) ? result.cache.storedAt : Date.now();
+    var asOf = p.as_of ? Date.parse(p.as_of) : NaN;
+    var ts = isFinite(asOf) ? asOf : ((result.cache && result.cache.storedAt) ? result.cache.storedAt : Date.now());
     ctx.page.refresh(doRefresh);
     // a cached answer being checked in the background shows as a busy refresh
     if(!refreshing) ctx.page.busy(!!(result.cache && result.cache.revalidating));
@@ -3991,6 +3992,14 @@ defineModule({
       $("authMsg").textContent = "องค์กรของคุณจำกัดการเรียกเครื่องมือนี้ — ติดต่อผู้ดูแลระบบ";
       headerNone(); showState("auth"); return;
     }
+    // V4 2026-10-03: a refusal MaxxGPT explains by its code (no linked account, over quota, expired
+    // package) is said in Thai and not retried
+    var why = maxxWhy(err);
+    if(why){
+      ctx.log("warn", "MaxxGPT refused: " + why.code);
+      $("errMsg").textContent = why.text;
+      headerNone(); showState("err"); return;
+    }
     // retryable / other: ask once more by itself before the error page
     if(autoRetry(err) && !retriedThisCycle){
       retriedThisCycle = true;
@@ -4025,8 +4034,9 @@ defineModule({
   // until the promise returned here settles.
   var refreshing = false;
   function fetchFresh(){
-    return ctx.read.call("maxxgpt", TOOL, {}, { cache: { staleTime: 300000, refresh: true } })
-      .then(onData, handleFailure);
+    var gen = ACC.gen;
+    return ctx.read.call("maxxgpt", TOOL, dataInput(), { cache: { staleTime: 300000, refresh: true } })
+      .then(function(r){ if(gen===ACC.gen) onData(r); }, function(e){ if(gen===ACC.gen) handleFailure(e); });
   }
   function doRefresh(){
     if(refreshing) return Promise.resolve();
@@ -4159,17 +4169,129 @@ defineModule({
     }
   }
 
-  // ---- start ----
-  // REWRITE 2026-09-26: the shell finds the MaxxGPT connector, asks for consent and
-  // checks the account; the module reads through ctx.read by the key "maxxgpt". Input {}
-  // matches the refresh call, so both use one cache entry.
-  function startWatches(){
-    ctx.read.watch("maxxgpt", TOOL, {}, function(ev){
+  // ---- the account (V4 2026-10-03) ----
+  // The table is the dashboard demographics of one ad account (get_dashboard_demographics), and
+  // MaxxGPT V4 takes ad_account_id on that tool. So the viewer can pick any account linked in
+  // MaxxGPT from the shared account bar: the list is list_ad_accounts, the account selected in the
+  // MaxxGPT web app is the default (tagged "ผูกกับ MaxxGPT") and a pick is kept per viewer
+  // (ctx.prefs "acct"). The table starts once the account is known. If the list cannot be read,
+  // the page works as it did: the table of the selected account, named by get_account_info.
+  var ACCTS_TOOL = "list_ad_accounts";
+  var ACC = { list: [], bound: "", cur: ctx.prefs.get("acct", "") || "", gen: 0, stopData: null };
+  function cleanAcct(v){ return String(v==null ? "" : v).replace(/^act_/, ""); }
+  function dataInput(){ return ACC.cur ? { ad_account_id: "act_" + ACC.cur } : {}; }
+  function drawAccount(){
+    var a = ACC.list.filter(function(x){ return x.id===ACC.cur; })[0];
+    var choices = ACC.list.map(function(x){ return { id: x.id, name: x.name || x.id }; });
+    // linked accounts but none selected in MaxxGPT and none picked here: the bar offers the choice
+    if(!a){ ctx.page.account({ id: "", choices: choices, onChoose: chooseAccount }); return; }
+    ctx.page.account({ name: a.name || ("บัญชี " + a.id), id: a.id, currency: a.currency || "", linked: a.id===ACC.bound,
+      choices: choices, onChoose: chooseAccount });
+  }
+  // one live read of the table for the current account; an answer for an account the viewer has
+  // left is dropped
+  function watchData(){
+    if(ACC.stopData){ ACC.stopData(); ACC.stopData = null; }
+    var gen = ++ACC.gen;
+    ACC.stopData = ctx.read.watch("maxxgpt", TOOL, dataInput(), function(ev){
+      if(gen !== ACC.gen) return;
       if(ev.type==="data") onData(ev.result);
       else if(ev.type==="error") handleFailure(ev.error);
     }, { cache:{ staleTime:300000 }, refetchInterval:600000 });
+  }
+  // nothing of the account before stays on screen: the table, the open cell and Claude's advice
+  function clearForAccount(){
+    payload = null; result = null; lastFetched = 0; retriedThisCycle = false;
+    closeDrawer();
+    if(recCtl) recCtl.abort();
+    recFor = null; updateRecNote();
+    var body = $("recBody"); body.hidden = true; body.textContent = "";
+    showLoading();
+  }
+  function chooseAccount(id){
+    id = cleanAcct(id);
+    if(!id || id===ACC.cur || !ACC.list.some(function(x){ return x.id===id; })) return;
+    ACC.cur = id; ctx.prefs.set("acct", id);
+    ctx.log("info", "heatmap: account " + id + " chosen");
+    drawAccount();
+    clearForAccount();
+    watchData();
+  }
+  // true when the list arrived with at least one account
+  function onAccounts(result){
+    var p = result && result.payload;
+    if(typeof p==="string"){ try{ p = JSON.parse(p); }catch(e){ p = null; } }
+    var list = (p && Array.isArray(p.ad_accounts)) ? p.ad_accounts : [];
+    if(!list.length) return false;
+    ACC.list = list.map(function(x){ return { id: cleanAcct(x.id), name: x.name || "", currency: x.currency || "" }; })
+      .filter(function(x){ return x.id; });
+    ACC.bound = cleanAcct(p.active_ad_account_id);
+    // a remembered pick that is no longer linked gives way to the selected account
+    if(!ACC.list.some(function(x){ return x.id===ACC.cur; })){
+      ACC.cur = ACC.list.some(function(x){ return x.id===ACC.bound; }) ? ACC.bound : "";
+    }
+    drawAccount();
+    return true;
+  }
 
-    // the account: extra only; a failure leaves the account bar hidden
+  // what a MaxxGPT refusal says, by its code (the tool answers with an error whose text is JSON);
+  // null when the answer is not one of these, so the usual retry and error page apply
+  var MAXX_WHY = {
+    NO_AD_ACCOUNT: "ยังไม่ได้เชื่อม Facebook หรือยังไม่ได้เลือกบัญชีโฆษณาใน MaxxGPT เปิดเว็บ MaxxGPT เพื่อเชื่อมต่อและเลือกบัญชี แล้วกลับมากดลองใหม่",
+    OVER_QUOTA: "บัญชีโฆษณาหรือเพจที่ผูกไว้ใน MaxxGPT เกินจำนวนที่แพ็กเกจให้ เปิดเว็บ MaxxGPT → จัดการบัญชี เลือกตัวที่จะเก็บไว้ แล้วกลับมากดลองใหม่",
+    AD_ACCOUNT_NOT_ALLOWED: "บัญชีนี้ไม่ได้ผูกกับ MaxxGPT ของคุณแล้ว เลือกบัญชีอื่นจากแถบบัญชีด้านบน",
+    SUBSCRIPTION_EXPIRED: "แพ็กเกจ MaxxGPT ของคุณใช้งานไม่ได้แล้ว ต่ออายุในเว็บ MaxxGPT แล้วกลับมากดลองใหม่",
+  };
+  function maxxWhy(e){
+    var r = e && e.result && typeof e.result==="object" ? e.result : null;
+    var tries = r ? [r.payload, r.structuredContent].concat((Array.isArray(r.content) ? r.content : []).map(function(c){ return c && c.text; })) : [];
+    tries.push(e && e.message);
+    for(var i=0;i<tries.length;i++){
+      var v = tries[i];
+      if(typeof v==="string"){ try{ v = JSON.parse(v); }catch(x){ v = null; } }
+      if(v && typeof v==="object" && v.code){
+        var code = (v.code==="NO_AD_ACCOUNT" && v.reason==="OVER_QUOTA") ? "OVER_QUOTA" : String(v.code);
+        if(!MAXX_WHY[code]) return null;
+        // accounts are linked, none is selected: the choice is in the account bar above
+        if(code==="NO_AD_ACCOUNT" && ACC.list.length && !ACC.cur){
+          return { code: code, text: "ยังไม่ได้เลือกบัญชีโฆษณา กด “เลือกบัญชี” ที่แถบบัญชีด้านบน เพื่อเลือกบัญชีที่จะดู" };
+        }
+        return { code: code, text: MAXX_WHY[code] };
+      }
+    }
+    return null;
+  }
+
+  // ---- start ----
+  // REWRITE 2026-09-26: the shell finds the MaxxGPT connector, asks for consent and
+  // checks the account; the module reads through ctx.read by the key "maxxgpt".
+  // V4 2026-10-03: the accounts first, then the table of the current one (watchData). The
+  // refresh call uses the same input, so both use one cache entry.
+  function startWatches(){
+    var started = false;
+    ctx.read.watch("maxxgpt", ACCTS_TOOL, { limit: 200 }, function(ev){
+      if(ev.type==="data"){
+        var before = ACC.cur;
+        var listed = onAccounts(ev.result);
+        if(!started){
+          started = true;
+          if(!listed){ ACC.cur = ""; namedByAccountInfo(); }
+          watchData();
+        } else if(before !== ACC.cur){
+          // the account on screen was unlinked, or the selected one changed and nothing was picked
+          clearForAccount(); watchData();
+        }
+      } else if(ev.type==="error" && !started){
+        started = true;
+        ctx.log("warn", "heatmap: the account list could not be read (" + ((ev.error && ev.error.code) || "error") + "); showing the selected account");
+        ACC.cur = "";
+        namedByAccountInfo();
+        watchData();
+      }
+    }, { cache:{ staleTime:300000 } });
+  }
+  // without the list: the account bar names the selected account, with no menu
+  function namedByAccountInfo(){
     ctx.read.watch("maxxgpt", ACCT_TOOL, {}, function(ev){
       if(ev.type==="data") onAccount(ev.result);
     }, { cache:{ staleTime:3600000 } });
@@ -8522,4 +8644,4 @@ api = { started: false, boot: function () { return boot(); } };
 });
 })(MaxxConsole.defineModule, MaxxConsole.defineLogic);
 </script>
-<script>MaxxConsole._internal.boot({"id": "workspace", "title": "MaxxGPT Workspace", "version": "0.1.0", "channel": "release", "allowWrites": true, "optionalConnectors": ["drive"], "connectorTools": {"drive": ["search_files"], "maxxgpt": ["analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "daily_budget_account", "daily_budget_execute", "daily_budget_insights", "daily_budget_snapshot", "fatigue_report", "get_account_info", "get_dashboard_demographics", "get_job", "list_ad_accounts", "list_pages", "search_interest", "suggest_interest"], "meta": ["ads_account_get_activity_logs", "ads_activate_entity", "ads_create_ad", "ads_create_ad_set", "ads_create_campaign", "ads_create_creative", "ads_get_ad_account_custom_audiences", "ads_get_ad_entities", "ads_get_datasets", "ads_update_entity"]}, "logicMode": {}, "changes": [{"version": "0.1.0", "date": "2026-10-03", "notes": ["Creative Fatigue: MaxxGPT ดึงผลรายวันและประเมินความล้าให้เอง แท็บนี้ไม่ต้องใช้ connector Meta ads แล้ว และเลือกได้เฉพาะบัญชีโฆษณาที่ผูกไว้ใน MaxxGPT", "Ad Launcher: รายการ “บัญชีอื่น” และเพจ มาจากที่ผูกไว้ใน MaxxGPT", "ถ้าแท็บ Creative Fatigue ขึ้นว่ายังไม่ได้รับอนุญาตให้ใช้เครื่องมือของ MaxxGPT ให้พิมพ์ “อัปเดตเว็บ MaxxGPT” ในแชทของ Claude อีกครั้ง"]}], "updatePhrase": "อัปเดตเว็บ MaxxGPT", "modules": [{"id": "interest", "title": "Interest Finder", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "suggest_interest"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db", "sample", "downloads"], "page": true}, {"id": "heatmap", "title": "Audience Heatmap", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": ["heatmap.rank"], "connectors": {"maxxgpt": {"reads": ["get_dashboard_demographics", "get_account_info"], "writes": []}}, "optionalConnectors": [], "capabilities": ["sample"], "page": true}, {"id": "launch", "title": "Ad Launcher", "version": "1.1.0", "placeholder": false, "gated": true, "writes": true, "logic": [], "connectors": {"maxxgpt": {"reads": ["get_account_info", "search_interest", "list_ad_accounts", "list_pages", "daily_budget_account"], "writes": []}, "meta": {"reads": ["ads_get_ad_account_custom_audiences", "ads_get_datasets", "ads_get_ad_entities"], "writes": ["ads_create_campaign", "ads_create_ad_set", "ads_create_creative", "ads_create_ad", "ads_update_entity"]}, "drive": {"reads": ["search_files"], "writes": []}}, "optionalConnectors": ["drive"], "capabilities": ["db", "sample", "comments"], "page": true}, {"id": "fatigue", "title": "Creative Fatigue", "version": "1.1.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["list_ad_accounts", "fatigue_report", "get_job"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "budget-scaling", "title": "Budget Scaling", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["budgetscaling.evaluate"], "connectors": {"maxxgpt": {"reads": ["daily_budget_account", "daily_budget_snapshot", "daily_budget_insights", "get_job"], "writes": ["daily_budget_execute"]}, "meta": {"reads": ["ads_account_get_activity_logs", "ads_get_ad_entities"], "writes": ["ads_update_entity", "ads_activate_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "kill-switch", "title": "Kill Switch", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["killswitch.candidates"], "connectors": {"maxxgpt": {"reads": ["get_account_info", "analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "get_job"], "writes": []}, "meta": {"reads": ["ads_get_ad_entities", "ads_account_get_activity_logs"], "writes": ["ads_update_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}]});</script>
+<script>MaxxConsole._internal.boot({"id": "workspace", "title": "MaxxGPT Workspace", "version": "0.1.1", "channel": "release", "allowWrites": true, "optionalConnectors": ["drive"], "connectorTools": {"drive": ["search_files"], "maxxgpt": ["analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "daily_budget_account", "daily_budget_execute", "daily_budget_insights", "daily_budget_snapshot", "fatigue_report", "get_account_info", "get_dashboard_demographics", "get_job", "list_ad_accounts", "list_pages", "search_interest", "suggest_interest"], "meta": ["ads_account_get_activity_logs", "ads_activate_entity", "ads_create_ad", "ads_create_ad_set", "ads_create_campaign", "ads_create_creative", "ads_get_ad_account_custom_audiences", "ads_get_ad_entities", "ads_get_datasets", "ads_update_entity"]}, "logicMode": {}, "changes": [{"version": "0.1.1", "date": "2026-10-03", "notes": ["Audience Heatmap: เลือกดูบัญชีโฆษณาอื่นที่ผูกไว้ใน MaxxGPT ได้จากแถบบัญชี (ปุ่ม “เปลี่ยนบัญชี”) หน้านี้จำบัญชีที่เลือกไว้ให้", "Audience Heatmap: เวลา “อัปเดตล่าสุด” เป็นเวลาที่ MaxxGPT ดึงข้อมูลจาก Meta จริง"]}, {"version": "0.1.0", "date": "2026-10-03", "notes": ["Creative Fatigue: MaxxGPT ดึงผลรายวันและประเมินความล้าให้เอง แท็บนี้ไม่ต้องใช้ connector Meta ads แล้ว และเลือกได้เฉพาะบัญชีโฆษณาที่ผูกไว้ใน MaxxGPT", "Ad Launcher: รายการ “บัญชีอื่น” และเพจ มาจากที่ผูกไว้ใน MaxxGPT", "ถ้าแท็บ Creative Fatigue ขึ้นว่ายังไม่ได้รับอนุญาตให้ใช้เครื่องมือของ MaxxGPT ให้พิมพ์ “อัปเดตเว็บ MaxxGPT” ในแชทของ Claude อีกครั้ง"]}], "updatePhrase": "อัปเดตเว็บ MaxxGPT", "modules": [{"id": "interest", "title": "Interest Finder", "version": "1.0.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "suggest_interest"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db", "sample", "downloads"], "page": true}, {"id": "heatmap", "title": "Audience Heatmap", "version": "1.1.0", "placeholder": false, "gated": true, "writes": false, "logic": ["heatmap.rank"], "connectors": {"maxxgpt": {"reads": ["get_dashboard_demographics", "get_account_info", "list_ad_accounts"], "writes": []}}, "optionalConnectors": [], "capabilities": ["sample"], "page": true}, {"id": "launch", "title": "Ad Launcher", "version": "1.1.0", "placeholder": false, "gated": true, "writes": true, "logic": [], "connectors": {"maxxgpt": {"reads": ["get_account_info", "search_interest", "list_ad_accounts", "list_pages", "daily_budget_account"], "writes": []}, "meta": {"reads": ["ads_get_ad_account_custom_audiences", "ads_get_datasets", "ads_get_ad_entities"], "writes": ["ads_create_campaign", "ads_create_ad_set", "ads_create_creative", "ads_create_ad", "ads_update_entity"]}, "drive": {"reads": ["search_files"], "writes": []}}, "optionalConnectors": ["drive"], "capabilities": ["db", "sample", "comments"], "page": true}, {"id": "fatigue", "title": "Creative Fatigue", "version": "1.1.0", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["list_ad_accounts", "fatigue_report", "get_job"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "budget-scaling", "title": "Budget Scaling", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["budgetscaling.evaluate"], "connectors": {"maxxgpt": {"reads": ["daily_budget_account", "daily_budget_snapshot", "daily_budget_insights", "get_job"], "writes": ["daily_budget_execute"]}, "meta": {"reads": ["ads_account_get_activity_logs", "ads_get_ad_entities"], "writes": ["ads_update_entity", "ads_activate_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}, {"id": "kill-switch", "title": "Kill Switch", "version": "1.0.0", "placeholder": false, "gated": true, "writes": true, "logic": ["killswitch.candidates"], "connectors": {"maxxgpt": {"reads": ["get_account_info", "analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "get_job"], "writes": []}, "meta": {"reads": ["ads_get_ad_entities", "ads_account_get_activity_logs"], "writes": ["ads_update_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true}]});</script>
