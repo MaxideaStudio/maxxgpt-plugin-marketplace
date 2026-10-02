@@ -64,7 +64,9 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 > **หมายเหตุ:** skill กลุ่มวิเคราะห์ใช้ MaxxGPT ตัวเดียว ไม่แตะ Meta Ads / Google Drive (ตั้งแต่ 0.6.0) ·
 > สิทธิ์ที่หน้าล็อกอินของ Meta ขอเป็นชุดที่ server ของ Meta กำหนด (รวมสิทธิ์จัดการโฆษณา) แม้ skill ในชุดนี้จะเรียกแค่ `ads_library_search` เพื่ออ่าน Ads Library ·
 > skill วางแผนอีก 4 ตัวไม่ใช้ connector ·
-> **แพ็กเกจฝั่ง ChatGPT ไม่มี `meta-ads`** (ตั้งแต่ 0.8.1) — ผู้ใช้ ChatGPT ต่อ Meta Ads ในบัญชีของตัวเอง
+> **แพ็กเกจฝั่ง ChatGPT ไม่มี `meta-ads`** (ตั้งแต่ 0.8.1) — ผู้ใช้ ChatGPT ต่อ Meta Ads ในบัญชีของตัวเอง ·
+> **ChatGPT บนเว็บ** ใช้ปลั๊กอินที่มี MCP ไม่ได้ (ขึ้นป้าย Desktop only) → มี ZIP ชุดสกิลแยก `maxxgpt-ads-web-chatgpt.zip` ที่ไม่มี MCP
+> + สกิล `maxxgpt-install` พาเพิ่ม MaxxGPT เป็น custom MCP server (ต้นฉบับ `skills/maxxgpt-ads-web/` · ดู `tools/plugin-marketplace/README.md`)
 
 ## การใช้งาน
 

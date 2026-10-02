@@ -35,7 +35,15 @@ Codex CLI:
 codex plugin marketplace add MaxideaStudio/maxxgpt-plugin-marketplace
 ```
 
-ChatGPT บนเว็บ: ดาวน์โหลด [`downloads/maxxgpt-ads-chatgpt.zip`](https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace/raw/main/downloads/maxxgpt-ads-chatgpt.zip) แล้วไปที่ Plugins → Add → **Upload plugin archive**
+อัปโหลดปลั๊กอินเองก็ได้: [`downloads/maxxgpt-ads-chatgpt.zip`](https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace/raw/main/downloads/maxxgpt-ads-chatgpt.zip) → Plugins → Add → **Upload plugin archive** — ปลั๊กอินนี้มี MaxxGPT (MCP) ในตัว ChatGPT จึงติดป้าย **Desktop only** ใช้ได้เฉพาะแอปบนเครื่อง
+
+### ChatGPT บนเว็บ
+
+ใช้ชุดสกิลแทนปลั๊กอิน (ไม่มี MCP ในตัว) แล้วเพิ่ม MaxxGPT เอง:
+
+1. ดาวน์โหลด [`downloads/maxxgpt-ads-web-chatgpt.zip`](https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace/raw/main/downloads/maxxgpt-ads-web-chatgpt.zip)
+2. แถบซ้าย Skills → Create → **Upload from your computer** → เลือกไฟล์ ZIP (ได้ทุกสกิลแยกตัว)
+3. พิมพ์ "ติดตั้ง MaxxGPT" ในแชท — สกิล `maxxgpt-install` จะพาเพิ่ม MaxxGPT ที่ Plugins → Add → **Create custom MCP server** (`https://mcp.maxxgpt.ai/mcp` · OAuth · ล็อกอินด้วยบัญชี MaxxGPT)
 
 ## ปลั๊กอิน
 
@@ -70,6 +78,10 @@ Claude 22 skill · ChatGPT 20 skill
 
 - `maxxgpt-audience-heatmap`
 - `maxxgpt-interest-explorer`
+
+ChatGPT บนเว็บ: [`downloads/maxxgpt-ads-web-chatgpt.zip`](https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace/raw/main/downloads/maxxgpt-ads-web-chatgpt.zip) — 21 skill (ชุดเดียวกับฝั่ง ChatGPT ไม่มี MCP ในตัว) เพิ่ม:
+
+- `maxxgpt-install`
 
 ### maxxgpt-artifact 0.4.1
 
