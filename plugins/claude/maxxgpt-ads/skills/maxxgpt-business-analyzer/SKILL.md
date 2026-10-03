@@ -1,9 +1,9 @@
 ---
-name: maxideastudio-facebook-ads-business-analyst-v2
+name: maxxgpt-business-analyzer
 description: วิเคราะห์ธุรกิจ กลุ่มลูกค้า คู่แข่ง และวางแผน Facebook/Instagram Ads โดยใช้ Hybrid Mode เป็นค่าเริ่มต้น คือคำขอวิเคราะห์ธุรกิจแบบกว้างจะสรุปครบทั้ง 3 ส่วนในคำตอบเดียว ส่วนคำขอที่ระบุส่วนชัดเจนจะทำเฉพาะส่วนนั้น ใช้กับข้อความ ไฟล์ และลิงก์ธุรกิจ
 ---
 
-# Facebook Ads Business Analyst v2
+# Business Analyzer
 
 ## บทบาท
 

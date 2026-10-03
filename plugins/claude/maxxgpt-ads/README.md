@@ -9,13 +9,13 @@
 
 | Skill | ทำอะไร |
 |-------|--------|
-| `maxideastudio-facebook-ads-business-analyst-v2` | วิเคราะห์ธุรกิจ กลุ่มลูกค้า คู่แข่ง แล้ววางแผน Facebook/Instagram Ads จากข้อความ ไฟล์ หรือลิงก์ธุรกิจ |
-| `maxideastudio-facebook-adslibrary-v3-8` | ส่องโฆษณาคู่แข่งจาก Meta Ads Library — Creative Angle · Pain/Gain · Offer · โฆษณาที่ควรศึกษาต่อ (ใช้ connector Meta Ads ถ้ามี) |
-| `maxideastudio-content-angle-idea` | แตก Content Angle จาก Pain / Gain พร้อม Hook · Message · Format · Funnel · CTA |
-| `maxideastudio-image-breakdown` | แกะภาพโฆษณา — โครงภาพ · สี · ฟอนต์/เลย์เอาต์ · จุดแข็งจุดอ่อน · prompt สร้างภาพใหม่ |
-| `maxideastudio-video-breakdown` | แกะวิดีโอโฆษณาทีละฉาก — Hook · Marketing Logic · ข้อเสนอปรับปรุง · prompt สร้างวิดีโอ |
+| `maxxgpt-business-analyzer` | **Business Analyzer** — วิเคราะห์ธุรกิจ กลุ่มลูกค้า คู่แข่ง แล้ววางแผน Facebook/Instagram Ads จากข้อความ ไฟล์ หรือลิงก์ธุรกิจ |
+| `maxxgpt-video-breakdown` | **Video Breakdown** — แกะวิดีโอโฆษณาทีละฉาก — Hook · Marketing Logic · ข้อเสนอปรับปรุง · prompt สร้างวิดีโอ |
+| `maxxgpt-image-breakdown` | **Image Breakdown** — แกะภาพโฆษณา — โครงภาพ · สี · ฟอนต์/เลย์เอาต์ · จุดแข็งจุดอ่อน · prompt สร้างภาพใหม่ |
+| `maxxgpt-content-angle-ideas` | **Content Angle Ideas** — แตก Content Angle จาก Pain / Gain พร้อม Hook · Message · Format · Funnel · CTA |
+| `maxxgpt-facebook-ads-library-analyzer` | **Facebook Ads Library Analyzer** — ส่องโฆษณาคู่แข่งจาก Meta Ads Library — Creative Angle · Pain/Gain · Offer · โฆษณาที่ควรศึกษาต่อ (ใช้ connector Meta Ads ถ้ามี) |
 
-skill กลุ่มนี้ **ไม่เรียก MaxxGPT** และไม่ได้ใช้กติกาถาม-ตอบแบบกลุ่มวิเคราะห์ (ไม่มีบล็อกบัญชี/รหัส error ของ V4)
+skill กลุ่มนี้ **ไม่เรียก MaxxGPT** (ชื่อขึ้นต้น `maxxgpt-` เหมือนกลุ่มวิเคราะห์ตั้งแต่ 0.11.0 แต่ไม่ต้องเชื่อม MaxxGPT) และไม่ได้ใช้กติกาถาม-ตอบแบบกลุ่มวิเคราะห์ (ไม่มีบล็อกบัญชี/รหัส error ของ V4)
 
 ### ดูผลโฆษณา — แยกสกิลตามหัวข้อ
 
@@ -57,7 +57,7 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 | Connector | URL | ใครใช้ | หมายเหตุ |
 |-----------|-----|--------|----------|
 | **MaxxGPT** (`maxxgpt`) | `https://mcp.maxxgpt.ai/mcp` | skill กลุ่มวิเคราะห์ทั้ง 15 ตัว | โดเมนเดิม `https://mcp-beta.maxxgpt.ai/mcp` ยังใช้แก้ขัดได้ แต่ควรย้ายมาโดเมนหลัก |
-| **Meta Ads** (`meta-ads`) | `https://mcp.facebook.com/ads` | `maxideastudio-facebook-adslibrary-v3-8` ตัวเดียว (tool `ads_library_search`) | เพิ่มใน 0.8.0 · เป็น connector ของ Meta เอง · ไม่ล็อกอินก็ยังใช้ skill อื่นได้ครบ |
+| **Meta Ads** (`meta-ads`) | `https://mcp.facebook.com/ads` | `maxxgpt-facebook-ads-library-analyzer` ตัวเดียว (tool `ads_library_search`) | เพิ่มใน 0.8.0 · เป็น connector ของ Meta เอง · ไม่ล็อกอินก็ยังใช้ skill อื่นได้ครบ |
 
 > **หมายเหตุ:** skill กลุ่มวิเคราะห์ใช้ MaxxGPT ตัวเดียว ไม่แตะ Meta Ads / Google Drive (ตั้งแต่ 0.6.0) ·
 > สิทธิ์ที่หน้าล็อกอินของ Meta ขอเป็นชุดที่ server ของ Meta กำหนด (รวมสิทธิ์จัดการโฆษณา) แม้ skill ในชุดนี้จะเรียกแค่ `ads_library_search` เพื่ออ่าน Ads Library ·
@@ -153,6 +153,21 @@ skill กลุ่มวิเคราะห์ 15 ตัว (ทุกตั�
 ของ MaxxGPT Workspace ในปลั๊กอิน `maxxgpt-artifact` (Heatmap ที่นั่นเลือกบัญชีที่ผูกไว้ได้) · เหลือ 20 skill ทั้งฝั่ง Claude และ ChatGPT
 (ฝั่ง ChatGPT ไม่เคยมีสองตัวนี้) · หน้าที่ผู้ใช้ publish จากสองสกิลนี้ไว้แล้วยังใช้ต่อได้ แต่จะไม่ได้รับการแก้อีก · skill ที่เหลือไม่เปลี่ยน
 
+## 0.11.0 — skill กลุ่มวางแผนเปลี่ยนชื่อเป็น `maxxgpt-*`
+
+skill กลุ่มวางแผน 5 ตัวเปลี่ยนชื่อให้ขึ้นต้น `maxxgpt-` เหมือนกลุ่มวิเคราะห์ · เนื้อหาและวิธีทำงานไม่เปลี่ยน (ยังไม่เรียก MaxxGPT)
+
+| ชื่อเดิม | ชื่อใหม่ |
+|---------|---------|
+| `maxideastudio-facebook-ads-business-analyst-v2` | `maxxgpt-business-analyzer` |
+| `maxideastudio-video-breakdown` | `maxxgpt-video-breakdown` |
+| `maxideastudio-image-breakdown` | `maxxgpt-image-breakdown` |
+| `maxideastudio-content-angle-idea` | `maxxgpt-content-angle-ideas` |
+| `maxideastudio-facebook-adslibrary-v3-8` | `maxxgpt-facebook-ads-library-analyzer` |
+
+ผู้ใช้ที่ติดตั้งเป็นปลั๊กอิน กด Update แล้วเปิดแชทใหม่จะได้ชื่อใหม่แทนชื่อเดิม · ผู้ใช้ ChatGPT บนเว็บที่อัปโหลดสกิลแยกตัวที่หน้า Skills
+ต้องลบ 5 ตัวชื่อเดิมออกเองก่อนอัปโหลดชุดใหม่ ไม่งั้นจะมีสกิลซ้ำสองชื่อ · skill กลุ่มวิเคราะห์ 15 ตัวไม่เปลี่ยน
+
 ## Version
 
-0.10.0
+0.11.0

@@ -1,5 +1,5 @@
 interface:
-  display_name: maxideastudio content angle idea
+  display_name: MaxxGPT Content Angle Ideas
   short_description: สร้าง Content Angle Ideas จากข้อมูลสินค้า/บริการและกลุ่มลูกค้า
     โดยวิเคราะห์ Target แยก Pain กับ Gain แล้วแตกเป็นมุมคอนเทนต์พร้อม Hook, Message,
     Format, Funnel และ CTA รองรับทั้ง Product-first และ Target-first

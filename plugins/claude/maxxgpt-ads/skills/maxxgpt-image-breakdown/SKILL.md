@@ -1,5 +1,5 @@
 ---
-name: maxideastudio-image-breakdown
+name: maxxgpt-image-breakdown
 description: MUST read this skill BEFORE analyzing static ad images. Provides comprehensive framework for breaking down visual structure, identifying marketing purpose, evaluating creative strategy, and generating AI image recreation prompts. Use for uploaded ad images or accessible public image URLs.
 ---
 

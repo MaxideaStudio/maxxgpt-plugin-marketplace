@@ -1,9 +1,9 @@
 ---
-name: maxideastudio-content-angle-idea
+name: maxxgpt-content-angle-ideas
 description: สร้าง Content Angle Ideas จากข้อมูลสินค้า/บริการและกลุ่มลูกค้า โดยวิเคราะห์ Target แยก Pain กับ Gain แล้วแตกเป็นมุมคอนเทนต์พร้อม Hook, Message, Format, Funnel และ CTA รองรับทั้ง Product-first และ Target-first
 ---
 
-# Content Angle Idea
+# Content Angle Ideas
 
 ## บทบาท
 

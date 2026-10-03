@@ -47,17 +47,12 @@ codex plugin marketplace add MaxideaStudio/maxxgpt-plugin-marketplace
 
 ## ปลั๊กอิน
 
-### maxxgpt-ads 0.10.0
+### maxxgpt-ads 0.11.0
 
 ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ และส่งออกรายงาน · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา
 
 Claude 20 skill · ChatGPT 20 skill
 
-- `maxideastudio-content-angle-idea`
-- `maxideastudio-facebook-ads-business-analyst-v2`
-- `maxideastudio-facebook-adslibrary-v3-8`
-- `maxideastudio-image-breakdown`
-- `maxideastudio-video-breakdown`
 - `maxxgpt-ad-metric-benchmark`
 - `maxxgpt-ad-spotlight`
 - `maxxgpt-analysis-leads`
@@ -67,12 +62,17 @@ Claude 20 skill · ChatGPT 20 skill
 - `maxxgpt-analysis-purchase-meta`
 - `maxxgpt-analysis-video-ads`
 - `maxxgpt-analyze-by-maxidea`
+- `maxxgpt-business-analyzer`
+- `maxxgpt-content-angle-ideas`
 - `maxxgpt-export-report`
+- `maxxgpt-facebook-ads-library-analyzer`
+- `maxxgpt-image-breakdown`
 - `maxxgpt-performance-analysis`
 - `maxxgpt-rank-audience-growth`
 - `maxxgpt-rank-bottom-ads`
 - `maxxgpt-rank-rising-stars`
 - `maxxgpt-rank-top-ads`
+- `maxxgpt-video-breakdown`
 
 ChatGPT บนเว็บ: [`downloads/maxxgpt-ads-web-chatgpt.zip`](https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace/raw/main/downloads/maxxgpt-ads-web-chatgpt.zip) — 21 skill (ชุดเดียวกับฝั่ง ChatGPT ไม่มี MCP ในตัว) เพิ่ม:
 

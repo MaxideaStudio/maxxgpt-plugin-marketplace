@@ -1,9 +1,9 @@
 ---
-name: maxideastudio-facebook-adslibrary-v3-8
+name: maxxgpt-facebook-ads-library-analyzer
 description: Simple competitive Creative research for Meta/Facebook Ads Library. Designed for quick first-pass analysis that helps users understand what a competitor appears to be pushing, which Creative angles and offers are being used, what looks strong or weak, which ads are worth opening next, and what should be researched further. Uses Meta Ads data when available, keeps technical confidence/scoring logic in the background, and gives a short, plain-language report by default with an optional Deep Research follow-up.
 ---
 
-# Facebook Ads Library Creative Research (v3.8)
+# Facebook Ads Library Analyzer (v3.8)
 
 ## Purpose
 

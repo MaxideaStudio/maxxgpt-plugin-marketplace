@@ -1,5 +1,5 @@
 ---
-name: maxideastudio-video-breakdown
+name: maxxgpt-video-breakdown
 description: MUST read this skill BEFORE analyzing video ads. Provides comprehensive framework for breaking down video structure, identifying marketing purpose, evaluating creative strategy, and generating AI video recreation prompts. Use for uploaded video ads or accessible public video URLs, with scene analysis and AI video prompts.
 ---
 
