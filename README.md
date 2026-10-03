@@ -47,11 +47,11 @@ codex plugin marketplace add MaxideaStudio/maxxgpt-plugin-marketplace
 
 ## ปลั๊กอิน
 
-### maxxgpt-ads 0.9.1
+### maxxgpt-ads 0.10.0
 
-ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ, ส่งออกรายงาน, หน้าเครื่องมือค้น interest และแผนที่ความร้อนกลุ่มเป้าหมายอายุ×เพศ · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา
+ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ และส่งออกรายงาน · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา
 
-Claude 22 skill · ChatGPT 20 skill
+Claude 20 skill · ChatGPT 20 skill
 
 - `maxideastudio-content-angle-idea`
 - `maxideastudio-facebook-ads-business-analyst-v2`
@@ -74,18 +74,13 @@ Claude 22 skill · ChatGPT 20 skill
 - `maxxgpt-rank-rising-stars`
 - `maxxgpt-rank-top-ads`
 
-เฉพาะ Claude:
-
-- `maxxgpt-audience-heatmap`
-- `maxxgpt-interest-explorer`
-
 ChatGPT บนเว็บ: [`downloads/maxxgpt-ads-web-chatgpt.zip`](https://github.com/MaxideaStudio/maxxgpt-plugin-marketplace/raw/main/downloads/maxxgpt-ads-web-chatgpt.zip) — 21 skill (ชุดเดียวกับฝั่ง ChatGPT ไม่มี MCP ในตัว) เพิ่ม:
 
 - `maxxgpt-install`
 
-### maxxgpt-artifact 0.4.1
+### maxxgpt-artifact 0.5.0
 
-เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Interest Finder, Audience Heatmap, Ad Launcher, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ "ติดตั้งเว็บ MaxxGPT" เพื่อติดตั้ง หรือ "อัปเดตเว็บ MaxxGPT" หลังอัปเดตปลั๊กอิน
+เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Ad Launcher, Interest Finder, Audience Heatmap, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ "ติดตั้งเว็บ MaxxGPT" เพื่อติดตั้ง หรือ "อัปเดตเว็บ MaxxGPT" หลังอัปเดตปลั๊กอิน
 
 Claude 2 skill · ไม่มีฝั่ง ChatGPT
 

@@ -32,10 +32,6 @@
         "tools": [
           "ads_account_get_activity_logs",
           "ads_activate_entity",
-          "ads_create_ad",
-          "ads_create_ad_set",
-          "ads_create_campaign",
-          "ads_create_creative",
           "ads_get_ad_account_custom_audiences",
           "ads_get_ad_entities",
           "ads_get_datasets",

@@ -8,12 +8,12 @@
     {
       "name": "maxxgpt-ads",
       "source": "./plugins/claude/maxxgpt-ads",
-      "description": "ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ, ส่งออกรายงาน, หน้าเครื่องมือค้น interest และแผนที่ความร้อนกลุ่มเป้าหมายอายุ×เพศ · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา"
+      "description": "ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ และส่งออกรายงาน · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา"
     },
     {
       "name": "maxxgpt-artifact",
       "source": "./plugins/claude/maxxgpt-artifact",
-      "description": "เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Interest Finder, Audience Heatmap, Ad Launcher, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ \"ติดตั้งเว็บ MaxxGPT\" เพื่อติดตั้ง หรือ \"อัปเดตเว็บ MaxxGPT\" หลังอัปเดตปลั๊กอิน"
+      "description": "เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Ad Launcher, Interest Finder, Audience Heatmap, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ \"ติดตั้งเว็บ MaxxGPT\" เพื่อติดตั้ง หรือ \"อัปเดตเว็บ MaxxGPT\" หลังอัปเดตปลั๊กอิน"
     }
   ]
 }

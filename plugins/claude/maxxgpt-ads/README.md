@@ -1,7 +1,7 @@
 # maxxgpt-ads
 
-ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — รวม 22 skill เข้าเป็น plugin เดียว ติดตั้งทีเดียวใช้ได้ครบ
-(กลุ่มวิเคราะห์ 17 ตัว ใช้ข้อมูลบัญชีโฆษณาผ่าน MaxxGPT · กลุ่มวางแผน 5 ตัวของ MaxideaStudio ทำงานจากข้อมูลที่ผู้ใช้ให้มา)
+ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — รวม 20 skill เข้าเป็น plugin เดียว ติดตั้งทีเดียวใช้ได้ครบ
+(กลุ่มวิเคราะห์ 15 ตัว ใช้ข้อมูลบัญชีโฆษณาผ่าน MaxxGPT · กลุ่มวางแผน 5 ตัวของ MaxideaStudio ทำงานจากข้อมูลที่ผู้ใช้ให้มา)
 
 ## Skills
 
@@ -46,8 +46,6 @@ skill กลุ่มนี้ **ไม่เรียก MaxxGPT** และไ
 | `maxxgpt-ad-metric-benchmark` | เทียบเมตริกแต่ละโฆษณา (CTR · Frequency · CPM · Engagement · Cost/result) กับค่ากลางของบัญชี แล้วตีระดับ High/Medium/Low |
 | `maxxgpt-ad-spotlight` | โฆษณาแนะนำรายคืน — ควรปิด / ควรดัน / ครีเอทีฟเด่น แยกตามช่วงเวลา |
 | `maxxgpt-export-report` | ส่งออกรายงานผลโฆษณาแบบดิบ |
-| `maxxgpt-interest-explorer` | ส่งมอบ **หน้าเครื่องมือค้น interest** เป็น Artifact ส่วนตัว — ค้นคำ · ไล่ดูตัวที่เกี่ยวข้อง · เก็บเป็นชุด · บอกว่าขายอะไรแล้วให้ Claude หาคำค้นให้ |
-| `maxxgpt-audience-heatmap` | ส่งมอบ **หน้าแผนที่ความร้อนกลุ่มเป้าหมาย (อายุ × เพศ)** เป็น Artifact ส่วนตัว — กลุ่มไหนต้นทุนต่อผลถูกสุด/ROAS สูงสุด · สลับ 3 ช่วงเวลา · ให้ Claude แนะนำการตั้ง ad set |
 
 > **สกิลวิเคราะห์ทุกตัวรับ `job_id` ได้** — ถ้ามี `job_id` ของงานที่รันไว้แล้ว สกิลจะดึงผลนั้นมาวิเคราะห์ทันที
 > โดยไม่ยิงงานใหม่ (ประหยัดเวลา 1-5 นาทีต่อรอบ)
@@ -58,7 +56,7 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 
 | Connector | URL | ใครใช้ | หมายเหตุ |
 |-----------|-----|--------|----------|
-| **MaxxGPT** (`maxxgpt`) | `https://mcp.maxxgpt.ai/mcp` | skill กลุ่มวิเคราะห์ทั้ง 17 ตัว | โดเมนเดิม `https://mcp-beta.maxxgpt.ai/mcp` ยังใช้แก้ขัดได้ แต่ควรย้ายมาโดเมนหลัก |
+| **MaxxGPT** (`maxxgpt`) | `https://mcp.maxxgpt.ai/mcp` | skill กลุ่มวิเคราะห์ทั้ง 15 ตัว | โดเมนเดิม `https://mcp-beta.maxxgpt.ai/mcp` ยังใช้แก้ขัดได้ แต่ควรย้ายมาโดเมนหลัก |
 | **Meta Ads** (`meta-ads`) | `https://mcp.facebook.com/ads` | `maxideastudio-facebook-adslibrary-v3-8` ตัวเดียว (tool `ads_library_search`) | เพิ่มใน 0.8.0 · เป็น connector ของ Meta เอง · ไม่ล็อกอินก็ยังใช้ skill อื่นได้ครบ |
 
 > **หมายเหตุ:** skill กลุ่มวิเคราะห์ใช้ MaxxGPT ตัวเดียว ไม่แตะ Meta Ads / Google Drive (ตั้งแต่ 0.6.0) ·
@@ -78,8 +76,7 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 - "ตัวไหนควรเพิ่มงบ" → `maxxgpt-rank-rising-stars`
 - "เทียบเมตริกโฆษณา / benchmark" → `maxxgpt-ad-metric-benchmark`
 - "โฆษณาแนะนำคืนนี้" → `maxxgpt-ad-spotlight`
-- "หา interest / ขอ interest id / ควร target ใคร" → `maxxgpt-interest-explorer`
-- "อายุไหนดี / เพศไหนคุ้มกว่า / ควรตั้งอายุเท่าไรใน ad set" → `maxxgpt-audience-heatmap`
+- "หา interest" / "อายุไหน เพศไหนคุ้ม" → ใช้แท็บ Interest Finder / Audience Heatmap ของ **MaxxGPT Workspace** (ปลั๊กอิน `maxxgpt-artifact`)
 
 ## เรื่องที่ตั้งใจไม่มีในชุดนี้
 
@@ -90,8 +87,7 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 
 **ไม่มี widget / การ์ด HTML** — ตั้งแต่ 0.6.0 ทุก skill ในชุดนี้ **ถามด้วยปุ่มตัวเลือกจาก tool `AskUserQuestion`**
 แล้ว **ตอบเป็นข้อความ + ตาราง markdown** เท่านั้น · ทุก skill มี **กฎเหล็กห้ามสร้าง widget/ฟอร์ม HTML** เขียนไว้ชัด — เรียก `AskUserQuestion` ไม่ได้จริง ๆ ค่อยถามเป็นข้อความแบบเลขข้อ (ไฟล์ `assets/*.html` และ `references/widget-spec.md` ถูกถอดออก
-แทนที่ด้วย `references/output-format.md` ที่กำหนดว่าถามอะไรบ้าง + ผลลัพธ์ต้องมีหน้าตายังไง) ·
-ยกเว้น `maxxgpt-interest-explorer` กับ `maxxgpt-audience-heatmap` ที่ส่งมอบเป็น **Artifact** (คนละเรื่องกับ widget)
+แทนที่ด้วย `references/output-format.md` ที่กำหนดว่าถามอะไรบ้าง + ผลลัพธ์ต้องมีหน้าตายังไง)
 
 
 **ไม่มีเกณฑ์ตัวเลขมาตรฐาน** (เช่น "CTR ควรเกินเท่าไร" / "ROAS เท่าไรถือว่าผ่าน") — เป็นการตัดสินใจของเจ้าของระบบ
@@ -144,6 +140,19 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 cache ต่อบัญชีไม่เกิน 60 นาที · `stale: true` = ดึงรอบใหม่ไม่สำเร็จ ใช้ชุดเก่า) ข้างตาราง 3 ช่วง เหมือน tool อื่น · skill 17 ตัวแก้ประโยคที่เคยบอกว่า
 tool นี้ไม่แนบ `ad_account` · ตาราง ชื่อ tool และ argument ไม่เปลี่ยน · หน้าที่ publish ไว้แล้วไม่ต้อง publish ทับ
 
+## 0.9.2 — เริ่มจากรายชื่อบัญชีใน MaxxGPT · ตั้งค่าบัญชีที่หน้าเว็บเท่านั้น
+
+skill กลุ่มวิเคราะห์ 15 ตัว (ทุกตัวยกเว้น heatmap และ interest explorer) ขั้น 0 เรียก `list_ad_accounts` ก่อน: บัญชีเดียว = ใช้เลย ·
+หลายบัญชีและผู้ใช้ไม่ได้บอก = ถามด้วย `AskUserQuestion` (เดิมใช้บัญชีที่เลือกไว้ในเว็บไปก่อน) · ไม่มีบัญชี / ผูกเกินโควตา = บอกให้ไปตั้งที่เว็บแล้วหยุด ·
+แล้วส่ง `ad_account_id` ตัวเดียวกันให้ `get_account_info` และ tool วิเคราะห์ · ทั้ง 17 ตัวบอกชัดว่า MCP เชื่อมต่อ Meta / ผูก / ถอด / เปลี่ยนบัญชีและเพจที่เลือกไว้ไม่ได้
+ต้องทำในเว็บ MaxxGPT เท่านั้น · ชื่อ tool และ argument ไม่เปลี่ยน · หน้าที่ publish ไว้แล้วไม่ต้อง publish ทับ
+
+## 0.10.0 — ถอด interest explorer และ audience heatmap
+
+`maxxgpt-interest-explorer` และ `maxxgpt-audience-heatmap` ออกจากชุดนี้ เพราะมีอยู่แล้วเป็นแท็บ Interest Finder และ Audience Heatmap
+ของ MaxxGPT Workspace ในปลั๊กอิน `maxxgpt-artifact` (Heatmap ที่นั่นเลือกบัญชีที่ผูกไว้ได้) · เหลือ 20 skill ทั้งฝั่ง Claude และ ChatGPT
+(ฝั่ง ChatGPT ไม่เคยมีสองตัวนี้) · หน้าที่ผู้ใช้ publish จากสองสกิลนี้ไว้แล้วยังใช้ต่อได้ แต่จะไม่ได้รับการแก้อีก · skill ที่เหลือไม่เปลี่ยน
+
 ## Version
 
-0.9.1
+0.10.0
