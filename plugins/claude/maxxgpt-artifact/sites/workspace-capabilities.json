@@ -24,7 +24,8 @@
           "list_ad_accounts",
           "list_pages",
           "search_interest",
-          "suggest_interest"
+          "suggest_interest",
+          "upload_video_from_drive"
         ]
       },
       {
@@ -32,8 +33,14 @@
         "tools": [
           "ads_account_get_activity_logs",
           "ads_activate_entity",
+          "ads_create_ad",
+          "ads_create_ad_set",
+          "ads_create_campaign",
+          "ads_create_creative",
+          "ads_creative_upload_media",
           "ads_get_ad_account_custom_audiences",
           "ads_get_ad_entities",
+          "ads_get_ad_videos",
           "ads_get_datasets",
           "ads_update_entity"
         ]
@@ -42,6 +49,5 @@
   },
   "db": {},
   "sample": {},
-  "downloads": true,
-  "comments": {}
+  "downloads": true
 }

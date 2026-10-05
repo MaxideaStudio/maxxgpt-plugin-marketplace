@@ -102,7 +102,6 @@ Plugin นี้ประกาศ connector 2 ตัวใน `.mcp.json` — �
 - **บัญชี/เพจเลือกได้ต่อครั้ง** — tool ที่ทำงานกับบัญชีโฆษณารับ `ad_account_id` / `page_id` แบบ optional (ยกเว้น `get_job` · `search_interest` · `suggest_interest`) · ไม่ส่ง = ใช้ที่เลือกในเว็บ · id ต้องมาจาก `list_ad_accounts` / `list_pages` · คำตอบแนบ `ad_account {id,name,source}` (ยกเว้น `get_job` · `get_dashboard_demographics` แนบตั้งแต่ MCP 1.23.2)
 - **โควตาบัญชีและเพจต่อแพ็กเกจ** — `NO_AD_ACCOUNT` (428) + `reason: OVER_QUOTA` = ผู้ใช้ต้องไปเลือกบัญชี/เพจที่จะเก็บในเว็บก่อน · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ · `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่ skill ชุดนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้)
 - **งานผูกกับบัญชี** — `JOB_RUNNING_FOR_OTHER_ACCOUNT` · `JOB_NOT_FOUND` ถ้า `job_id` ไม่ใช่ของผู้ใช้นี้
-- `worker_ping` (ใหม่ · ไม่คิดเครดิต) เอาไว้พิสูจน์ว่า MCP → คิว → worker ต่อกันอยู่
 
 ## 0.8.0 — เพิ่มกลุ่มวางแผน
 

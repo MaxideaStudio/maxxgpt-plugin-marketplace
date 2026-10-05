@@ -1,6 +1,6 @@
 {
   "name": "maxxgpt-artifact",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Ad Launcher, Interest Finder, Audience Heatmap, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ \"ติดตั้งเว็บ MaxxGPT\" เพื่อติดตั้ง หรือ \"อัปเดตเว็บ MaxxGPT\" หลังอัปเดตปลั๊กอิน",
   "author": {
     "name": "MaxxGPT"
