@@ -4,6 +4,8 @@
       {
         "server": "{{CONNECTOR:drive}}",
         "tools": [
+          "download_file_content",
+          "read_file_content",
           "search_files"
         ]
       },
@@ -21,6 +23,7 @@
           "get_account_info",
           "get_dashboard_demographics",
           "get_job",
+          "get_video_preview",
           "list_ad_accounts",
           "list_pages",
           "search_interest",
