@@ -78,7 +78,7 @@ ChatGPT บนเว็บ: [`downloads/maxxgpt-ads-web-chatgpt.zip`](https://gi
 
 - `maxxgpt-install`
 
-### maxxgpt-artifact 0.9.1
+### maxxgpt-artifact 0.9.2
 
 เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Ad Launcher, Interest Finder, Audience Heatmap, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ "ติดตั้งเว็บ MaxxGPT" เพื่อติดตั้ง หรือ "อัปเดตเว็บ MaxxGPT" หลังอัปเดตปลั๊กอิน
 
