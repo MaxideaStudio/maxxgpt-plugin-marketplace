@@ -842,8 +842,15 @@ body {
 .mx-acct-acts { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .mx-acct-acts a.btn { text-decoration: none; }
 .mx-acct-pickwrap { position: relative; }
-.mx-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 30; display: grid; min-width: 280px; max-height: 320px; overflow: auto;
+.mx-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 30; display: grid; min-width: 280px; max-width: calc(100vw - 32px); max-height: 320px; overflow: auto;
   padding: 4px; border: 1px solid var(--line-strong); border-radius: var(--r); background: var(--surface); box-shadow: var(--shadow-lg); }
+/* Art 2026-10-21 (mock docs/design/account-menu-narrow.src.html, ค): a wrapped bar puts the button on the left, so the menu
+   opens from its left edge (src/core/page.js openMenu); on a phone it comes up from the bottom over a dimmed page */
+.mx-menu.mx-menu-start { left: 0; right: auto; }
+.mx-sheet-back { position: fixed; inset: 0; z-index: 29; background: rgba(5, 6, 10, 0.45); }
+.mx-menu.mx-menu-sheet { position: fixed; top: auto; left: 0; right: 0; bottom: 0; min-width: 0; max-width: none; max-height: 70vh;
+  border-radius: 14px 14px 0 0; padding: 6px max(6px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(6px, env(safe-area-inset-left, 0px)); }
+.mx-sheet-h { padding: 6px 10px 8px; color: var(--muted); font-size: var(--t-xs); }
 .mx-menu-item { appearance: none; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0 10px; padding: 8px 10px; border: 0;
   border-radius: var(--r-sm); background: transparent; color: var(--ink); font: inherit; font-size: var(--t-sm); text-align: left; cursor: pointer; }
 .mx-menu-item:hover, .mx-menu-item:focus-visible { background: var(--surface-3); outline: none; }
@@ -869,7 +876,7 @@ body {
 <nav class="mx-tabs" role="tablist" aria-label="เครื่องมือ"><button class="mx-tab" type="button" role="tab" id="tab-launch" data-mod="launch" aria-controls="panel-launch" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l14-7L5 5l2 7-2 7z"/><path d="M7 12h6"/></svg><span class="mx-tab-label">Ad Launcher</span></button><button class="mx-tab" type="button" role="tab" id="tab-interest" data-mod="interest" aria-controls="panel-interest" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><span class="mx-tab-label">Interest Finder</span></button><button class="mx-tab" type="button" role="tab" id="tab-heatmap" data-mod="heatmap" aria-controls="panel-heatmap" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="mx-tab-label">Audience Heatmap</span></button><button class="mx-tab" type="button" role="tab" id="tab-fatigue" data-mod="fatigue" aria-controls="panel-fatigue" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l3 9 4-12 3 8h4"/></svg><span class="mx-tab-label">Creative Fatigue</span></button><button class="mx-tab" type="button" role="tab" id="tab-budget-scaling" data-mod="budget-scaling" aria-controls="panel-budget-scaling" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 3 7-8"/><path d="M15 7h5v5"/></svg><span class="mx-tab-label">Budget Scaling</span></button><button class="mx-tab" type="button" role="tab" id="tab-kill-switch" data-mod="kill-switch" aria-controls="panel-kill-switch" aria-selected="false" tabindex="-1"><svg class="mx-tab-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 7.5a8 8 0 1 0 11.4 0"/></svg><span class="mx-tab-label">Kill Switch</span></button></nav>
 </header>
 <main class="mx-main" id="mx-main"><section class="mx-panel" id="panel-launch" role="tabpanel" aria-labelledby="tab-launch" hidden><div class="mx-page" data-mod="launch"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Ad Launcher</h1><p class="mx-ph-desc">เลือกบัญชี เพจ ไฟล์ใน Drive และ interest แล้วสร้างแคมเปญจริงจากหน้านี้</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="launch"></div></section><section class="mx-panel" id="panel-interest" role="tabpanel" aria-labelledby="tab-interest" hidden><div class="mx-page" data-mod="interest"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Interest Finder</h1><p class="mx-ph-desc">ค้นความสนใจของ Meta ให้ Claude หา interest ที่เกี่ยวข้อง แล้วเก็บเป็นชุดไว้ใช้ต่อ</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="interest"></div></section><section class="mx-panel" id="panel-heatmap" role="tabpanel" aria-labelledby="tab-heatmap" hidden><div class="mx-page" data-mod="heatmap"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Audience Heatmap</h1><p class="mx-ph-desc">ดูว่ากลุ่มอายุและเพศไหนได้ผลคุ้มที่สุด เพื่อใช้ตั้งกลุ่มเป้าหมายของ ad set</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="heatmap"></div></section><section class="mx-panel" id="panel-fatigue" role="tabpanel" aria-labelledby="tab-fatigue" hidden><div class="mx-page" data-mod="fatigue"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Creative Fatigue</h1><p class="mx-ph-desc">ดูว่าโฆษณาไหนเริ่มล้า และควรเตรียมครีเอทีฟใหม่เมื่อไร จากผลรายวัน 30 วันล่าสุด</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="fatigue"></div></section><section class="mx-panel" id="panel-budget-scaling" role="tabpanel" aria-labelledby="tab-budget-scaling" hidden><div class="mx-page" data-mod="budget-scaling"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Budget Scaling</h1><p class="mx-ph-desc">ตรวจแคมเปญ CBO และ ad set ABO ที่กำลังวิ่งกับเกณฑ์ที่ตั้ง แล้วเพิ่มงบรายวันให้ตัวที่ผ่าน</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="budget-scaling"></div></section><section class="mx-panel" id="panel-kill-switch" role="tabpanel" aria-labelledby="tab-kill-switch" hidden><div class="mx-page" data-mod="kill-switch"><div class="mx-ph"><div class="mx-ph-text"><h1 class="mx-ph-title">Kill Switch</h1><p class="mx-ph-desc">หาแคมเปญและ ad set ที่ไม่ผ่านเกณฑ์ แล้วปิดตัวที่คุณเลือก</p></div><div class="mx-ph-end" hidden></div></div><div class="mx-acct" hidden></div></div><div class="mx-host" data-mod="kill-switch"></div></section></main>
-<footer class="mx-foot"><span>MaxxGPT Workspace 0.6.2</span><span>ข้อมูลของคุณไปได้แค่ MaxxGPT และ Meta เท่านั้น</span></footer>
+<footer class="mx-foot"><span>MaxxGPT Workspace 0.7.0</span><span>ข้อมูลของคุณไปได้แค่ MaxxGPT และ Meta เท่านั้น</span></footer>
 </div>
 <div id="mx-layer"></div>
 <script>window.__MX_COMPONENTS_CSS__ = "/* Shared components. Loaded once in the page and adopted into every module's\n   Shadow DOM, so class names here mean the same thing everywhere.\n   Colors come only from tokens.css. */\n:host {\n  display: block;\n  color: var(--ink);\n  font-family: var(--f-body);\n  font-size: var(--t-md);\n  line-height: 1.6;\n}\n*, *::before, *::after { box-sizing: border-box; }\n[hidden] { display: none !important; }\n\nh1, h2, h3, h4 {\n  font-family: var(--f-display);\n  font-weight: 600;\n  line-height: 1.3;\n  margin: 0;\n  text-wrap: balance;\n  color: var(--ink);\n}\nh1 { font-size: var(--t-2xl); }\nh2 { font-size: var(--t-xl); }\nh3 { font-size: var(--t-lg); }\nh4 { font-size: var(--t-md); }\np { margin: 0; }\n\n.muted { color: var(--muted); }\n.small { font-size: var(--t-sm); }\n.mono, code, kbd { font-family: var(--f-mono); font-size: 0.92em; }\n.num { font-variant-numeric: tabular-nums; }\n.eyebrow {\n  font-family: var(--f-display);\n  font-size: var(--t-xs);\n  font-weight: 500;\n  letter-spacing: 0.06em;\n  text-transform: uppercase;\n  color: var(--muted);\n}\n\n/* Text from outside (competitor ads, AI answers, db data) is shown as plain\n   text with its own line breaks, the way Meta shows ad copy. */\n.mx-pre { white-space: pre-wrap; overflow-wrap: anywhere; }\n.mx-clamp {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: var(--mx-lines, 3);\n  overflow: hidden;\n}\n.mx-more {\n  appearance: none;\n  border: 0;\n  background: none;\n  padding: 0;\n  margin-top: var(--s-1);\n  font: inherit;\n  font-size: var(--t-sm);\n  font-weight: 500;\n  color: var(--accent);\n  cursor: pointer;\n}\n.mx-more:hover { color: var(--accent-ink); text-decoration: underline; }\n\n/* Answers from Claude rendered by ctx.render.markdown (a safe subset, no HTML). */\n.mx-md { line-height: 1.65; overflow-wrap: anywhere; }\n.mx-md > * + * { margin-top: var(--s-2); }\n.mx-md p, .mx-md ul, .mx-md ol { margin-bottom: 0; }\n.mx-md p { margin-top: 0; }\n.mx-md .mx-md-h { font-family: var(--f-display); font-weight: 600; line-height: 1.3; margin: var(--s-4) 0 0; }\n.mx-md .mx-md-h:first-child { margin-top: 0; }\n.mx-md h3.mx-md-h { font-size: var(--t-lg); }\n.mx-md h4.mx-md-h { font-size: var(--t-md); }\n.mx-md h5.mx-md-h, .mx-md h6.mx-md-h { font-size: var(--t-md); color: var(--ink-2); }\n.mx-md ul, .mx-md ol { padding-left: 1.4em; }\n.mx-md li + li { margin-top: 3px; }\n.mx-md li > ul, .mx-md li > ol { margin-top: 3px; }\n.mx-md strong { font-weight: 600; }\n.mx-md code { font-family: var(--f-mono); font-size: .92em; background: var(--surface-2); padding: 1px 5px; border-radius: var(--r-sm); }\n.mx-md hr { border: 0; border-top: 1px solid var(--line); margin: var(--s-3) 0; }\n.mx-md-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }\n\n/* Buttons */\n.btn {\n  appearance: none;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: var(--s-2);\n  min-height: 36px;\n  padding: 0 var(--s-4);\n  border: 1px solid var(--line-strong);\n  border-radius: var(--r-sm);\n  background: var(--surface);\n  color: var(--ink);\n  font-family: var(--f-body);\n  font-size: var(--t-sm);\n  font-weight: 600;\n  line-height: 1;\n  cursor: pointer;\n  transition: background-color 0.15s, border-color 0.15s, color 0.15s;\n}\n.btn:hover { background: var(--surface-3); }\n.btn:focus-visible { outline: none; box-shadow: var(--focus); }\n.btn[aria-busy=\"true\"] { opacity: 0.55; cursor: not-allowed; }\n.btn-primary { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }\n.btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }\n/* white text on the light theme's red; the dark theme's red is light, so its text is dark (reskin step 5) */\n.btn-danger { background: var(--crit); border-color: var(--crit); color: var(--crit-ink); }\n.btn-danger:hover { filter: brightness(0.92); background: var(--crit); }\n/* a button that asks Claude to work; icon optional */\n.btn-ai { background: var(--ai); border-color: var(--ai); color: var(--ai-ink); }\n.btn-ai:hover { background: var(--ai-hover); border-color: var(--ai-hover); }\n.btn-quiet { background: transparent; border-color: transparent; color: var(--ink-2); }\n.btn-quiet:hover { background: var(--surface-3); }\n.btn-sm { min-height: 30px; padding: 0 var(--s-3); font-size: var(--t-xs); }\n/* A button that cannot be pressed is grey whatever its kind, so it never looks\n   like a live red or gold button (owner, 2026-09-28). Placed after the kinds. */\n.btn:disabled, .btn:disabled:hover, .btn[aria-disabled=\"true\"] {\n  background: var(--surface-3);\n  border-color: var(--line);\n  color: var(--faint);\n  filter: none;\n  opacity: 1;\n  cursor: not-allowed;\n}\n.btn[aria-disabled=\"true\"] { pointer-events: none; }\n\n/* Segmented control: one track, the chosen option raised on it (no gold, no underline). */\n.mx-seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--seg-track); border: 1px solid var(--line); border-radius: var(--r); }\n.mx-seg > button {\n  appearance: none;\n  border: 0;\n  background: transparent;\n  color: var(--muted);\n  font: inherit;\n  font-size: var(--t-sm);\n  padding: 6px 13px;\n  border-radius: var(--r-sm);\n  cursor: pointer;\n}\n.mx-seg > button:hover { color: var(--ink); }\n.mx-seg > button:focus-visible { outline: none; box-shadow: var(--focus); }\n.mx-seg > button[aria-pressed=\"true\"], .mx-seg > button[aria-selected=\"true\"] {\n  background: var(--seg-on);\n  color: var(--ink);\n  font-weight: 500;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px var(--seg-on-line);\n}\n\n/* Notice: a thin coloured edge on a quiet box, never a coloured block (reskin 2026-09-28).\n   Plain for information; -warn (orange) or -crit (red) only where the reader should stop. */\n.mx-notice { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--faint);\n  border-radius: var(--r-sm); background: var(--surface-2); color: var(--ink-2); font-size: var(--t-sm); }\n.mx-notice > svg { width: 16px; height: 16px; flex: none; margin-top: 2px; color: var(--muted); }\n.mx-notice-warn { border-left-color: var(--warn); }\n.mx-notice-warn > svg { color: var(--warn); }\n.mx-notice-crit { border-left-color: var(--crit); }\n.mx-notice-crit > svg { color: var(--crit); }\n\n/* Form fields */\n.field { display: grid; gap: var(--s-1); }\n.field > label, .label {\n  font-size: var(--t-sm);\n  font-weight: 500;\n  color: var(--ink-2);\n}\n.input, .select, .textarea {\n  width: 100%;\n  min-height: 38px;\n  padding: var(--s-2) var(--s-3);\n  border: 1px solid var(--line-strong);\n  border-radius: var(--r-sm);\n  background: var(--surface);\n  color: var(--ink);\n  font: inherit;\n  font-size: var(--t-md);\n}\n.textarea { min-height: 96px; resize: vertical; }\n.input:focus, .select:focus, .textarea:focus {\n  outline: none;\n  border-color: var(--accent);\n  box-shadow: var(--focus);\n}\n.hint { font-size: var(--t-xs); color: var(--muted); }\n\n/* Panels: one level of separation for a module's main blocks. */\n.panel {\n  background: var(--surface);\n  border: 1px solid var(--line);\n  border-radius: var(--r);\n  padding: var(--s-4);\n}\n.panel-head {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: baseline;\n  justify-content: space-between;\n  gap: var(--s-2) var(--s-4);\n  margin-bottom: var(--s-3);\n}\n.stack { display: grid; gap: var(--s-4); }\n.row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }\n\n/* Tables: wide ones scroll inside their own box, never the page. */\n.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }\n.tbl { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }\n.tbl th {\n  position: sticky;\n  top: 0;\n  background: var(--surface-2);\n  color: var(--muted);\n  font-weight: 500;\n  text-align: left;\n  white-space: nowrap;\n}\n.tbl th, .tbl td { padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); }\n.tbl tr:last-child td { border-bottom: 0; }\n.tbl td.num, .tbl th.num { text-align: right; font-variant-numeric: tabular-nums; }\n\n/* Chips carry state, so each tone is a meaning, not a decoration. */\n.chip {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--s-1);\n  padding: 2px 10px;\n  border-radius: 999px;\n  background: var(--surface-3);\n  color: var(--ink-2);\n  font-size: var(--t-xs);\n  font-weight: 500;\n  white-space: nowrap;\n}\n.chip-ok { background: var(--ok-soft); color: var(--ok); }\n.chip-warn { background: var(--warn-soft); color: var(--warn); }\n.chip-crit { background: var(--crit-soft); color: var(--crit); }\n.chip-info { background: var(--info-soft); color: var(--info); }\n.chip-accent { background: var(--accent-soft); color: var(--accent-ink); }\n\n/* Banners: section-level status with the action that fixes it. */\n.banner {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: flex-start;\n  gap: var(--s-2) var(--s-3);\n  padding: var(--s-3) var(--s-4);\n  border: 1px solid var(--line);\n  border-left-width: 4px;\n  border-radius: var(--r-sm);\n  background: var(--surface-2);\n  font-size: var(--t-sm);\n}\n.banner-ok { border-left-color: var(--ok); background: var(--ok-soft); }\n.banner-warn { border-left-color: var(--warn); background: var(--warn-soft); }\n.banner-crit { border-left-color: var(--crit); background: var(--crit-soft); }\n.banner-info { border-left-color: var(--info); background: var(--info-soft); }\n.banner b { font-weight: 600; }\n\n/* Empty, loading, and error states */\n.empty {\n  display: grid;\n  justify-items: center;\n  gap: var(--s-2);\n  padding: var(--s-6) var(--s-4);\n  text-align: center;\n  color: var(--muted);\n}\n.spinner {\n  width: 18px;\n  height: 18px;\n  border: 2px solid var(--line-strong);\n  border-top-color: var(--accent);\n  border-radius: 50%;\n  animation: mx-spin 0.8s linear infinite;\n}\n@keyframes mx-spin { to { transform: rotate(360deg); } }\n.skeleton {\n  border-radius: var(--r-sm);\n  background: linear-gradient(90deg, var(--surface-3), var(--surface-2), var(--surface-3));\n  background-size: 200% 100%;\n  animation: mx-shimmer 1.4s ease-in-out infinite;\n}\n@keyframes mx-shimmer { to { background-position: -200% 0; } }\n\n@media (prefers-reduced-motion: reduce) {\n  .spinner, .skeleton { animation: none; }\n  .btn { transition: none; }\n}\n";</script>
@@ -2290,6 +2297,7 @@ body {
       if (!st.menu) return;
       st.menu.remove();
       st.menu = null;
+      if (st.back) { st.back.remove(); st.back = null; }
       document.removeEventListener("mousedown", onOutside, true);
       document.removeEventListener("keydown", onKey, true);
     }
@@ -2306,10 +2314,16 @@ body {
       var d = acc.defaultId == null ? "" : String(acc.defaultId).replace(/^act_/, "");
       return !!d && id != null && String(id).replace(/^act_/, "") === d;
     }
+    /* Art 2026-10-21 (mock docs/design/account-menu-narrow.src.html, ค): once the bar wraps (from about 1000px wide down) the
+       button sits on the left, and the menu anchored to its right ran 142px past the left edge of the screen. On a phone
+       (the shell's 560px breakpoint) the menu comes up from the bottom over a dimmed page; elsewhere it opens from the
+       button's left edge when the left has no room */
+    function phone() { return !!(window.matchMedia && window.matchMedia("(max-width: 560px)").matches); }
     function openMenu(anchor) {
       if (st.menu) { closeMenu(); return; }
       var acc = st.account;
-      var list = h("div", { class: "mx-menu", role: "menu" }, acc.choices.map(function (c) {
+      var sheet = phone();
+      var list = h("div", { class: "mx-menu" + (sheet ? " mx-menu-sheet" : ""), role: "menu", "aria-label": sheet ? "เลือกบัญชีโฆษณา" : null }, acc.choices.map(function (c) {
         var on = acc.id != null && acc.id !== "" && String(c.id) === String(acc.id);
         var off = !!c.disabled;
         return h("button", { class: "mx-menu-item" + (on ? " is-on" : "") + (off ? " is-off" : ""), type: "button", role: "menuitemradio",
@@ -2323,7 +2337,13 @@ body {
           on ? icon("check", "mx-menu-check") : null);
       }));
       if (waitsForMulti(acc)) list.appendChild(h("div", { class: "mx-menu-note" }, MULTI_NOTE));
+      if (sheet) {
+        list.insertBefore(h("div", { class: "mx-sheet-h", "aria-hidden": "true" }, "เลือกบัญชีโฆษณา"), list.firstChild);
+        st.back = h("div", { class: "mx-sheet-back", on: { click: closeMenu } });
+        anchor.parentElement.appendChild(st.back);
+      }
       anchor.parentElement.appendChild(list);
+      if (!sheet && list.getBoundingClientRect().left < 8) list.classList.add("mx-menu-start");
       st.menu = list;
       document.addEventListener("mousedown", onOutside, true);
       document.addEventListener("keydown", onKey, true);
@@ -2614,7 +2634,7 @@ body {
   }
   /* Art 2026-10-15 (mock updated-fold, ก; 2026-10-20 "ทำเลย"): a viewer who skipped releases got every note of every one
      with "รุ่น X:" before each (0.3.0 to 0.6.1 = 19 lines down the page); the newest release shows in full and the older
-     ones fold under one line that names them and counts their notes, opening with a heading per release */
+     ones fold under one line that names them, opening with a heading per release (Art 2026-10-20: no count of notes) */
   function versionNames(list) {
     var v = list.map(function (c) { return c.version; });
     return v.length === 1 ? v[0] : v.slice(0, -1).join(", ") + " และ " + v[v.length - 1];
@@ -2623,9 +2643,9 @@ body {
     var h = I.h;
     older = older.filter(function (c) { return (c.notes || []).length; });
     if (!older.length) return null;
-    var count = older.reduce(function (a, c) { return a + c.notes.length; }, 0);
     return h("details", { class: "mx-older" },
-      h("summary", null, "ดูของใหม่ในรุ่น " + versionNames(older) + " (" + count + " ข้อ)"),
+      // Art 2026-10-20: "ดูการเปลี่ยนแปลงในรุ่น" (was "ดูของใหม่ในรุ่น")
+      h("summary", null, "ดูการเปลี่ยนแปลงในรุ่น " + versionNames(older)),
       h("div", { class: "mx-older-body" }, older.map(function (c) {
         return h("div", null, h("h4", null, "รุ่น " + c.version), changeList(c.notes));
       })));
@@ -2959,8 +2979,8 @@ var OBJ = {
      {v:"CONVERSATIONS",l:"ข้อความ: จำนวนบทสนทนา"},{v:"REACH",l:"การเข้าถึง"},
      {v:"THRUPLAY",l:"วิดีโอ: ดูจนจบหรือ 15 วินาที"}]},
   OUTCOME_ENGAGEMENT:{ label:"การมีส่วนร่วม", opts:[
-     {v:"MESSAGING_PURCHASE_CONVERSION",l:"ข้อความ: ยอดซื้อผ่านแชท"},
      {v:"CONVERSATIONS",l:"ข้อความ: จำนวนบทสนทนา"},
+     {v:"MESSAGING_PURCHASE_CONVERSION",l:"ข้อความ: ยอดซื้อผ่านแชท"},
      {v:"POST_ENGAGEMENT",l:"การมีส่วนร่วมกับโพสต์"},{v:"PAGE_LIKES",l:"การกดถูกใจเพจ"},
      {v:"THRUPLAY",l:"วิดีโอ: ดูจนจบหรือ 15 วินาที"},{v:"LINK_CLICKS",l:"คลิกลิงก์"},
      {v:"LANDING_PAGE_VIEWS",l:"การดูหน้าเว็บปลายทาง"},{v:"OFFSITE_CONVERSIONS",l:"คอนเวอร์ชันบนเว็บ (พิกเซล)"},
@@ -4046,7 +4066,7 @@ function paintPostCta(){
    แคมเปญไว้ / สร้างแล้วเปิดยิงเลย) works for posts as for files */
 /* called first thing in render(): the source, the ticks the goal still allows, the page's posts.
    A goal the post tool does not take shows the files part with the reason, but S.source keeps the customer's pick:
-   choosing Engagement passes through its default optimization (ยอดซื้อผ่านแชท, not taken) before บทสนทนา, and that
+   a goal can pass through an optimization posts do not take (ยอดซื้อผ่านแชท) on the way to one they do, and that
    step alone must not undo the pick. A click on the file card, or the customer's own choice of an optimization posts
    cannot use, is a choice of files (final review, Important 2) */
 function syncPostMode(){
@@ -10787,7 +10807,7 @@ api = { started: false, boot: function () { return boot(); }, follow: function (
 });
 })(MaxxConsole.defineModule, MaxxConsole.defineLogic);
 </script>
-<script>MaxxConsole.assets("kill-switch", {css: "/* Generated by tools/migrations/killswitch.py from imports/kill-switch.html. Do not edit. */\n/* REWRITE 2026-09-30 (reskin step 7, docs/reskin-plan.md): the look of the agreed comparison mock on\n   the shared tokens, the same parts as Budget Scaling's. Gold stays only on the scan button; the rule C\n   chip and \"Kill Switch ก็เล็งไว้\" are blue. Labels read in normal case; warnings are notices with a\n   coloured left edge; the mode switch is the shared segmented control. Armed, the bar has a red edge\n   and the switch keeps the shared look, so it does not read as the red button beside it (owner\n   2026-10-03, mock row \"สีสวิตช์ตอนพร้อมจริง\" ข, the same as Budget Scaling). */\n*{box-sizing:border-box}\n:host{ display:block; color:var(--ink); font-family:var(--f-body); font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased; }\n/* the cards span the page like the shared account bar above them (the original capped them at 1180px) */\n.page{ padding-block:4px 8px; display:flex; flex-direction:column; gap:16px; }\nh1,h2,h3{ font-family:var(--f-display); margin:0; text-wrap:balance; }\n.mono{ font-family:var(--f-mono); }\n.num{ font-variant-numeric:tabular-nums; }\n[hidden]{ display:none !important; }\ncode{ font-family:var(--f-mono); font-size:.9em; color:var(--ink-2); }\n\n/* ── panels ─────────────────────────────────── */\n.panel{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); overflow:hidden; padding:0; margin:0; }\n.panel-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 18px; border-bottom:1px solid var(--line); margin:0; }\n.panel-head h2, details.fold > summary h2{ font-size:15px; font-weight:600; }\n.panel-head .note{ font-size:12.5px; color:var(--muted); }\n.panel-body{ padding:16px 18px 18px; }\n.panel-body.stack{ display:flex; flex-direction:column; gap:14px; }\n/* a folded card says so on the right, as the original did */\ndetails.fold > summary{ display:flex; align-items:center; gap:10px; padding:14px 18px; cursor:pointer; list-style:none; border-radius:var(--r-lg); }\ndetails.fold > summary::-webkit-details-marker{ display:none; }\ndetails.fold > summary::after{ content:\"▾\"; margin-left:auto; color:var(--faint); font-size:12px; }\ndetails.fold[open] > summary::after{ content:\"▴\"; }\ndetails.fold[open] > summary{ border-bottom:1px solid var(--line); border-radius:0; }\n\n/* ── form: three columns; rules A B C grouped under \"รวมเงื่อนไขแบบ\" (owner 2026-09-30, version ก) ── */\n#cfgPanel > .panel-body > * + *{ margin-top:16px; }\n.fields{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px 18px; }\n.fields.two{ grid-template-columns:repeat(2, minmax(0, 1fr)); }\n@media (max-width:760px){ .fields, .fields.two{ grid-template-columns:1fr; } }\n.field{ display:flex; flex-direction:column; gap:6px; min-width:0; }\n.field label{ font-size:12.5px; color:var(--muted); }\n.help, .nevernote{ font-size:12px; color:var(--faint); line-height:1.45; }\n.nevernote{ color:var(--muted); }\n.nevernote:empty{ display:none; }\n.nevernote.warn{ color:var(--warn); }\ninput,select,textarea{ font:inherit; font-size:14px; width:100%; padding:8px 10px; color:var(--ink); background:var(--surface-2);\n  border:1px solid var(--line); border-radius:var(--r-sm); font-variant-numeric:tabular-nums; }\ntextarea{ resize:vertical; min-height:58px; font-family:var(--f-mono); font-size:12px; line-height:1.55; }\ninput:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{ outline:none; box-shadow:var(--focus); }\ninput:disabled,select:disabled{ opacity:.45; cursor:not-allowed; }\n.unit{ display:flex; align-items:center; gap:8px; }\n.unit .u{ font-size:12.5px; color:var(--muted); white-space:nowrap; }\n.unit input{ flex:1; min-width:0; }\ninput.bad,select.bad,textarea.bad{ border-color:var(--crit); }\n\n.rulegrp{ border:1px solid var(--line); border-radius:var(--r); }\n.rulegrp-h{ display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:10px 14px; background:var(--surface-2);\n  border-bottom:1px solid var(--line); border-radius:var(--r) var(--r) 0 0; }\n.rulegrp-h label{ font-size:12.5px; color:var(--muted); }\n.rulegrp-h select{ width:auto; padding:6px 10px; }\n.rule{ display:flex; gap:12px; align-items:flex-start; padding:11px 14px; }\n.rule + .rule{ border-top:1px solid var(--line); }\n.rule input[type=checkbox]{ margin-top:3px; flex:none; }\n.rule .rl{ display:flex; flex-direction:column; gap:2px; min-width:0; flex:1; }\n.rule .rt{ font-size:13.5px; font-weight:500; }\n.rule .rd{ font-size:12px; color:var(--faint); }\n.rule > .unit{ width:150px; flex:none; }\n.rule.off{ opacity:.5; }\n\n.formerr ul{ margin:4px 0 0; padding-left:18px; }\n.settingsnote{ font-size:12.5px; color:var(--warn); }\n.actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding-top:16px; border-top:1px solid var(--line); }\n.runnote{ font-size:12.5px; color:var(--muted); }\n.actions .status{ font-size:13px; color:var(--ink-2); display:flex; align-items:center; gap:8px; }\n.spinner{ width:14px; height:14px; border-radius:50%; flex:none; border:2px solid var(--line-strong); border-top-color:var(--primary); animation:spin .8s linear infinite; }\n@keyframes spin{ to{ transform:rotate(360deg); } }\n@media (prefers-reduced-motion:reduce){ .spinner{ animation-duration:2.4s; } }\n\n/* ── notices over the results ───────────────── */\n.alerts{ display:flex; flex-direction:column; gap:10px; }\n.alerts:empty{ display:none; }\n.mx-notice b{ display:block; color:var(--ink); }\n.mx-notice > .spinner{ margin-top:3px; }\n.mx-notice .tools{ margin-top:8px; }\n\n/* ── summary tiles ──────────────────────────── */\n.tiles{ display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:12px; }\n@media (max-width:760px){ .tiles{ grid-template-columns:repeat(2, minmax(0, 1fr)); } }\n.tile{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:12px 14px; }\n.tile .k{ font-size:12.5px; color:var(--muted); }\n.tile .v{ font-family:var(--f-display); font-size:24px; font-weight:600; font-variant-numeric:tabular-nums; line-height:1.3; margin-top:2px; }\n.tile.crit .v{ color:var(--crit); } .tile.ok .v{ color:var(--ok); } .tile.warn .v{ color:var(--warn); }\n\n/* ── table ──────────────────────────────────── */\n.tscroll{ overflow-x:auto; }\ntable{ border-collapse:collapse; width:100%; min-width:900px; font-size:13.5px; }\nth{ text-align:left; font-size:12px; font-weight:500; color:var(--faint); padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }\ntd{ padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:top; }\ntbody tr:last-child td{ border-bottom:0; }\ntd.n{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }\nth.n{ text-align:right; }\ntr.krow td:first-child{ box-shadow:inset 3px 0 0 var(--crit); }\ntr.krow.sev-warn td:first-child{ box-shadow:inset 3px 0 0 var(--warn); }\ntr.krow.settled td:not(:last-child){ opacity:.6; }\n.ename{ font-weight:500; line-height:1.4; max-width:34ch; }\n.eid{ font-family:var(--f-mono); font-size:11.5px; color:var(--faint); margin-top:2px; }\n.chip{ display:inline-block; font-size:11.5px; padding:1px 9px; border-radius:999px; border:1px solid var(--line); color:var(--muted); white-space:nowrap; }\n.chip.a, .chip.b, .chip.c{ font-weight:600; font-size:11px; padding:0 7px; }\n.chip.a{ color:var(--crit); border-color:color-mix(in srgb, var(--crit) 45%, var(--line)); }\n.chip.b{ color:var(--warn); border-color:color-mix(in srgb, var(--warn) 45%, var(--line)); }\n.chip.c{ color:var(--info); border-color:color-mix(in srgb, var(--info) 45%, var(--line)); }\n.buckets .chip.a, .buckets .chip.c{ font-size:11.5px; padding:0 8px; }\n.why{ font-size:12px; color:var(--muted); margin-top:4px; line-height:1.45; max-width:260px; }\n.state{ font-size:12.5px; font-weight:500; }\n.state.done{ color:var(--ok); } .state.err{ color:var(--crit); } .state.busy{ color:var(--warn); }\ninput[type=checkbox]{ width:16px; height:16px; accent-color:var(--primary); cursor:pointer; padding:0; border:none; }\ninput[type=checkbox]:disabled{ cursor:not-allowed; opacity:.35; }\n\n.subtle{ margin:0; font-size:13px; color:var(--muted); }\nul.plain{ margin:0; padding-left:18px; font-size:13px; color:var(--muted); line-height:1.7; }\n.resth{ font-size:13px; font-weight:600; margin:14px 0 6px; }\n.resth:first-child{ margin-top:0; }\n\n/* ── the MaxxGPT second opinion ─────────────── */\n.maxxrow{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; }\n.buckets{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; }\n@media (max-width:760px){ .buckets{ grid-template-columns:1fr; } }\n.bucket{ border:1px solid var(--line); border-radius:var(--r); overflow:hidden; }\n.bucket h3{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; padding:8px 12px; background:var(--surface-2); border-bottom:1px solid var(--line); }\n.bucket h3::before{ content:\"\"; width:8px; height:8px; border-radius:50%; background:currentColor; flex:none; }\n.bucket.close h3{ color:var(--crit); } .bucket.watch h3{ color:var(--warn); } .bucket.keep h3{ color:var(--ok); }\n.bucket ol{ margin:0; padding:8px 12px 10px 30px; font-size:13px; line-height:1.55; max-height:290px; overflow-y:auto; }\n.bucket li{ margin:5px 0; }\n.bucket .m{ font-family:var(--f-mono); font-size:11.5px; color:var(--faint); }\n.bucket .empty{ padding:14px; font-size:13px; color:var(--faint); }\n\n/* ── log ────────────────────────────────────── */\npre.log{ margin:0; padding:12px 18px; max-height:230px; overflow:auto; background:var(--surface-2); font-family:var(--f-mono); font-size:12px;\n  line-height:1.7; color:var(--muted); white-space:pre-wrap; word-break:break-word; }\n/* RESKIN 2026-10-01 (owner, mock row \"สีในบันทึกการทำงาน\" ก): one quiet colour for every line, time\n   included; only a line that did not work is red, the whole line */\npre.log .e{ color:var(--crit); }\n\n/* ── run bar: the mode switch beside the pause button (owner 2026-09-30, version ก) ── */\n.runbar{ position:sticky; bottom:0; z-index:5; background:var(--surface); border:1px solid var(--line-strong); border-radius:var(--r-lg);\n  padding:12px 18px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; box-shadow:0 -8px 24px rgba(0,0,0,.18), var(--shadow); }\n.runbar .sum{ font-size:13.5px; color:var(--ink-2); flex:1; min-width:200px; }\n.runbar .sum b{ color:var(--ink); font-variant-numeric:tabular-nums; }\n.page.armed .runbar{ border-color:var(--crit); box-shadow:inset 0 3px 0 var(--crit), 0 -8px 24px rgba(0,0,0,.18), var(--shadow); }\n.mx-seg > button:disabled{ opacity:.5; cursor:not-allowed; }\n", view: "<!-- REWRITE 2026-09-30 (reskin step 7, docs/reskin-plan.md): the markup of the agreed comparison\n     mock (docs/design/reskin-options.src.html, Kill Switch, row \"Kill Switch ขั้น 7\": switch ก,\n     settings ก, lower part แบบเดิม). The title and description come from the shared page header and\n     the account is the shared account bar (linked, no page name), so the page's own header, its account\n     line and the stripe under it are gone. The settings are three columns with rules A B C grouped\n     under \"รวมเงื่อนไขแบบ\"; the scan button closes the settings card. The mode switch and the pause\n     button sit in a bar at the bottom of the screen, as Budget Scaling's apply button does. The parts\n     below stay separate cards in the original's order. Every id the code uses is kept (checked in\n     build_page); the original markup was lines 233-413 of imports/kill-switch.html. -->\n<div class=\"page\" id=\"wrap\">\n\n  <div hidden>\n    <svg id=\"icoAlert\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8v5M12 16.5v.5\"/><\/svg>\n    <svg id=\"icoInfo\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 16v-5M12 8h.01\"/><\/svg>\n  <\/div>\n\n  <!-- ══ SETTINGS ══ -->\n  <section class=\"panel\" id=\"cfgPanel\">\n    <div class=\"panel-head\"><h2>ตั้งค่าการตัดสิน<\/h2><\/div>\n    <div class=\"panel-body\">\n      <div class=\"fields\">\n        <div class=\"field\">\n          <label for=\"lookback\">ช่วงข้อมูลย้อนหลัง<\/label>\n          <div class=\"unit\"><input id=\"lookback\" type=\"number\" value=\"5\" min=\"1\" max=\"30\" step=\"1\"><span class=\"u\">วัน<\/span><\/div>\n          <small class=\"help\">สั้น = ตัดไว · ยาว = ให้โอกาสมากกว่า (แนะนำ 3–7)<\/small>\n        <\/div>\n        <div class=\"field\">\n          <label for=\"minSpend\">ใช้เงินขั้นต่ำก่อนตัดสิน<\/label>\n          <div class=\"unit\"><input id=\"minSpend\" type=\"number\" value=\"500\" min=\"0\" step=\"50\"><span class=\"u cur\">THB<\/span><\/div>\n          <small class=\"help\">ตัวที่ใช้เงินยังไม่ถึงนี้จะถูกข้าม ไม่ว่าตัวเลขจะแย่แค่ไหน<\/small>\n        <\/div>\n        <div class=\"field\">\n          <label for=\"maxPause\">เพดานปิดต่อรอบ<\/label>\n          <div class=\"unit\"><input id=\"maxPause\" type=\"number\" value=\"5\" min=\"1\" step=\"1\"><span class=\"u\">ตัว<\/span><\/div>\n          <small class=\"help\">เบรกฉุกเฉิน กันข้อมูลเพี้ยนแล้วปิดยกบัญชี<\/small>\n        <\/div>\n      <\/div>\n\n      <div class=\"rulegrp\">\n        <div class=\"rulegrp-h\">\n          <label for=\"combine\">รวมเงื่อนไขแบบ<\/label>\n          <select id=\"combine\">\n            <option value=\"ANY\">เข้าข้อใดข้อหนึ่งก็ปิด<\/option>\n            <option value=\"ALL\">ต้องเข้าครบทุกข้อที่เปิดไว้<\/option>\n          <\/select>\n          <small class=\"help\">“ครบทุกข้อ” = เข้มกว่า ปิดน้อยลง<\/small>\n        <\/div>\n        <div class=\"rule\" id=\"ruleA\">\n          <input type=\"checkbox\" id=\"useA\" checked>\n          <div class=\"rl\">\n            <span class=\"rt\">A · ยอดซื้อไม่ถึงเกณฑ์<\/span>\n            <span class=\"rd\">ปิดเมื่อยอดซื้อน้อยกว่าค่านี้ — ถ้าอ่านยอดซื้อไม่ได้แต่ ROAS มีค่า จะไม่นับว่า 0<\/span>\n          <\/div>\n          <div class=\"unit\"><span class=\"u\">&lt;<\/span><input id=\"omniThr\" type=\"number\" value=\"1\" min=\"0\" step=\"1\"><span class=\"u\">ครั้ง<\/span><\/div>\n        <\/div>\n        <div class=\"rule\" id=\"ruleB\">\n          <input type=\"checkbox\" id=\"useB\" checked>\n          <div class=\"rl\">\n            <span class=\"rt\">B · ROAS ต่ำกว่าจุดคุ้มทุน<\/span>\n            <span class=\"rd\">ปิดเมื่อ ROAS ต่ำกว่าค่านี้ — ROAS ที่อ่านไม่ได้ ไม่นับว่าแย่<\/span>\n          <\/div>\n          <div class=\"unit\"><span class=\"u\">&lt;<\/span><input id=\"roasFloor\" type=\"number\" value=\"1.0\" min=\"0\" step=\"0.1\"><\/div>\n        <\/div>\n        <div class=\"rule off\" id=\"ruleC\">\n          <input type=\"checkbox\" id=\"useC\">\n          <div class=\"rl\">\n            <span class=\"rt\">C · ต้นทุนต่อผลลัพธ์แพงเกิน<\/span>\n            <span class=\"rd\">ใช้คอลัมน์ผลลัพธ์ของแคมเปญ (ทักแชท / ลีด / ยอดซื้อ ตามที่แคมเปญตั้งไว้) — เหมาะกับบัญชีที่ไม่ได้วัดด้วยยอดซื้อ<\/span>\n          <\/div>\n          <div class=\"unit\"><span class=\"u\">&gt;<\/span><input id=\"cprCeil\" type=\"number\" value=\"300\" min=\"0\" step=\"10\" disabled><span class=\"u cur\">THB<\/span><\/div>\n        <\/div>\n      <\/div>\n\n      <div class=\"fields two\">\n        <div class=\"field\">\n          <label for=\"neverPause\">ID ที่ห้ามแตะ<\/label>\n          <textarea id=\"neverPause\" rows=\"2\" placeholder=\"วาง campaign ID / ad set ID คั่นด้วยจุลภาค เว้นวรรค หรือขึ้นบรรทัด — เว้นว่างได้\"><\/textarea>\n          <small class=\"help\">ตัว brand หลัก หรือตัวที่ลูกค้าสั่งเปิดไว้ · ใส่ชุดโฆษณาของแคมเปญ CBO แล้วจะไม่แตะทั้งแคมเปญ<\/small>\n          <small class=\"nevernote\" id=\"neverNote\"><\/small>\n        <\/div>\n        <div class=\"field\">\n          <label for=\"skipGoals\">เป้าหมายที่ไม่เอามาตัดสิน (สาย PR / awareness)<\/label>\n          <textarea id=\"skipGoals\" rows=\"2\">THRUPLAY, VIDEO_VIEWS, POST_ENGAGEMENT, PAGE_LIKES, REACH, IMPRESSIONS, AD_RECALL_LIFT, EVENT_RESPONSES<\/textarea>\n          <small class=\"help\">เทียบกับเป้าหมายของชุดโฆษณา (ใส่เป็นรหัสของ Meta) — ไม่ใช้วัตถุประสงค์ของแคมเปญ เพราะบัญชีขายผ่านแชทใช้วัตถุประสงค์เดียวกับสาย PR<\/small>\n        <\/div>\n      <\/div>\n\n      <div class=\"mx-notice mx-notice-crit formerr\" id=\"formErr\" role=\"alert\" hidden>\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8v5M12 16.5v.5\"/><\/svg>\n        <div id=\"formErrBody\"><\/div>\n      <\/div>\n      <p class=\"settingsnote\" id=\"settingsNote\" hidden><\/p>\n\n      <div class=\"actions\">\n        <button class=\"btn btn-primary\" id=\"btnScan\" type=\"button\">ดึงข้อมูลแล้วประเมิน<\/button>\n        <span class=\"status\" id=\"scanStatus\" hidden><span class=\"spinner\" aria-hidden=\"true\"><\/span>กำลังดึงข้อมูลจาก Meta และประเมิน<\/span>\n        <span class=\"runnote\" id=\"rangeNote\"><\/span>\n      <\/div>\n    <\/div>\n  <\/section>\n\n  <!-- ══ RESULTS ══ -->\n  <div class=\"alerts\" id=\"alerts\"><\/div>\n  <div id=\"cards\" class=\"tiles\" hidden><\/div>\n\n  <section class=\"panel\" id=\"killPanel\" hidden>\n    <div class=\"panel-head\">\n      <h2>รายการที่เข้าเงื่อนไขปิด<\/h2>\n      <span class=\"note\" id=\"killCount\"><\/span>\n    <\/div>\n    <div class=\"tscroll\">\n      <table class=\"ktable\">\n        <thead><tr>\n          <th style=\"width:34px\"><input type=\"checkbox\" class=\"pick\" id=\"pickAll\" title=\"เลือกทั้งหมด\"><\/th>\n          <th>แคมเปญ / ชุดโฆษณา<\/th>\n          <th>ระดับ<\/th>\n          <th class=\"n\">ใช้เงิน<\/th>\n          <th class=\"n\">ยอดซื้อ<\/th>\n          <th class=\"n\">ROAS<\/th>\n          <th class=\"n\">ผลลัพธ์<\/th>\n          <th class=\"n\">ต้นทุน/ผล<\/th>\n          <th>เหตุผล<\/th>\n          <th style=\"width:150px\">ปิด<\/th>\n        <\/tr><\/thead>\n        <tbody id=\"killBody\"><\/tbody>\n      <\/table>\n    <\/div>\n  <\/section>\n\n  <details class=\"panel fold\" id=\"restPanel\" hidden>\n    <summary><h2>ตัวที่ไม่ถูกตัดสิน และเหตุผล<\/h2><\/summary>\n    <div class=\"panel-body\" id=\"restBody\"><\/div>\n  <\/details>\n\n  <section class=\"panel\">\n    <div class=\"panel-head\"><h2>ความเห็นที่สองระดับโฆษณา<\/h2><\/div>\n    <div class=\"panel-body stack\">\n      <p class=\"subtle\">MaxxGPT จัดกลุ่มด้วยเกณฑ์ MaxideaStudio โดยดูถึงระดับโฆษณาย่อย — ใช้เทียบว่าตัวที่ Kill Switch เล็งไว้ ตรงกับที่ MaxxGPT บอกว่าควรปิดไหม<\/p>\n      <div class=\"maxxrow\">\n        <div class=\"mx-seg tabs\" role=\"group\" aria-label=\"เลือกวิธีวัดผล\">\n          <button type=\"button\" data-tool=\"analysis_bad_inbox\" aria-pressed=\"true\">ทักแชท<\/button>\n          <button type=\"button\" data-tool=\"analysis_bad_lead\" aria-pressed=\"false\">ลีด<\/button>\n          <button type=\"button\" data-tool=\"analysis_bad_purchase\" aria-pressed=\"false\">ยอดซื้อ<\/button>\n        <\/div>\n        <button class=\"btn\" id=\"btnMaxx\" type=\"button\">ดึงมุมมอง MaxxGPT<\/button>\n        <span class=\"runnote\" id=\"maxxNote\">ใช้ช่วงวันเดียวกับด้านบน · ประมวลผลราว 20–60 วินาที<\/span>\n      <\/div>\n      <div id=\"maxxOut\"><\/div>\n    <\/div>\n  <\/section>\n\n  <details class=\"panel fold\" id=\"rulesPanel\">\n    <summary><h2>กติกาที่ฝังอยู่ในหน้านี้ ปรับไม่ได้<\/h2><\/summary>\n    <div class=\"panel-body\">\n      <ul class=\"plain\">\n        <li>ทำงานแค่ระดับแคมเปญกับชุดโฆษณา ไม่แตะโฆษณาย่อย<\/li>\n        <li>ทิศทางเดียวคือปิด — หน้านี้ไม่มีคำสั่งเปิดกลับและไม่ลบอะไรทั้งสิ้น สถานะที่ตั้งคือ “หยุดชั่วคราว” ซึ่งเปิดกลับเองได้ใน Ads Manager<\/li>\n        <li>ดึงเฉพาะตัวที่ Meta บอกว่ากำลังส่งอยู่ แล้วตรวจซ้ำที่หน้านี้ว่าทั้งสถานะที่ตั้งไว้และสถานะการส่งจริงเป็น “ใช้งานอยู่”<\/li>\n        <li>แคมเปญที่ตั้งงบไว้เอง (CBO) ตัดสินและปิดที่ระดับแคมเปญ · แคมเปญที่ให้ชุดโฆษณาถืองบ (ABO) ตัดสินและปิดที่ชุดโฆษณา — ไม่ตัดสินซ้ำสองชั้น · ถ้าชุดโฆษณาในแคมเปญ CBO อยู่ในรายการห้ามแตะ จะไม่แตะทั้งแคมเปญ<\/li>\n        <li>อ่านยอดซื้อ มูลค่า และ ROAS จากทุกแหล่ง (รวมทุกช่องทาง พิกเซล ในแอป ออฟไลน์) แล้วใช้ค่ามากสุด ถ้าไม่มี ROAS คำนวณจากมูลค่าหารด้วยยอดใช้จ่าย ช่องหนึ่งว่างหรือเป็น 0 จึงไม่บังยอดซื้อจากช่องอื่น<\/li>\n        <li>ค่าที่อ่านไม่ได้ไม่ถือว่าแย่ — ROAS ว่างไม่นับว่าต่ำกว่าเกณฑ์ และถ้าอ่านยอดซื้อไม่ได้แต่ ROAS มีค่า จะไม่นับว่าศูนย์<\/li>\n        <li>เงื่อนไข A และ B ใช้กับรายการที่ผลลัพธ์เป็นการซื้อ หรือมีข้อมูลยอดซื้อ มูลค่า หรือ ROAS ในช่วงนั้นเท่านั้น รายการอื่น เช่นทักแชท ลีด หรือเข้าเพจ ตัดสินด้วยเงื่อนไข C อย่างเดียว<\/li>\n        <li>รายการที่ยังไม่ใช้เงินในช่วงนี้ไม่ถูกตัดสิน · ค่าที่ตั้งที่ว่างหรือเกินช่วงจะไม่ถูกแทนด้วยค่าอื่น หน้าจะบอกให้แก้ก่อนประเมิน<\/li>\n        <li>ถ้าทั้งบัญชีไม่มีสัญญาณยอดซื้อเลย จะพักเงื่อนไข A และ B ไว้แทนที่จะปิดยกบัญชี<\/li>\n        <li>ตัวที่เพิ่งสร้างในช่วงข้อมูลนี้ถูกข้ามเสมอ ให้เวลาระบบเรียนรู้ก่อน · ช่วงวันนับตามเขตเวลาของบัญชีโฆษณา<\/li>\n        <li>ก่อนปิดทุกครั้งจะอ่านประวัติของวันนี้ใหม่ ถ้ามีคนเพิ่งกดเปิดตัวนั้น หรือชุดโฆษณาในแคมเปญนั้นเอง จะข้ามไม่ปิดสวน · ถ้าอ่านประวัติไม่ได้ จะยังไม่ปิดอะไร<\/li>\n        <li>ปิดได้ไม่เกินเพดานต่อการประเมินหนึ่งรอบ นับตัวที่ปิดแล้ว ไม่แน่ใจผล และกำลังปิด · แก้ค่าที่ตั้งหลังประเมินแล้วต้องประเมินใหม่ก่อนปิด<\/li>\n        <li>สาย PR และสร้างการรับรู้ คัดออกด้วยเป้าหมายของชุดโฆษณา ไม่ใช้วัตถุประสงค์ของแคมเปญ เพราะบัญชีที่ขายผ่านแชทใช้วัตถุประสงค์เดียวกับสาย PR<\/li>\n        <li>Meta ไม่มีโหมดลองปิดโดยไม่ปิดจริง โหมด “วิเคราะห์อย่างเดียว” จึงทำหน้าที่แทน โดยไม่ส่งคำสั่งปิดใดๆ<\/li>\n      <\/ul>\n    <\/div>\n  <\/details>\n\n  <section class=\"panel\">\n    <div class=\"panel-head\"><h2>บันทึกการทำงาน<\/h2><\/div>\n    <pre class=\"log\" id=\"log\">ยังไม่มีการเรียกใช้งาน<\/pre>\n  <\/section>\n\n  <!-- the bar at the bottom of the screen: the mode switch beside the button it unlocks (owner 2026-09-30) -->\n  <div class=\"runbar\" id=\"runbar\" hidden>\n    <div class=\"sum\" id=\"runSum\"><\/div>\n    <div class=\"mx-seg arm\" role=\"group\" aria-label=\"โหมดการทำงาน\">\n      <button id=\"btnSafe\" type=\"button\" aria-pressed=\"true\">วิเคราะห์อย่างเดียว<\/button>\n      <button id=\"btnArm\" type=\"button\" aria-pressed=\"false\">พร้อมปิดจริง<\/button>\n    <\/div>\n    <button class=\"btn btn-danger\" id=\"btnKillSel\" type=\"button\" disabled>ปิดตัวที่เลือก<\/button>\n  <\/div>\n\n<\/div>\n"});</script>
+<script>MaxxConsole.assets("kill-switch", {css: "/* Generated by tools/migrations/killswitch.py from imports/kill-switch.html. Do not edit. */\n/* REWRITE 2026-09-30 (reskin step 7, docs/reskin-plan.md): the look of the agreed comparison mock on\n   the shared tokens, the same parts as Budget Scaling's. Gold stays only on the scan button; the rule C\n   chip and \"Kill Switch ก็เล็งไว้\" are blue. Labels read in normal case; warnings are notices with a\n   coloured left edge; the mode switch is the shared segmented control. Armed, the bar has a red edge\n   and the switch keeps the shared look, so it does not read as the red button beside it (owner\n   2026-10-03, mock row \"สีสวิตช์ตอนพร้อมจริง\" ข, the same as Budget Scaling). */\n*{box-sizing:border-box}\n:host{ display:block; color:var(--ink); font-family:var(--f-body); font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased; }\n/* the cards span the page like the shared account bar above them (the original capped them at 1180px) */\n.page{ padding-block:4px 8px; display:flex; flex-direction:column; gap:16px; }\nh1,h2,h3{ font-family:var(--f-display); margin:0; text-wrap:balance; }\n.mono{ font-family:var(--f-mono); }\n.num{ font-variant-numeric:tabular-nums; }\n[hidden]{ display:none !important; }\ncode{ font-family:var(--f-mono); font-size:.9em; color:var(--ink-2); }\n\n/* ── panels ─────────────────────────────────── */\n.panel{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow); overflow:hidden; padding:0; margin:0; }\n.panel-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 18px; border-bottom:1px solid var(--line); margin:0; }\n.panel-head h2, details.fold > summary h2{ font-size:15px; font-weight:600; }\n.panel-head .note{ font-size:12.5px; color:var(--muted); }\n.panel-body{ padding:16px 18px 18px; }\n.panel-body.stack{ display:flex; flex-direction:column; gap:14px; }\n/* a folded card says so on the right, as the original did */\ndetails.fold > summary{ display:flex; align-items:center; gap:10px; padding:14px 18px; cursor:pointer; list-style:none; border-radius:var(--r-lg); }\ndetails.fold > summary::-webkit-details-marker{ display:none; }\ndetails.fold > summary::after{ content:\"▾\"; margin-left:auto; color:var(--faint); font-size:12px; }\ndetails.fold[open] > summary::after{ content:\"▴\"; }\ndetails.fold[open] > summary{ border-bottom:1px solid var(--line); border-radius:0; }\n\n/* ── form: three columns; rules A B C grouped under \"รวมเงื่อนไขแบบ\" (owner 2026-09-30, version ก) ── */\n#cfgPanel > .panel-body > * + *{ margin-top:16px; }\n.fields{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px 18px; }\n.fields.two{ grid-template-columns:repeat(2, minmax(0, 1fr)); }\n@media (max-width:760px){ .fields, .fields.two{ grid-template-columns:1fr; } }\n.field{ display:flex; flex-direction:column; gap:6px; min-width:0; }\n.field label{ font-size:12.5px; color:var(--muted); }\n.help, .nevernote{ font-size:12px; color:var(--faint); line-height:1.45; }\n.nevernote{ color:var(--muted); }\n.nevernote:empty{ display:none; }\n.nevernote.warn{ color:var(--warn); }\ninput,select,textarea{ font:inherit; font-size:14px; width:100%; padding:8px 10px; color:var(--ink); background:var(--surface-2);\n  border:1px solid var(--line); border-radius:var(--r-sm); font-variant-numeric:tabular-nums; }\ntextarea{ resize:vertical; min-height:58px; font-family:var(--f-mono); font-size:12px; line-height:1.55; }\ninput:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{ outline:none; box-shadow:var(--focus); }\ninput:disabled,select:disabled{ opacity:.45; cursor:not-allowed; }\n.unit{ display:flex; align-items:center; gap:8px; }\n.unit .u{ font-size:12.5px; color:var(--muted); white-space:nowrap; }\n.unit input{ flex:1; min-width:0; }\ninput.bad,select.bad,textarea.bad{ border-color:var(--crit); }\n\n.rulegrp{ border:1px solid var(--line); border-radius:var(--r); }\n.rulegrp-h{ display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; padding:10px 14px; background:var(--surface-2);\n  border-bottom:1px solid var(--line); border-radius:var(--r) var(--r) 0 0; }\n.rulegrp-h label{ font-size:12.5px; color:var(--muted); }\n.rulegrp-h select{ width:auto; padding:6px 10px; }\n/* Art 2026-10-20 (criteria by result type, choice ค): the kinds picked, then one row per kind and one column per\n   rule. Each box is its own column with a wide gap, so a unit never sits against the next box's sign (Art's review\n   of the mock); under 560px every row stacks its boxes with the rule's name over each. */\n.rulegrp-h + .rulegrp-h{ border-radius:0; }\n.kinds-h{ border-bottom:0; padding-bottom:6px; }\n.kinds-h span{ font-size:12.5px; color:var(--ink-2); font-weight:500; }\n.kinds{ display:flex; flex-wrap:wrap; gap:8px; padding:4px 14px 12px; background:var(--surface-2); border-bottom:1px solid var(--line); }\n.kind{ display:inline-flex; align-items:center; gap:7px; padding:6px 13px; border:1px solid var(--line); border-radius:999px;\n  font-size:13px; color:var(--muted); background:var(--surface); cursor:pointer; }\n.kind:has(input:checked){ border-color:var(--primary); color:var(--ink); font-weight:500; background:color-mix(in srgb, var(--primary) 12%, var(--surface)); }\n.kind:has(input:focus-visible){ box-shadow:var(--focus); }\n.kind input{ margin:0; }\n.crit{ display:flex; flex-direction:column; }\n.crit-row{ display:grid; grid-template-columns:minmax(110px, .7fr) repeat(3, minmax(0, 1fr)); gap:10px 24px; align-items:center; padding:10px 14px; }\n.crit-row + .crit-row{ border-top:1px solid var(--line); }\n.crit-row[hidden]{ display:none; }\n.crit-head{ background:var(--surface-2); }\n.crit-head .crit-kind, .crit-col{ font-size:12.5px; color:var(--muted); }\n/* Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): the tick before each box; an unticked box is greyed and reads ไม่ใช้ */\n.unit input.tk{ flex:none; margin:0; width:auto; cursor:pointer; }\n.unit input.tk.bad{ outline:2px solid var(--crit); outline-offset:2px; }\n.crit-cell.off .u{ opacity:.45; }\n.crit-kind{ font-size:13.5px; font-weight:500; }\n.crit-head .crit-kind{ font-weight:400; }\n.crit-cell.na{ color:var(--faint); padding-left:10px; }\n/* a rule no picked kind has a box for is hidden, with its note. Art 2026-10-21 (\"ไม่ทำให้คอลัมน์ A B ยืดหดไม่ได้หรอ\"):\n   each rule keeps its own column, so picking a kind never moves or resizes the others; a hidden one leaves its room */\n.crit.noA .colA, .crit.noC .colC, .crit.noA ~ .crit-notes .noteA, .crit.noC ~ .crit-notes .noteC{ display:none; }\n.crit-row > .colA{ grid-column:2; } .crit-row > .colB{ grid-column:3; } .crit-row > .colC{ grid-column:4; }\n.crit-notes{ margin:0; padding:10px 14px 12px 32px; border-top:1px solid var(--line); font-size:12px; color:var(--faint); line-height:1.6; }\n.crit-notes b{ color:var(--muted); }\n@media (max-width:560px){\n  /* each box carries its rule's name; the head had the switches (Art 2026-10-21: gone) */\n  #critGrid .crit-head{ display:none; }\n  #critGrid .crit-row:not(.crit-head){ grid-template-columns:1fr; gap:10px; }\n  #critGrid .crit-row > .colA, #critGrid .crit-row > .colB, #critGrid .crit-row > .colC{ grid-column:auto; }\n  .crit-cell::before{ content:attr(data-label); display:block; font-size:12px; color:var(--muted); margin-bottom:4px; }\n  .crit-cell.na{ display:none; }\n}\n\n.formerr ul{ margin:4px 0 0; padding-left:18px; }\n.settingsnote{ font-size:12.5px; color:var(--warn); }\n.formnote{ font-size:12.5px; color:var(--muted); margin:0; }\n.copyoffer{ display:flex; align-items:center; justify-content:space-between; gap:8px 12px; flex-wrap:wrap; margin-bottom:14px; padding:8px 12px;\n  border:1px solid var(--line); border-left:3px solid var(--primary); border-radius:var(--r-sm); background:var(--surface-2); font-size:13px; color:var(--ink-2); }\n/* Art 2026-10-20 (mock kill-switch-skip-goals, ค): the goals left out, one summary line; แก้ opens the tick list */\n.field .label{ font-size:12.5px; color:var(--muted); font-weight:400; }\n.goalbox{ border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); }\n.goalsum{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 10px; }\n.goaltxt{ font-size:13px; color:var(--ink-2); line-height:1.5; min-width:0; }\n.goaltxt b{ color:var(--ink); font-weight:600; }\n.goalpick{ border-top:1px solid var(--line); padding:8px 10px 10px; }\n.goalgrid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:2px 14px; }\n.goal{ display:flex; align-items:flex-start; gap:9px; padding:5px 6px; border-radius:var(--r-sm); cursor:pointer; }\n.goal:hover{ background:var(--surface-3); }\n.goal input{ margin-top:3px; flex:none; }\n.goal .gn{ font-size:13px; color:var(--ink); }\n.goal .gc{ display:block; font-family:var(--f-mono); font-size:11px; color:var(--faint); }\n.goal .gseen{ display:inline-block; margin-left:6px; padding:0 7px; border-radius:999px; font-size:11.5px; background:var(--surface-3); color:var(--ink-2); }\n.goal .gseen.zero{ background:transparent; color:var(--faint); border:1px solid var(--line); }\n.goalbar{ display:flex; justify-content:space-between; gap:10px; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); }\n.actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding-top:16px; border-top:1px solid var(--line); }\n.runnote{ font-size:12.5px; color:var(--muted); }\n.actions .status{ font-size:13px; color:var(--ink-2); display:flex; align-items:center; gap:8px; }\n.spinner{ width:14px; height:14px; border-radius:50%; flex:none; border:2px solid var(--line-strong); border-top-color:var(--primary); animation:spin .8s linear infinite; }\n@keyframes spin{ to{ transform:rotate(360deg); } }\n@media (prefers-reduced-motion:reduce){ .spinner{ animation-duration:2.4s; } }\n\n/* ── notices over the results ───────────────── */\n.alerts{ display:flex; flex-direction:column; gap:10px; }\n.alerts:empty{ display:none; }\n.mx-notice b{ display:block; color:var(--ink); }\n.mx-notice > .spinner{ margin-top:3px; }\n.mx-notice .tools{ margin-top:8px; }\n\n/* ── summary tiles ──────────────────────────── */\n.tiles{ display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:12px; }\n@media (max-width:760px){ .tiles{ grid-template-columns:repeat(2, minmax(0, 1fr)); } }\n.tile{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); padding:12px 14px; }\n.tile .k{ font-size:12.5px; color:var(--muted); }\n.tile .v{ font-family:var(--f-display); font-size:24px; font-weight:600; font-variant-numeric:tabular-nums; line-height:1.3; margin-top:2px; }\n.tile.crit .v{ color:var(--crit); } .tile.ok .v{ color:var(--ok); } .tile.warn .v{ color:var(--warn); }\n\n/* ── table ──────────────────────────────────── */\n.tscroll{ overflow-x:auto; }\ntable{ border-collapse:collapse; width:100%; min-width:900px; font-size:13.5px; }\nth{ text-align:left; font-size:12px; font-weight:500; color:var(--faint); padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }\ntd{ padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:top; }\ntbody tr:last-child td{ border-bottom:0; }\ntd.n{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }\nth.n{ text-align:right; }\ntr.krow td:first-child{ box-shadow:inset 3px 0 0 var(--crit); }\ntr.krow.sev-warn td:first-child{ box-shadow:inset 3px 0 0 var(--warn); }\ntr.krow.settled td:not(:last-child){ opacity:.6; }\n.ename{ font-weight:500; line-height:1.4; max-width:34ch; }\n.eid{ font-family:var(--f-mono); font-size:11.5px; color:var(--faint); margin-top:2px; }\n.chip{ display:inline-block; font-size:11.5px; padding:1px 9px; border-radius:999px; border:1px solid var(--line); color:var(--muted); white-space:nowrap; }\n.chip.a, .chip.b, .chip.c{ font-weight:600; font-size:11px; padding:0 7px; }\n.chip.a{ color:var(--crit); border-color:color-mix(in srgb, var(--crit) 45%, var(--line)); }\n.chip.b{ color:var(--warn); border-color:color-mix(in srgb, var(--warn) 45%, var(--line)); }\n.chip.c{ color:var(--info); border-color:color-mix(in srgb, var(--info) 45%, var(--line)); }\n.buckets .chip.a, .buckets .chip.c{ font-size:11.5px; padding:0 8px; }\n.why{ font-size:12px; color:var(--muted); margin-top:4px; line-height:1.45; max-width:260px; }\n.state{ font-size:12.5px; font-weight:500; }\n.state.done{ color:var(--ok); } .state.err{ color:var(--crit); } .state.busy{ color:var(--warn); }\ninput[type=checkbox]{ width:16px; height:16px; accent-color:var(--primary); cursor:pointer; padding:0; border:none; }\ninput[type=checkbox]:disabled{ cursor:not-allowed; opacity:.35; }\n\n.subtle{ margin:0; font-size:13px; color:var(--muted); }\nul.plain{ margin:0; padding-left:18px; font-size:13px; color:var(--muted); line-height:1.7; }\n/* Art 2026-10-21 (mock ก): the five rules to know, then the full list folded */\nul.plain.rkey{ color:var(--ink-2); margin-bottom:12px; }\n.rmore{ border-top:1px solid var(--line); padding-top:10px; }\n.rmore > summary{ cursor:pointer; font-size:13px; color:var(--muted); }\n.rmore[open] > summary{ margin-bottom:8px; }\n.resth{ font-size:13px; font-weight:600; margin:14px 0 6px; }\n.resth:first-child{ margin-top:0; }\n\n/* ── the MaxxGPT second opinion ─────────────── */\n.maxxrow{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; }\n.buckets{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; }\n@media (max-width:760px){ .buckets{ grid-template-columns:1fr; } }\n.bucket{ border:1px solid var(--line); border-radius:var(--r); overflow:hidden; }\n.bucket h3{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; padding:8px 12px; background:var(--surface-2); border-bottom:1px solid var(--line); }\n.bucket h3::before{ content:\"\"; width:8px; height:8px; border-radius:50%; background:currentColor; flex:none; }\n.bucket.close h3{ color:var(--crit); } .bucket.watch h3{ color:var(--warn); } .bucket.keep h3{ color:var(--ok); }\n.bucket ol{ margin:0; padding:8px 12px 10px 30px; font-size:13px; line-height:1.55; max-height:290px; overflow-y:auto; }\n.bucket li{ margin:5px 0; }\n.bucket .m{ font-family:var(--f-mono); font-size:11.5px; color:var(--faint); }\n.bucket .empty{ padding:14px; font-size:13px; color:var(--faint); }\n\n/* ── log ────────────────────────────────────── */\npre.log{ margin:0; padding:12px 18px; max-height:230px; overflow:auto; background:var(--surface-2); font-family:var(--f-mono); font-size:12px;\n  line-height:1.7; color:var(--muted); white-space:pre-wrap; word-break:break-word; }\n/* RESKIN 2026-10-01 (owner, mock row \"สีในบันทึกการทำงาน\" ก): one quiet colour for every line, time\n   included; only a line that did not work is red, the whole line */\npre.log .e{ color:var(--crit); }\n\n/* ── run bar: the mode switch beside the pause button (owner 2026-09-30, version ก) ── */\n.runbar{ position:sticky; bottom:0; z-index:5; background:var(--surface); border:1px solid var(--line-strong); border-radius:var(--r-lg);\n  padding:12px 18px; display:flex; flex-wrap:wrap; align-items:center; gap:12px; box-shadow:0 -8px 24px rgba(0,0,0,.18), var(--shadow); }\n.runbar .sum{ font-size:13.5px; color:var(--ink-2); flex:1; min-width:200px; }\n.runbar .sum b{ color:var(--ink); font-variant-numeric:tabular-nums; }\n.page.armed .runbar{ border-color:var(--crit); box-shadow:inset 0 3px 0 var(--crit), 0 -8px 24px rgba(0,0,0,.18), var(--shadow); }\n.mx-seg > button:disabled{ opacity:.5; cursor:not-allowed; }\n", view: "<!-- Art 2026-10-20 (criteria by result type, docs/design/kill-switch-kinds.src.html choice ค): the rules group became the\n     kinds picker and the rows-by-rules grid; every other part is as the reskin left it.\n     REWRITE 2026-09-30 (reskin step 7, docs/reskin-plan.md): the markup of the agreed comparison\n     mock (docs/design/reskin-options.src.html, Kill Switch, row \"Kill Switch ขั้น 7\": switch ก,\n     settings ก, lower part แบบเดิม). The title and description come from the shared page header and\n     the account is the shared account bar (linked, no page name), so the page's own header, its account\n     line and the stripe under it are gone. The settings are three columns with rules A B C grouped\n     under \"รวมเงื่อนไขแบบ\"; the scan button closes the settings card. The mode switch and the pause\n     button sit in a bar at the bottom of the screen, as Budget Scaling's apply button does. The parts\n     below stay separate cards in the original's order. Every id the code uses is kept (checked in\n     build_page); the original markup was lines 233-413 of imports/kill-switch.html. -->\n<div class=\"page\" id=\"wrap\">\n\n  <div hidden>\n    <svg id=\"icoAlert\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8v5M12 16.5v.5\"/><\/svg>\n    <svg id=\"icoInfo\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 16v-5M12 8h.01\"/><\/svg>\n  <\/div>\n\n  <!-- ══ SETTINGS ══ -->\n  <section class=\"panel\" id=\"cfgPanel\">\n    <div class=\"panel-head\"><h2>ตั้งค่าการตัดสิน<\/h2><\/div>\n    <div class=\"panel-body\">\n      <!-- Art 2026-10-20 (chose a copy button): an account with nothing of its own is offered the criteria of the account just left -->\n      <div class=\"copyoffer\" id=\"copyOffer\" hidden><span id=\"copyText\">บัญชีนี้ยังไม่มีค่าที่ตั้งของตัวเอง<\/span>\n        <button class=\"btn btn-sm\" id=\"copyBtn\" type=\"button\"><\/button><\/div>\n      <div class=\"fields\">\n        <div class=\"field\">\n          <label for=\"lookback\">ช่วงข้อมูลย้อนหลัง<\/label>\n          <div class=\"unit\"><input id=\"lookback\" type=\"number\" value=\"5\" min=\"1\" max=\"30\" step=\"1\"><span class=\"u\">วัน<\/span><\/div>\n          <small class=\"help\">สั้น = ตัดไว · ยาว = ให้โอกาสมากกว่า (แนะนำ 3–7)<\/small>\n        <\/div>\n        <div class=\"field\">\n          <label for=\"minSpend\">ใช้เงินขั้นต่ำก่อนตัดสิน<\/label>\n          <div class=\"unit\"><input id=\"minSpend\" type=\"number\" value=\"500\" min=\"0\" step=\"50\"><span class=\"u cur\">THB<\/span><\/div>\n          <small class=\"help\">ตัวที่ใช้เงินยังไม่ถึงนี้จะถูกข้าม ไม่ว่าตัวเลขจะแย่แค่ไหน<\/small>\n        <\/div>\n        <div class=\"field\">\n          <label for=\"maxPause\">เพดานปิดต่อรอบ<\/label>\n          <div class=\"unit\"><input id=\"maxPause\" type=\"number\" value=\"5\" min=\"1\" step=\"1\"><span class=\"u\">ตัว<\/span><\/div>\n          <small class=\"help\">เบรกฉุกเฉิน กันข้อมูลเพี้ยนแล้วปิดยกบัญชี<\/small>\n        <\/div>\n      <\/div>\n\n      <!-- Art 2026-10-20 (criteria by result type, choice ค of the mock that day): the kinds the account advertises\n           for, then one row per kind picked and one column per rule (A results, B cost per result, C ROAS) -->\n      <div class=\"rulegrp\" id=\"ruleGrp\">\n        <div class=\"rulegrp-h kinds-h\"><span id=\"kindsLabel\">บัญชีนี้ยิงแอดแบบไหน<\/span><small class=\"help\">เลือกได้หลายอัน · แบบที่ไม่ได้เลือกจะไม่ถูกตัดสิน<\/small><\/div>\n        <div class=\"kinds\" role=\"group\" aria-labelledby=\"kindsLabel\">\n          <label class=\"kind\"><input type=\"checkbox\" id=\"styleBuy\" checked><span>เน้นยอดขาย<\/span><\/label>\n          <label class=\"kind\"><input type=\"checkbox\" id=\"styleChat\"><span>เน้นทักแชท<\/span><\/label>\n          <label class=\"kind\"><input type=\"checkbox\" id=\"styleLead\"><span>เน้นลีด<\/span><\/label>\n        <\/div>\n        <div class=\"rulegrp-h\">\n          <label for=\"combine\">รวมเงื่อนไขแบบ<\/label>\n          <select id=\"combine\">\n            <option value=\"ANY\">เข้าข้อใดข้อหนึ่งก็ปิด<\/option>\n            <option value=\"ALL\">ต้องเข้าครบทุกข้อที่ใช้กับแถวนั้น<\/option>\n          <\/select>\n          <small class=\"help\">“ครบทุกข้อ” = เข้มกว่า ปิดน้อยลง<\/small>\n        <\/div>\n        <div class=\"crit\" id=\"critGrid\">\n          <div class=\"crit-row crit-head\">\n            <div class=\"crit-kind\">ประเภทผลลัพธ์<\/div>\n            <!-- Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): each box has its own tick · \"เอา A · B · C · ออกด้วย\" -->\n            <div class=\"crit-col colA\">ได้น้อยกว่า<\/div>\n            <div class=\"crit-col colB\">ต้นทุนแพงกว่า<\/div>\n            <div class=\"crit-col colC\">ROAS ต่ำกว่า<\/div>\n          <\/div>\n          <div class=\"crit-row\" id=\"rowBuy\">\n            <div class=\"crit-kind\">ยอดขาย<\/div>\n            <div class=\"crit-cell colA\" data-label=\"ได้น้อยกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useMinBuy\" checked aria-label=\"ใช้ช่อง ได้น้อยกว่า แถวยอดขาย\"><input id=\"minBuy\" type=\"number\" value=\"1\" min=\"1\" step=\"1\" placeholder=\"ไม่ใช้\" aria-label=\"ยอดขายได้น้อยกว่า (ครั้ง)\"><span class=\"u\">ครั้ง<\/span><\/div><\/div>\n            <div class=\"crit-cell colB\" data-label=\"ต้นทุนแพงกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useCostBuy\" aria-label=\"ใช้ช่อง ต้นทุนแพงกว่า แถวยอดขาย\"><input id=\"costBuy\" type=\"number\" min=\"0\" step=\"5\" placeholder=\"ไม่ใช้\" aria-label=\"ต้นทุนต่อยอดขายแพงกว่า\"><span class=\"u cur\">THB<\/span><\/div><\/div>\n            <div class=\"crit-cell colC\" data-label=\"ROAS ต่ำกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useRoasFloor\" checked aria-label=\"ใช้ช่อง ROAS ต่ำกว่า แถวยอดขาย\"><input id=\"roasFloor\" type=\"number\" value=\"1.0\" min=\"0\" step=\"0.1\" placeholder=\"ไม่ใช้\" aria-label=\"ROAS ต่ำกว่า\"><\/div><\/div>\n          <\/div>\n          <div class=\"crit-row\" id=\"rowChat\" hidden>\n            <div class=\"crit-kind\">ทักแชท<\/div>\n            <div class=\"crit-cell colA\" data-label=\"ได้น้อยกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useMinChat\" aria-label=\"ใช้ช่อง ได้น้อยกว่า แถวทักแชท\"><input id=\"minChat\" type=\"number\" min=\"1\" step=\"1\" placeholder=\"ไม่ใช้\" aria-label=\"ทักแชทได้น้อยกว่า (ครั้ง)\"><span class=\"u\">ครั้ง<\/span><\/div><\/div>\n            <div class=\"crit-cell colB\" data-label=\"ต้นทุนแพงกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useCostChat\" aria-label=\"ใช้ช่อง ต้นทุนแพงกว่า แถวทักแชท\"><input id=\"costChat\" type=\"number\" min=\"0\" step=\"5\" placeholder=\"ไม่ใช้\" aria-label=\"ต้นทุนต่อทักแชทแพงกว่า\"><span class=\"u cur\">THB<\/span><\/div><\/div>\n            <div class=\"crit-cell colC\" data-label=\"ROAS ต่ำกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useRoasChat\" aria-label=\"ใช้ช่อง ROAS ต่ำกว่า แถวทักแชท\"><input id=\"roasChat\" type=\"number\" value=\"1.0\" min=\"0\" step=\"0.1\" placeholder=\"ไม่ใช้\" aria-label=\"ROAS ต่ำกว่า (ทักแชท)\"><\/div><\/div>\n          <\/div>\n          <div class=\"crit-row\" id=\"rowLead\" hidden>\n            <div class=\"crit-kind\">ลีด<\/div>\n            <div class=\"crit-cell colA\" data-label=\"ได้น้อยกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useMinLead\" aria-label=\"ใช้ช่อง ได้น้อยกว่า แถวลีด\"><input id=\"minLead\" type=\"number\" min=\"1\" step=\"1\" placeholder=\"ไม่ใช้\" aria-label=\"ลีดได้น้อยกว่า (ครั้ง)\"><span class=\"u\">ครั้ง<\/span><\/div><\/div>\n            <div class=\"crit-cell colB\" data-label=\"ต้นทุนแพงกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useCostLead\" aria-label=\"ใช้ช่อง ต้นทุนแพงกว่า แถวลีด\"><input id=\"costLead\" type=\"number\" min=\"0\" step=\"5\" placeholder=\"ไม่ใช้\" aria-label=\"ต้นทุนต่อลีดแพงกว่า\"><span class=\"u cur\">THB<\/span><\/div><\/div>\n            <div class=\"crit-cell colC\" data-label=\"ROAS ต่ำกว่า\"><div class=\"unit\"><input type=\"checkbox\" class=\"tk\" id=\"useRoasLead\" aria-label=\"ใช้ช่อง ROAS ต่ำกว่า แถวลีด\"><input id=\"roasLead\" type=\"number\" value=\"1.0\" min=\"0\" step=\"0.1\" placeholder=\"ไม่ใช้\" aria-label=\"ROAS ต่ำกว่า (ลีด)\"><\/div><\/div>\n          <\/div>\n        <\/div>\n        <ul class=\"crit-notes\">\n          <li class=\"noteA\"><b>ได้น้อยกว่า<\/b> ปิดเมื่อได้ผลลัพธ์น้อยกว่าค่านี้ · ถ้า Meta ไม่ส่งตัวเลขมา ไม่นับว่า 0<\/li>\n          <li><b>ต้นทุนแพงกว่า<\/b> ยอดใช้จ่าย ÷ จำนวนผลลัพธ์ในช่วงเดียวกัน ปิดเมื่อแพงกว่าค่านี้<\/li>\n          <li class=\"noteC\"><b>ROAS ต่ำกว่า<\/b> ปิดเมื่อ ROAS ต่ำกว่าค่านี้ ใช้กับรายการที่มีข้อมูลยอดขายเท่านั้น · แถวทักแชทและลีดใช้ได้เมื่อยอดขายถูกส่งกลับเข้า Meta (เช่น Conversions API)<\/li>\n          <li>แอดที่ผลลัพธ์ไม่ใช่ยอดขาย ทักแชท หรือลีด เช่น คลิกลิงก์ ดูวิดีโอ หรือคอนเวอร์ชันที่ตั้งเอง ไม่ถูกตัดสิน หน้านี้จะบอกว่ามีกี่ตัว<\/li>\n          <li>ติ๊กช่องที่จะใช้แล้วใส่ตัวเลข · ช่องที่ไม่ติ๊กไม่ถูกใช้ ตัวเลขยังเก็บไว้ · — = ประเภทนี้ไม่มีตัวเลขให้วัด<\/li>\n        <\/ul>\n      <\/div>\n\n      <div class=\"fields two\">\n        <div class=\"field\">\n          <!-- Art 2026-10-20 (docs/design/kill-switch-skip-goals.src.html, ค): one summary line; แก้ opens a tick list by Thai\n               name. Nothing is typed, so no code can be deleted or mistyped; the value saved is the same comma list as before -->\n          <span class=\"label\" id=\"goalLabel\">เป้าหมายของชุดโฆษณาที่ไม่เอามาตัดสิน (สาย PR / สร้างการรับรู้)<\/span>\n          <input type=\"hidden\" id=\"skipGoals\" value=\"THRUPLAY, VIDEO_VIEWS, POST_ENGAGEMENT, PAGE_LIKES, REACH, IMPRESSIONS, AD_RECALL_LIFT, EVENT_RESPONSES\">\n          <div class=\"goalbox\" role=\"group\" aria-labelledby=\"goalLabel\">\n            <div class=\"goalsum\"><span class=\"goaltxt\" id=\"goalSum\"><\/span>\n              <button class=\"btn btn-sm\" id=\"goalEdit\" type=\"button\" aria-expanded=\"false\" aria-controls=\"goalPick\">แก้<\/button><\/div>\n            <div class=\"goalpick\" id=\"goalPick\" hidden>\n              <div class=\"goalgrid\" id=\"goalGrid\"><\/div>\n              <div class=\"goalbar\"><button class=\"btn btn-sm btn-quiet\" id=\"goalReset\" type=\"button\">↺ คืนค่าเริ่มต้น<\/button>\n                <button class=\"btn btn-sm\" id=\"goalDone\" type=\"button\">เสร็จ<\/button><\/div>\n            <\/div>\n          <\/div>\n          <small class=\"help\">เทียบกับเป้าหมายของชุดโฆษณา ไม่ใช้วัตถุประสงค์ของแคมเปญ เพราะบัญชีขายผ่านแชทใช้วัตถุประสงค์เดียวกับสาย PR<\/small>\n        <\/div>\n        <div class=\"field\">\n          <!-- Art 2026-10-20: the goals first, then this list, named โฆษณาที่ห้ามแตะ; it still takes campaign and ad set IDs -->\n          <label for=\"neverPause\">โฆษณาที่ห้ามแตะ<\/label>\n          <textarea id=\"neverPause\" rows=\"2\" placeholder=\"วาง ID ของแคมเปญหรือชุดโฆษณา คั่นด้วยจุลภาค เว้นวรรค หรือขึ้นบรรทัด — เว้นว่างได้\"><\/textarea>\n          <small class=\"help\">ใส่ ID ของแคมเปญหรือชุดโฆษณา (ไม่ใช่ ID ของโฆษณาย่อย) · ตัว brand หลัก หรือตัวที่ลูกค้าสั่งเปิดไว้ · ใส่ชุดโฆษณาของแคมเปญ CBO แล้วจะไม่แตะทั้งแคมเปญ<\/small>\n          <small class=\"nevernote\" id=\"neverNote\"><\/small>\n        <\/div>\n      <\/div>\n\n      <div class=\"mx-notice mx-notice-crit formerr\" id=\"formErr\" role=\"alert\" hidden>\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8v5M12 16.5v.5\"/><\/svg>\n        <div id=\"formErrBody\"><\/div>\n      <\/div>\n      <p class=\"settingsnote\" id=\"settingsNote\" hidden><\/p>\n      <p class=\"formnote\" id=\"formNote\" hidden><\/p>\n\n      <div class=\"actions\">\n        <button class=\"btn btn-primary\" id=\"btnScan\" type=\"button\">ดึงข้อมูลแล้วประเมิน<\/button>\n        <span class=\"status\" id=\"scanStatus\" hidden><span class=\"spinner\" aria-hidden=\"true\"><\/span>กำลังดึงข้อมูลจาก Meta และประเมิน<\/span>\n        <span class=\"runnote\" id=\"rangeNote\"><\/span>\n      <\/div>\n    <\/div>\n  <\/section>\n\n  <!-- ══ RESULTS ══ -->\n  <div class=\"alerts\" id=\"alerts\"><\/div>\n  <div id=\"cards\" class=\"tiles\" hidden><\/div>\n\n  <section class=\"panel\" id=\"killPanel\" hidden>\n    <div class=\"panel-head\">\n      <h2>รายการที่เข้าเงื่อนไขปิด<\/h2>\n      <span class=\"note\" id=\"killCount\"><\/span>\n    <\/div>\n    <div class=\"tscroll\">\n      <table class=\"ktable\">\n        <thead><tr>\n          <th style=\"width:34px\"><input type=\"checkbox\" class=\"pick\" id=\"pickAll\" title=\"เลือกทั้งหมด\"><\/th>\n          <th>แคมเปญ / ชุดโฆษณา<\/th>\n          <th>ระดับ<\/th>\n          <th class=\"n\">ใช้เงิน<\/th>\n          <th class=\"n\">ยอดขาย<\/th>\n          <th class=\"n\">ROAS<\/th>\n          <th class=\"n\">ผลลัพธ์<\/th>\n          <th class=\"n\">ต้นทุน/ผล<\/th>\n          <th>เหตุผล<\/th>\n          <th style=\"width:150px\">ปิด<\/th>\n        <\/tr><\/thead>\n        <tbody id=\"killBody\"><\/tbody>\n      <\/table>\n    <\/div>\n  <\/section>\n\n  <details class=\"panel fold\" id=\"restPanel\" hidden>\n    <summary><h2>ตัวที่ไม่ถูกตัดสิน และเหตุผล<\/h2><\/summary>\n    <div class=\"panel-body\" id=\"restBody\"><\/div>\n  <\/details>\n\n  <section class=\"panel\">\n    <div class=\"panel-head\"><h2>ความเห็นที่สองระดับโฆษณา<\/h2><\/div>\n    <div class=\"panel-body stack\">\n      <p class=\"subtle\">MaxxGPT จัดกลุ่มด้วยเกณฑ์ MaxideaStudio โดยดูถึงระดับโฆษณาย่อย — ใช้เทียบว่าตัวที่ Kill Switch เล็งไว้ ตรงกับที่ MaxxGPT บอกว่าควรปิดไหม<\/p>\n      <div class=\"maxxrow\">\n        <div class=\"mx-seg tabs\" role=\"group\" aria-label=\"เลือกวิธีวัดผล\">\n          <button type=\"button\" data-tool=\"analysis_bad_inbox\" aria-pressed=\"true\">ทักแชท<\/button>\n          <button type=\"button\" data-tool=\"analysis_bad_lead\" aria-pressed=\"false\">ลีด<\/button>\n          <button type=\"button\" data-tool=\"analysis_bad_purchase\" aria-pressed=\"false\">ยอดขาย<\/button>\n        <\/div>\n        <!-- Art 2026-10-21 (\"ปุ่มนี้มันจมไปหน่อย ใช้สีม่วงแทน\"): the shared purple button -->\n        <button class=\"btn btn-ai\" id=\"btnMaxx\" type=\"button\">ดึงมุมมอง MaxxGPT<\/button>\n        <span class=\"runnote\" id=\"maxxNote\">ใช้ช่วงวันเดียวกับด้านบน · ประมวลผลราว 20–60 วินาที<\/span>\n      <\/div>\n      <div id=\"maxxOut\"><\/div>\n    <\/div>\n  <\/section>\n\n  <details class=\"panel fold\" id=\"rulesPanel\">\n    <summary><h2>กติกาที่ฝังอยู่ในหน้านี้ ปรับไม่ได้<\/h2><\/summary>\n    <div class=\"panel-body\">\n      <!-- Art 2026-10-21 (mock ก): the five things to know before pausing, then the full list folded under them -->\n      <ul class=\"plain rkey\">\n        <li>ปิดอย่างเดียว ตั้งเป็น “หยุดชั่วคราว” เปิดกลับเองได้ใน Ads Manager และไม่ลบอะไร<\/li>\n        <li>แคมเปญ CBO ปิดทั้งแคมเปญ · ABO ปิดทีละชุดโฆษณา · ถ้าชุดโฆษณาในแคมเปญ CBO อยู่ในรายการห้ามแตะ จะไม่แตะทั้งแคมเปญ<\/li>\n        <li>ตัดสินเฉพาะตัวที่กำลังส่งโฆษณาอยู่ ข้ามตัวที่ใช้เงินไม่ถึงขั้นต่ำหรือเพิ่งสร้าง<\/li>\n        <li>ก่อนปิดจะตรวจว่าวันนี้มีคนเพิ่งเปิดตัวนั้นหรือเปล่า ถ้ามีจะไม่ปิดสวน · แต่ละรอบปิดได้ไม่เกินเพดาน<\/li>\n        <li>โหมด “วิเคราะห์อย่างเดียว” ไม่ส่งคำสั่งปิด<\/li>\n      <\/ul>\n      <details class=\"rmore\" id=\"rulesMore\">\n        <summary>ดูรายละเอียดการตัดสินทั้งหมด (16 ข้อ)<\/summary>\n        <ul class=\"plain\">\n          <li>ทำงานแค่ระดับแคมเปญกับชุดโฆษณา ไม่แตะโฆษณาย่อย<\/li>\n          <li>ทิศทางเดียวคือปิด — หน้านี้ไม่มีคำสั่งเปิดกลับและไม่ลบอะไรทั้งสิ้น สถานะที่ตั้งคือ “หยุดชั่วคราว” ซึ่งเปิดกลับเองได้ใน Ads Manager<\/li>\n          <li>ดึงตัวที่เปิดอยู่ แล้วตัดสินเฉพาะตัวที่คอลัมน์การส่งโฆษณาของ Meta เป็น “ใช้งานอยู่” · ตัวที่จบแล้ว ปิดอยู่ มีปัญหา หรือยังไม่เริ่ม ไม่ถูกตัดสินและไม่ถูกปิด หน้านี้บอกว่ามีกี่ตัว · ชุดโฆษณาในรายการห้ามแตะยังกันแคมเปญ CBO ของมันได้แม้ไม่ได้ส่งอยู่<\/li>\n          <li>แคมเปญที่ตั้งงบไว้เอง (CBO) ตัดสินและปิดที่ระดับแคมเปญ · แคมเปญที่ให้ชุดโฆษณาถืองบ (ABO) ตัดสินและปิดที่ชุดโฆษณา — ไม่ตัดสินซ้ำสองชั้น · ถ้าชุดโฆษณาในแคมเปญ CBO อยู่ในรายการห้ามแตะ จะไม่แตะทั้งแคมเปญ<\/li>\n          <li>อ่านยอดขาย มูลค่า และ ROAS จากทุกแหล่ง (รวมทุกช่องทาง พิกเซล ในแอป ออฟไลน์) แล้วใช้ค่ามากสุด ถ้าไม่มี ROAS คำนวณจากมูลค่าหารด้วยยอดใช้จ่าย ช่องหนึ่งว่างหรือเป็น 0 จึงไม่บังยอดขายจากช่องอื่น<\/li>\n          <li>ค่าที่อ่านไม่ได้ไม่ถือว่าแย่ — ROAS ว่างไม่นับว่าต่ำกว่าเกณฑ์ และถ้าอ่านยอดขายไม่ได้แต่ ROAS มีค่า จะไม่นับว่าศูนย์<\/li>\n          <li>แต่ละแถวของเกณฑ์ตัดสินเฉพาะรายการที่ผลลัพธ์เป็นประเภทนั้น ดูจากชนิดผลลัพธ์ที่ Meta ส่งมา (ยอดขาย ทักแชท หรือลีด) · ประเภทที่ไม่ได้เลือกด้านบน และผลลัพธ์ชนิดอื่น เช่น คลิก หรือดูวิดีโอ ไม่ถูกตัดสิน และหน้านี้จะบอกว่ามีกี่ตัว<\/li>\n          <li>แอดทักแชทหรือลีดที่เลือกประเภทไว้ ตัดสินด้วยแถวของตัวเองเท่านั้น · แถวยอดขายใช้กับแอดที่ผลลัพธ์เป็นการซื้อ และแอดอื่นที่มีข้อมูลยอดขาย มูลค่า หรือ ROAS แต่ประเภทของมันไม่ได้เลือก<\/li>\n          <li>แคมเปญ CBO ที่ชุดโฆษณามีเป้าหมายต่างกัน ไม่ใช้เกณฑ์ที่อ่านจากชนิดผลลัพธ์ (ได้น้อยกว่าของแชทและลีด และต้นทุนแพงกว่า) เพราะผลลัพธ์ของแคมเปญปนกันหลายชนิด<\/li>\n          <li>รายการที่ยังไม่ใช้เงินในช่วงนี้ไม่ถูกตัดสิน · ช่วงข้อมูลย้อนหลัง ใช้เงินขั้นต่ำ และเพดานปิดต่อรอบ ถ้าว่างหรือเกินช่วงจะไม่ถูกแทนด้วยค่าอื่น หน้าจะบอกให้แก้ก่อนประเมิน · ช่องเกณฑ์ที่ติ๊กไว้ต้องมีตัวเลข และต้องติ๊กอย่างน้อยหนึ่งช่อง<\/li>\n          <li>ถ้าทั้งบัญชีไม่มีสัญญาณยอดขายเลย จะพักเกณฑ์ได้น้อยกว่าของยอดขาย และ ROAS ต่ำกว่าทุกแถว ไว้แทนที่จะปิดยกบัญชี · จำนวนแชท ลีด และต้นทุนยังทำงานตามปกติ<\/li>\n          <li>ตัวที่เพิ่งสร้างในช่วงข้อมูลนี้ถูกข้ามเสมอ ให้เวลาระบบเรียนรู้ก่อน · ช่วงวันนับตามเขตเวลาของบัญชีโฆษณา<\/li>\n          <li>ก่อนปิดทุกครั้งจะอ่านประวัติของวันนี้ใหม่ ถ้ามีคนเพิ่งกดเปิดตัวนั้น หรือชุดโฆษณาในแคมเปญนั้นเอง จะข้ามไม่ปิดสวน · ถ้าอ่านประวัติไม่ได้ จะยังไม่ปิดอะไร<\/li>\n          <li>ปิดได้ไม่เกินเพดานต่อการประเมินหนึ่งรอบ นับตัวที่ปิดแล้ว ไม่แน่ใจผล และกำลังปิด · แก้ค่าที่ตั้งหลังประเมินแล้วต้องประเมินใหม่ก่อนปิด<\/li>\n          <li>สาย PR และสร้างการรับรู้ คัดออกด้วยเป้าหมายของชุดโฆษณา ไม่ใช้วัตถุประสงค์ของแคมเปญ เพราะบัญชีที่ขายผ่านแชทใช้วัตถุประสงค์เดียวกับสาย PR<\/li>\n          <li>Meta ไม่มีโหมดลองปิดโดยไม่ปิดจริง โหมด “วิเคราะห์อย่างเดียว” จึงทำหน้าที่แทน โดยไม่ส่งคำสั่งปิดใดๆ<\/li>\n        <\/ul>\n      <\/details>\n    <\/div>\n  <\/details>\n\n  <section class=\"panel\">\n    <div class=\"panel-head\"><h2>บันทึกการทำงาน<\/h2><\/div>\n    <pre class=\"log\" id=\"log\">ยังไม่มีการเรียกใช้งาน<\/pre>\n  <\/section>\n\n  <!-- the bar at the bottom of the screen: the mode switch beside the button it unlocks (owner 2026-09-30) -->\n  <div class=\"runbar\" id=\"runbar\" hidden>\n    <div class=\"sum\" id=\"runSum\"><\/div>\n    <div class=\"mx-seg arm\" role=\"group\" aria-label=\"โหมดการทำงาน\">\n      <button id=\"btnSafe\" type=\"button\" aria-pressed=\"true\">วิเคราะห์อย่างเดียว<\/button>\n      <button id=\"btnArm\" type=\"button\" aria-pressed=\"false\">พร้อมปิดจริง<\/button>\n    <\/div>\n    <button class=\"btn btn-danger\" id=\"btnKillSel\" type=\"button\" disabled>ปิดตัวที่เลือก<\/button>\n  <\/div>\n\n<\/div>\n"});</script>
 <script>
 (function (defineModule, defineLogic) {
 /* killswitch.candidates: generated by tools/migrations/killswitch.py (killswitch_logic.py) from
@@ -10853,8 +10873,10 @@ function shapeMetrics(raw){
   var pvalue = largest(raw.omni_purchase_values, raw.offsite_conversion_fb_pixel_purchase_values);
   var roas = largest(raw.purchase_roas, raw.website_purchase_roas);
   if(roas==null && pvalue!=null && spend!=null && spend>0) roas = pvalue/spend;
-  var results = num(raw.results);
   var indicator = (raw.results && raw.results.indicator) || null;
+  // Art 2026-10-21 (Ads Manager, real account): Meta gives the type of result with no number when there was none
+  var results = num(raw.results);
+  if(results==null && indicator!=null) results = 0;
   var cpr = null;
   if(results!=null && spend!=null) cpr = results>0 ? spend/results : Infinity;
   return {
@@ -10870,16 +10892,26 @@ function hasBudget(raw){
 function isActive(raw){
   return String(raw.status||'').toUpperCase()==='ACTIVE' && String(raw.effective_status||'').toUpperCase()==='ACTIVE';
 }
+// Art 2026-10-20: Meta's delivery column; only a value the page knows to mean "not running" leaves an item out
+var NOT_DELIVERING = ['inactive','completed','off','error','deleted','archived','pending','draft'];
+function deliveryOf(raw){
+  var d = raw.delivery;
+  if(d && typeof d==='object') d = d.status!=null ? d.status : d.value!=null ? d.value : null;
+  return d==null ? '' : String(d).trim().toLowerCase();
+}
+function delivering(raw){ return NOT_DELIVERING.indexOf(deliveryOf(raw)) < 0; }
 function prettyIndicator(ind){
   if(!ind) return 'ผลลัพธ์';
   if(ind.indexOf('messaging_conversation')>-1) return 'ทักแชท';
   if(ind.indexOf('lead')>-1) return 'ลีด';
-  if(ind.indexOf('purchase')>-1) return 'ยอดซื้อ';
+  if(ind.indexOf('purchase')>-1) return 'ยอดขาย';
   if(ind.indexOf('link_click')>-1) return 'คลิกลิงก์';
   if(ind.indexOf('landing_page')>-1) return 'เข้าหน้าเว็บ';
   if(ind.indexOf('thruplay')>-1 || ind.indexOf('video')>-1) return 'ดูวิดีโอ';
   // tester 2026-09-25 OBS-01 (Art, round 4 2026-10-07): other result types in Thai; one the page does not know
   // reads ผลลัพธ์, never Meta's code ("285 page_visit_view", "ต้นทุนต่อpage_visit_view")
+  // Art 2026-10-20 (criteria by result type): every other messaging result is a chat, as its kind (kindOf)
+  if(ind.indexOf('messaging')>-1) return 'ทักแชท';
   if(ind.indexOf('page_visit')>-1 || ind.indexOf('page_engagement')>-1) return 'การเข้าชมเพจ Facebook';
   if(ind.indexOf('profile_visit')>-1) return 'การเข้าชมโปรไฟล์';
   if(ind.indexOf('post_engagement')>-1) return 'การมีส่วนร่วมกับโพสต์';
@@ -10887,13 +10919,17 @@ function prettyIndicator(ind){
   if(ind.indexOf('reach')>-1) return 'การเข้าถึง';
   if(ind.indexOf('impression')>-1) return 'การแสดงผล';
   if(ind.indexOf('like')>-1) return 'การถูกใจเพจ';
+  // Art 2026-10-21 (real account, test page 96): CPAS ad sets Meta reports as catalog_segment_actions:omni_add_to_cart,
+  // also those Ads Manager shows as shared purchases; Kill Switch does not judge them, the note names them
+  if(ind.indexOf('add_to_cart')>-1) return ind.indexOf('catalog_segment')>-1 ? 'การหยิบสินค้าที่แชร์ใส่ตะกร้า' : 'การหยิบใส่ตะกร้า';
   return 'ผลลัพธ์';
 }
 // tester 2026-09-25 OBS-01 (Art, round 4 2026-10-07): Meta's goal codes by their Thai names in the reasons; a code
 // the viewer typed in the box that is not one of these shows as typed
 var GOAL_TH = { REACH:'การเข้าถึง', IMPRESSIONS:'การแสดงผล', THRUPLAY:'ดูวิดีโอจนจบหรือ 15 วินาที', VIDEO_VIEWS:'ยอดดูวิดีโอ',
   TWO_SECOND_CONTINUOUS_VIDEO_VIEWS:'ดูวิดีโอต่อเนื่อง 2 วินาที', POST_ENGAGEMENT:'การมีส่วนร่วมกับโพสต์', PAGE_LIKES:'ถูกใจเพจ',
-  AD_RECALL_LIFT:'การจดจำโฆษณา', EVENT_RESPONSES:'ตอบรับกิจกรรม', REMINDERS_SET:'การตั้งเตือน' };
+  AD_RECALL_LIFT:'การจดจำโฆษณา', EVENT_RESPONSES:'ตอบรับกิจกรรม', REMINDERS_SET:'การตั้งเตือน',
+  PROFILE_AND_PAGE_ENGAGEMENT:'การมีส่วนร่วมกับโปรไฟล์และเพจ' };
 function goalLabel(g){ return GOAL_TH[g] || g; }
 
 // ---- imports/kill-switch.html:666-702 · settings and the three rules ----
@@ -10908,7 +10944,65 @@ function plainNumber(v){
   var s = String(v==null?'':v).trim();
   return /^-?\d+(\.\d+)?$/.test(s) ? parseFloat(s) : null;
 }
-function settingProblems(settings){
+// Art 2026-10-20 (criteria by result type, owner's choice ค): the viewer picks how the account advertises
+// (เน้นยอดขาย เน้นทักแชท เน้นลีด) and sets, per kind of result, A = fewer results than, B = cost per result above,
+// C = ROAS below (purchases only; the letters name the rules in the code only). A kind that is not picked is not judged.
+// Art 2026-10-21 ("เอาออก"): there is no row for other results (clicks, video views, conversions of one's own): one ceiling
+// for kinds whose costs differ tenfold judged none of them well, so an item whose result is one of them is not judged. Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): every box has its own tick; a ticked box in the row of a kind picked is
+// used and must hold a number that works, an unticked box is not used and keeps its number unchecked.
+// The first form's settings (useA = purchases, useB = ROAS, useC = one cost ceiling for every result) are read as the
+// same rules in the new form, so a setting saved before judges exactly as before, and is refused where it was refused,
+// except that its cost ceiling no longer judges the items whose result is another kind.
+var KINDS = ['buy','chat','lead'];
+var COUNT_KINDS = ['buy','chat','lead'];
+var KIND_KEY = {buy:'Buy', chat:'Chat', lead:'Lead'};
+var KIND_ROW = {buy:'ยอดขาย', chat:'ทักแชท', lead:'ลีด'};
+var KIND_STYLE = {buy:'เน้นยอดขาย', chat:'เน้นทักแชท', lead:'เน้นลีด'};
+// Art 2026-10-21 ("เอาตามคุณทั้งหมด"): a ROAS box in the chat and lead rows too
+var BOXES = ['minBuy','minChat','minLead','costBuy','costChat','costLead','roasFloor','roasChat','roasLead'];
+// the tick of a box: minBuy -> useMinBuy, roasFloor -> useRoasFloor
+function tickOf(f){ return 'use'+f.charAt(0).toUpperCase()+f.slice(1); }
+// settings saved with the other-results row (styleOther costOther useCostOther, until 2026-10-21) keep them unread
+function firstForm(settings){
+  return !('styleBuy' in settings) && !('styleChat' in settings) && !('styleLead' in settings) && !('styleOther' in settings);
+}
+function fromFirstForm(s){
+  var cost = !!s.useC;
+  return {
+    lookback: s.lookback, minSpend: s.minSpend, maxPause: s.maxPause, combine: s.combine,
+    styleBuy: !!(s.useA || s.useB || s.useC), styleChat: cost, styleLead: cost,
+    minBuy: s.omniThr, useMinBuy: !!s.useA, minChat: '', useMinChat: false, minLead: '', useMinLead: false,
+    costBuy: s.cprCeil, useCostBuy: cost, costChat: s.cprCeil, useCostChat: cost,
+    costLead: s.cprCeil, useCostLead: cost,
+    roasFloor: s.roasFloor, useRoasFloor: !!s.useB, roasChat: '', useRoasChat: false, roasLead: '', useRoasLead: false,
+    neverPause: s.neverPause, skipGoals: s.skipGoals
+  };
+}
+function blank(v){ return v==null || String(v).trim()===''; }
+function pickedKinds(s){ return KINDS.filter(function(k){ return !!s['style'+KIND_KEY[k]]; }); }
+// The new form as saved before the ticks per box (never released): with a switch per rule (useCount useCost useRoas,
+// until 2026-10-21), where a box was used when its rule was on and it held a number, or with no switch at all
+// (2026-10-21), where a box was used when it held a number. Each box is ticked the way it was used. The page reads them
+// the same way (killswitch_form.js); tests/logic/killswitch_v1_equivalence.mjs runs both readings side by side.
+function ticked(s){ return BOXES.some(function(f){ return tickOf(f) in s; }); }
+function switched(s){ return 'useCount' in s || 'useCost' in s || 'useRoas' in s; }
+var BOX_RULE = {min:'useCount', cost:'useCost', roas:'useRoas'};
+function withTicks(s){
+  if(ticked(s)) return s;
+  var out = Object.assign({}, s), sw = switched(s);
+  BOXES.forEach(function(f){
+    var on = sw ? !!s[BOX_RULE[/^[a-z]+/.exec(f)[0]]] : true;
+    out[tickOf(f)] = on && !blank(s[f]);
+  });
+  delete out.useCount; delete out.useCost; delete out.useRoas;
+  return out;
+}
+function formOf(settings){ return firstForm(settings) ? fromFirstForm(settings) : withTicks(settings); }
+// every rule of the first form off refuses the scan, as it did; the new form names its unticked table instead
+// (settingProblems)
+function noRuleOn(settings){ return firstForm(settings) && !settings.useA && !settings.useB && !settings.useC; }
+function settingProblems(input){
+  var settings = formOf(input);
   var out = [];
   function check(field, ok, message){ if(!ok) out.push({field:field, message:message}); }
   var n;
@@ -10919,23 +11013,53 @@ function settingProblems(settings){
   n = plainNumber(settings.maxPause);
   check('maxPause', n!=null && n%1===0 && n>=1 && n<=100, 'เพดานปิดต่อรอบ ใส่จำนวนเต็ม 1 ถึง 100');
   check('combine', settings.combine==='ANY' || settings.combine==='ALL', 'รวมเงื่อนไขแบบ ต้องเป็น ANY หรือ ALL');
-  if(settings.useA){ n = plainNumber(settings.omniThr); check('omniThr', n!=null && n%1===0 && n>=1, 'เกณฑ์ A ใส่จำนวนครั้งเป็นจำนวนเต็มตั้งแต่ 1 ขึ้นไป'); }
-  if(settings.useB){ n = plainNumber(settings.roasFloor); check('roasFloor', n!=null && n>0, 'เกณฑ์ B ใส่ ROAS มากกว่า 0'); }
-  if(settings.useC){ n = plainNumber(settings.cprCeil); check('cprCeil', n!=null && n>0, 'เกณฑ์ C ใส่ต้นทุนต่อผลลัพธ์มากกว่า 0'); }
+  var kinds = pickedKinds(settings);
+  check('styleBuy', kinds.length>0, 'เลือกลักษณะการยิงแอดอย่างน้อยหนึ่งแบบ');
+  // only the ticked boxes of the rows picked are checked, empty or not; a box the browser could not read comes as "?"
+  var used = 0;
+  function box(f, k, name, ok, wrong){
+    if(kinds.indexOf(k)<0 || !settings[tickOf(f)]) return;
+    used++;
+    check(f, ok(plainNumber(settings[f])), 'แถว'+KIND_ROW[k]+' ช่อง “'+name+'” '+wrong+' หรือเอาติ๊กออก');
+  }
+  COUNT_KINDS.forEach(function(k){
+    box('min'+KIND_KEY[k], k, 'ได้น้อยกว่า', function(n){ return n!=null && n%1===0 && n>=1; }, 'ใส่จำนวนครั้งเป็นจำนวนเต็มตั้งแต่ 1 ขึ้นไป');
+  });
+  KINDS.forEach(function(k){
+    box('cost'+KIND_KEY[k], k, 'ต้นทุนแพงกว่า', function(n){ return n!=null && n>0; }, 'ใส่ต้นทุนต่อผลลัพธ์มากกว่า 0');
+  });
+  box('roasFloor', 'buy', 'ROAS ต่ำกว่า', function(n){ return n!=null && n>0; }, 'ใส่ ROAS มากกว่า 0');
+  ['chat','lead'].forEach(function(k){
+    box('roas'+KIND_KEY[k], k, 'ROAS ต่ำกว่า', function(n){ return n!=null && n>0; }, 'ใส่ ROAS มากกว่า 0');
+  });
+  if(kinds.length && !used){
+    // named on the cost tick of the first kind picked: every kind has one, and the cost column is never hidden
+    out.push({field: tickOf('cost'+KIND_KEY[kinds[0]]),
+      message:'ยังไม่ได้เลือกเกณฑ์ให้ลักษณะที่เลือก ติ๊กช่องที่จะใช้แล้วใส่ตัวเลข อย่างน้อยหนึ่งช่อง'});
+  }
   return out;
 }
 // FIX 2026-09-23 decided fix 2, widened by run01 BUG-05: IDs may be separated by commas,
 // spaces or new lines; the original split on commas only, so a pasted column matched nothing.
 function idList(v){ return String(v==null?'':v).split(/[\s,]+/).map(function(s){return s.trim();}).filter(Boolean); }
-function readConfig(settings){
+function readConfig(input){
+  var settings = formOf(input);
+  var styles = {}, minCount = {}, maxCost = {};
+  // a box that is not ticked has no threshold; a rule is on when one of its boxes has one (the rows picked decide in judge)
+  function threshold(f){ return settings[tickOf(f)] ? plainNumber(settings[f]) : null; }
+  KINDS.forEach(function(k){ styles[k] = !!settings['style'+KIND_KEY[k]]; });
+  COUNT_KINDS.forEach(function(k){ minCount[k] = threshold('min'+KIND_KEY[k]); });
+  KINDS.forEach(function(k){ maxCost[k] = threshold('cost'+KIND_KEY[k]); });
+  var roasFloor = threshold('roasFloor'), roasOf = {chat: threshold('roasChat'), lead: threshold('roasLead')};
   return {
     lookback: parseInt(settings.lookback,10)||5,
     minSpend: parseFloat(settings.minSpend)||0,
     maxPause: Math.max(1, parseInt(settings.maxPause,10)||5),
     combine: settings.combine,
-    useA: settings.useA, omniThr: parseFloat(settings.omniThr)||1,
-    useB: settings.useB, roasFloor: parseFloat(settings.roasFloor)||0,
-    useC: settings.useC, cprCeil: parseFloat(settings.cprCeil)||0,
+    styles: styles,
+    useCount: COUNT_KINDS.some(function(k){ return minCount[k]!=null; }), minCount: minCount,
+    useCost: KINDS.some(function(k){ return maxCost[k]!=null; }), maxCost: maxCost,
+    useRoas: roasFloor!=null, roasFloor: roasFloor, roasOf: roasOf,
     never: idList(settings.neverPause),
     skipGoals: idList(settings.skipGoals).map(function(s){return s.toUpperCase();})
   };
@@ -10954,15 +11078,18 @@ function reportsPurchases(m){
   return (m.indicator!=null && String(m.indicator).indexOf('purchase')>-1) ||
     m.purchases!=null || m.pvalue!=null || m.roas!=null;
 }
-var NO_PURCHASE_DATA = {v:'na', t:'ไม่มีข้อมูลยอดซื้อ จึงไม่ใช้เกณฑ์นี้'};
+var NO_PURCHASE_DATA = {v:'na', t:'ไม่มีข้อมูลยอดขาย จึงไม่ใช้เกณฑ์นี้'};
 function verdictA(m, cfg, blind){
   if(!reportsPurchases(m)) return Object.assign({}, NO_PURCHASE_DATA);
-  if(blind) return {v:'unknown', t:'อ่านสัญญาณยอดซื้อทั้งบัญชีไม่ได้'};
-  if(m.purchases==null && m.roas!=null && m.roas>0) return {v:'unknown', t:'อ่านยอดซื้อไม่ได้ แต่ ROAS มีค่า จึงไม่นับว่า 0'};
-  var p = m.purchases==null ? 0 : m.purchases;
+  if(blind) return {v:'unknown', t:'อ่านสัญญาณยอดขายทั้งบัญชีไม่ได้'};
+  if(m.purchases==null && m.roas!=null && m.roas>0) return {v:'unknown', t:'อ่านยอดขายไม่ได้ แต่ ROAS มีค่า จึงไม่นับว่า 0'};
+  // Art 2026-10-21 (CPAS): a shared purchase is in no pixel field, so a purchase result counts too, the larger of the two
+  var r = (m.indicator!=null && String(m.indicator).indexOf('purchase')>-1) ? m.results : null;
+  var p = largest(m.purchases, r);
+  if(p==null) p = 0;
   return p < cfg.omniThr
-    ? {v:'bad', t:'ยอดซื้อ '+p+' ครั้ง (เกณฑ์ '+cfg.omniThr+')'}
-    : {v:'ok', t:'ยอดซื้อ '+p+' ครั้ง'};
+    ? {v:'bad', t:'ยอดขาย '+p+' ครั้ง (เกณฑ์ '+cfg.omniThr+')'}
+    : {v:'ok', t:'ยอดขาย '+p+' ครั้ง'};
 }
 function verdictB(m, cfg, blind){
   if(!reportsPurchases(m)) return Object.assign({}, NO_PURCHASE_DATA);
@@ -10980,11 +11107,98 @@ function verdictC(m, cfg){
     ? {v:'bad', t:'ต้นทุนต่อ'+label+' '+money(m.cpr)+' (เพดาน '+money(cfg.cprCeil)+')'}
     : {v:'ok', t:'ต้นทุนต่อ'+label+' '+money(m.cpr)};
 }
+// Art 2026-10-20 (criteria by result type): the kind of an item's result, read from the same words as its label
+function kindOf(m){
+  if(m.indicator==null) return m.results==null ? null : 'other';
+  var ind = String(m.indicator);
+  if(ind.indexOf('messaging_conversation')>-1) return 'chat';
+  if(ind.indexOf('lead')>-1) return 'lead';
+  if(ind.indexOf('purchase')>-1) return 'buy';
+  // review 2026-10-20: chats Meta counts another way (first reply, connections) are chats too, so a low ceiling set
+  // for clicks in the other row never judges them; a purchase made in chat is a purchase (checked above)
+  if(ind.indexOf('messaging')>-1) return 'chat';
+  return 'other';
+}
+// A for chats and leads: the number of results of the item's own kind; a number Meta does not send is never 0
+function verdictCount(m, thr){
+  if(m.results==null) return {v:'unknown', t:'ไม่มีตัวเลขผลลัพธ์'};
+  var label = prettyIndicator(m.indicator);
+  return m.results < thr
+    ? {v:'bad', t:label+' '+m.results+' ครั้ง (เกณฑ์ '+thr+')'}
+    : {v:'ok', t:label+' '+m.results+' ครั้ง'};
+}
+var SPREAD = 'ชุดโฆษณาในแคมเปญ CBO นี้มีเป้าหมายต่างกัน จึงไม่ใช้เกณฑ์นี้';
+// the rules read from purchase data (A for purchases, C); the account-wide pause for no purchase signal is about them
+function buyRulesOn(cfg){
+  return cfg.styles.buy && ((cfg.useCount && cfg.minCount.buy!=null) || (cfg.useRoas && cfg.roasFloor!=null));
+}
+// The verdicts of one item, A B C. A for purchases and C read purchase data as before, on any item that reports it,
+// when sales are picked. A for chats and leads and B read the item's kind of result, on its own row, when its kind is
+// picked; a CBO campaign whose ad sets chase different goals has no one kind, so they do not apply to it. An item
+// whose A is decided by its chat or lead row gets no "no purchase data" line for A.
+// Art 2026-10-21 ("เอาตามคุณทั้งหมด"): an item whose own kind (chat or lead) is picked is judged by its own row only: its
+// count, its cost per result and, when ticked, its ROAS, which an item without purchase data does not have (never a bad
+// one). So a chat ad set whose purchases Meta counts as 0 is no longer proposed for 0 purchases while its chats are cheap.
+// The sales row judges as before the purchase results, and, when they report purchase data, the items whose kind is not
+// picked, the other results and a CBO campaign whose ad sets chase different goals.
+function judge(m, cfg, blind, spread){
+  var kind = kindOf(m), vs = [];
+  function add(k, on, v){ vs.push({k:k, on:on, v:v.v, t:v.t}); }
+  if(!spread && (kind==='chat' || kind==='lead') && cfg.styles[kind]){
+    if(cfg.minCount[kind]!=null) add('A', kind, verdictCount(m, cfg.minCount[kind]));
+    if(cfg.maxCost[kind]!=null) add('B', kind, verdictC(m, {cprCeil: cfg.maxCost[kind]}));
+    if(cfg.roasOf[kind]!=null) add('C', kind, verdictB(m, {roasFloor: cfg.roasOf[kind]}, blind));
+    return vs;
+  }
+  if(cfg.useCount){
+    var own = (kind==='chat' || kind==='lead') && cfg.styles[kind] && cfg.minCount[kind]!=null;
+    if(cfg.styles.buy && cfg.minCount.buy!=null){
+      var a = verdictA(m, {omniThr: cfg.minCount.buy}, blind);
+      if(!(own && a.v==='na')) add('A', 'buy', a);
+    }
+    if(own) add('A', kind, spread ? {v:'na', t:SPREAD} : verdictCount(m, cfg.minCount[kind]));
+  }
+  if(cfg.useCost){
+    if(kind==null){
+      if(KINDS.some(function(k){ return cfg.styles[k] && cfg.maxCost[k]!=null; }))
+        add('B', null, spread ? {v:'na', t:SPREAD} : {v:'unknown', t:'ไม่มีตัวเลขผลลัพธ์'});
+    } else if(cfg.styles[kind] && cfg.maxCost[kind]!=null){
+      add('B', kind, spread ? {v:'na', t:SPREAD} : verdictC(m, {cprCeil: cfg.maxCost[kind]}));
+    }
+  }
+  if(cfg.useRoas && cfg.styles.buy && cfg.roasFloor!=null) add('C', 'buy', verdictB(m, {roasFloor: cfg.roasFloor}, blind));
+  return vs;
+}
+// Art 2026-10-21: an item whose applying rules all read unknown, and what each one was missing
+function noDataNote(used){
+  var parts = [];
+  used.forEach(function(v){ var t = String(v.t).replace(/ จึงไม่ตัดสิน$/, ''); if(parts.indexOf(t)<0) parts.push(t); });
+  return 'ไม่มีข้อมูลให้ตัดสิน: '+parts.join(' · ');
+}
+// what an item that no rule applies to is missing
+function notJudgedNote(m, cfg, vs){
+  if(vs.some(function(v){ return v.t===SPREAD; })) return 'ชุดโฆษณาในแคมเปญ CBO นี้มีเป้าหมายต่างกัน จึงไม่ตัดสิน';
+  var kind = kindOf(m);
+  if(kind==null){
+    if(!reportsPurchases(m)) return 'ไม่มีตัวเลขผลลัพธ์และไม่มีข้อมูลยอดขาย จึงไม่ตัดสิน';
+    kind = 'buy';
+  }
+  // Art 2026-10-21: its own row has only ROAS ticked, and it reports no purchase data
+  if((kind==='chat' || kind==='lead') && cfg.styles[kind] && vs.length) return 'แถว'+KIND_ROW[kind]+'ติ๊กไว้แค่ ROAS แต่รายการนี้ไม่มีข้อมูลยอดขาย จึงไม่ตัดสิน';
+  // Art 2026-10-21 ("เอาออก"): no row judges other results; the note names the result, which the page counts
+  if(kind==='other'){
+    // a result the page has no name for (a conversion of one's own, or none given) reads ชนิดอื่น, not ผลลัพธ์เป็นผลลัพธ์
+    var label = m.indicator==null ? '' : prettyIndicator(m.indicator);
+    return 'ผลลัพธ์เป็น'+(label && label!=='ผลลัพธ์' ? label : 'ชนิดอื่น')+' Kill Switch ตัดสินเฉพาะยอดขาย ทักแชท และลีด จึงไม่ตัดสิน';
+  }
+  if(!cfg.styles[kind]) return 'ไม่ได้เลือก “'+KIND_STYLE[kind]+'” จึงไม่ตัดสิน';
+  return 'ยังไม่มีเกณฑ์ที่เปิดใช้กับแถว'+KIND_ROW[kind]+' จึงไม่ตัดสิน';
+}
 
 // ---- imports/kill-switch.html:704-812 · scan (the decision) ----
 function scan(input){
   var cfg = readConfig(input.settings);
-  if(!cfg.useA && !cfg.useB && !cfg.useC){
+  if(noRuleOn(input.settings)){
     return {error:{code:'no_rule_enabled', message:'เปิดเงื่อนไขอย่างน้อยหนึ่งข้อก่อน ไม่งั้นไม่มีอะไรให้ตัดสิน'}};
   }
   var problems = settingProblems(input.settings);
@@ -11007,7 +11221,7 @@ function scan(input){
     });
 
     var sinceMs = range.sinceDate.setUTCHours(0,0,0,0) - input.tzOffsetMinutes*60000;
-    var candidates = [], skipped = [];
+    var candidates = [], skipped = [], spread = {}, quiet = 0;
     var neverSet = {}; cfg.never.forEach(function(id){ neverSet[id]=1; });
 
     function push(list, raw, level, structure, note){
@@ -11022,6 +11236,7 @@ function scan(input){
 
     camps.forEach(function(c){
       var cid = String(c.id);
+      if(!delivering(c)){ quiet++; return; }
       var kids = childrenOf[cid] || [];
       var cbo = hasBudget(c);
 
@@ -11043,9 +11258,14 @@ function scan(input){
         var mixed = goals.some(function(g){ return cfg.skipGoals.indexOf(g)>-1; });
         var it = push(candidates, c, 'campaign','CBO', mixed?'ลูกผสมสายขายกับสาย PR':'');
         it.goal = goals.join(' · ');
+        // Art 2026-10-20 (criteria by result type): ad sets of one CBO campaign that chase different goals (PR ones
+        // aside) make the campaign's result a mix of kinds, so the rules read by the kind of result do not apply
+        var own = goals.filter(function(g){ return cfg.skipGoals.indexOf(g)<0; });
+        if(own.some(function(g){ return g!==own[0]; })) spread['campaign:'+cid] = 1;
       } else {
         kids.forEach(function(a){
           var aid = String(a.id);
+          if(!delivering(a)){ quiet++; return; }
           if(neverSet[aid]){ push(skipped, a, 'adset','ABO','อยู่ในรายการห้ามแตะ'); return; }
           var g = String(a.optimization_goal||'').toUpperCase();
           if(cfg.skipGoals.indexOf(g)>-1){ push(skipped, a, 'adset','ABO','เป้าหมาย “'+goalLabel(g)+'” เป็นสาย PR / สร้างการรับรู้'); return; }
@@ -11056,7 +11276,7 @@ function scan(input){
 
     // account-level sanity check on purchase signal
     var blind = false;
-    if(cfg.useA || cfg.useB){
+    if(buyRulesOn(cfg)){
       blind = candidates.length>0 && candidates.every(function(it){
         return it.m.purchases==null && it.m.roas==null && it.m.pvalue==null;
       });
@@ -11081,15 +11301,16 @@ function scan(input){
           skipped.push(it); return;
         }
       }
-      var vs = [];
-      if(cfg.useA) vs.push(Object.assign({k:'A'}, verdictA(it.m, cfg, blind)));
-      if(cfg.useB) vs.push(Object.assign({k:'B'}, verdictB(it.m, cfg, blind)));
-      if(cfg.useC) vs.push(Object.assign({k:'C'}, verdictC(it.m, cfg)));
+      var vs = judge(it.m, cfg, blind, !!spread[it.level+':'+it.id]);
       // RULES 2026-09-26: a rule that does not apply to this item ('na') is left out of the
       // combination; an item no enabled rule applies to is not judged.
       var used = vs.filter(function(v){ return v.v!=='na'; });
       if(!used.length){
-        it.note = 'ไม่มีข้อมูลยอดซื้อ และไม่ได้เปิดเกณฑ์ C จึงไม่ตัดสิน';
+        it.note = notJudgedNote(it.m, cfg, vs);
+        skipped.push(it); return;
+      }
+      if(used.every(function(v){ return v.v==='unknown'; })){
+        it.note = noDataNote(used);
         skipped.push(it); return;
       }
       it.verdicts = vs;
@@ -11103,7 +11324,7 @@ function scan(input){
     kills.sort(function(a,b){ return (b.m.spend||0)-(a.m.spend||0); });
 
     var lastScan = {cfg:cfg, range:range, sinceMs:sinceMs, kills:kills, passed:passed, skipped:skipped, blind:blind,
-                checked:candidates.length, campCount:camps.length, adsetCount:adsets.length};
+                checked:candidates.length, campCount:camps.length, adsetCount:adsets.length, notDelivering:quiet};
     kills.forEach(function(it, i){ it.over = i >= (cfg.maxPause); });
     return lastScan;
   }
@@ -11118,7 +11339,7 @@ function run(input){
   return JSON.parse(JSON.stringify({
     cfg: s.cfg,
     range: {since: s.range.since, until: s.range.until, sinceMs: s.sinceMs},
-    blind: s.blind, checked: s.checked, campCount: s.campCount, adsetCount: s.adsetCount,
+    blind: s.blind, checked: s.checked, campCount: s.campCount, adsetCount: s.adsetCount, notDelivering: s.notDelivering,
     kills: s.kills, passed: s.passed, skipped: s.skipped
   }, function(k, v){ return v === Infinity ? 'Infinity' : v; }));
 }
@@ -11162,6 +11383,9 @@ var S = {
   logBlocked: null,   // { text, list, single }: today's activity log could not be read, nothing was paused
   formError: null,    // the logic's answer to the current form, when the form is not usable
   settingsNote: "",
+  formNote: "",       // Art 2026-10-20: the first form's settings were moved into the new form on this visit
+  copyFrom: null,     // Art 2026-10-20: { id, values } of the account just left, its last usable settings
+  copyOffer: null,    // the same, offered on an account with nothing of its own
 };
 
 /* ---------- log panel: what the page did ("บันทึกการทำงาน") ---------- */
@@ -11257,12 +11481,12 @@ function money(n){
 function dec(n,d){ return n==null?'—':n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}); }
 
 /* ---------- from the original: what is read from Meta (lines 597-605) ---------- */
-var CAMP_FIELDS = ["id","name","status","effective_status","objective","created_time","daily_budget","lifetime_budget",
+var CAMP_FIELDS = ["id","name","status","effective_status","delivery","objective","created_time","daily_budget","lifetime_budget",
   "amount_spent","impressions","frequency","cpm","ctr","purchase_roas","website_purchase_roas",
   "omni_purchase","omni_purchase_values","offsite_conversion_fb_pixel_purchase","offsite_conversion_fb_pixel_purchase_values",
   "onsite_conversion_purchase","offline_conversion_purchase","results","result_values"];
 
-var ADSET_FIELDS = ["id","name","campaign_id","status","effective_status","optimization_goal","created_time",
+var ADSET_FIELDS = ["id","name","campaign_id","status","effective_status","delivery","optimization_goal","created_time",
   "daily_budget","lifetime_budget","amount_spent","impressions","frequency","cpm","ctr",
   "purchase_roas","website_purchase_roas","omni_purchase","omni_purchase_values",
   "offsite_conversion_fb_pixel_purchase","offsite_conversion_fb_pixel_purchase_values",
@@ -11273,12 +11497,14 @@ function prettyIndicator(ind){
   if(!ind) return 'ผลลัพธ์';
   if(ind.indexOf('messaging_conversation')>-1) return 'ทักแชท';
   if(ind.indexOf('lead')>-1) return 'ลีด';
-  if(ind.indexOf('purchase')>-1) return 'ยอดซื้อ';
+  if(ind.indexOf('purchase')>-1) return 'ยอดขาย';
   if(ind.indexOf('link_click')>-1) return 'คลิกลิงก์';
   if(ind.indexOf('landing_page')>-1) return 'เข้าหน้าเว็บ';
   if(ind.indexOf('thruplay')>-1 || ind.indexOf('video')>-1) return 'ดูวิดีโอ';
   // tester 2026-09-25 OBS-01 (Art, round 4 2026-10-07): other result types in Thai; one the page does not know
   // reads ผลลัพธ์, never Meta's code ("285 page_visit_view", "ต้นทุนต่อpage_visit_view")
+  // Art 2026-10-20 (criteria by result type): every other messaging result is a chat, as its kind (kindOf)
+  if(ind.indexOf('messaging')>-1) return 'ทักแชท';
   if(ind.indexOf('page_visit')>-1 || ind.indexOf('page_engagement')>-1) return 'การเข้าชมเพจ Facebook';
   if(ind.indexOf('profile_visit')>-1) return 'การเข้าชมโปรไฟล์';
   if(ind.indexOf('post_engagement')>-1) return 'การมีส่วนร่วมกับโพสต์';
@@ -11286,6 +11512,9 @@ function prettyIndicator(ind){
   if(ind.indexOf('reach')>-1) return 'การเข้าถึง';
   if(ind.indexOf('impression')>-1) return 'การแสดงผล';
   if(ind.indexOf('like')>-1) return 'การถูกใจเพจ';
+  // Art 2026-10-21 (real account, test page 96): CPAS ad sets Meta reports as catalog_segment_actions:omni_add_to_cart,
+  // also those Ads Manager shows as shared purchases; Kill Switch does not judge them, the note names them
+  if(ind.indexOf('add_to_cart')>-1) return ind.indexOf('catalog_segment')>-1 ? 'การหยิบสินค้าที่แชร์ใส่ตะกร้า' : 'การหยิบใส่ตะกร้า';
   return 'ผลลัพธ์';
 }
 
@@ -11298,29 +11527,160 @@ function prettyIndicator(ind){
      OBS-10 and the backlog's missed path 1).
    - The settings are kept in the site's database (ctx.settings), so the do-not-touch list
      survives a reload (run01 OBS-09, planned for day 7, done with the move). */
-var FIELDS = ["lookback", "minSpend", "maxPause", "combine", "useA", "omniThr", "useB", "roasFloor", "useC", "cprCeil", "neverPause", "skipGoals"];
-var BOOLS = { useA: 1, useB: 1, useC: 1 };
+// Art 2026-10-20 (criteria by result type, choice ค): the kinds the account advertises for, then per rule one box per kind.
+// Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): every box has its own tick (useMinBuy for minBuy ...); ticked = used, a number needed
+// Art 2026-10-21 ("เอาออก"): no row for other results
+// Art 2026-10-21 ("เอาตามคุณทั้งหมด"): a ROAS box in the chat and lead rows too
+var BOXES = ["minBuy", "minChat", "minLead", "costBuy", "costChat", "costLead", "roasFloor", "roasChat", "roasLead"];
+function tickOf(f){ return "use" + f.charAt(0).toUpperCase() + f.slice(1); }
+var FIELDS = ["lookback", "minSpend", "maxPause", "combine",
+  "styleBuy", "styleChat", "styleLead"].concat(BOXES, BOXES.map(tickOf), ["neverPause", "skipGoals"]);
+var BOOLS = { styleBuy: 1, styleChat: 1, styleLead: 1 };
+BOXES.forEach(function(f){ BOOLS[tickOf(f)] = 1; });
+// review 2026-10-20: a number box the browser cannot read ("1,000") gives an empty value, which a criteria box reads as
+// "not used"; it is sent as "?" instead, so the logic names the box rather than dropping its rule
+// Art 2026-10-21 ("เอา"): an unticked box reads ไม่ใช้ like every other; its number waits in data-kept, is saved as it
+// was, and comes back with the tick (syncRules)
 function formSettings(){
   var s = {};
-  FIELDS.forEach(function(f){ s[f] = BOOLS[f] ? $(f).checked : $(f).value; });
+  FIELDS.forEach(function(f){
+    var el = $(f);
+    s[f] = BOOLS[f] ? el.checked : el.dataset.kept != null ? el.dataset.kept : el.validity && el.validity.badInput ? "?" : el.value;
+  });
   return s;
 }
 function fillForm(v){
   FIELDS.forEach(function(f){
     if(v[f] === undefined || v[f] === null) return;
-    if(BOOLS[f]) $(f).checked = !!v[f]; else $(f).value = String(v[f]);
+    if(BOOLS[f]) $(f).checked = !!v[f];
+    else { delete $(f).dataset.kept; $(f).value = String(v[f]); }
   });
   syncRules();
 }
 function formKey(){ return JSON.stringify(formSettings()); }
 
-// from the original (lines 578-587): a switched-off rule greys out its threshold
+// Art 2026-10-20: a rule is a column with a box per row; a kind not picked hides its row, and its numbers are kept but
+// not used. A rule that no picked kind has a box for (C with sales not picked, A with other results only) is hidden with
+// its note, and comes back as it was when such a kind is picked (Art "ตอนไม่สามารถใช้ได้ ซ่อนไปเลยได้มั้ย ขึ้นมาตอนเลือกเน้นยอดขาย").
+// Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): from the original (lines 578-587) a switched-off rule greys out its threshold; now each
+// box has the switch. An unticked box is greyed, reads ไม่ใช้ and keeps its number; a ticked one asks for a number
+var KIND_ROWS = [["styleBuy", "rowBuy"], ["styleChat", "rowChat"], ["styleLead", "rowLead"]];
+var RULE_COLS = [["colA", ["styleBuy", "styleChat", "styleLead"]], ["colB", ["styleBuy", "styleChat", "styleLead"]], ["colC", ["styleBuy", "styleChat", "styleLead"]]];
 function syncRules(){
-  [["useA","ruleA",["omniThr"]],["useB","ruleB",["roasFloor"]],["useC","ruleC",["cprCeil"]]].forEach(function(m){
-    var on = $(m[0]).checked;
-    $(m[1]).classList.toggle("off", !on);
-    m[2].forEach(function(f){ $(f).disabled = !on; });
+  renderGoals();
+  KIND_ROWS.forEach(function(k){ $(k[1]).hidden = !$(k[0]).checked; });
+  RULE_COLS.forEach(function(m){
+    $("critGrid").classList.toggle("no" + m[0].slice(3), !m[1].some(function(f){ return $(f).checked; }));
   });
+  BOXES.forEach(function(f){
+    var on = $(tickOf(f)).checked, box = $(f);
+    if(on && box.dataset.kept != null){ if(box.value === "") box.value = box.dataset.kept; delete box.dataset.kept; }
+    if(!on && box.value !== ""){ box.dataset.kept = box.value; box.value = ""; }
+    box.disabled = !on;
+    box.placeholder = on ? "ใส่ตัวเลข" : "ไม่ใช้";
+    box.closest(".crit-cell").classList.toggle("off", !on);
+  });
+}
+
+/* Art 2026-10-20 (mock docs/design/kill-switch-skip-goals.src.html, ค): the goals left out are picked from a tick list by
+   their Thai names, behind one summary line, instead of typed as Meta's codes, so none can be deleted or mistyped. The
+   value is still the comma list the logic reads (skipGoals), kept in a hidden field. A code saved before that the list
+   does not know stays, ticked, under its code. After a scan each goal says how many ad sets it left out, counted from the
+   logic's notes. The names are the logic's (GOAL_TH, tools/migrations/killswitch_logic.py). */
+var GOALS = [["REACH", "การเข้าถึง"], ["IMPRESSIONS", "การแสดงผล"], ["THRUPLAY", "ดูวิดีโอจนจบหรือ 15 วินาที"], ["VIDEO_VIEWS", "ยอดดูวิดีโอ"],
+  ["TWO_SECOND_CONTINUOUS_VIDEO_VIEWS", "ดูวิดีโอต่อเนื่อง 2 วินาที"], ["POST_ENGAGEMENT", "การมีส่วนร่วมกับโพสต์"], ["PAGE_LIKES", "ถูกใจเพจ"],
+  ["AD_RECALL_LIFT", "การจดจำโฆษณา"], ["EVENT_RESPONSES", "ตอบรับกิจกรรม"], ["REMINDERS_SET", "การตั้งเตือน"],
+  ["PROFILE_AND_PAGE_ENGAGEMENT", "การมีส่วนร่วมกับโปรไฟล์และเพจ"]];
+var GOAL_NAME = {};
+GOALS.forEach(function(g){ GOAL_NAME[g[0]] = g[1]; });
+function goalCodes(v){ return String(v == null ? "" : v).split(/[\s,]+/).map(function(s){ return s.trim().toUpperCase(); }).filter(Boolean); }
+function goalsSet(codes){
+  var seen = {}, out = [];
+  codes.forEach(function(c){ if(!seen[c]){ seen[c] = 1; out.push(c); } });
+  $("skipGoals").value = out.join(", ");
+  formChanged();
+}
+// how many ad sets the last scan left out for each goal, from the logic's notes; a CBO campaign whose ad sets are all PR
+// counts in the total only
+function goalCounts(){
+  var s = S.scan && !S.stale && S.scan.result, by = {}, all = 0;
+  if(!s) return null;
+  var code = {};
+  GOALS.forEach(function(g){ code[g[1]] = g[0]; });
+  s.skipped.forEach(function(it){
+    var m = /^เป้าหมาย “(.+)” เป็นสาย PR \/ สร้างการรับรู้$/.exec(it.note || "");
+    if(m){ var c = code[m[1]] || m[1]; by[c] = (by[c] || 0) + 1; all++; }
+    else if(it.note === "ชุดโฆษณาในแคมเปญเป็นสาย PR / สร้างการรับรู้ทั้งหมด") all++;
+  });
+  return { by: by, all: all };
+}
+function renderGoals(){
+  var codes = goalCodes($("skipGoals").value), counts = goalCounts();
+  var names = codes.map(function(c){ return GOAL_NAME[c] || c; });
+  var sum = $("goalSum");
+  // replaceChildren writes null as the text "null" (Art 2026-10-20 "ตอบรับกิจกรรมnullnull"), so the parts left out are dropped
+  sum.replaceChildren.apply(sum, [h("b", null, codes.length ? codes.length + " เป้าหมาย" : "ไม่มี"),
+    codes.length ? " · " + names.join(" · ") : " · ตัดสินทุกเป้าหมาย",
+    counts ? " · " : null, counts ? h("b", null, "ข้ามไป " + counts.all + " ชุดในรอบนี้") : null].filter(function(x){ return x != null; }));
+  var grid = $("goalGrid");
+  if($("goalPick").hidden) return;
+  var extra = codes.filter(function(c){ return !GOAL_NAME[c]; });
+  grid.replaceChildren.apply(grid, GOALS.concat(extra.map(function(c){ return [c, c]; })).map(function(g){
+    var on = codes.indexOf(g[0]) > -1, n = counts ? counts.by[g[0]] || 0 : null;
+    var box = h("input", { type: "checkbox", dataset: { goal: g[0] }, on: { change: function(){
+      var now = goalCodes($("skipGoals").value);
+      goalsSet(box.checked ? now.concat([g[0]]) : now.filter(function(c){ return c !== g[0]; }));
+    } } });
+    box.checked = on;
+    return h("label", { class: "goal" }, box, h("span", null,
+      h("span", { class: "gn" }, g[1], n == null || !on ? null : h("span", { class: "gseen" + (n ? "" : " zero") }, n ? n + " ชุด" : "0")),
+      g[0] !== g[1] ? h("span", { class: "gc" }, g[0]) : null));
+  }));
+}
+function goalsOpen(open){
+  $("goalPick").hidden = !open;
+  $("goalEdit").setAttribute("aria-expanded", String(open));
+  $("goalEdit").hidden = open;
+  renderGoals();
+}
+
+/* Art 2026-10-20 (criteria by result type): settings saved by the first form (version 1: useA purchases, useB ROAS,
+   useC one cost ceiling for every result) are read as the same rules in the new form, over the first form's defaults,
+   the way the logic reads them (fromFirstForm in tools/migrations/killswitch_logic.py), then saved as version 2.
+   A cost ceiling that was switched on applies to every kind, so every kind is picked with that ceiling in each row.
+   Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): each rule of the first form ticks its boxes, and a rule that was off keeps its
+   number in boxes left unticked. The new form as saved before the ticks per box (never released) ticks each box the
+   way it was used: with a switch per rule (until 2026-10-21), when its rule was on and it held a number; with no switch
+   (2026-10-21), when it held a number. tests/logic/killswitch_v1_equivalence.mjs runs these readings against the
+   logic's own (fromFirstForm and withTicks in tools/migrations/killswitch_logic.py). */
+var FIRST_DEFAULTS = { useA: true, omniThr: "1", useB: true, roasFloor: "1.0", useC: false, cprCeil: "300" };
+var FIRST_RULES = ["useA", "omniThr", "useB", "roasFloor", "useC", "cprCeil"];
+var SHARED = ["lookback", "minSpend", "maxPause", "combine", "neverPause", "skipGoals"];
+function fromFirstForm(saved){
+  var s = Object.assign({}, FIRST_DEFAULTS, saved);
+  var cost = !!s.useC;
+  var out = {
+    styleBuy: !!(s.useA || s.useB || s.useC), styleChat: cost, styleLead: cost,
+    minBuy: s.omniThr, useMinBuy: !!s.useA, minChat: "", useMinChat: false, minLead: "", useMinLead: false,
+    costBuy: s.cprCeil, useCostBuy: cost, costChat: s.cprCeil, useCostChat: cost,
+    costLead: s.cprCeil, useCostLead: cost,
+    roasFloor: s.roasFloor, useRoasFloor: !!s.useB, useRoasChat: false, useRoasLead: false
+  };
+  SHARED.forEach(function(f){ if(saved[f] !== undefined) out[f] = saved[f]; });
+  return out;
+}
+function firstFormRules(saved){ return FIRST_RULES.some(function(f){ return saved[f] !== undefined; }); }
+var BOX_RULE = { min: "useCount", cost: "useCost", roas: "useRoas" };
+function emptyBox(v){ return v == null || String(v).trim() === ""; }
+function withTicks(saved){
+  if(BOXES.some(function(f){ return tickOf(f) in saved; })) return saved;
+  var out = Object.assign({}, saved), sw = "useCount" in saved || "useCost" in saved || "useRoas" in saved;
+  BOXES.forEach(function(f){
+    var on = sw ? !!saved[BOX_RULE[/^[a-z]+/.exec(f)[0]]] : true;
+    out[tickOf(f)] = on && !emptyBox(saved[f]);
+  });
+  delete out.useCount; delete out.useCost; delete out.useRoas;
+  return out;
 }
 
 var checkSeq = 0;
@@ -11330,11 +11690,17 @@ function checkForm(save){
   var seq = ++checkSeq;
   var now = Date.now();
   var off = S.acct ? tzOffsetMinutes(S.acct.tz, now) : null;
-  return ctx.logic.run(LOGIC, { settings: formSettings(), camps: [], adsets: [], now: now, tzOffsetMinutes: off == null ? 0 : off })
+  var forId = settingsFor, values = formSettings();
+  return ctx.logic.run(LOGIC, { settings: values, camps: [], adsets: [], now: now, tzOffsetMinutes: off == null ? 0 : off })
     .then(function(r){
       if(seq !== checkSeq) return;
       S.formError = r && r.error ? r.error : null;
-      if(save && !S.formError) saveSettingsSoon();
+      // Art 2026-10-20: the last usable settings of each account (copied to another one), and no draft once usable
+      if(forId && !S.formError){ lastGood[forId] = values; delete drafts[forId]; }
+      // Art 2026-10-20: only the settings this check found usable are saved, and a save still waiting is dropped when
+      // the form has become unusable (it used to save the form as it was 700 ms later, refused or not)
+      if(S.formError && saveTimer){ clearTimeout(saveTimer); saveTimer = null; }
+      if(save && !S.formError) saveSettingsSoon(values);
       $("rangeNote").textContent = !r || r.error ? "" :
         off == null ? "ช่วงข้อมูลนับตามเขตเวลาของบัญชี จะแสดงเมื่ออ่านบัญชีได้" :
         "ช่วงข้อมูล " + ctx.fmt.range(r.range.since, r.range.until) + " ตามเวลาของบัญชี (" + S.acct.tz + ")";   // tester 2026-10-06
@@ -11361,16 +11727,43 @@ function formChanged(){
    goes to the account it was made on before the form is filled for the next one, and the tab scans only once the
    form holds the account's own settings. */
 var DEFAULTS = formSettings();
-var settingsFor = null, saveTimer = null, saveFor = null;
-function saveSettingsSoon(){
+var settingsFor = null, saveTimer = null, saveFor = null, saveValues = null;
+/* Art 2026-10-20 ("เวลาตั้งค่าเกณฑ์ไว้แล้ว เปลี่ยนบัญชีโฆษณาการตั้งค่าถูกล้าง"): the settings still belong to each account. An
+   account with nothing of its own is offered the criteria of the account just left (Art chose a copy button over carrying
+   them by itself); the do-not-touch list is not copied, its IDs are the other account's. An edit the form refuses is
+   not saved (Art 2026-10-08), so leaving the account kept it nowhere; it is kept as a draft for that account while the
+   page is open and comes back, with its error, when the account does. */
+var lastGood = {}, drafts = {};
+var DRAFT_NOTE = "ค่าที่ยังแก้ค้างไว้ก่อนเปลี่ยนบัญชีกลับมาแล้ว · ยังไม่ได้บันทึก เพราะยังมีช่องที่ใช้ไม่ได้ แก้ให้ครบแล้วจะบันทึกเอง";
+function acctLabel(id){
+  var a = (ACCTS.list || []).filter(function(x){ return x.id === id; })[0];
+  return (a && a.name ? a.name + " " : "") + "(" + id + ")";
+}
+function copySettings(){
+  var c = S.copyOffer;
+  if(!c) return;
+  var keep = $("neverPause").value;
+  fillForm(DEFAULTS);
+  fillForm(c.values);
+  $("neverPause").value = keep;
+  S.copyOffer = null;
+  S.formNote = "คัดลอกเกณฑ์จากบัญชี " + acctLabel(c.id) + " แล้ว · โฆษณาที่ห้ามแตะไม่ได้คัดลอก เพราะเป็น ID ของบัญชีนั้น · ปรับให้เหมาะกับบัญชีนี้ได้";
+  renderSettingsNote();
+  formChanged();
+}
+function saveSettingsSoon(values){
   if(!settingsFor) return;
   if(saveTimer) clearTimeout(saveTimer);
   saveFor = settingsFor;
+  saveValues = values || formSettings();
   saveTimer = setTimeout(saveSettings, 700);
 }
 function saveSettings(){
   saveTimer = null;
-  Promise.resolve(ctx.settings.of(saveFor).set(formSettings(), 1)).then(function(){
+  var savedFor = saveFor;
+  Promise.resolve(ctx.settings.of(saveFor).set(saveValues, 2)).then(function(){
+    // the account has settings of its own now: nothing to offer
+    if(savedFor === settingsFor && S.copyOffer){ S.copyOffer = null; renderSettingsNote(); }
     if(S.settingsNote){ S.settingsNote = ""; renderSettingsNote(); }
   }, function(e){
     S.settingsNote = "บันทึกค่าที่ตั้งไม่ได้ (" + errMsg(e) + ") ค่าที่ตั้งจะกลับเป็นค่าเริ่มต้นเมื่อเปิดหน้าใหม่";
@@ -11380,23 +11773,55 @@ function saveSettings(){
 function flushSettings(){ if(saveTimer){ clearTimeout(saveTimer); saveSettings(); } }
 function loadSettingsFor(id){
   flushSettings();
+  var prev = settingsFor;
+  if(prev && prev !== id){
+    if(S.formError) drafts[prev] = formSettings(); else delete drafts[prev];
+    S.copyFrom = lastGood[prev] ? { id: prev, values: lastGood[prev] } : null;
+  }
+  S.copyOffer = null;
   settingsFor = null;
+  var moved = false, ownDoc = false;
+  S.formNote = "";
   return Promise.resolve(ctx.settings.of(id).get()).then(function(own){
-    if(own && own.values) return own;
+    if(own && own.values){ ownDoc = true; return own; }
     return Promise.resolve(ctx.settings.get()).then(null, function(){ return null; });
   }).then(function(saved){
     fillForm(DEFAULTS);
-    if(saved && saved.values) fillForm(saved.values);
+    if(!saved || !saved.values) return;
+    if((saved.v || 0) >= 2){ fillForm(withTicks(saved.values)); return; }
+    // Art 2026-10-20: the first form's settings move into the new form. The account's own settings are saved there at
+    // once (version 2), so the note shows on one visit; the settings saved for every account before 2026-10-07 stay
+    // as they are, and move again for each account that has nothing of its own, until it saves its own. Settings the
+    // first form refused (a rule on over an empty box) are refused again, naming the box, and saved once fixed
+    var next = fromFirstForm(saved.values);
+    fillForm(next);
+    moved = ownDoc;
+    // review 2026-10-20: the one decision that changes, a CBO campaign whose ad sets chase different goals, is named
+    if(firstFormRules(saved.values)) S.formNote = "ค่าที่ตั้งเดิมย้ายมาอยู่ในตารางแบบใหม่แล้ว ผลการตัดสินเหมือนเดิม" +
+      // Art 2026-10-21 ("เอาออก"): the cost ceiling judged every result; the results that are not sales, chats or leads are left
+      // Art 2026-10-21 ("เอาตามคุณทั้งหมด"): chats and leads, picked, are judged by their own rows, not by purchases and ROAS
+      (next.useCostBuy ? " ยกเว้น 3 อย่าง: แคมเปญ CBO ที่ชุดโฆษณามีเป้าหมายต่างกันไม่ใช้เกณฑ์ต้นทุนแล้ว · แอดที่ผลลัพธ์ไม่ใช่ยอดขาย ทักแชท หรือลีด " +
+        "(เช่น คลิก ดูวิดีโอ) ไม่ถูกตัดสินแล้ว · แอดทักแชทและลีดตัดสินด้วยแถวของตัวเอง ไม่ใช้จำนวนยอดขายและ ROAS ของแถวยอดขายแล้ว · " +
+        "เกณฑ์ต้นทุนเดิมใช้กับผลลัพธ์ทุกประเภท จึงเลือกยอดขาย ทักแชท และลีดไว้ และใส่เพดานเดิมไว้ทุกแถว แก้แยกตามประเภทได้" : "");
   }, function(){
     fillForm(DEFAULTS);
     S.settingsNote = "มุมมองนี้บันทึกค่าที่ตั้งไม่ได้ ค่าที่ตั้งจะกลับเป็นค่าเริ่มต้นเมื่อเปิดหน้าใหม่";
-  }).then(function(){ settingsFor = id; renderSettingsNote(); checkForm(); });
+  }).then(function(){
+    if(drafts[id]){ fillForm(drafts[id]); S.formNote = DRAFT_NOTE; }
+    else if(!ownDoc && S.copyFrom && S.copyFrom.id !== id) S.copyOffer = S.copyFrom;
+    settingsFor = id; renderSettingsNote(); checkForm(moved);
+  });
 }
 
 function renderSettingsNote(){
   var el = $("settingsNote");
   el.hidden = !S.settingsNote;
   el.textContent = S.settingsNote;
+  var fn = $("formNote");
+  fn.hidden = !S.formNote;
+  fn.textContent = S.formNote || "";
+  $("copyOffer").hidden = !S.copyOffer;
+  $("copyBtn").textContent = S.copyOffer ? "ใช้เกณฑ์เดียวกับบัญชี " + acctLabel(S.copyOffer.id) : "";
 }
 
 /* REWRITE 2026-09-26: the account and the scan.
@@ -11458,7 +11883,7 @@ function scan(){
           S.scan = { result: r, formKey: key, complete: c.complete && a.complete, camps: c.rows, adsets: a.rows,
                      at: Date.now(), never: neverReport(r.cfg.never, c.rows, a.rows) };
           S.items = r.kills.map(function(it){ return { it: it, picked: !it.over, state: null, msg: "" }; });
-          log("ประเมิน " + r.checked + " ตัว · เข้าเงื่อนไข " + r.kills.length + " ตัว", "s");
+          log("ประเมิน " + r.checked + " ตัว · เข้าเงื่อนไข " + r.kills.length + " ตัว" + (r.notDelivering ? " · ไม่นับ " + r.notDelivering + " ตัวที่ไม่ได้ส่งโฆษณา" : ""), "s");
         });
       });
     });
@@ -11641,7 +12066,7 @@ function notice(kind, title, text, extra){
 }
 
 function render(){
-  renderAcct(); renderControls(); renderAlerts(); renderCards(); renderTable(); renderRest();
+  renderAcct(); renderControls(); renderAlerts(); renderCards(); renderTable(); renderRest(); renderGoals();
 }
 
 /* RESKIN 2026-09-30 (step 7): the account is the shared account bar, tagged as bound to MaxxGPT, with
@@ -11721,8 +12146,16 @@ function renderAlerts(){
   }
   if(S.scan){
     var s = S.scan.result;
-    if(s.blind) out.push(notice("crit", "ทั้งบัญชีไม่มีสัญญาณยอดซื้อเลยในช่วงนี้",
-      "อาจเป็นเพราะพิกเซลหรืออีเวนต์ไม่ได้ส่งข้อมูล หรือช่วงวันแคบไป — เงื่อนไข A และ B จึงถูกพักไว้ ไม่ถูกใช้ตัดสิน ลองขยายช่วงวัน หรือเปิดเงื่อนไข C แทน"));
+    // Art 2026-10-20 (criteria by result type): the pause is about the purchase rules, A for purchases and C
+    if(s.blind) out.push(notice("crit", "ทั้งบัญชีไม่มีสัญญาณยอดขายเลยในช่วงนี้",
+      "อาจเป็นเพราะพิกเซลหรืออีเวนต์ไม่ได้ส่งข้อมูล หรือช่วงวันแคบไป — เกณฑ์ “ได้น้อยกว่า” ของยอดขาย และ “ROAS ต่ำกว่า” จึงถูกพักไว้ ไม่ถูกใช้ตัดสิน ลองขยายช่วงวัน หรือใช้ “ต้นทุนแพงกว่า” แทน · ถ้าบัญชีนี้ไม่ได้ขายผ่านเว็บหรือพิกเซล ให้เอาติ๊ก “เน้นยอดขาย” ออก"));
+    // Art 2026-10-20: on but not delivering (ended, off, in error or not yet running) is left out, and said so
+    if(s.notDelivering) out.push(notice("info", "ไม่นับ " + s.notDelivering + " ตัวที่เปิดอยู่แต่ไม่ได้ส่งโฆษณา",
+      "Meta บอกว่าจบแล้ว ปิดอยู่ มีปัญหา หรือยังไม่เริ่ม (คอลัมน์การส่งโฆษณาใน Ads Manager) จึงไม่ตัดสินและไม่ปิด"));
+    var left = unjudged(s.skipped);
+    // Art 2026-10-21: the reasons are listed per group (kind not picked, row empty, other results, no data)
+    if(left.length) out.push(notice("info", "บางตัวไม่ได้ถูกตัดสิน",
+      left.join(" · ") + " — รายชื่ออยู่ในการ์ด “ตัวที่ไม่ถูกตัดสิน”"));
     if(!S.scan.complete) out.push(notice("crit", "ดึงข้อมูลได้ไม่ครบ จึงปิดจากผลนี้ไม่ได้",
       "Meta ยังมีแคมเปญหรือชุดโฆษณาที่กำลังวิ่งอีก เกิน 10,000 รายการต่อระดับ รายการที่ขาดอาจเป็นชุดโฆษณาในรายการห้ามแตะ"));
     if(S.stale) out.push(notice("", "ค่าที่ตั้งเปลี่ยนหลังประเมิน", "กดดึงข้อมูลแล้วประเมินใหม่ก่อนปิด ปุ่มปิดถูกล็อกไว้ เพราะผลด้านล่างใช้ค่าที่ตั้งเดิม"));
@@ -11780,12 +12213,13 @@ function renderTable(){
       h("td", null, h("div", { class: "ename" }, it.name), h("div", { class: "eid" }, it.id)),
       h("td", null, h("span", { class: "chip" }, (it.level === "campaign" ? "แคมเปญ" : "ชุดโฆษณา") + " · " + it.structure)),
       h("td", { class: "n" }, money(m.spend)),
-      // tester 2026-09-25 BUG-02 residual (Art, round 4): rule A counted a missing count as 0, so the cell says 0 too
-      h("td", { class: "n" }, m.purchases != null ? String(m.purchases) : (it.bad || []).some(function(b){ return b.k === "A"; }) ? "0" : "—"),
+      // tester 2026-09-25 BUG-02 residual (Art, round 4): rule A counted a missing count as 0, so the cell says 0 too.
+      // Art 2026-10-20: only A for purchases counts purchases; A for chats or leads counts those
+      h("td", { class: "n" }, m.purchases != null ? String(m.purchases) : (it.bad || []).some(function(b){ return b.k === "A" && b.on === "buy"; }) ? "0" : "—"),
       h("td", { class: "n" }, dec(m.roas, 2)),
       h("td", { class: "n" }, resLabel),
       h("td", { class: "n" }, money(cprOf(m))),
-      h("td", null, it.bad.map(function(b){ return [h("span", { class: "chip " + b.k.toLowerCase(), title: RULE_NAMES[b.k] }, b.k), " "]; }),
+      h("td", null, it.bad.map(function(b){ return [h("span", { class: "chip " + b.k.toLowerCase(), title: RULE_NAMES[b.k] }, CHIP_NAMES[b.k]), " "]; }),
         h("div", { class: "why" }, it.bad.map(function(b){ return b.t; }).join(" · ") + (it.note ? " · " + it.note : ""))),
       h("td", null, actionCell(x)));
   }));
@@ -11793,7 +12227,38 @@ function renderTable(){
   all.checked = open.length > 0 && open.every(function(x){ return x.picked; });
   all.disabled = !open.length || S.busy;
 }
-var RULE_NAMES = { A: "A · ยอดซื้อไม่ถึงเกณฑ์", B: "B · ROAS ต่ำกว่าจุดคุ้มทุน", C: "C · ต้นทุนต่อผลลัพธ์แพงเกิน" };
+// Art 2026-10-20 (criteria by result type): A results, B cost per result, C ROAS
+// Art 2026-10-21 ("เอาตามคุณทั้งหมด"): no letters on the page; the chips name the rule that failed, the table's heads in the title
+var RULE_NAMES = { A: "ได้น้อยกว่าเกณฑ์", B: "ต้นทุนต่อผลลัพธ์แพงกว่าเกณฑ์", C: "ROAS ต่ำกว่าเกณฑ์" };
+var CHIP_NAMES = { A: "ผลลัพธ์น้อย", B: "ต้นทุนแพง", C: "ROAS ต่ำ" };
+var RULE_HEADS = { A: "ได้น้อยกว่า", B: "ต้นทุนแพงกว่า", C: "ROAS ต่ำกว่า" };
+// a reason that says "this rule" names the rule, as the letter in front of it did
+function reasonOf(v){ return String(v.t).replace("เกณฑ์นี้", "เกณฑ์ “" + RULE_HEADS[v.k] + "”"); }
+
+/* Art 2026-10-20 (criteria by result type): the items the scan left out because their kind is not picked, or its row
+   is empty, counted from the logic's notes, so the viewer knows what was not looked at before trusting the list */
+var NOT_PICKED = /^ไม่ได้เลือก “(.+)” จึงไม่ตัดสิน$/, ROW_EMPTY = /^ยังไม่มีเกณฑ์ที่เปิดใช้กับแถว(.+) จึงไม่ตัดสิน$/;
+// Art 2026-10-21 ("เอาออก"): the results no row judges (clicks, video views ...), counted by the result they report
+var OTHER_KIND = /^ผลลัพธ์เป็น(.+) Kill Switch ตัดสินเฉพาะยอดขาย ทักแชท และลีด จึงไม่ตัดสิน$/;
+// Art 2026-10-21: the items whose rules all read unknown, never proposed, which the viewer should look at
+var NO_DATA = /^ไม่มีข้อมูลให้ตัดสิน: /;
+function unjudged(skipped){
+  var count = {}, order = [];
+  (skipped || []).forEach(function(it){
+    var a = NOT_PICKED.exec(it.note || ""), b = ROW_EMPTY.exec(it.note || ""), c = OTHER_KIND.exec(it.note || "");
+    var key = a ? "p:" + a[1] : b ? "e:" + b[1] : c ? "o:" + c[1] : NO_DATA.test(it.note || "") ? "n:" : null;
+    if(!key) return;
+    if(order.indexOf(key) < 0) order.push(key);
+    count[key] = (count[key] || 0) + 1;
+  });
+  return order.map(function(key){
+    var name = key.slice(2);
+    return key[0] === "p" ? count[key] + " ตัวเป็นแบบ “" + name + "” ที่ยังไม่ได้เลือก"
+      : key[0] === "e" ? count[key] + " ตัวอยู่ในแถว" + name + " ที่ยังไม่มีเกณฑ์ที่เปิดใช้"
+      : key[0] === "o" ? count[key] + " ตัวผลลัพธ์เป็น" + name + " ซึ่ง Kill Switch ไม่ตัดสิน"
+      : count[key] + " ตัวไม่มีข้อมูลให้ตัดสิน เช่น Meta ไม่ส่งผลลัพธ์มา ควรเปิดดูเอง";
+  });
+}
 
 function renderRest(){
   var s = S.scan && S.scan.result;
@@ -11810,7 +12275,7 @@ function renderRest(){
   if(s.passed.length){
     out.push(h("h3", { class: "resth" }, "ผ่านเกณฑ์ " + s.passed.length + " ตัว ปล่อยวิ่งต่อ"),
       h("ul", { class: "plain" }, s.passed.map(function(it){
-        var t = (it.verdicts || []).map(function(v){ return v.k + " " + v.t; }).join(" · ");
+        var t = (it.verdicts || []).map(reasonOf).join(" · ");
         return h("li", null, it.name + " ", h("code", null, it.id), " — " + t);
       })));
   }
@@ -12053,7 +12518,7 @@ $('btnMaxx').onclick = async function(){
      bucket (run01 OBS-02).
    - The date range and minimum spend come from the logic's check of the form, in the account's
      time zone (run01 OBS-14: the original sent the minimum spend unchecked). */
-var TOOL_NAMES = { analysis_bad_inbox: "ทักแชท", analysis_bad_lead: "ลีด", analysis_bad_purchase: "ยอดซื้อ" };
+var TOOL_NAMES = { analysis_bad_inbox: "ทักแชท", analysis_bad_lead: "ลีด", analysis_bad_purchase: "ยอดขาย" };
 function maxxFrame(){
   var out = $("maxxOut");
   if(!S.acct || S.acctError){
@@ -12117,6 +12582,16 @@ $("pickAll").addEventListener("change", function(){
 FIELDS.forEach(function(f){
   $(f).addEventListener(BOOLS[f] || f === "combine" ? "change" : "input", formChanged);
 });
+// Art 2026-10-20 (mock kill-switch-skip-goals, ค): the goals left out
+$("goalEdit").addEventListener("click", function(){ goalsOpen(true); });
+$("goalDone").addEventListener("click", function(){ goalsOpen(false); });
+$("goalReset").addEventListener("click", function(){ goalsSet(goalCodes(DEFAULTS.skipGoals)); });
+// Art 2026-10-20: the criteria of the account just left, on an account with nothing of its own
+$("copyBtn").addEventListener("click", copySettings);
+// Art 2026-10-21 (แบบ 2 ติ๊กทุกช่อง): ticking an empty box puts the cursor in it
+BOXES.forEach(function(f){
+  $(tickOf(f)).addEventListener("change", function(){ if($(tickOf(f)).checked && $(f).value === "") $(f).focus(); });
+});
 syncRules();
 render();
 boot = function(){
@@ -12134,4 +12609,4 @@ api = { started: false, boot: function () { return boot(); }, follow: function (
 });
 })(MaxxConsole.defineModule, MaxxConsole.defineLogic);
 </script>
-<script>MaxxConsole._internal.boot({"id": "workspace", "title": "MaxxGPT Workspace", "version": "0.6.2", "channel": "release", "allowWrites": true, "optionalConnectors": ["drive"], "connectorTools": {"drive": ["download_file_content", "read_file_content", "search_files"], "maxxgpt": ["analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "create_ad_from_post", "daily_budget_account", "daily_budget_execute", "daily_budget_insights", "daily_budget_snapshot", "fatigue_report", "get_account_info", "get_dashboard_demographics", "get_job", "get_post_preview", "get_video_preview", "list_ad_accounts", "list_page_posts", "list_pages", "search_interest", "suggest_interest", "upload_video_from_drive"], "meta": ["ads_account_get_activity_logs", "ads_activate_entity", "ads_create_ad", "ads_create_ad_set", "ads_create_campaign", "ads_create_creative", "ads_creative_upload_media", "ads_get_ad_account_custom_audiences", "ads_get_ad_entities", "ads_get_ad_videos", "ads_get_datasets", "ads_update_entity"]}, "logicMode": {}, "changes": [{"version": "0.6.2", "date": "2026-10-20", "notes": ["หลังอัปเดต แถบด้านบนสั้นลง แสดงของใหม่ของรุ่นล่าสุด ส่วนรุ่นก่อนหน้าที่ข้ามมาพับไว้ในบรรทัดเดียว กดดูได้ทีละรุ่น"]}, {"version": "0.6.1", "date": "2026-10-15", "notes": ["แถบแจ้งรุ่นใหม่บอกชัดขึ้นว่าอัปเดตแล้วได้อะไร และข้อมูลที่บันทึกไว้ยังอยู่ครบ · กล่องวิธีอัปเดตไม่แสดงรายการของรุ่นที่ใช้อยู่ปนมาแล้ว อัปเดตเสร็จหน้าจะบอกว่ารุ่นใหม่มีอะไร"]}, {"version": "0.6.0", "date": "2026-10-14", "notes": ["Ad Launcher: ยิงแอดจากโพสต์เดิมของเพจได้แล้ว เลือก \"โพสต์เดิมของเพจ\" ในขั้น 06 แล้วติ๊กโพสต์ที่อยากบูสต์ได้หลายโพสต์ ยอดไลก์ คอมเมนต์ และแชร์รวมอยู่ที่โพสต์เดิม", "Ad Launcher: เลือกได้ว่าทุกชุดโฆษณาได้ทุกโพสต์ หรือแบ่งโพสต์ให้แต่ละชุดโฆษณา · กล่องยืนยันบอกโพสต์ของแต่ละชุดโฆษณา", "Ad Launcher: โฆษณาจากโพสต์สร้างเหมือนโฆษณาจากไฟล์ ใช้ได้ทั้งสองโหมด หน้ารอจน Meta ประมวลผลชุดโฆษณาเสร็จก่อนสร้าง ถ้า Meta ยังไม่พร้อมจะรอแล้วลองใหม่ให้เอง · เว้นชื่อแคมเปญว่างไว้ Claude ตั้งจากโพสต์ที่เลือก", "สิ่งที่อาจเจอ: ครั้งแรกที่ใช้โพสต์เดิม claude.ai จะขออนุญาตให้หน้าใช้เครื่องมือของ MaxxGPT เพิ่ม · โพสต์ที่ Meta ไม่ให้โปรโมต หรือไม่เข้ากับเป้าหมาย (เช่น เป้าหมายวิดีโอแต่เป็นโพสต์รูป) จะเลือกไม่ได้และบอกเหตุผล"]}, {"version": "0.5.0", "date": "2026-10-14", "notes": ["Ad Launcher กลุ่มเป้าหมาย: Claude เลือก interest จากหัวข้อที่ Meta มีจริง คัดตัวที่เข้ากับสินค้าใส่ให้แต่ละชุดโฆษณาพร้อมบอกเหตุผล เอาออกหรือเพิ่มเองได้ · เลือกประเทศได้ · ตั้งกลุ่มคน อายุ และเพศ แยกแต่ละชุดโฆษณาได้ เว้นว่างไว้ Claude คิดให้", "Ad Launcher รูปและแคปชั่น: การ์ดแคปชั่นมีรูปของโฆษณาคู่กับข้อความ วิดีโอแสดงภาพปก · เลือกไฟล์ของแต่ละโฆษณาเอง หรือให้ Claude จับคู่รูปกับชุดโฆษณา · Claude ร่างแคปชั่นโดยดูตัวหนังสือบนรูป ร่างหลายความยาวให้ Meta ลองว่าแบบไหนได้ผล และไม่แต่งตัวเลขหรือคำสัญญาที่บรีฟไม่มี", "Ad Launcher การสร้าง: เลือกได้ในขั้น 02 ว่า \"สร้างแล้วปิดแคมเปญไว้\" (งบเริ่มเดินเมื่อกดเปิดแคมเปญใน Ads Manager) หรือ \"สร้างแล้วเปิดยิงเลย\" · ไม่มีโหมด DRY RUN แล้ว · สร้างได้ครั้งละไม่เกิน 50 โฆษณาและ 50 ชุดโฆษณา หน้ารอจน Meta ประมวลผลแต่ละชุดโฆษณาเสร็จก่อนสร้างโฆษณา ลดโฆษณาที่ติด error", "Ad Launcher ชื่อและกล่องยืนยัน: พิมพ์ชื่อแคมเปญเอง หรือเว้นว่างไว้ให้ Claude ตั้งตอนกดสร้าง · กล่องยืนยันเห็นชื่อแคมเปญ งบ และกลุ่มคนของแต่ละชุดโฆษณาก่อนกด · ชื่อชุดโฆษณาบอกกลุ่มคนของชุดนั้น · ขั้น 04 เป็นภาษาไทย · ปุ่ม \"คัดลอกคำสั่ง\" อยู่ใน \"ดูคำสั่งสำหรับ Claude\" ใต้ปุ่มสร้าง ใช้เมื่อปุ่มสร้างทำไม่ได้ (ปลั๊กอินไม่มีสกิล maxxgpt-artifact-launch แล้ว)", "Interest Finder: \"ค้นด้วย Claude\" ขึ้นตัวที่เข้ากับสินค้าก่อนพร้อมเหตุผล และส่งไป Ad Launcher ได้ถูกประเภท · กดไล่ดูหัวข้อพฤติกรรม ตำแหน่งงาน หรือเหตุการณ์ในชีวิต ได้หัวข้อที่เกี่ยวข้องตรงขึ้น", "แท็บอื่น: Budget Scaling · Kill Switch จำค่าที่ตั้งแยกตามบัญชี ไม่เพิ่มงบซ้ำ และไม่ปิดชุดโฆษณาที่มีคนเปิดกลับเองวันนี้ · Creative Fatigue · Audience Heatmap บอกช่วงวันของข้อมูล เงินเป็นบาท และบอกเมื่อข้อมูลยังไม่พอหรือเป็นข้อมูลเก่า", "สิ่งที่อาจเจอ: ครั้งแรกที่ใช้รูปจาก Google Drive อาจมีหน้าต่างขออนุญาตเพิ่ม · วิดีโอต้องแชร์แบบ \"ทุกคนที่มีลิงก์\" จึงจะเห็นภาพปก · บางบัญชี Meta สร้างเป็นฉบับร่าง ต้องกดเผยแพร่ใน Ads Manager เอง (โหมดปิดแคมเปญไว้ หน้าตั้งแคมเปญให้หยุดไว้ก่อน)"]}, {"version": "0.3.0", "date": "2026-10-04", "notes": ["Ad Launcher: ปุ่ม “สร้างแคมเปญจริง” กลับมาแทนปุ่ม “สั่งให้ Claude สร้าง” หน้าสร้างแคมเปญเองโดยไม่ต้องมีแชทของ Claude เปิดรับ และถามยืนยันหนึ่งครั้งก่อนสร้าง ครั้งแรกจะขออนุญาตให้หน้าสร้างใน Meta ads", "Ad Launcher โหมด CREATE: หยุดไว้แค่แคมเปญ ส่วน ad set และโฆษณาเปิดรอไว้ กดเปิดแคมเปญที่เดียวใน Ads Manager ก็เริ่มยิง", "Ad Launcher: อัปโหลดรูปเข้าบัญชีโฆษณาก่อนเริ่มสร้าง ถ้าไฟล์ใน Drive ไม่ได้แชร์แบบ “ทุกคนที่มีลิงก์” หน้าจะหยุดก่อนสร้างอะไร", "Ad Launcher ขั้น 06: ติ๊กเลือกไฟล์จาก Drive ที่จะใช้ได้ รายการเรียงตามชื่อ มีตัวกรอง ทั้งหมด / รูป / วิดีโอ ตอนเปิดโฟลเดอร์หน้าติ๊กรูปให้ตามจำนวน ad ที่ต้องใช้ แต่ละไฟล์บอกว่าไป ad ไหน ไฟล์น้อยกว่า ad จะวนใช้ซ้ำ · วิดีโอในโฟลเดอร์ไม่ทำให้ปุ่มสร้างหยุดแล้ว เว้นแต่ติ๊กวิดีโอ (สร้างจากวิดีโอได้รอบหน้า)", "Ad Launcher: ตั้งอายุต่ำสุดเกิน 25 ได้แล้ว ตอนเปิด Advantage+ จะใช้ 25 เป็นอายุขั้นต่ำ และส่งช่วงอายุที่ตั้งไว้เป็นคำแนะนำ (Meta ไม่รับอายุขั้นต่ำเกิน 25 เมื่อเปิด Advantage+)", "Ad Launcher เรียงขั้นใหม่ตามลำดับของ Meta เหลือ 6 ขั้น: บัญชีและเพจ · เป้าหมาย · สินค้าและบรีฟ · โครงสร้างและงบ (มีชื่อแคมเปญ) · กลุ่มเป้าหมาย · รูป วิดีโอ และแคปชั่น", "Ad Launcher: แคปชั่นอยู่คู่กับไฟล์ในขั้น 06 โฆษณาละการ์ด (ข้อความหลัก + พาดหัว) แยกแท็บทีละ ad set · ทุกโฆษณาต้องมีข้อความหลัก ยังว่าง = ปุ่มสร้างหยุดและบอกว่า ad ไหน · ปุ่ม Claude ร่างให้ทุก ad หรือเฉพาะที่ว่าง (ยังไม่ได้ดูรูป) · ชื่อแคมเปญอยู่ขั้น 04 ว่างไว้ = “แคมเปญ <วันที่>” มีปุ่มให้ Claude ตั้งชื่อแยก · เลิกเอาบรรทัดแรกของบรีฟไปเป็นชื่อและข้อความโฆษณา", "Ad Launcher ขั้น 03: กล่องบรีฟสูง 5 บรรทัด", "Ad Launcher: ปุ่มสร้างแคมเปญจริงกับปุ่มยืนยันเป็นสีทอง เป็นสีแดงเฉพาะโหมดสร้างแล้วเปิดยิงทันที · ปุ่ม “ให้ Claude ตั้งชื่อ” อยู่ข้างช่องชื่อแคมเปญ", "Ad Launcher ขั้น 06: การ์ดแคปชั่นเรียงแถวละ 2 ใบเมื่อจอกว้างพอ (กว้างใกล้ข้อความในฟีดมือถือ) · กล่องข้อความหลักสูง 5 บรรทัด และขยายตามข้อความได้ถึง 10 บรรทัด", "Ad Launcher: มีหลาย ad set เลือกได้ว่าจะแยกกลุ่มแต่ละ ad set หรือใช้กลุ่มเดียวกันทุก ad set · แยกกลุ่มแล้วแต่ละ ad set เป็นแท็บ แท็บที่เปิดอยู่คือที่รับ interest", "Ad Launcher: ปุ่มเสนอคำค้นค้นให้ทุกคำแล้วเรียงผลให้ · แบบแยกกลุ่ม Claude คิดกลุ่มให้ทุก ad set และติ๊กตัวที่ตรงที่สุดไว้ชุดละไม่เกิน 4 ตัว ชุดที่ไม่เจอจะบอกให้ค้นเอง · ตัวแถมที่ Meta เติมท้ายคำตอบไม่ติดมา หมวดประชากรและพฤติกรรมที่ Meta หาเจอจากคำยังอยู่ · กล่องยืนยันก่อนสร้างแสดงชื่อ interest ของทุกชุด", "Interest Finder: ตัวแถมที่ Meta เติมท้ายคำตอบ (Facebook access, Friends of …, Birthday in …) ซ่อนไว้ก่อน กดชิป “ซ่อนตัวแถมของ Meta” เพื่อดูท้ายรายการ · หมวดประชากรและพฤติกรรมที่ Meta หาเจอจริงไม่ติดป้าย “กว้างทั่วไป” อีก · ใช้ตัวตรวจเดียวกับ Ad Launcher", "Ad Launcher ขั้น 05: ปุ่ม Claude อยู่แถวเดียวกับช่องค้น และลิงก์ “ค้นละเอียดใน Interest Finder ↗” อยู่บรรทัดหัวข้อ (ชี้ค้างไว้จะมีคำอธิบาย) พาบรีฟ (และชื่อกลุ่มของแท็บที่เปิดอยู่) ไปใส่ในช่อง “ให้ Claude หาให้” ของ Interest Finder ไม่ต้องพิมพ์ซ้ำ ติ๊กแล้วกด “ส่งไป Ad Launcher” จะกลับเข้าแท็บที่เปิดอยู่ · ปุ่มเสนอคำค้นกับ Interest Finder ใช้กฎเลือกคำค้นชุดเดียวกัน", "Ad Launcher ขั้น 01: เหลือเมนูบัญชีโฆษณาเมนูเดียว บัญชีเริ่มต้นใน MaxxGPT มีคำว่า “— บัญชีเริ่มต้น” ต่อท้าย ใต้เมนูบอก ID · สกุลเงิน · เขตเวลา เพจก็เลือกได้ทันที (มี “— เพจเริ่มต้น”) · พิมพ์ Account ID หรือ Page ID เองได้จากลิงก์ใต้เมนู · ไม่มีการ์ด ปุ่มใช้บัญชีอื่น และงบขั้นต่ำในขั้นนี้แล้ว (ขั้นงบยังเตือนเหมือนเดิม) · แถบสถานะเรียง MaxxGPT · Meta ads · Google Drive", "ทุกแท็บ: บัญชีที่เลือกไว้จำแค่ระหว่างเปิดหน้านี้ เลือกในแท็บหนึ่งแท็บอื่นยังตาม แต่เปิดหน้าใหม่จะเริ่มที่บัญชีเริ่มต้นใน MaxxGPT เสมอ (เดิมจำข้ามวัน บัญชีที่เคยเลือกเลยบังบัญชีเริ่มต้น)", "Ad Launcher: ช่องบรีฟขอสินค้าและรุ่นในบรรทัดแรก ถ้าบรีฟไม่บอกว่าขายอะไร Claude จะไม่เดาคำค้น interest และหน้าจะบอกให้ใส่สินค้าก่อน", "Ad Launcher: ช่องปุ่ม CTA ย้ายไปอยู่ใต้ลิงก์ปลายทาง ใต้ช่องงบบอกแค่ “ต่อแคมเปญ” หรือ “ต่อ ad set”", "Ad Launcher: ปุ่มสร้างทำโฆษณาวิดีโอได้แล้ว ตอนเปิดโฟลเดอร์ติ๊กไฟล์ตามลำดับชื่อทั้งรูปและวิดีโอ · ตอนสร้างส่งวิดีโอเข้าบัญชีผ่าน Meta แล้วรอจน Meta แปลงไฟล์เสร็จก่อนสร้างแคมเปญ ถ้า Meta ดึงไฟล์ไม่ได้จะส่งผ่าน MaxxGPT แทน ไม่ส่งซ้ำ รอได้ถึง 10 นาที · วิดีโอที่อยู่ในบัญชีแล้ว (ชื่อไฟล์เดียวกัน) ใช้ตัวเดิม · รูปปกใช้ภาพที่ Meta ทำให้ (160×160) · ต้องอนุญาตให้หน้าใช้ tool เพิ่ม 3 ตัว", "Ad Launcher: คำสั่งที่คัดลอกให้ลิงก์ดาวน์โหลดตรงของวิดีโอกับ Drive id และบอกลำดับการส่งวิดีโอทางเดียว (Meta ก่อน MaxxGPT เมื่อ Meta ตอบ error) กันวิดีโอซ้ำในบัญชี", "ถ้าปุ่มหยุดเพราะ error ที่หน้าไม่รู้จัก ให้กด “คัดลอกคำสั่ง” ไปวางในแชทของ Claude"]}, {"version": "0.2.1", "date": "2026-10-04", "notes": ["Ad Launcher: คำสั่งที่ส่งให้ Claude มีอายุและเพศที่ตั้งไว้ในขั้น 05 แล้ว (เดิมไม่ได้ส่งไป Claude ต้องเลือกเอง)", "Ad Launcher: Claude สร้าง ad set แบบ Advantage+ ปิดก่อน แล้วเปิดทีหลัง จึงไม่ติด error เรื่องอายุขั้นต่ำของไทย (1870249) เมื่อใส่ interest"]}, {"version": "0.2.0", "date": "2026-10-03", "notes": ["Ad Launcher เป็นแท็บแรก และ Claude เป็นคนสร้างแคมเปญเมื่อกด “สั่งให้ Claude สร้าง” (หน้าเว็บไม่สร้างเองแล้ว) กด “คัดลอกคำสั่ง” ไปวางในแชทเองก็ได้", "Ad Launcher: เลือกเพจได้โดยไม่ต้องเลือกบัญชีก่อน รายการเพจมาจากที่ผูกไว้ใน MaxxGPT และพิมพ์ Account ID หรือ Page ID เองได้", "Interest Finder: ปุ่ม “ส่งไป Ad Launcher” ส่ง interest ที่เลือกไว้ไปใส่ ad set ใน Ad Launcher", "ทุกแท็บที่มีแถบบัญชีใช้บัญชีเดียวกัน เลือกบัญชีที่แท็บไหน แท็บอื่นเปลี่ยนตาม และเลือกได้เฉพาะบัญชีที่ผูกกับ MaxxGPT", "Kill Switch และ Budget Scaling เปลี่ยนบัญชีได้แล้ว เปลี่ยนแล้วกลับเป็นโหมดวิเคราะห์อย่างเดียวและต้องตรวจใหม่", "Budget Scaling: กด “เพิ่มงบตัวนี้” ทีละแถวได้ และต้องสลับเป็น “พร้อมปรับงบจริง” ก่อนทุกครั้ง เหมือน Kill Switch", "ปุ่ม Help ที่หัวเว็บรวมวิธีอัปเดตกับการวินิจฉัยไว้ที่เดียว"]}, {"version": "0.1.1", "date": "2026-10-03", "notes": ["Audience Heatmap: เลือกดูบัญชีโฆษณาอื่นที่ผูกไว้ใน MaxxGPT ได้จากแถบบัญชี (ปุ่ม “เปลี่ยนบัญชี”) หน้านี้จำบัญชีที่เลือกไว้ให้", "Audience Heatmap: เวลา “อัปเดตล่าสุด” เป็นเวลาที่ MaxxGPT ดึงข้อมูลจาก Meta จริง"]}, {"version": "0.1.0", "date": "2026-10-03", "notes": ["Creative Fatigue: MaxxGPT ดึงผลรายวันและประเมินความล้าให้เอง แท็บนี้ไม่ต้องใช้ connector Meta ads แล้ว และเลือกได้เฉพาะบัญชีโฆษณาที่ผูกไว้ใน MaxxGPT", "Ad Launcher: รายการ “บัญชีอื่น” และเพจ มาจากที่ผูกไว้ใน MaxxGPT", "ถ้าแท็บ Creative Fatigue ขึ้นว่ายังไม่ได้รับอนุญาตให้ใช้เครื่องมือของ MaxxGPT ให้พิมพ์ “อัปเดตเว็บ MaxxGPT” ในแชทของ Claude อีกครั้ง"]}], "updatePhrase": "อัปเดตเว็บ MaxxGPT", "modules": [{"id": "launch", "title": "Ad Launcher", "version": "1.3.0", "placeholder": false, "gated": true, "writes": true, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "list_ad_accounts", "list_pages", "daily_budget_account", "get_job", "get_video_preview", "list_page_posts", "get_post_preview"], "writes": ["upload_video_from_drive", "create_ad_from_post"]}, "meta": {"reads": ["ads_get_ad_account_custom_audiences", "ads_get_datasets", "ads_get_ad_entities", "ads_get_ad_videos"], "writes": ["ads_creative_upload_media", "ads_create_campaign", "ads_create_ad_set", "ads_update_entity", "ads_create_creative", "ads_create_ad", "ads_activate_entity"]}, "drive": {"reads": ["search_files", "read_file_content", "download_file_content"], "writes": []}}, "optionalConnectors": ["drive"], "capabilities": ["sample"], "page": true, "sends": {"interest": ["brief"]}, "receives": ["interests"]}, {"id": "interest", "title": "Interest Finder", "version": "1.2.1", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "suggest_interest"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db", "sample", "downloads"], "page": true, "sends": {"launch": ["interests"]}, "receives": ["brief"]}, {"id": "heatmap", "title": "Audience Heatmap", "version": "1.1.0", "placeholder": false, "gated": true, "writes": false, "logic": ["heatmap.rank"], "connectors": {"maxxgpt": {"reads": ["get_dashboard_demographics", "get_account_info", "list_ad_accounts"], "writes": []}}, "optionalConnectors": [], "capabilities": ["sample"], "page": true, "sends": {}, "receives": []}, {"id": "fatigue", "title": "Creative Fatigue", "version": "1.2.1", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["list_ad_accounts", "fatigue_report", "get_job"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db"], "page": true, "sends": {}, "receives": []}, {"id": "budget-scaling", "title": "Budget Scaling", "version": "1.1.1", "placeholder": false, "gated": true, "writes": true, "logic": ["budgetscaling.evaluate"], "connectors": {"maxxgpt": {"reads": ["daily_budget_account", "list_ad_accounts", "daily_budget_snapshot", "daily_budget_insights", "get_job"], "writes": ["daily_budget_execute"]}, "meta": {"reads": ["ads_account_get_activity_logs", "ads_get_ad_entities"], "writes": ["ads_update_entity", "ads_activate_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true, "sends": {}, "receives": []}, {"id": "kill-switch", "title": "Kill Switch", "version": "1.1.1", "placeholder": false, "gated": true, "writes": true, "logic": ["killswitch.candidates"], "connectors": {"maxxgpt": {"reads": ["get_account_info", "list_ad_accounts", "analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "get_job"], "writes": []}, "meta": {"reads": ["ads_get_ad_entities", "ads_account_get_activity_logs"], "writes": ["ads_update_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true, "sends": {}, "receives": []}]});</script>
+<script>MaxxConsole._internal.boot({"id": "workspace", "title": "MaxxGPT Workspace", "version": "0.7.0", "channel": "release", "allowWrites": true, "optionalConnectors": ["drive"], "connectorTools": {"drive": ["download_file_content", "read_file_content", "search_files"], "maxxgpt": ["analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "create_ad_from_post", "daily_budget_account", "daily_budget_execute", "daily_budget_insights", "daily_budget_snapshot", "fatigue_report", "get_account_info", "get_dashboard_demographics", "get_job", "get_post_preview", "get_video_preview", "list_ad_accounts", "list_page_posts", "list_pages", "search_interest", "suggest_interest", "upload_video_from_drive"], "meta": ["ads_account_get_activity_logs", "ads_activate_entity", "ads_create_ad", "ads_create_ad_set", "ads_create_campaign", "ads_create_creative", "ads_creative_upload_media", "ads_get_ad_account_custom_audiences", "ads_get_ad_entities", "ads_get_ad_videos", "ads_get_datasets", "ads_update_entity"]}, "logicMode": {}, "changes": [{"version": "0.7.0", "date": "2026-10-21", "notes": ["Kill Switch ตั้งเกณฑ์ตามแบบบัญชีได้แล้ว (เน้นยอดขาย ทักแชท หรือลีด) และติ๊กเลือกเฉพาะเกณฑ์ที่จะใช้ · ค่าที่ตั้งเดิมย้ายเข้าตารางใหม่ให้เอง · เปลี่ยนบัญชีแล้วกดปุ่มเดียวใช้เกณฑ์เดิมได้ · เป้าหมายที่ไม่เอามาตัดสินเลือกจากรายการภาษาไทย", "Kill Switch ตัดสินแม่นขึ้น: แอดทักแชทและลีดใช้เกณฑ์ของตัวเอง ไม่โดนเสนอปิดเพราะยอดขายเป็น 0 · ดูเฉพาะแอดที่กำลังส่งโฆษณาอยู่ · ใช้เงินแล้วไม่ได้ผลลัพธ์เลยนับเป็น 0 · ตัวที่ไม่มีข้อมูลให้ตัดสินแยกไว้ให้ดูเอง", "สิ่งที่อาจเจอ: ถ้าเคยตั้งเพดานต้นทุนไว้ แอดคลิก วิดีโอ และแอด CPAS ที่ผลลัพธ์เป็นการหยิบสินค้าใส่ตะกร้าจะไม่ถูกตัดสินแล้ว", "Ad Launcher: เป้าหมายการมีส่วนร่วมเริ่มที่ \"ข้อความ: จำนวนบทสนทนา\"", "เมนู \"เปลี่ยนบัญชี\" ไม่ล้นขอบจอแล้ว"]}, {"version": "0.6.2", "date": "2026-10-20", "notes": ["หลังอัปเดต แถบด้านบนสั้นลง แสดงของใหม่ของรุ่นล่าสุด ส่วนรุ่นก่อนหน้าที่ข้ามมาพับไว้ในบรรทัดเดียว กดดูได้ทีละรุ่น"]}, {"version": "0.6.1", "date": "2026-10-15", "notes": ["แถบแจ้งรุ่นใหม่บอกชัดขึ้นว่าอัปเดตแล้วได้อะไร และข้อมูลที่บันทึกไว้ยังอยู่ครบ · กล่องวิธีอัปเดตไม่แสดงรายการของรุ่นที่ใช้อยู่ปนมาแล้ว อัปเดตเสร็จหน้าจะบอกว่ารุ่นใหม่มีอะไร"]}, {"version": "0.6.0", "date": "2026-10-14", "notes": ["Ad Launcher: ยิงแอดจากโพสต์เดิมของเพจได้แล้ว เลือก \"โพสต์เดิมของเพจ\" ในขั้น 06 แล้วติ๊กโพสต์ที่อยากบูสต์ได้หลายโพสต์ ยอดไลก์ คอมเมนต์ และแชร์รวมอยู่ที่โพสต์เดิม", "Ad Launcher: เลือกได้ว่าทุกชุดโฆษณาได้ทุกโพสต์ หรือแบ่งโพสต์ให้แต่ละชุดโฆษณา · กล่องยืนยันบอกโพสต์ของแต่ละชุดโฆษณา", "Ad Launcher: โฆษณาจากโพสต์สร้างเหมือนโฆษณาจากไฟล์ ใช้ได้ทั้งสองโหมด หน้ารอจน Meta ประมวลผลชุดโฆษณาเสร็จก่อนสร้าง ถ้า Meta ยังไม่พร้อมจะรอแล้วลองใหม่ให้เอง · เว้นชื่อแคมเปญว่างไว้ Claude ตั้งจากโพสต์ที่เลือก", "สิ่งที่อาจเจอ: ครั้งแรกที่ใช้โพสต์เดิม claude.ai จะขออนุญาตให้หน้าใช้เครื่องมือของ MaxxGPT เพิ่ม · โพสต์ที่ Meta ไม่ให้โปรโมต หรือไม่เข้ากับเป้าหมาย (เช่น เป้าหมายวิดีโอแต่เป็นโพสต์รูป) จะเลือกไม่ได้และบอกเหตุผล"]}, {"version": "0.5.0", "date": "2026-10-14", "notes": ["Ad Launcher กลุ่มเป้าหมาย: Claude เลือก interest จากหัวข้อที่ Meta มีจริง คัดตัวที่เข้ากับสินค้าใส่ให้แต่ละชุดโฆษณาพร้อมบอกเหตุผล เอาออกหรือเพิ่มเองได้ · เลือกประเทศได้ · ตั้งกลุ่มคน อายุ และเพศ แยกแต่ละชุดโฆษณาได้ เว้นว่างไว้ Claude คิดให้", "Ad Launcher รูปและแคปชั่น: การ์ดแคปชั่นมีรูปของโฆษณาคู่กับข้อความ วิดีโอแสดงภาพปก · เลือกไฟล์ของแต่ละโฆษณาเอง หรือให้ Claude จับคู่รูปกับชุดโฆษณา · Claude ร่างแคปชั่นโดยดูตัวหนังสือบนรูป ร่างหลายความยาวให้ Meta ลองว่าแบบไหนได้ผล และไม่แต่งตัวเลขหรือคำสัญญาที่บรีฟไม่มี", "Ad Launcher การสร้าง: เลือกได้ในขั้น 02 ว่า \"สร้างแล้วปิดแคมเปญไว้\" (งบเริ่มเดินเมื่อกดเปิดแคมเปญใน Ads Manager) หรือ \"สร้างแล้วเปิดยิงเลย\" · ไม่มีโหมด DRY RUN แล้ว · สร้างได้ครั้งละไม่เกิน 50 โฆษณาและ 50 ชุดโฆษณา หน้ารอจน Meta ประมวลผลแต่ละชุดโฆษณาเสร็จก่อนสร้างโฆษณา ลดโฆษณาที่ติด error", "Ad Launcher ชื่อและกล่องยืนยัน: พิมพ์ชื่อแคมเปญเอง หรือเว้นว่างไว้ให้ Claude ตั้งตอนกดสร้าง · กล่องยืนยันเห็นชื่อแคมเปญ งบ และกลุ่มคนของแต่ละชุดโฆษณาก่อนกด · ชื่อชุดโฆษณาบอกกลุ่มคนของชุดนั้น · ขั้น 04 เป็นภาษาไทย · ปุ่ม \"คัดลอกคำสั่ง\" อยู่ใน \"ดูคำสั่งสำหรับ Claude\" ใต้ปุ่มสร้าง ใช้เมื่อปุ่มสร้างทำไม่ได้ (ปลั๊กอินไม่มีสกิล maxxgpt-artifact-launch แล้ว)", "Interest Finder: \"ค้นด้วย Claude\" ขึ้นตัวที่เข้ากับสินค้าก่อนพร้อมเหตุผล และส่งไป Ad Launcher ได้ถูกประเภท · กดไล่ดูหัวข้อพฤติกรรม ตำแหน่งงาน หรือเหตุการณ์ในชีวิต ได้หัวข้อที่เกี่ยวข้องตรงขึ้น", "แท็บอื่น: Budget Scaling · Kill Switch จำค่าที่ตั้งแยกตามบัญชี ไม่เพิ่มงบซ้ำ และไม่ปิดชุดโฆษณาที่มีคนเปิดกลับเองวันนี้ · Creative Fatigue · Audience Heatmap บอกช่วงวันของข้อมูล เงินเป็นบาท และบอกเมื่อข้อมูลยังไม่พอหรือเป็นข้อมูลเก่า", "สิ่งที่อาจเจอ: ครั้งแรกที่ใช้รูปจาก Google Drive อาจมีหน้าต่างขออนุญาตเพิ่ม · วิดีโอต้องแชร์แบบ \"ทุกคนที่มีลิงก์\" จึงจะเห็นภาพปก · บางบัญชี Meta สร้างเป็นฉบับร่าง ต้องกดเผยแพร่ใน Ads Manager เอง (โหมดปิดแคมเปญไว้ หน้าตั้งแคมเปญให้หยุดไว้ก่อน)"]}, {"version": "0.3.0", "date": "2026-10-04", "notes": ["Ad Launcher: ปุ่ม “สร้างแคมเปญจริง” กลับมาแทนปุ่ม “สั่งให้ Claude สร้าง” หน้าสร้างแคมเปญเองโดยไม่ต้องมีแชทของ Claude เปิดรับ และถามยืนยันหนึ่งครั้งก่อนสร้าง ครั้งแรกจะขออนุญาตให้หน้าสร้างใน Meta ads", "Ad Launcher โหมด CREATE: หยุดไว้แค่แคมเปญ ส่วน ad set และโฆษณาเปิดรอไว้ กดเปิดแคมเปญที่เดียวใน Ads Manager ก็เริ่มยิง", "Ad Launcher: อัปโหลดรูปเข้าบัญชีโฆษณาก่อนเริ่มสร้าง ถ้าไฟล์ใน Drive ไม่ได้แชร์แบบ “ทุกคนที่มีลิงก์” หน้าจะหยุดก่อนสร้างอะไร", "Ad Launcher ขั้น 06: ติ๊กเลือกไฟล์จาก Drive ที่จะใช้ได้ รายการเรียงตามชื่อ มีตัวกรอง ทั้งหมด / รูป / วิดีโอ ตอนเปิดโฟลเดอร์หน้าติ๊กรูปให้ตามจำนวน ad ที่ต้องใช้ แต่ละไฟล์บอกว่าไป ad ไหน ไฟล์น้อยกว่า ad จะวนใช้ซ้ำ · วิดีโอในโฟลเดอร์ไม่ทำให้ปุ่มสร้างหยุดแล้ว เว้นแต่ติ๊กวิดีโอ (สร้างจากวิดีโอได้รอบหน้า)", "Ad Launcher: ตั้งอายุต่ำสุดเกิน 25 ได้แล้ว ตอนเปิด Advantage+ จะใช้ 25 เป็นอายุขั้นต่ำ และส่งช่วงอายุที่ตั้งไว้เป็นคำแนะนำ (Meta ไม่รับอายุขั้นต่ำเกิน 25 เมื่อเปิด Advantage+)", "Ad Launcher เรียงขั้นใหม่ตามลำดับของ Meta เหลือ 6 ขั้น: บัญชีและเพจ · เป้าหมาย · สินค้าและบรีฟ · โครงสร้างและงบ (มีชื่อแคมเปญ) · กลุ่มเป้าหมาย · รูป วิดีโอ และแคปชั่น", "Ad Launcher: แคปชั่นอยู่คู่กับไฟล์ในขั้น 06 โฆษณาละการ์ด (ข้อความหลัก + พาดหัว) แยกแท็บทีละ ad set · ทุกโฆษณาต้องมีข้อความหลัก ยังว่าง = ปุ่มสร้างหยุดและบอกว่า ad ไหน · ปุ่ม Claude ร่างให้ทุก ad หรือเฉพาะที่ว่าง (ยังไม่ได้ดูรูป) · ชื่อแคมเปญอยู่ขั้น 04 ว่างไว้ = “แคมเปญ <วันที่>” มีปุ่มให้ Claude ตั้งชื่อแยก · เลิกเอาบรรทัดแรกของบรีฟไปเป็นชื่อและข้อความโฆษณา", "Ad Launcher ขั้น 03: กล่องบรีฟสูง 5 บรรทัด", "Ad Launcher: ปุ่มสร้างแคมเปญจริงกับปุ่มยืนยันเป็นสีทอง เป็นสีแดงเฉพาะโหมดสร้างแล้วเปิดยิงทันที · ปุ่ม “ให้ Claude ตั้งชื่อ” อยู่ข้างช่องชื่อแคมเปญ", "Ad Launcher ขั้น 06: การ์ดแคปชั่นเรียงแถวละ 2 ใบเมื่อจอกว้างพอ (กว้างใกล้ข้อความในฟีดมือถือ) · กล่องข้อความหลักสูง 5 บรรทัด และขยายตามข้อความได้ถึง 10 บรรทัด", "Ad Launcher: มีหลาย ad set เลือกได้ว่าจะแยกกลุ่มแต่ละ ad set หรือใช้กลุ่มเดียวกันทุก ad set · แยกกลุ่มแล้วแต่ละ ad set เป็นแท็บ แท็บที่เปิดอยู่คือที่รับ interest", "Ad Launcher: ปุ่มเสนอคำค้นค้นให้ทุกคำแล้วเรียงผลให้ · แบบแยกกลุ่ม Claude คิดกลุ่มให้ทุก ad set และติ๊กตัวที่ตรงที่สุดไว้ชุดละไม่เกิน 4 ตัว ชุดที่ไม่เจอจะบอกให้ค้นเอง · ตัวแถมที่ Meta เติมท้ายคำตอบไม่ติดมา หมวดประชากรและพฤติกรรมที่ Meta หาเจอจากคำยังอยู่ · กล่องยืนยันก่อนสร้างแสดงชื่อ interest ของทุกชุด", "Interest Finder: ตัวแถมที่ Meta เติมท้ายคำตอบ (Facebook access, Friends of …, Birthday in …) ซ่อนไว้ก่อน กดชิป “ซ่อนตัวแถมของ Meta” เพื่อดูท้ายรายการ · หมวดประชากรและพฤติกรรมที่ Meta หาเจอจริงไม่ติดป้าย “กว้างทั่วไป” อีก · ใช้ตัวตรวจเดียวกับ Ad Launcher", "Ad Launcher ขั้น 05: ปุ่ม Claude อยู่แถวเดียวกับช่องค้น และลิงก์ “ค้นละเอียดใน Interest Finder ↗” อยู่บรรทัดหัวข้อ (ชี้ค้างไว้จะมีคำอธิบาย) พาบรีฟ (และชื่อกลุ่มของแท็บที่เปิดอยู่) ไปใส่ในช่อง “ให้ Claude หาให้” ของ Interest Finder ไม่ต้องพิมพ์ซ้ำ ติ๊กแล้วกด “ส่งไป Ad Launcher” จะกลับเข้าแท็บที่เปิดอยู่ · ปุ่มเสนอคำค้นกับ Interest Finder ใช้กฎเลือกคำค้นชุดเดียวกัน", "Ad Launcher ขั้น 01: เหลือเมนูบัญชีโฆษณาเมนูเดียว บัญชีเริ่มต้นใน MaxxGPT มีคำว่า “— บัญชีเริ่มต้น” ต่อท้าย ใต้เมนูบอก ID · สกุลเงิน · เขตเวลา เพจก็เลือกได้ทันที (มี “— เพจเริ่มต้น”) · พิมพ์ Account ID หรือ Page ID เองได้จากลิงก์ใต้เมนู · ไม่มีการ์ด ปุ่มใช้บัญชีอื่น และงบขั้นต่ำในขั้นนี้แล้ว (ขั้นงบยังเตือนเหมือนเดิม) · แถบสถานะเรียง MaxxGPT · Meta ads · Google Drive", "ทุกแท็บ: บัญชีที่เลือกไว้จำแค่ระหว่างเปิดหน้านี้ เลือกในแท็บหนึ่งแท็บอื่นยังตาม แต่เปิดหน้าใหม่จะเริ่มที่บัญชีเริ่มต้นใน MaxxGPT เสมอ (เดิมจำข้ามวัน บัญชีที่เคยเลือกเลยบังบัญชีเริ่มต้น)", "Ad Launcher: ช่องบรีฟขอสินค้าและรุ่นในบรรทัดแรก ถ้าบรีฟไม่บอกว่าขายอะไร Claude จะไม่เดาคำค้น interest และหน้าจะบอกให้ใส่สินค้าก่อน", "Ad Launcher: ช่องปุ่ม CTA ย้ายไปอยู่ใต้ลิงก์ปลายทาง ใต้ช่องงบบอกแค่ “ต่อแคมเปญ” หรือ “ต่อ ad set”", "Ad Launcher: ปุ่มสร้างทำโฆษณาวิดีโอได้แล้ว ตอนเปิดโฟลเดอร์ติ๊กไฟล์ตามลำดับชื่อทั้งรูปและวิดีโอ · ตอนสร้างส่งวิดีโอเข้าบัญชีผ่าน Meta แล้วรอจน Meta แปลงไฟล์เสร็จก่อนสร้างแคมเปญ ถ้า Meta ดึงไฟล์ไม่ได้จะส่งผ่าน MaxxGPT แทน ไม่ส่งซ้ำ รอได้ถึง 10 นาที · วิดีโอที่อยู่ในบัญชีแล้ว (ชื่อไฟล์เดียวกัน) ใช้ตัวเดิม · รูปปกใช้ภาพที่ Meta ทำให้ (160×160) · ต้องอนุญาตให้หน้าใช้ tool เพิ่ม 3 ตัว", "Ad Launcher: คำสั่งที่คัดลอกให้ลิงก์ดาวน์โหลดตรงของวิดีโอกับ Drive id และบอกลำดับการส่งวิดีโอทางเดียว (Meta ก่อน MaxxGPT เมื่อ Meta ตอบ error) กันวิดีโอซ้ำในบัญชี", "ถ้าปุ่มหยุดเพราะ error ที่หน้าไม่รู้จัก ให้กด “คัดลอกคำสั่ง” ไปวางในแชทของ Claude"]}, {"version": "0.2.1", "date": "2026-10-04", "notes": ["Ad Launcher: คำสั่งที่ส่งให้ Claude มีอายุและเพศที่ตั้งไว้ในขั้น 05 แล้ว (เดิมไม่ได้ส่งไป Claude ต้องเลือกเอง)", "Ad Launcher: Claude สร้าง ad set แบบ Advantage+ ปิดก่อน แล้วเปิดทีหลัง จึงไม่ติด error เรื่องอายุขั้นต่ำของไทย (1870249) เมื่อใส่ interest"]}, {"version": "0.2.0", "date": "2026-10-03", "notes": ["Ad Launcher เป็นแท็บแรก และ Claude เป็นคนสร้างแคมเปญเมื่อกด “สั่งให้ Claude สร้าง” (หน้าเว็บไม่สร้างเองแล้ว) กด “คัดลอกคำสั่ง” ไปวางในแชทเองก็ได้", "Ad Launcher: เลือกเพจได้โดยไม่ต้องเลือกบัญชีก่อน รายการเพจมาจากที่ผูกไว้ใน MaxxGPT และพิมพ์ Account ID หรือ Page ID เองได้", "Interest Finder: ปุ่ม “ส่งไป Ad Launcher” ส่ง interest ที่เลือกไว้ไปใส่ ad set ใน Ad Launcher", "ทุกแท็บที่มีแถบบัญชีใช้บัญชีเดียวกัน เลือกบัญชีที่แท็บไหน แท็บอื่นเปลี่ยนตาม และเลือกได้เฉพาะบัญชีที่ผูกกับ MaxxGPT", "Kill Switch และ Budget Scaling เปลี่ยนบัญชีได้แล้ว เปลี่ยนแล้วกลับเป็นโหมดวิเคราะห์อย่างเดียวและต้องตรวจใหม่", "Budget Scaling: กด “เพิ่มงบตัวนี้” ทีละแถวได้ และต้องสลับเป็น “พร้อมปรับงบจริง” ก่อนทุกครั้ง เหมือน Kill Switch", "ปุ่ม Help ที่หัวเว็บรวมวิธีอัปเดตกับการวินิจฉัยไว้ที่เดียว"]}, {"version": "0.1.1", "date": "2026-10-03", "notes": ["Audience Heatmap: เลือกดูบัญชีโฆษณาอื่นที่ผูกไว้ใน MaxxGPT ได้จากแถบบัญชี (ปุ่ม “เปลี่ยนบัญชี”) หน้านี้จำบัญชีที่เลือกไว้ให้", "Audience Heatmap: เวลา “อัปเดตล่าสุด” เป็นเวลาที่ MaxxGPT ดึงข้อมูลจาก Meta จริง"]}, {"version": "0.1.0", "date": "2026-10-03", "notes": ["Creative Fatigue: MaxxGPT ดึงผลรายวันและประเมินความล้าให้เอง แท็บนี้ไม่ต้องใช้ connector Meta ads แล้ว และเลือกได้เฉพาะบัญชีโฆษณาที่ผูกไว้ใน MaxxGPT", "Ad Launcher: รายการ “บัญชีอื่น” และเพจ มาจากที่ผูกไว้ใน MaxxGPT", "ถ้าแท็บ Creative Fatigue ขึ้นว่ายังไม่ได้รับอนุญาตให้ใช้เครื่องมือของ MaxxGPT ให้พิมพ์ “อัปเดตเว็บ MaxxGPT” ในแชทของ Claude อีกครั้ง"]}], "updatePhrase": "อัปเดตเว็บ MaxxGPT", "modules": [{"id": "launch", "title": "Ad Launcher", "version": "1.3.0", "placeholder": false, "gated": true, "writes": true, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "list_ad_accounts", "list_pages", "daily_budget_account", "get_job", "get_video_preview", "list_page_posts", "get_post_preview"], "writes": ["upload_video_from_drive", "create_ad_from_post"]}, "meta": {"reads": ["ads_get_ad_account_custom_audiences", "ads_get_datasets", "ads_get_ad_entities", "ads_get_ad_videos"], "writes": ["ads_creative_upload_media", "ads_create_campaign", "ads_create_ad_set", "ads_update_entity", "ads_create_creative", "ads_create_ad", "ads_activate_entity"]}, "drive": {"reads": ["search_files", "read_file_content", "download_file_content"], "writes": []}}, "optionalConnectors": ["drive"], "capabilities": ["sample"], "page": true, "sends": {"interest": ["brief"]}, "receives": ["interests"]}, {"id": "interest", "title": "Interest Finder", "version": "1.2.1", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["search_interest", "suggest_interest"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db", "sample", "downloads"], "page": true, "sends": {"launch": ["interests"]}, "receives": ["brief"]}, {"id": "heatmap", "title": "Audience Heatmap", "version": "1.1.0", "placeholder": false, "gated": true, "writes": false, "logic": ["heatmap.rank"], "connectors": {"maxxgpt": {"reads": ["get_dashboard_demographics", "get_account_info", "list_ad_accounts"], "writes": []}}, "optionalConnectors": [], "capabilities": ["sample"], "page": true, "sends": {}, "receives": []}, {"id": "fatigue", "title": "Creative Fatigue", "version": "1.2.1", "placeholder": false, "gated": true, "writes": false, "logic": [], "connectors": {"maxxgpt": {"reads": ["list_ad_accounts", "fatigue_report", "get_job"], "writes": []}}, "optionalConnectors": [], "capabilities": ["db"], "page": true, "sends": {}, "receives": []}, {"id": "budget-scaling", "title": "Budget Scaling", "version": "1.1.1", "placeholder": false, "gated": true, "writes": true, "logic": ["budgetscaling.evaluate"], "connectors": {"maxxgpt": {"reads": ["daily_budget_account", "list_ad_accounts", "daily_budget_snapshot", "daily_budget_insights", "get_job"], "writes": ["daily_budget_execute"]}, "meta": {"reads": ["ads_account_get_activity_logs", "ads_get_ad_entities"], "writes": ["ads_update_entity", "ads_activate_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true, "sends": {}, "receives": []}, {"id": "kill-switch", "title": "Kill Switch", "version": "1.2.0", "placeholder": false, "gated": true, "writes": true, "logic": ["killswitch.candidates"], "connectors": {"maxxgpt": {"reads": ["get_account_info", "list_ad_accounts", "analysis_bad_inbox", "analysis_bad_lead", "analysis_bad_purchase", "get_job"], "writes": []}, "meta": {"reads": ["ads_get_ad_entities", "ads_account_get_activity_logs"], "writes": ["ads_update_entity"]}}, "optionalConnectors": [], "capabilities": ["db"], "page": true, "sends": {}, "receives": []}]});</script>
