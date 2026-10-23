@@ -3,10 +3,10 @@
   "sites": {
     "workspace": {
       "title": "MaxxGPT Workspace",
-      "version": "0.7.1",
+      "version": "0.7.3",
       "page": "workspace.html",
-      "sha256": "656ded39b96f30cacdf944d38c09ea8e4d990b7942b17f86a6454d8b4edff554",
-      "bytes": 1083384,
+      "sha256": "ddd24fb09ed80b78a56906ecedf0b50619bef7006deb1d44e7a8a8462be3450b",
+      "bytes": 1100198,
       "capabilities": "workspace-capabilities.json",
       "connectors": {
         "drive": {
@@ -31,6 +31,7 @@
             "fatigue_report",
             "get_account_info",
             "get_dashboard_demographics",
+            "get_delivery_status",
             "get_job",
             "get_post_preview",
             "get_video_preview",

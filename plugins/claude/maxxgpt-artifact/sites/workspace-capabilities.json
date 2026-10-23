@@ -23,6 +23,7 @@
           "fatigue_report",
           "get_account_info",
           "get_dashboard_demographics",
+          "get_delivery_status",
           "get_job",
           "get_post_preview",
           "get_video_preview",
