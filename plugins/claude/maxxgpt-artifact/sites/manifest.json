@@ -3,10 +3,10 @@
   "sites": {
     "workspace": {
       "title": "MaxxGPT Workspace",
-      "version": "0.7.4",
+      "version": "0.7.5",
       "page": "workspace.html",
-      "sha256": "e0ed06975e17ab6d1a3712f8eb63cb0c78a88fcc1c037f8c7e360d8d35c5c31d",
-      "bytes": 1104473,
+      "sha256": "f4bbcc957a0c85328edbe823ca83e8822368f41e10fa04887cf25d8f9c9385ce",
+      "bytes": 1106917,
       "capabilities": "workspace-capabilities.json",
       "connectors": {
         "drive": {

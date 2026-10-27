@@ -58,7 +58,7 @@ description: >-
 >
 > **รหัสที่ต้องรู้จัก (V4):** `NO_AD_ACCOUNT` (428) = ยังไม่ต่อ Meta / ยังไม่เลือกบัญชี → ให้ user เปิดเว็บ MaxxGPT ต่อ Meta แล้วเลือกบัญชี ·
 > `reason: OVER_QUOTA` = ผูกบัญชีโฆษณาหรือเพจเกินโควตาแพ็กเกจ (`ad_account_quota.over_quota` / `page_quota.over_quota`) → ให้ไปกด "จัดการบัญชี" ในเว็บเลือกตัวที่จะเก็บก่อน **อย่า retry** ·
-> `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่สกิลนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้) · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ → ให้ต่ออายุในเว็บ MaxxGPT (ล็อกอินใหม่ไม่ช่วย) · `NO_SESSION` / `USER_NOT_FOUND` (401) = connector ไม่รู้จักผู้ใช้ → ให้เชื่อมต่อ connector MaxxGPT ใหม่ · `JOB_RUNNING_FOR_OTHER_ACCOUNT` = งานชนิดเดียวกันกำลังรันให้อีกบัญชีของ user นี้ รอจบก่อน · `JOB_NOT_FOUND` = `job_id` ไม่ใช่ของ user นี้
+> `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่สกิลนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้) · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ → ให้ต่ออายุในเว็บ MaxxGPT (ล็อกอินใหม่ไม่ช่วย) · `TRIAL_NOT_STARTED` (403) = สมัครแล้วแต่ยังไม่เริ่มทดลองฟรี (ยังไม่ได้ผูกบัญชีโฆษณาในเว็บ) → บอกลูกค้าตาม `message` (ไทย) หรือ `message_en` (อังกฤษ) ตามภาษาที่คุย + ลิงก์ `url` — **ห้ามบอกว่าแพ็กเกจหมดอายุ และไม่ต้องให้ติดต่อทีมงาน** · `NO_SESSION` / `USER_NOT_FOUND` (401) = connector ไม่รู้จักผู้ใช้ → ให้เชื่อมต่อ connector MaxxGPT ใหม่ · `JOB_RUNNING_FOR_OTHER_ACCOUNT` = งานชนิดเดียวกันกำลังรันให้อีกบัญชีของ user นี้ รอจบก่อน · `JOB_NOT_FOUND` = `job_id` ไม่ใช่ของ user นี้
 
 ---
 
@@ -167,6 +167,7 @@ job_id ที่ได้มา ──► get_job(job_id) ──► poll จน 
 | `code:FUNCTION_NOT_RUN` (404) | บัญชียังไม่เคยรัน → **ถามด้วย `AskUserQuestion`** (`รันเลย` / `ไว้ก่อน`) · ตอบรันเลย = `spotlight_run` แล้ว poll (ดูล่าง) |
 | `code:NO_AD_ACCOUNT` (428) | ยังไม่ต่อ Meta / ยังไม่เลือกบัญชี / เกินโควตา (ดู `reason`) → ให้ user ไปจัดการในเว็บ MaxxGPT |
 | `code:SUBSCRIPTION_EXPIRED` (403) | แพ็กเกจหมดอายุ — ให้ต่ออายุในเว็บ MaxxGPT |
+| `code:TRIAL_NOT_STARTED` (403) | ยังไม่เริ่มทดลองฟรี (สมัครแล้วยังไม่ผูกบัญชีโฆษณาในเว็บ) — บอกตาม `message` / `message_en` + ลิงก์ `url` · ห้ามบอกว่าแพ็กเกจหมดอายุ |
 | `code:SERVER_ERROR` (500) | หลังบ้านอ่านผลไม่สำเร็จ ลองใหม่ภายหลัง |
 | ข้อความ `Rate limit reached …` | รอตามจำนวนวินาทีที่ข้อความบอก แล้วทำต่อเอง (`spotlight_get` 60 ครั้ง/ชั่วโมง · `spotlight_run` 12 ครั้ง/ชั่วโมง) |
 

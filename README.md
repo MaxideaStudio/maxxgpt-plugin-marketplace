@@ -47,7 +47,7 @@ codex plugin marketplace add MaxideaStudio/maxxgpt-plugin-marketplace
 
 ## ปลั๊กอิน
 
-### maxxgpt-ads 0.11.1
+### maxxgpt-ads 0.11.2
 
 ชุดเครื่องมือวิเคราะห์และวางแผนโฆษณา Meta (Facebook/Instagram) ผ่าน MaxxGPT — วิเคราะห์: ดูผลโฆษณาแยกรายหัวข้อ 6 หมวด, จัดอันดับโฆษณา 4 มุม, เทียบเมตริกกับค่ากลางบัญชี, โฆษณาแนะนำ และส่งออกรายงาน · วางแผน: วิเคราะห์ธุรกิจ-ลูกค้า-คู่แข่ง, ส่องโฆษณาคู่แข่งจาก Ads Library, แตก Content Angle, แกะภาพและวิดีโอโฆษณา
 
@@ -78,7 +78,7 @@ ChatGPT บนเว็บ: [`downloads/maxxgpt-ads-web-chatgpt.zip`](https://gi
 
 - `maxxgpt-install`
 
-### maxxgpt-artifact 0.10.4
+### maxxgpt-artifact 0.10.5
 
 เว็บ MaxxGPT Workspace สำหรับลูกค้า MaxxGPT: Ad Launcher, Interest Finder, Audience Heatmap, Creative Fatigue, Budget Scaling และ Kill Switch ในหน้าเดียว · พิมพ์ "ติดตั้งเว็บ MaxxGPT" เพื่อติดตั้ง หรือ "อัปเดตเว็บ MaxxGPT" หลังอัปเดตปลั๊กอิน
 

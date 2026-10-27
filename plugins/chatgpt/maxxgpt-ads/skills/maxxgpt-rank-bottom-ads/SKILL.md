@@ -56,7 +56,7 @@ Sort every ad into stop / watch / keep — then stay for follow-ups.
 >
 > **รหัสที่ต้องรู้จัก (V4):** `NO_AD_ACCOUNT` (428) = ยังไม่ต่อ Meta / ยังไม่เลือกบัญชี → ให้ user เปิดเว็บ MaxxGPT ต่อ Meta แล้วเลือกบัญชี ·
 > `reason: OVER_QUOTA` = ผูกบัญชีโฆษณาหรือเพจเกินโควตาแพ็กเกจ (`ad_account_quota.over_quota` / `page_quota.over_quota`) → ให้ไปกด "จัดการบัญชี" ในเว็บเลือกตัวที่จะเก็บก่อน **อย่า retry** ·
-> `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่สกิลนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้) · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ → ให้ต่ออายุในเว็บ MaxxGPT (ล็อกอินใหม่ไม่ช่วย) · `NO_SESSION` / `USER_NOT_FOUND` (401) = connector ไม่รู้จักผู้ใช้ → ให้เชื่อมต่อ connector MaxxGPT ใหม่ · `JOB_RUNNING_FOR_OTHER_ACCOUNT` = งานชนิดเดียวกันกำลังรันให้อีกบัญชีของ user นี้ รอจบก่อน · `JOB_NOT_FOUND` = `job_id` ไม่ใช่ของ user นี้
+> `NOT_ENTITLED` (403) = แพ็กเกจไม่รวมฟีเจอร์ (tool ที่สกิลนี้ใช้ยังไม่มีตัวไหนตอบรหัสนี้) · `SUBSCRIPTION_EXPIRED` (403) = แพ็กเกจหมดอายุ → ให้ต่ออายุในเว็บ MaxxGPT (ล็อกอินใหม่ไม่ช่วย) · `TRIAL_NOT_STARTED` (403) = สมัครแล้วแต่ยังไม่เริ่มทดลองฟรี (ยังไม่ได้ผูกบัญชีโฆษณาในเว็บ) → บอกลูกค้าตาม `message` (ไทย) หรือ `message_en` (อังกฤษ) ตามภาษาที่คุย + ลิงก์ `url` — **ห้ามบอกว่าแพ็กเกจหมดอายุ และไม่ต้องให้ติดต่อทีมงาน** · `NO_SESSION` / `USER_NOT_FOUND` (401) = connector ไม่รู้จักผู้ใช้ → ให้เชื่อมต่อ connector MaxxGPT ใหม่ · `JOB_RUNNING_FOR_OTHER_ACCOUNT` = งานชนิดเดียวกันกำลังรันให้อีกบัญชีของ user นี้ รอจบก่อน · `JOB_NOT_FOUND` = `job_id` ไม่ใช่ของ user นี้
 
 > ### 🔁 เจอ connector ที่ชี้ไปโดเมนเก่า
 > `https://mcp-beta.maxxgpt.ai/mcp` เป็น**โดเมนเดิม ใช้แก้ขัดได้** — เจอ connector ของ user ตั้งไว้แบบนั้น

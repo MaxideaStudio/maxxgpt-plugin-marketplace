@@ -50,6 +50,7 @@
 | `code: FUNCTION_NOT_RUN` (404) | บัญชีนี้ยังไม่เคยรัน | เสนอเรียก `spotlight_run` (async) แล้ว poll `get_job` จนจบ → เรียก `spotlight_get` อีกครั้ง |
 | `code: NO_AD_ACCOUNT` (428) | ยังไม่ต่อ Meta / ยังไม่เลือกบัญชี / เกินโควตา (ดู `reason`) | ให้ user ไปจัดการในเว็บ MaxxGPT |
 | `code: SUBSCRIPTION_EXPIRED` (403) | แพ็กเกจหมดอายุ | ให้ต่ออายุในเว็บ MaxxGPT |
+| `code: TRIAL_NOT_STARTED` (403) | สมัครแล้วยังไม่เริ่มทดลองฟรี (ยังไม่ผูกบัญชีโฆษณา) | บอกตาม `message` (ไทย) / `message_en` (อังกฤษ) + ลิงก์ `url` — ไม่ใช่แพ็กเกจหมด ไม่ต้องให้ติดต่อทีมงาน |
 | `code: SERVER_ERROR` (500) | หลังบ้านอ่านผลไม่สำเร็จ | ลองใหม่ภายหลัง |
 
 ## `spotlight_run` (async — ใช้เมื่อ FUNCTION_NOT_RUN หรือ user ขอข้อมูลล่าสุด)
